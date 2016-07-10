@@ -19,6 +19,10 @@
 		<module>dealbridge-service</module>
 	</modules>
 
+	<dependencies>
+
+	</dependencies>
+
 	<properties>
 		<java.version>1.8</java.version>
 		<project.version>0.0.1-SNAPSHOT</project.version>
