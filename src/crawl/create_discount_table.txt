@@ -15,5 +15,5 @@ create table Discount(
    img varchar(255),
    merchant_description varchar(255),
    merchant_location varchar(255),
-   merchant_call varchar(20)
+   merchant_tel varchar(20)
 );
