@@ -36,4 +36,5 @@ def store_discount(discount_dict):
         print e
         db.rollback()
 
+    cursor.close()
     db.close()
