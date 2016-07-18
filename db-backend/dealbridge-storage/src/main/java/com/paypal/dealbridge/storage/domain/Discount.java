@@ -3,7 +3,7 @@ package com.paypal.dealbridge.storage.domain;
 import java.util.Date;
 
 public class Discount {
-	private Integer id;
+	private Integer discountId;
 	private String bankName;
 	private String summary;
 	private String description;
@@ -19,12 +19,12 @@ public class Discount {
 	private String merchantLocation;
 	private String merchantTel;
 
-	public Integer getId() {
-		return id;
+	public Integer getDiscountId() {
+		return discountId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setDiscountId(Integer discountId) {
+		this.discountId = discountId;
 	}
 
 	public String getBankName() {
