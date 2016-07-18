@@ -11,6 +11,7 @@ import com.paypal.dealbridge.storage.domain.Discount;
 public interface DiscountMapper {
 
 	@Results(id = "discountResult", value = { 
+			@Result(property = "discountId", column = "discount_id"),
 			@Result(property = "beginTime", column = "begin_time"),
 			@Result(property = "endTime", column = "end_time"), 
 			@Result(property = "discountUsage", column = "discount_usage"),
@@ -19,6 +20,6 @@ public interface DiscountMapper {
 			@Result(property = "merchantLocation", column = "merchant_location"),
 			@Result(property = "merchantTel", column = "merchant_tel"),
 			@Result(property = "bankName", column = "bank_name") })
-	@Select("SELECT * FROM discount WHERE id=#{id}")
+	@Select("SELECT * FROM discount WHERE discount_id=#{id}")
 	Discount selectByPrimaryKey(Integer id);
 }
