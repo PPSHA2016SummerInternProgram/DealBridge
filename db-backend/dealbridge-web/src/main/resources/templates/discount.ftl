@@ -41,32 +41,45 @@
 
 <div class="panel panel-default">
    <div class="panel-heading">
-              活动时间
+       <p>活动时间</p>
    </div>
    <div class="panel-body">
-      <#if discount.beginTime??>${discount.beginTime?date}</#if> 至  <#if discount.endTime??>${discount.endTime?date}</#if>
+      <#if discount.beginTime??>${discount.beginTime?date}<#else>不限</#if> 至  <#if discount.endTime??>${discount.endTime?date}<#else>不限</#if>
    </div>
+   
    <div class="panel-heading">
-             适用地区
+       <p>适用地区</p>
    </div>
    <div class="panel-body">
-      ${discount.area}
+      <#if discount.are??>${discount.area}<#else>不限</#if>
    </div>
 </div>
 
+<#if discount.discountDetail??>
+	<div class="page-header">
+	  <h2>活动细节</h2>
+	</div>
+	<div class="sub-section">
+	  <pre>
+	    ${discount.discountDetail}
+	  </pre>
+	</div>
+</#if>
 
-<div class="page-header">
-  <h2>活动细则</h2>
-</div>
-<div class="sub-section">
-  <pre>
-    ${discount.discountUsage}
-  </pre>
-</div>
+<#if discount.discountUsage??>
+	<div class="page-header">
+	  <h2>活动用法</h2>
+	</div>
+	<div class="sub-section">
+	  <pre>
+	    ${discount.discountUsage}
+	  </pre>
+	</div>
+</#if>
 
-<div class="container">
+
 <p class="text-center">点击量：<span class="label label-info">99</span>  分享量：<span class="label label-info">99</span></p>
-</div>
+
 
 </body>
 </html>
