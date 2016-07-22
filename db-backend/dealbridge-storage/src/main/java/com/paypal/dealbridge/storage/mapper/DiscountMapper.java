@@ -10,7 +10,7 @@ import com.paypal.dealbridge.storage.domain.Discount;
 @Mapper
 public interface DiscountMapper {
 
-	@Results(id = "discountResult", value = { 
+	@Results(value = { 
 			@Result(property = "discountId", column = "discount_id"),
 			@Result(property = "beginTime", column = "begin_time"),
 			@Result(property = "endTime", column = "end_time"), 
