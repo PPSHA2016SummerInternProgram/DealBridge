@@ -18,6 +18,9 @@ public class Discount {
 	private String merchantDescription;
 	private String merchantLocation;
 	private String merchantTel;
+	private String endOfUrl;
+	private Integer clickrate;
+	
 
 	public Integer getDiscountId() {
 		return discountId;
@@ -138,5 +141,23 @@ public class Discount {
 	public void setMerchantTel(String merchantTel) {
 		this.merchantTel = merchantTel;
 	}
+
+	public String getEndOfUrl() {
+		return endOfUrl;
+	}
+
+	public void setEndOfUrl(String endOfUrl) {
+		this.endOfUrl = endOfUrl;
+	}
+
+	public Integer getClickRate() {
+		return clickrate;
+	}
+
+	public void setClickRate(Integer clickrate) {
+		this.clickrate = clickrate;
+	}
+	
+	
 
 }

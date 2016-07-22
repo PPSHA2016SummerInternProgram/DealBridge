@@ -18,4 +18,5 @@ public class RecommendService {
 		return recommendMapper.getByUserId(userId, startIndex, limitNumber);
 	}
 	
+
 }
