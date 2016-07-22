@@ -21,17 +21,7 @@ public class RecommendTest {
 	
 	
 	@Test
-	public void getByUserIdTest() {
-		List<Recommend> recommends;
-		recommends = recommendMapper.getByUserId(1, null, null);
-		assertEquals(2, recommends.size());
-		
-		recommends = recommendMapper.getByUserId(1, null, 1);
-		assertEquals(1, recommends.size());
-		
-		recommends = recommendMapper.getByUserId(1, 1, 1);
-		assertEquals(1, recommends.size());
-		assertEquals(1001, recommends.get(0).getDiscountId().intValue());
+	public void getDiscountByUserIdTest() {
 		
 	}
 

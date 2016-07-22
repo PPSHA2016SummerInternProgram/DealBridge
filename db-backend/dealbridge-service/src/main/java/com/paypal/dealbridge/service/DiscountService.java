@@ -17,15 +17,12 @@ public class DiscountService {
 		return discountMapper.selectByPrimaryKey(id);
 	}
 	
-	public List<Discount> getTopDiscount(){
-		return discountMapper.selectByClickrate();
+	public List<Discount> getTopDiscount(int limitNumber){
+		return discountMapper.selectByClickrate(limitNumber);
 	}
 	
 	public int updateClickRate(int id){
-		return discountMapper.clickRateRaise(id);
+		return discountMapper.increaseClickRate(id);
 	}
 	
-	public List<Discount> getRecommendDiscount(int userId){
-		return discountMapper.selectFromRecommend(userId);
-	}
 }

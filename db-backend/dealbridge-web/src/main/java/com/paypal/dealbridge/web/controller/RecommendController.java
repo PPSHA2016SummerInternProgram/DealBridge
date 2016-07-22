@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.service.RecommendService;
-import com.paypal.dealbridge.storage.domain.Recommend;
+import com.paypal.dealbridge.storage.domain.Discount;
 
 @Controller
 public class RecommendController {
@@ -21,10 +21,10 @@ public class RecommendController {
 
 	@RequestMapping(path = "/api/recommend/{userId}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Recommend> getRecommendByUserId(@PathVariable("userId") int userId,
+	public List<Discount> getDiscountByUserId(@PathVariable("userId") int userId,
 			@RequestParam(value = "startIndex", required = false) Integer startIndex,
 			@RequestParam(value = "limitNumber", required = false) Integer limitNumber) {
-		return recommendService.getRecommendByUserId(userId, startIndex, limitNumber);
+		return recommendService.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
 
 }
