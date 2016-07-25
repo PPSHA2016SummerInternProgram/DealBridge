@@ -4,11 +4,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>DealBridge Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">		
+		<link rel="stylesheet" href="/css/homepage.css">
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		<style>
-			#header-text{background-color:#1ABC9C;}	
+			#header-text{background-color:#1ABC9C;}		
 		</style>
 	</head>
 	
@@ -111,15 +112,17 @@
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
-	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>></li>
+	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          </li>
 	      </#list>
 	   </ol>   
 	   <!-- 轮播（Carousel）项目 -->
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<img src="${hot.img}" class="center-block" style="width:100%;height:200px;">
-			 	<div class="carousel-caption"><font color="black">${hot.summary}</font></div>
+			 	<a href="http://localhost:9000/discount/${hot.discountId}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<div class="carousel-bg"></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
 	      </#list>
 	   </div>
