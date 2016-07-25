@@ -7,6 +7,7 @@ import re
 import time
 import log
 import sys
+from request_page import get_page
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -177,11 +178,7 @@ def get_detail_info(url):
     """Get the detail information for the given url.
        Return a dictionary, which contains the messages of discount.
     """
-    try:
-        response = requests.post(url)
-    except Exception, e:
-        print e
-        traceback.print_exc()
+    response = get_page(url)
 
     try:
         result_dict = {}    # a dictionary that store the discount message
@@ -244,8 +241,9 @@ def get_detail_info(url):
         return result_dict
     except:
         log.record_error_to_logfile("There is something wrong when parsing the url: " + url)
-        log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
-        log.record_error_to_logfile(traceback.format_exc())
+        #log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
+        #log.record_error_to_logfile(traceback.format_exc())
+        traceback.print_exc()
+#while True:
 
-while True:
-    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')
+#    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')

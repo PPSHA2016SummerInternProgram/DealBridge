@@ -7,8 +7,8 @@ import log
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-db = MySQLdb.connect(host="10.22.99.109", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
-# db = MySQLdb.connect(host="localhost", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
+# db = MySQLdb.connect(host="10.22.99.109", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
+db = MySQLdb.connect(host="localhost", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
 
 
 def is_contain(sql):

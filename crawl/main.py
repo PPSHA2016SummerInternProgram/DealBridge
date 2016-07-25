@@ -11,18 +11,10 @@ import log
 import multiprocessing
 import traceback
 import store_data
+from request_page import get_page
 from multiprocessing import Process, Queue, Pool
 reload(sys)
 sys.setdefaultencoding('utf8')
-
-
-def get_page(url):
-    """Get the content of the url by using BeautifulSoup"""
-    try:
-        response = requests.post(url)
-    except Exception, e:
-        print e
-    return bs4.BeautifulSoup(response.text)
 
 
 def get_num_of_page(url):
@@ -65,7 +57,7 @@ def get_short_description_page(url):
                 break
             discount_dict = detail_info.get_detail_info(link)
             end_of_url = get_end_of_url(link)
-            sql = "select * from discount where end_of_url = '" + end_of_url + "'"
+            sql = "select count(*) from discount where end_of_url = '" + end_of_url + "'"
             if store_data.is_contain(sql) is True:      # if database has this record before, not need to crawl again
                 continue
             else:
@@ -100,12 +92,13 @@ def work(queue, total_num_of_page):
 
 if __name__ == '__main__':
     total_num_of_page = get_num_of_page('http://www.rong360.com/credit/f-youhui')
-    thread_num = 20
+    thread_num = 2
     manager = multiprocessing.Manager()
     queue = manager.Queue()
     queue.put(0)
 
-    pool = Pool()
+    print str(total_num_of_page)
+    pool = Pool(thread_num)
     for i in range(thread_num):
         pool.apply_async(work, args=(queue, total_num_of_page))
 
