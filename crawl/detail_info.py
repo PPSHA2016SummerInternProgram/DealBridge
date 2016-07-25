@@ -247,5 +247,5 @@ def get_detail_info(url):
         log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
         log.record_error_to_logfile(traceback.format_exc())
 
-while True:
-    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')
+# while True:
+#    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')
