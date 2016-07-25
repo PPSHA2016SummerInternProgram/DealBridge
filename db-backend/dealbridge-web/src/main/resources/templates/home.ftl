@@ -5,11 +5,55 @@
 		<title>DealBridge Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		<style>
 			#header-text{background-color:#1ABC9C;}	
 		</style>
+		
+		<script>
+			var startIndex = 5;
+			$(window).scroll(function() {
+				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+					if($('#loading-panel').is(":visible") == false){
+						$('#loading-panel').show();
+						window.setTimeout(function(){
+							appendDiscount(startIndex, 5);
+							startIndex += 5;
+						}, 1000);
+					}
+				}
+			});
+		</script>
+			
+		<script>
+			function appendDiscount(startIndex, limitNumber) {
+				$.getJSON("/api/recommend/2", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+					for (i in result) {
+						console.log(result[i]);
+						$('#recommend-content').append('<tr><td width="40%"><img src="' + 
+							result[i].img + 
+							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
+							'<h4>' + 
+							result[i].summary +
+							'</h4>' +
+							result[i].description + 
+							'</td></tr>');
+					}
+					$('#loading-panel').hide();
+				});
+			}
+			
+		</script>
+		
+		<script>
+			$(document).ready(function(){
+				$('#loading-panel').show();
+				appendDiscount(0, 5);
+			});
+		</script>
+		
 	</head>
 	
 	<body style="padding-top: 60px;">
@@ -47,53 +91,37 @@
 
 	<div class="row text-center">
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="美食" style="
-				width: 100%;
-			">
+		  <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
 		  <p>美食</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="电影" style="
-				width: 100%;
-			">
+		  <i class="fa fa-film fa-2x" aria-hidden="true"></i>
 		  <p>电影</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="酒店" style="
-				width: 100%;
-			">
+		  <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
 		  <p>酒店</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="火锅" style="
-				width: 100%;
-			">
-		  <p>火锅</p>
+          <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+		  <p>阅读</p>
 		</div>
 
 
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="丽人" style="
-				width: 100%;
-			">
-		  <p>丽人</p>
+          <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
+		  <p>交通</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="KTV" style="
-				width: 100%;
-			">
-		  <p>KTV</p>
+          <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
+		  <p>健身</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="外卖" style="
-				width: 100%;
-			">
-		  <p>外卖</p>
+          <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
+		  <p>饮品</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <img src="/img/home_sample.jpg" class="img-circle" alt="旅游" style="
-				width: 100%;
-			">
+          <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
 		  <p>旅游</p>
 		</div>
 	</div>
@@ -141,38 +169,11 @@
 		</h3>
 	</div>
 	
-	<div id="recommend-content">
-		<div class="test-center">
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<img src="/img/home_sample.jpg" style="width:100%;">
-			</div>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-4">
-				<p>浙江温州最大皮革厂 江南皮革厂倒闭了
-	王八蛋王八蛋黄鹤老板 吃喝嫖赌吃喝嫖赌
-	欠下了欠下了3.5个亿 带着他的小姨子跑了
-	我们没有没有没有办法办法 拿着钱包抵工资工资
-	原价都是100多200多300多的钱包 统统20块
-	20块20块统统20块 统统统统统统20块</p>
-			</div>
-		</div>
-		
-		<div class="text-center">
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<img src="/img/home_sample.jpg" style="width:100%;">
-			</div>
-			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-4">
-				<p>浙江温州最大皮革厂 江南皮革厂倒闭了
-	王八蛋王八蛋黄鹤老板 吃喝嫖赌吃喝嫖赌
-	欠下了欠下了3.5个亿 带着他的小姨子跑了
-	我们没有没有没有办法办法 拿着钱包抵工资工资
-	原价都是100多200多300多的钱包 统统20块
-	20块20块统统20块 统统统统统统20块</p>
-			</div>
-		</div>
-	</div>
+	<table id="recommend-content">
+	</table>
 	
-	<div>
-		<p class="text-center">加载更多</p>
+	<div id="loading-panel" style="display:none">
+		<p class="text-center">正在加载...</p>
 	</div>
 	
 </body>
