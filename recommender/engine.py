@@ -50,10 +50,10 @@ import MySQLdb
 #         ]
 
 # fetch data from database
-# db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
-db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")
+db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")  # local database
+# db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")  # db supported by Jiezhe
 cursor = db.cursor()
-sql = "SELECT discount_id, bank_name, summary, description FROM discount" # limit 0, 2000"
+sql = "SELECT id, bank_name, summary, description FROM discount" # limit 0, 2000"
 discounts = []
 indices = []
 try:
@@ -96,6 +96,7 @@ cosine_similarities = linear_kernel(discounts_tfidf, discounts_tfidf)
 #         print("\t\t similarity: %f %s" % (cosine_similarities[id,index],discounts[index]))
 
 # recommend
+# recommend count for each user
 RECOMMEND_CNT = 100
 sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
 users = []
