@@ -91,37 +91,53 @@
 
 	<div class="row text-center">
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+		  <a href="/recommend/2/food">
+		  	<i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+		  </a>
 		  <p>美食</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <i class="fa fa-film fa-2x" aria-hidden="true"></i>
+		  <a href="/recommend/2/food">
+		    <i class="fa fa-film fa-2x" aria-hidden="true"></i>
+		  </a>
 		  <p>电影</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
+		  <a href="/recommend/2/food">
+		    <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
+	      </a>
 		  <p>酒店</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+		  <a href="/recommend/2/food">
+            <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+          </a>
 		  <p>阅读</p>
 		</div>
 
 
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
+          <a href="/recommend/2/food">
+            <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
+		  </a>
 		  <p>交通</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
+          <a href="/recommend/2/food">
+            <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
+          </a>
 		  <p>健身</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
+          <a href="/recommend/2/food">
+            <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
+	      </a>
 		  <p>饮品</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
+		  <a href="/recommend/2/food">
+            <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
+		  </a>
 		  <p>旅游</p>
 		</div>
 	</div>
