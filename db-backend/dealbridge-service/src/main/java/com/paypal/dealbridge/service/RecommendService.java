@@ -14,7 +14,7 @@ public class RecommendService {
 	@Autowired
 	private RecommendMapper recommendMapper;
 	
-	public List<Discount> getDiscountByUserId(int userId, Integer startIndex, Integer limitNumber) {
+	public List<Discount> getDiscountByUserId(int userId, Integer startIndex, Integer limitNumber){
 		return recommendMapper.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
 	
