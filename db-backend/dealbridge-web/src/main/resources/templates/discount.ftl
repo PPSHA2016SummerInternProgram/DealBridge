@@ -4,9 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>优惠详情</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	
+	<link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" >
+    <script src="/jquery-2.0.0/jquery.min.js"></script>
+	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+	 	
    <script>
         $(document).ready(function(){
                 setInterval(function(){
