@@ -9,6 +9,19 @@
 		<link rel="stylesheet" href="/css/homepage.css">
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="/js/hammer.min.js"></script>
+		<script>
+          $(function(){
+            var myElement= document.getElementById('myCarousel')
+            var hm=new Hammer(myElement);
+            hm.on("swipeleft",function(){
+                $('#myCarousel').carousel('next')
+            })
+            hm.on("swiperight",function(){
+                $('#myCarousel').carousel('prev')
+            })
+        })
+		</script>
 		<style>
 			#header-text{background-color:rgb(220,220,220);}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
@@ -39,9 +52,10 @@
 						console.log(result[i]);
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
+							'<a href="/discount/' + result[i].discountId + '">'+
 							'<p class="summary">' + result[i].summary + '</p>' +
 							'<p class="description">' + result[i].description + '</p>'+ 
-							'<p class="clickrate">' + '点击量：'+ result[i].clickRate + '</p>'+ 
+							'<p class="clickrate">' + '点击量：'+ result[i].clickRate + '</p>'+ '</a>' + 
 							'</td></tr>');
 					}
 					$('#loading-panel').hide();

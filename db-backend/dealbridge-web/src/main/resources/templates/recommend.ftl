@@ -10,7 +10,10 @@
 		<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 		
 		<style>
-			#header-text{background-color:#1ABC9C;}		
+			#header-text{background-color:rgb(220,220,220);}
+			p.summary{font-family:黑体;font-size:15px;color:#000000;}
+			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
+			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
 		</style>
 		
 		
@@ -38,10 +41,10 @@
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + 
 							result[i].img + 
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
-							'<h4>' + 
+							'<p class="summary">' + 
 							result[i].summary +
-							'</h4>' +
-							result[i].description + 
+							'</p>' +
+							'<p class="description">'+result[i].description + '</p>'+
 							'</td></tr>');
 					}
 					$('#loading-panel').hide();
@@ -60,7 +63,7 @@
 	
 	<body style="padding-top: 50px;">
 			<!--Navgation Bar-->
-		    <div class="navbar-fixed-top" style="height:50px;background-color:#34495E;">
+		    <div class="navbar-fixed-top" style="height:50px;background-color:#181818;">
 			
 				<div class="container" style="padding-top:15px;height:30px;">
 		        
@@ -89,7 +92,7 @@
 		<!--Recommend-->
 		<div id="header-text" class="panel-heading">
 			<h3 class="panel-title">
-			<font color="#FFFFFF" size="4" face="黑体">
+			<font color="#191919" size="3" face="黑体">
 				向您推荐
 			</font>
 			</h3>

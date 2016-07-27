@@ -11,6 +11,17 @@
 		<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="jquery.hummer.js"></script>
+		<script>
+		$(document).ready(function(){
+				$('#myCarousel').hammer().on('swipeleft', function(){
+					$(this).carousel('next'); 
+				})
+				$('#myCarousel').hammer().on('swiperight', function(){
+					$(this).carousel('prev'); 
+				})
+		 }); 
+		</script>
 		<style>
 			<!--#navbar-back{background-color:#34495E;}-->
 			p.navbar{font-family:黑体;font-size:16px;color:#FFFFFF;}
