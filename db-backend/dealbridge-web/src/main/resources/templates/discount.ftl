@@ -4,9 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>优惠详情</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	
+	<link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" >
+    <script src="/jquery-2.0.0/jquery.min.js"></script>
+	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+	 	
    <script>
         $(document).ready(function(){
                 setInterval(function(){
@@ -32,15 +35,15 @@
    </script>
    
    <style>
-			#navbar-back{background-color:#34495E;}
+			#navbar-back{background-color:#181818;}
 			p.navbar{font-family:黑体;font-size:16px;color:#FFFFFF;}
 			#icon{color:#FFFFFF;font-size:18px;}
 			.head{padding-left:9px;padding-right:9px;}
-			#header-text{background-color:#1ABC9C;}
+			#header-text{background-color:rgb(220,220,220);}
 			
 	</style>
 </head>
-<body>
+<body style="background:rgb(248,248,248)">
 
     <div id="navbar-back" class="navbar-fixed-top" style="width:414px;height:45px">
 	
@@ -82,7 +85,7 @@
 <div class="panel panel-default">
    <div id="header-text" class="panel-heading">
    		<h3 class="panel-title">
-		<font color="#FFFFFF" size="4" face="黑体">
+		<font color="#191919" size="3" face="黑体">
 			活动时间
 		</font>
 		</h3>
@@ -94,7 +97,7 @@
    </div>
    <div id="header-text" class="panel-heading">
    		<h3 class="panel-title">
-		<font color="#FFFFFF" size="4" face="黑体">
+		<font color="#191919" size="3" face="黑体">
 			适用地区
 		</font>
 		</h3>
@@ -110,7 +113,7 @@
 <div class="panel panel-default">
 <div id="header-text" class="page-header">
 	<h3 class="panel-title">
-		<font color="#FFFFFF" size="4" face="黑体">
+		<font color="#191919" size="3" face="黑体">
 			活动细则
 		</font>
 	</h3>
@@ -128,7 +131,7 @@
 <#if discount.discountUsage??>
 <div id="header-text" class="page-header">
 	<h3 class="panel-title">
-		<font color="#FFFFFF" size="4" face="黑体">
+		<font color="#191919" size="3" face="黑体">
 			活动详情
 		</font>
 	</h3>
