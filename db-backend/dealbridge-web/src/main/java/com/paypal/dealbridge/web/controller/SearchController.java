@@ -16,25 +16,27 @@ import com.paypal.dealbridge.storage.domain.SearchHistory;
 @Controller
 public class SearchController {
 	// TODO check userId from session
-	
+
 	@Autowired
 	private SearchService searchService;
-	
-	@RequestMapping(path="/api/search_history/{userId}", method=RequestMethod.PUT)
+
+	@RequestMapping(path = "/api/search_history/{userId}", method = RequestMethod.PUT)
 	@ResponseBody
 	public void insertHistoryRecord(@PathVariable("userId") int userId, @RequestParam("keyword") String keyword) {
 		searchService.insertSearchHistory(userId, keyword);
 	}
-	
-	@RequestMapping(path="/api/search_history/{userId}", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/api/search_history/{userId}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<SearchHistory> getUserSearchHistory(@PathVariable("userId") int userId) {
-		return searchService.getUserHistory(userId);
+	public List<SearchHistory> getUserSearchHistory(@PathVariable("userId") int userId,
+			@RequestParam("limitNumber") int limitNumber) {
+		return searchService.getUserHistory(userId, limitNumber);
 	}
-	
-	@RequestMapping(path="/api/search_history/{userId}", method=RequestMethod.POST)
+
+	@RequestMapping(path = "/api/search_history/{userId}", method = RequestMethod.POST)
 	@ResponseBody
-	public void clearSearchHistory(@PathVariable("userId") int userId, @RequestParam("search_history_ids") int[] searchHistoryIds) {
+	public void clearSearchHistory(@PathVariable("userId") int userId,
+			@RequestParam("search_history_ids") int[] searchHistoryIds) {
 		searchService.setHistoriesInvisible(userId, searchHistoryIds);
 	}
 }

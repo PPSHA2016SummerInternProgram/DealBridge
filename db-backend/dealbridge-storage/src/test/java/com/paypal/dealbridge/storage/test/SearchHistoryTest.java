@@ -31,11 +31,11 @@ public class SearchHistoryTest {
 		history.setSearchTime(new Date());
 		
 		searchHistoryMapper.insert(history);
-		List<SearchHistory> records = searchHistoryMapper.selectUserHistory(2);
+		List<SearchHistory> records = searchHistoryMapper.selectUserHistory(2, 10);
 		assertEquals(1, records.size());
 		
 		searchHistoryMapper.setInvisibleById(history.getSearchHistoryId());
-		records = searchHistoryMapper.selectUserHistory(2);
+		records = searchHistoryMapper.selectUserHistory(2, 10);
 		assertEquals(0, records.size());
 	}
 	

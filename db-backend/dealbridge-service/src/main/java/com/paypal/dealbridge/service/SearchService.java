@@ -14,8 +14,8 @@ public class SearchService {
 	@Autowired
 	private SearchHistoryMapper searchHistoryMapper;
 	
-	public List<SearchHistory> getUserHistory(int userId) {
-		return searchHistoryMapper.selectUserHistory(userId);
+	public List<SearchHistory> getUserHistory(int userId, int limitNumber) {
+		return searchHistoryMapper.selectUserHistory(userId, limitNumber);
 	}
 	
 	public int setHistoryInvisible(int userId, int searchHistoryId) {
