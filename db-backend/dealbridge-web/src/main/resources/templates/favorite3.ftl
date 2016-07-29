@@ -10,14 +10,14 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  
  	  <script>
-		var startIndex = 5;
+		var startIndex = 6;
 		$(window).scroll(function() {
 			if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 				if($('#loading-panel').is(":visible") == false){
 					$('#loading-panel').show();
 					window.setTimeout(function(){
-						appendDiscount(startIndex, 5);
-						startIndex += 5;
+						appendFavorite(3, startIndex, 6);
+						startIndex += 6;
 					}, 1000);
 				}
 			}
@@ -29,25 +29,43 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				$('#favorite-load').append('<tr style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;"><i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td><td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
+ 	  				var str = '<tr style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;"><i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td><td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' 
  	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间:' 
- 	  				+ result[i].startTime + '~' 
- 	  				+ result[i].endTime + '</div></td></tr>');
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				if (result[i].startTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].startTime;
+ 	  				str += ' 至 '; 
+ 	  				if (result[i].endTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].endTime;
+ 	  				str += '</div></td></tr>';
+ 	  				$('#favorite-load').append(str);
  	  			}
  	  			$('#loading-panel').hide();
  	  		});
  	  	}
+ 	  	
  	  </script>
+ 	  
+ 	  <script>
+ 	    function myFunction() {
+ 	    	console.log("aaaa");
+ 	    }
+ 	   </script>
  	  
  	  <script>
  	  	$(document).ready(function(){
  	  		$('#loading-panel').show();
- 	  		appendFavorite(3, 0, 5);
+ 	  		appendFavorite(3, 0, 6);
  	  	});
  	  </script>
+ 	  
+ 	 
       <style>
 		.dropbtn {
 		    background-color: rgb(248,248,248);
@@ -119,7 +137,7 @@
 </nav>
 	
 	<!--favorites list-->
-	<table id="favorite-load">
+	<table class="table table-striped table-hover " style="margin-left:-30px;margin-bottom:0;margin-top:100px;" id="favorite-load">
 	</table>
 	
 	<div id="loading-panel" style="display:none">
@@ -129,31 +147,30 @@
 
 	
 </body>
-<script>
-$('[data-dis]').on('click', chooseFunction)
-function deleteFunction()
-{
-	
-	$('#table1').css('margin-left', "0px");
-	$('#table1').css('transition-delay', "0.3s");
-	$('#table2').css('margin-left', "0px");
-	$('#table2').css('transition-delay', "0.3s");
-	$("body").append("")
-}
-function chooseFunction()
-{
-	$('#dis').toggleClass("fa fa-check-circle");
-	var dis = $(this).attr('data-dis');
-	if(dis === 'show'){
-		$(this).attr('data-dis', 'hide')
-		$(this).addClass("fa-circle-thin");
-		$(this).removeClass("fa-check-circle");
-	}else{
-		$(this).attr('data-dis', 'show')
-		$(this).removeClass("fa-circle-thin");
-		$(this).addClass("fa-check-circle");
-	}
-	
-}
-</script>
+ <script>
+ 		
+		$('table').on('click', '[data-dis]', chooseFunction);
+		function deleteFunction()
+		{
+			$('#favorite-load').css('margin-left', "0px");
+			$('#favorite-load').css('transition-delay', "0.3s");
+			$('#table2').css('margin-left', "0px");
+			$('#table2').css('transition-delay', "0.3s");
+			$("body").append("")
+		}
+		function chooseFunction()
+		{
+			console.log($(this));
+			var dis = $(this).attr('data-dis');
+			if(dis === 'show'){
+				$(this).attr('data-dis', 'hide')
+				$(this).addClass("fa-circle-thin");
+				$(this).removeClass("fa-check-circle");
+			}else{
+				$(this).attr('data-dis', 'show');
+				$(this).removeClass("fa-circle-thin");
+				$(this).addClass("fa-check-circle");
+			}
+		}
+		</script>
 </html>

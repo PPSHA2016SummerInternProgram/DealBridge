@@ -327,16 +327,19 @@ function deleteFunction()
 	$('#table2').css('transition-delay', "0.3s");
 	$("body").append("hahah")
 }
+</script>
+<script>
+$('[data-dis]').on('click', chooseFunction)
 function chooseFunction()
 {
 	//$('#dis').toggleClass("fa fa-check-circle");
 	var dis = $(this).attr('data-dis');
 	if(dis === 'show'){
-		$(this).attr('data-dis', 'hide')
+		$(this).attr('data-dis', 'hide');
 		$(this).addClass("fa-circle-thin");
 		$(this).removeClass("fa-check-circle");
 	}else{
-		$(this).attr('data-dis', 'show')
+		$(this).attr('data-dis', 'show');
 		$(this).removeClass("fa-circle-thin");
 		$(this).addClass("fa-check-circle");
 	}
