@@ -15,10 +15,11 @@ import com.paypal.dealbridge.storage.domain.Discount;
 public class HomeController {
 	@Autowired
 	private DiscountService discountService;
-
+	
+	public static final int TOP_DISCOUNT_NUM = 3;
 	@RequestMapping(path="/home", method=RequestMethod.GET)
 	public String showHomePage(Model model) {
-		List<Discount> hots = discountService.getTopDiscount(3);
+		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);
 		model.addAttribute("hots", hots);
 		return "home";
 	}
