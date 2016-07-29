@@ -13,7 +13,7 @@
 			#navbar-header{text-align: center;margin-top: 10px;}
 			#navbar-a{float: right;margin-top: -30px;margin-right: 20px;}
 			#search-icon{position: absolute;top: 10px;left: 10px;}
-			#search-input{padding-left: 30px;}
+			#search-input{padding-left: 30px; opacity:0.5}
 			#hot-keyword-div{margin: 20px;text-align: center;}
 			.hot-keyword{border:0.5px solid;}
 		</style>
@@ -27,10 +27,12 @@
 
 
 	<div>
-		<nav id="navbar" class="navbar navbar-default">
-		  <div class="container-fluid" style="">
-			<h3 id="navbar-header">搜索</h3>
+		<nav id="navbar" class="navbar navbar-default" style="background:#F0F0F0">
+		  <div class="container-fluid">
+		  <div style="padding-top:6px">
+			<h4 id="navbar-header">搜 索</h4>
 			<a id="navbar-a">取消</a>
+			</div>
 		  </div>
 		</nav>
 		
@@ -48,7 +50,7 @@
 		<div id="hot-keyword-div">
 			<div class="row">
 				<#list hotKeywords as hotKeyword>
-					<div class="col-xs-4 col-sm-4 hot-keyword"><p>${hotKeyword}</p></div>
+					<div class="col-xs-4 col-sm-4 hot-keyword" style="border:1px solid #F0F0F0;"><p>${hotKeyword}</p></div>
 				</#list>
 			</div>
 		</div>
@@ -60,7 +62,7 @@
 			   		<li class="list-group-item">${searchHistory}</li>
 	 			</#list>
 			</ul>
-			<h4 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h4>
+			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
 		</div>
 		
 	
