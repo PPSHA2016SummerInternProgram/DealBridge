@@ -9,9 +9,9 @@ public class Discount {
 	private String bankName;
 	private String summary;
 	private String description;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT+8")
 	private Date beginTime;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT+8")
 	private Date endTime;
 	private String area;
 	private String discountDetail;

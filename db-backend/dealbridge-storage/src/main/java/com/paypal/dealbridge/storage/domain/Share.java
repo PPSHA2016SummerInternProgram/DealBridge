@@ -2,8 +2,11 @@ package com.paypal.dealbridge.storage.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Share {
 	private Integer shareId;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
 	private Date shareTime;
 	private Integer userId;
 	private Integer discountId;
