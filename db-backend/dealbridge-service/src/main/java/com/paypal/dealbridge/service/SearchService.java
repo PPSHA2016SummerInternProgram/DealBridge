@@ -14,19 +14,12 @@ public class SearchService {
 	@Autowired
 	private SearchHistoryMapper searchHistoryMapper;
 	
-	public List<SearchHistory> getUserHistory(int userId, int limitNumber) {
+	public List<String> getUserHistory(int userId, int limitNumber) {
 		return searchHistoryMapper.selectUserHistory(userId, limitNumber);
 	}
 	
-	public int setHistoryInvisible(int userId, int searchHistoryId) {
-		// TODO check whether this searchHistory belongs to this user
-		return searchHistoryMapper.setInvisibleById(searchHistoryId);
-	}
-	
-	public void setHistoriesInvisible(int userId, int[] ids) {
-		for (int id : ids) {
-			setHistoryInvisible(userId, id);
-		}
+	public int setHistoryInvisible(int userId) {
+		return searchHistoryMapper.setInvisible(userId);
 	}
 	
 	public int insertSearchHistory(int userId, String keyword) {
@@ -35,5 +28,9 @@ public class SearchService {
 		searchHistory.setUserId(userId);
 		searchHistory.setSearchTime(new Date());
 		return searchHistoryMapper.insert(searchHistory);
+	}
+	
+	public List<String> getHotKeywords(int number) {
+		return searchHistoryMapper.selectHotKeywords(number);
 	}
 }
