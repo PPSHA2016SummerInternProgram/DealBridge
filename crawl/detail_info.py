@@ -7,6 +7,7 @@ import re
 import time
 import log
 import sys
+from request_page import get_page
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -28,10 +29,7 @@ def remove_blank(string):
 
 
 def convert_date(date):
-    date = date.replace('年', '-')
-    date = date.replace('月', '-')
-    date = date.replace('日', '')
-    return date
+    return date.replace('年', '-').replace('月', '-').replace('日', '')
 
 
 def get_bank_name(title):
@@ -178,14 +176,8 @@ def get_detail_info(url):
        Return a dictionary, which contains the messages of discount.
     """
     try:
-        response = requests.post(url)
-    except Exception, e:
-        print e
-        traceback.print_exc()
-
-    try:
         result_dict = {}    # a dictionary that store the discount message
-        soup_content = bs4.BeautifulSoup(response.text)
+        soup_content = get_page(url)
 
         tmp = soup_content.find('div', {'class': 'sj-tit clearfix'})
         if tmp is None:
@@ -244,8 +236,9 @@ def get_detail_info(url):
         return result_dict
     except:
         log.record_error_to_logfile("There is something wrong when parsing the url: " + url)
-        log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
-        log.record_error_to_logfile(traceback.format_exc())
+        #log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
+        #log.record_error_to_logfile(traceback.format_exc())
+        traceback.print_exc()
+#while True:
 
-# while True:
-#    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')
+

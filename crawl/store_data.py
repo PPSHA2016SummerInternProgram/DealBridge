@@ -4,28 +4,37 @@ import MySQLdb
 import sys
 import traceback
 import log
+import threading
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-db = MySQLdb.connect(host="10.22.99.109", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
-# db = MySQLdb.connect(host="localhost", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
+#db = MySQLdb.connect(host="10.22.99.109", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
+db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
 
 
-def is_contain(sql):
-    """"
-    Query whether the record exit is in the table or not.
-    Return 'True' if exit, otherwise return 'False'
-    """
-    cur = db.cursor()
-    cur.execute(sql)
-    return len(cur.fetchall()) > 0
-
+def remove_existed_url(queue):
+    try:
+        cur = db.cursor()
+        size = queue.qsize()
+        for i in range(size):
+            element = queue.get()
+            end_of_url = element[0]
+            sql = "select discount_id from discount where end_of_url = '" + end_of_url + "'"
+            cur.execute(sql)
+            if cur.rowcount == 0:
+                queue.put(element)
+    except Exception, e:
+        print e
+    finally:
+        cur.close()
+            
 
 def escape_single_quote(string):
     """"
     Escape single quotes for string
     Escape ' to \'
     """
+    string = string.decode('utf8','ignore')
     return string.replace("'", "\\'")
 
 
@@ -44,7 +53,6 @@ def escape_single_quotes(discount_dicts):
 
 
 def store_discount(discount_dicts):
-    cur = db.cursor()
     sql = "INSERT INTO discount (bank, summary, description, begin_time, end_time, area," \
           " discount_usage, discount_detail, classify, characteristic, img, merchant_description," \
           " merchant_location, merchant_call, end_of_url) VALUES  "
@@ -72,8 +80,10 @@ def store_discount(discount_dicts):
                  + discount_dict['end_of_url'] + "')"
 
     try:
+        cur = db.cursor()
         cur.execute(sql)
         db.commit()
+        cur.close()
     except:
         # print sql
         # problem_url = "http://www.rong360.com/credit/youhui/" + discount_dict['end_of_url']
