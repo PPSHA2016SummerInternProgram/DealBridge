@@ -1,4 +1,4 @@
-# !/usr/bin/python
+#!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import threading
 import requests
@@ -13,7 +13,6 @@ import traceback
 import store_data
 from request_page import get_page
 from multiprocessing import Process, Queue, Pool
-
 reload(sys)
 sys.setdefaultencoding('utf8')
 
@@ -100,58 +99,45 @@ if __name__ == '__main__':
     try:
         # get the number of total discount messages
         total_num_of_page = get_num_of_page('http://www.rong360.com/credit/f-youhui')
-        print str(total_num_of_page)
         thread_num = 20  # num of process
 
-        section_size = 50
-        section = total_num_of_page / section_size
-        if total_num_of_page % section_size > 0:
-            section += 1
+        manager = multiprocessing.Manager()
+        queue = manager.Queue()  # a queue storing index of url
+        queue.put(50)             # Initialization of url index
 
-        for k in range(section):
-            begin = k * section_size + 1
-            end = begin + section_size - 1
-            print "start to get summary pages from " + str(begin) + " to " + str(end) +\
-                  ", each summary page contains 20 detail content pages."
-            manager = multiprocessing.Manager()
-            queue = manager.Queue()  # a queue storing index of url
-            queue.put(begin - 1)  # Initialization of url index
+        page_queue = manager.Queue()    # a queue storing end of urls
 
-            page_queue = manager.Queue()  # a queue storing end of urls
+        # start multiprocess to get urls
+        pool = Pool(thread_num)     
+        for i in range(thread_num):
+            pool.apply_async(get_page_url, args=(queue, total_num_of_page, page_queue))
+        pool.close()
+        pool.join()
+        print 'num of total pages: ' + str(page_queue.qsize())
 
-            # start multiprocess to get urls
-            pool = Pool(thread_num)
-            for i in range(thread_num):
-                pool.apply_async(get_page_url, args=(queue, end, page_queue))
-            pool.close()
-            pool.join()
-            print 'num of total pages: ' + str(page_queue.qsize())
+        store_data.remove_existed_url(page_queue)   # remove the urls that were already existed in the database
+        print 'num of new pages: ' + str(page_queue.qsize())
+        
+        # start multiprocess to get the content of urls
+        pool2 = Pool(thread_num)
+        element_queue = manager.Queue()
+        for i in range(thread_num):
+            pool2.apply_async(get_page_element, args=(page_queue, element_queue), callback=callback)
+        pool2.close()
+        pool2.join()
+        print 'num of pages(finally got): ' + str(element_queue.qsize())
 
-            store_data.remove_existed_url(page_queue)  # remove the urls that were already existed in the database
-            num_of_new_pages = page_queue.qsize()
-            print 'num of new pages: ' + str(num_of_new_pages)
-
-            # start multiprocess to get the content of urls
-            pool2 = Pool(thread_num)
-            element_queue = manager.Queue()
-            for i in range(thread_num):
-                pool2.apply_async(get_page_element, args=(page_queue, element_queue), callback=callback)
-            pool2.close()
-            pool2.join()
-            print 'num of pages(finally got): ' + str(element_queue.qsize())
-
-            index = 0
-            while not element_queue.empty():
-                dicts = []
-                insert_size = 20
-                for i in range(insert_size):
-                    if not element_queue.empty():
-                        dicts.append(element_queue.get())
-                    else:
-                        break
-                store_data.store_discount(dicts)
-
-            print 'pages: ' + str(begin) + ' - ' + str(end) + ' finished.'
+        index = 0
+        while not element_queue.empty():
+            dicts = []
+            for i in range(1):
+                if not element_queue.empty():
+                    dicts.append(element_queue.get())
+                else:
+                    break
+            store_data.store_discount(dicts)
+            
     except:
+        print dicts
         log.record_error_to_logfile(traceback.format_exc())
 

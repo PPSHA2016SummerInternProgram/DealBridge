@@ -61,7 +61,11 @@ def get_description(soup_content):
             pattern = '<p.*?>(.*?)</p>'
             description = regular(pattern, tmp)[0]
         else:
-            description = regular('\">(.*?)</div>', str(tmp[0]))[0].encode(ENCODE_FORMAT)
+            description_tmp = regular('\">(.*?)</div>', str(tmp[0]))
+            if len(description_tmp) == 0:
+                description = ''
+            else:
+                description = description_tmp[0].encode(ENCODE_FORMAT)
 
     if description:
         pattern = '<.*>'
@@ -239,6 +243,3 @@ def get_detail_info(url):
         #log.record_error_to_logfile(str(soup_content.find('div', {'class': 'sj-tit clearfix'})).encode(ENCODE_FORMAT))
         #log.record_error_to_logfile(traceback.format_exc())
         traceback.print_exc()
-#while True:
-
-
