@@ -3,6 +3,7 @@
 import bs4
 import requests
 import requesocks
+import time
 
 
 def get_page(url):
@@ -13,8 +14,8 @@ def get_page(url):
         session = requesocks.session()
         session.proxies = {'http': 'socks5://127.0.0.1:9050',
                            'https': 'socks5://127.0.0.1:9050'}
-        response = session.get(url)
+        response = session.get(url, timeout=5)
+        return bs4.BeautifulSoup(response.text)
     except Exception, e:
-        print e
-    return bs4.BeautifulSoup(response.text)
+        return get_page(url)
 

@@ -29,10 +29,7 @@ def remove_blank(string):
 
 
 def convert_date(date):
-    date = date.replace('年', '-')
-    date = date.replace('月', '-')
-    date = date.replace('日', '')
-    return date
+    return date.replace('年', '-').replace('月', '-').replace('日', '')
 
 
 def get_bank_name(title):
@@ -178,11 +175,9 @@ def get_detail_info(url):
     """Get the detail information for the given url.
        Return a dictionary, which contains the messages of discount.
     """
-    response = get_page(url)
-
     try:
         result_dict = {}    # a dictionary that store the discount message
-        soup_content = bs4.BeautifulSoup(response.text)
+        soup_content = get_page(url)
 
         tmp = soup_content.find('div', {'class': 'sj-tit clearfix'})
         if tmp is None:
