@@ -241,4 +241,4 @@ def get_detail_info(url):
         traceback.print_exc()
 #while True:
 
-#    get_detail_info('http://www.rong360.com/credit/youhui/f2582427a0ac079e2ba781c97e55061d')
+
