@@ -44,7 +44,7 @@
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
 							'<p class="summary">' + 
 							result[i].summary +
-							'</p>' +
+							'</p>' + 
 							'<p class="description">'+result[i].description + '</p>'+
 							'</td></tr>');
 					}

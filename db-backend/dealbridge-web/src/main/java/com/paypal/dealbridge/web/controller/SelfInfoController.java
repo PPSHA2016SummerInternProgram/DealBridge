@@ -11,7 +11,7 @@ public class SelfInfoController {
 
 	@RequestMapping(path = "/userInfo/{userId}", method = RequestMethod.GET)
 	public String userInfoPage(@PathVariable("userId")int userId, Model model){
+		model.addAttribute("userId", userId);
 		return "selfInfo";
 	}
-	
 }
