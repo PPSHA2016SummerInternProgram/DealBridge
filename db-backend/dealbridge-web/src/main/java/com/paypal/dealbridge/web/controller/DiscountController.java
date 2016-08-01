@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.paypal.dealbridge.service.DiscountService;
+import com.paypal.dealbridge.service.ShareService;
 import com.paypal.dealbridge.storage.domain.Discount;
 
 @Controller
@@ -23,6 +24,8 @@ public class DiscountController {
 
 	@Autowired
 	private DiscountService discountService;
+	@Autowired
+	private ShareService shareService;
 
 	@RequestMapping(path = "/api/discount/{id}", method = RequestMethod.GET)
 	@ResponseBody
@@ -43,7 +46,9 @@ public class DiscountController {
 		// String name = auth.getName();
 		// System.out.println(name);
 		Discount discount = discountService.getDiscountById(id);
+		int shareTime = shareService.countSharedTimes(id);
 		model.addAttribute("discount", discount);
+		model.addAttribute("shareTime", shareTime);
 		return "discount";
 	}
 }

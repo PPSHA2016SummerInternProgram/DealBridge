@@ -53,7 +53,10 @@
         </div>
 		<div style="height:auto;float:right;">
           <ul class="nav navbar-nav navbar-right">
-            <a class="head" href="http://bootswatch.com/help/"><font color="FFFFFF" size="3" face="黑体">首页</font></a>
+
+
+            <a class="head" href="/home"><font color="FFFFFF" size="3" face="黑体">首页</font></a>
+
 			<a class="head" id="icon"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
 			<a class="head" id="icon"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
           </ul>
@@ -69,7 +72,9 @@
 </div>
 
 <div class="container">
-	<p class="text-center"><font face="黑体">点击量：<span class="label label-info">99</span>  分享量：<span class="label label-info">99</span></font></p>
+
+	<p class="text-center"><font face="黑体">点击量：<span class="label label-info">${discount.clickRate}</span>  分享量：<span class="label label-info">${shareTime}</span></font></p>
+
 </div>
 
 <div class="sub-section">
