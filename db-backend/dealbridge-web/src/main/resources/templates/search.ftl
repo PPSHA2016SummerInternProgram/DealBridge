@@ -78,6 +78,8 @@
 				$.ajax({
 					type: "POST",
 					url: "/api/search_history/" + userId,
+					//url:"/api/favorite"
+					//data:[]
 					error: function() {
 						console.log("clear search history error");
 					},
