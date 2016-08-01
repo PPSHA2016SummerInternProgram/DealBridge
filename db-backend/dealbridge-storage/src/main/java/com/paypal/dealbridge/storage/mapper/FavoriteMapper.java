@@ -2,6 +2,7 @@ package com.paypal.dealbridge.storage.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -46,4 +47,7 @@ public interface FavoriteMapper {
 	
 	@Select("SELECT count(*) FROM favorite WHERE user_id=#{userId}")
 	int numOfFavorite(int userId);
+	
+	@Delete("DELETE FROM favorite WHERE user_id=#{userId} AND discount_id=#{discountId}")
+	int deleteFavorite(int userId, int discountId);
 }
