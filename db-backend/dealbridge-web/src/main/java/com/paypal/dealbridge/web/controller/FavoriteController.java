@@ -13,25 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.service.FavoriteService;
 import com.paypal.dealbridge.storage.domain.Discount;
+import com.paypal.dealbridge.storage.domain.BriefDiscount;
 
 @Controller
 public class FavoriteController {
 	
 	@Autowired
 	private FavoriteService favoriteService;
-
-//	@RequestMapping(path="/api/favorite/{userId}", method=RequestMethod.GET)
-//	@ResponseBody
-//	public List<Discount> getFavoriteDiscount(@PathVariable("userId") int userId,
-//			@RequestParam(value = "startIndex", required = false) Integer startIndex,
-//			@RequestParam(value = "limitNum", required = false) Integer limitNum){
-//		System.out.print(userId);
-//		return favoriteService.getFavoriteByUserId(userId, startIndex, limitNum);
-//	}
 	
 	@RequestMapping(path="/api/favorite", method=RequestMethod.GET)
 	@ResponseBody
-	public List<Discount> getFavoriteDiscount(@RequestParam(value = "userId", required = false) int userId,
+	public List<BriefDiscount> getFavoriteDiscount(@RequestParam(value = "userId", required = false) int userId,
 			@RequestParam(value = "startIndex", required = false) Integer startIndex,
 			@RequestParam(value = "limitNum", required = false) Integer limitNum){
 		return favoriteService.getFavoriteByUserId(userId, startIndex, limitNum);
@@ -40,16 +32,15 @@ public class FavoriteController {
 	@RequestMapping(path="/favorite/{userId}", method=RequestMethod.GET)
 	public String showFavoritePage(@PathVariable("userId") int userId, Model model) {
 		int count = favoriteService.numOfFavorite(userId);
-		List<Discount> favorites = favoriteService.getFavoriteByUserId(userId, 0, 10);
 		model.addAttribute("count", count);
-		model.addAttribute("favorites", favorites);
-		return "favorite2";
+		model.addAttribute("userId", userId);
+		return "favorite";
 	}
 	
-	@RequestMapping(path="/favorite2/{userId}", method=RequestMethod.GET)
-	public String showFavoritePage2(@PathVariable("userId") int userId, Model model) {
-		int count = favoriteService.numOfFavorite(userId);
-		model.addAttribute("count", count);
-		return "favorite3";
+	@RequestMapping(path="/api/favorite", method=RequestMethod.DELETE)
+	@ResponseBody
+	public void deleteFavorite(@RequestParam(value = "favoriteId") List<Integer> favoriteIdList){
+		favoriteService.deleteFavorite(favoriteIdList);
 	}
+	
 }
