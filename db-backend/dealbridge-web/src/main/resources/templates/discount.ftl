@@ -34,6 +34,12 @@
         });
    </script>
    
+   	<script>
+  			function backFunction() {
+  				window.history.back();
+  			}
+  	  </script>
+   
    <style>
 			#navbar-back{background-color:#181818;}
 			p.navbar{font-family:黑体;font-size:16px;color:#FFFFFF;}
@@ -48,15 +54,13 @@
     <div id="navbar-back" class="navbar-fixed-top" style="width:414px;height:45px">
 	
       <div class="container">
-        <div class>
-		  <a class="navbar-brand center-block"><p class="navbar">优惠详情</p></a>
+       <div style="height:auto;float:left;">
+		 	 <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:6px;color:#F0F0F0"></i>
         </div>
 		<div style="height:auto;float:right;">
           <ul class="nav navbar-nav navbar-right">
 
-
-            <a class="head" href="/home"><font color="FFFFFF" size="3" face="黑体">首页</font></a>
-
+			 <a class="navbar-brand center-block"><p class="navbar" style="margin-top:-15px">优惠详情</p></a>
 			<a class="head" id="icon"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
 			<a class="head" id="icon"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a>
           </ul>

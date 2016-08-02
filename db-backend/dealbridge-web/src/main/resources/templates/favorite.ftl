@@ -55,17 +55,17 @@
  	  </script>
  	  
  	  <script>
- 	    function myFunction() {
- 	    	console.log("aaaa");
- 	    }
- 	   </script>
- 	  
- 	  <script>
  	  	$(document).ready(function(){
  	  		$('#loading-panel').show();
  	  		appendFavorite(${userId}, 0, 6);
  	  	});
  	  </script>
+ 	  
+ 	  <script>
+  			function backFunction() {
+  				window.history.back();
+  			}
+  	  </script>
  	  
  	 
       <style>
@@ -120,7 +120,9 @@
    <div class="navbar-header" >
    <div class="dropdown" style="float:right;">
   
-  		<button class="dropbtn" style="color:#333"><i class="fa fa-bars" aria-hidden="true"></i></button>
+  		<button class="dropbtn" style="color:#333">
+  		<i class="fa fa-bars" aria-hidden="true">
+  		</i></button>
         <div class="dropdown-content" >
          <a href="/home/${userId}">首页</a>
          <a href="#">帮助</a>
@@ -131,7 +133,7 @@
    </div >
       <a class="navbar-brand" id="edit" style="float:right;border:1px;">编辑</a>
   	  <a class="navbar-brand" style="float:right;right=100px;border:1px;">收藏夹</a>
-  <i onclick=location.href="/userInfo/${userId}" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
+  <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
  	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
