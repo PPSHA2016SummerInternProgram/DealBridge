@@ -171,7 +171,8 @@
       </div>
     </div>
 
-
+<div style="height:150px;">
+</div>
 <br>
 	
  	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;position:fixed;bottom:0px">
