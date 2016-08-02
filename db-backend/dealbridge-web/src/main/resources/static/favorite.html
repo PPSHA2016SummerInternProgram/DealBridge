@@ -348,14 +348,14 @@ function deleteFunction()
 		$('#table2').css('margin-left', "-30px");
 		
 		var items = $('[data-dis]');
-		var favIds;
+		var favIds = [];
 		for (var i=0;i<items.length;i++)
 			{
 			var item = items[i];
 			if($(item).attr('data-dis')==='show')
 				{
 				$(item).closest('tr').hide();
-				favIds.push($(item).closet('tr').attr('favorite_id'))
+				favIds.push($(item).closest('tr').attr('favorite_id'));
 				}
 			
 			}
