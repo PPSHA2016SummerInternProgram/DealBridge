@@ -13,21 +13,25 @@ import MySQLdb
 # bank_name, merchant, location, amount, time
 #
 
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")  # local database
+# db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")  # local database
+db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")
 cursor = db.cursor()
-sql = "SELECT id, bank_name, summary, description, merchant_description, merchant_location FROM discount limit 0, 1000"
+sql = "SELECT discount_id, bank_name, summary, description, merchant_description, " \
+      "merchant_location, summary FROM discount where area != '全国'" # limit 0, 1000 "
 discounts = []
 indices = []
+summaries = []
 banks = []
 try:
     cursor.execute(sql)
     results = cursor.fetchall()
     # discounts = ["%s %s %s" % (result[1], result[2], result[3]) for result in results]
-    discounts = ["%s %s" % (result[2], result[3]) for result in results]
+    discounts = ["%s %s %s" % (result[2], result[3], result[5]) for result in results]
     indices = [result[0] for result in results]
     banks = [result[1] for result in results]
     banks = list(set(banks))       # remove the duplicate banks
     merchants = [result[5] + " " + result[4] for result in results]
+    summaries = [result[6] for result in results]
 except:
     print "Error, unable to fetch data"
 
@@ -37,7 +41,7 @@ discounts_after_cut = [re.sub("[\d]+", "", " ".join(jieba.cut(discount))) for di
 vectorizer = TfidfVectorizer()
 discounts_tfidf = vectorizer.fit_transform(discounts_after_cut)
 
-cluster_cnt = 10
+cluster_cnt = 30
 clf = KMeans(n_clusters=cluster_cnt)
 s = clf.fit(discounts_tfidf)
 # print s
@@ -64,6 +68,7 @@ for cluster in xrange(cluster_cnt):
 # for c in clusters:
 #     print c
 
+
 # return 2 or 3 clusters or banks
 def get2or3():
     if random.random() > 0.5:
@@ -75,6 +80,7 @@ def get2or3():
 # extract the location from the merchant description
 def extract_location(index):
     segs = jieba.cut(merchants[index])
+    segs = reversed(list(segs))    # reverse the generator
     # sql = "select name, parent_id, level from locations where locations.name = %s"
     for seg in segs:
         try:
@@ -92,6 +98,8 @@ def extract_location(index):
                 return result_province[0] + r[0]
             elif r[2] == 1:
                 return r[0]
+            else:
+                continue
         except:
             print "Fetch %d error" % indices[index]
     return None
@@ -99,7 +107,7 @@ def extract_location(index):
 
 # extract the merchant from the merchant description
 def extract_merchant(index):
-    return "都市悠客酒店"
+    return summaries[index]
 
 sql = "insert into mock_transaction(user_id, bank_name, merchant, location, amount, transaction_time)" \
       "values(%s,%s,%s,%s,%s,%s)"
@@ -112,7 +120,7 @@ for i in xrange(cnt_banks):
         cluster_index = int(random.random()*cluster_cnt)
         for k in xrange(int(random.random()*100)):
             try:
-                _time = datetime.datetime.now() - datetime.timedelta(days=int(random.random()*100), hours=int(random.random()*24), minutes=int(60*random.random()))
+                _time = datetime.datetime.now() - datetime.timedelta(days=int(random.random()*365), hours=int(random.random()*24), minutes=int(60*random.random()))
                 merchant_index = clusters[cluster_index][int(random.random()*len(clusters[cluster_index]))]
                 # des = merchants[merchant_index]
                 m = extract_merchant(merchant_index)
@@ -122,4 +130,5 @@ for i in xrange(cnt_banks):
             except:
                 print "error detected during inserting data %d" % indices[merchant_index]
                 db.rollback()
+
 db.close()

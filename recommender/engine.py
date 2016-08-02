@@ -50,10 +50,10 @@ import MySQLdb
 #         ]
 
 # fetch data from database
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")  # local database
-# db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")  # db supported by Jiezhe
+# db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")  # local database
+db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")  # db supported by Jiezhe
 cursor = db.cursor()
-sql = "SELECT id, bank_name, summary, description FROM discount" # limit 0, 2000"
+sql = "SELECT discount_id, bank_name, summary, description FROM discount" # limit 0, 2000"
 discounts = []
 indices = []
 try:
@@ -95,43 +95,72 @@ cosine_similarities = linear_kernel(discounts_tfidf, discounts_tfidf)
 #     for index in similar_indices:
 #         print("\t\t similarity: %f %s" % (cosine_similarities[id,index],discounts[index]))
 
+
 # recommend
-# recommend count for each user
-RECOMMEND_CNT = 100
-sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
-users = []
-preference = []
-try:
-    cursor.execute(sql)
-    results = cursor.fetchall()
-    preference = [(result[0],result[1]) for result in results]
-    users = [result[0] for result in results]
-    users = list(set(users))     # remove the duplicate one
-except:
-    print "Error, unable to fetch data"
+# recommend based on the user behavior
+def content_based_recommend():
+    RECOMMEND_CNT = 100
+    sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
+    users = []
+    preference = []
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        preference = [(result[0],result[1]) for result in results]
+        users = [result[0] for result in results]
+        users = list(set(users))     # remove the duplicate one
+    except:
+        print "Error, unable to fetch data"
 
-sql = "insert into recommend(user_id, discount_id) values(%s,%s)"
-for user in users:
-    print "%d is interested in: " % user
-    vector = [0 for ele in cosine_similarities[0]]
-    for tu in preference:
-        if tu[0] == user:
-            print "\t", discounts[indices.index(tu[1])]
-            for i in xrange(len(vector)):
-                vector[i] += cosine_similarities[indices.index(tu[1])][i]
-    vector = np.array(vector)
-    item_indices = vector.argsort()[-RECOMMEND_CNT-1:-1]
-    print "so, we recommend to him/her: "
-    print item_indices
+    sql = "insert into recommend(user_id, discount_id) values(%s,%s)"
+    for user in users:
+        print "%d is interested in: " % user
+        vector = [0 for ele in cosine_similarities[0]]
+        for tu in preference:
+            if tu[0] == user:
+                print tu[1], indices.index(tu[1])
+                print "\t", discounts[indices.index(tu[1])]
+                for i in xrange(len(vector)):
+                    vector[i] += cosine_similarities[indices.index(tu[1])][i]
+        vector = np.array(vector)
+        item_indices = vector.argsort()[-RECOMMEND_CNT-1:-1]
+        print "so, we recommend to him/her: "
+        print item_indices
 
-    for item in xrange(RECOMMEND_CNT):
-        item = item_indices[RECOMMEND_CNT - 1 - item]
+        for item in xrange(RECOMMEND_CNT):
+            item = item_indices[RECOMMEND_CNT - 1 - item]
+            try:
+                cursor.execute(sql, (user, indices[item]))
+                db.commit()
+            except:
+                print "Insert error"
+                db.rollback()
+            print "\t%f " % (vector[item]), discounts[item]
+
+
+# recommend based on the transaction data
+def transaction_based_recommend():
+    print "recommend based on transaction data"
+    sql = "select discount.discount_id, mock_transaction.user_id, mock_transaction.merchant, " \
+          "discount.description from discount, mock_transaction " \
+          "where mock_transaction.merchant = discount.summary and " \
+          "discount.bank_name = mock_transaction.bank_name"
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        recos = [result[0] for result in results]
+        users = [result[1] for result in results]
+        users = list(set(users))        # remove the duplicate ones
+    except:
+        print "fetch data error"
+    sql = "insert into recommend(user_id, discount_id) values(%s,%s)"
+    for reco in recos:
         try:
-            cursor.execute(sql, (user, indices[item]))
+            cursor.execute(sql, (users[0], reco))
             db.commit()
         except:
-            print "Insert error"
-            db.rollback()
-        print "\t%f " % (vector[item]), discounts[item]
+            print "insert error"
 
+# content_based_recommend()
+transaction_based_recommend()
 db.close()
