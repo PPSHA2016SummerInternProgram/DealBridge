@@ -26,5 +26,10 @@ public class RecommendController {
 			@RequestParam(value = "limitNumber", required = false) Integer limitNumber) {
 		return recommendService.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
+	
+	@RequestMapping(path = "/recommend/{userId}/{type}", method=RequestMethod.GET)
+	public String showRecommend(@PathVariable("userId") String userId, @PathVariable("type") String type) {
+		return "recommend";
+	}
 
 }
