@@ -9,13 +9,11 @@
 		<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 		
 		<style>
-			#navbar{background: darkgray;}
-			#navbar-header{text-align: center;margin-top: 10px;}
-			#navbar-a{float: right;margin-top: -30px;margin-right: 20px;}
+			#navbar{background:#F0F0F0; padding:15px}
 			#search-icon{position: absolute;top: 10px;left: 10px;}
 			#search-input{padding-left: 30px; opacity:0.5}
-			#hot-keyword-div{margin: 20px;text-align: center;}
-			.hot-keyword{border:0.5px solid;}
+			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
+			.hot-keyword{border:1px solid #F0F0F0;}
 		</style>
 		
 
@@ -27,17 +25,7 @@
 
 
 	<div>
-		<nav id="navbar" class="navbar navbar-default" style="background:#F0F0F0">
-		  <div class="container-fluid">
-		  <div style="padding-top:6px">
-			<h4 id="navbar-header">搜 索</h4>
-			<a id="navbar-a">取消</a>
-			</div>
-		  </div>
-		</nav>
-		
-		
-		<div>
+		<nav id="navbar" class="navbar navbar-default" style="">
 				<div class="input-group">
 				  <span id="search-icon" class="glyphicon glyphicon-search""></span>
 				  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
@@ -45,12 +33,12 @@
 					<button id="search-button" class="btn btn-default" type="button">搜索</button>
 				  </span>
 				</div><!-- /input-group -->
-		</div>
+		</nav>
 		
 		<div id="hot-keyword-div">
 			<div class="row">
 				<#list hotKeywords as hotKeyword>
-					<div class="col-xs-4 col-sm-4 hot-keyword" style="border:1px solid #F0F0F0;"><p>${hotKeyword}</p></div>
+					<div class="col-xs-4 col-sm-4 hot-keyword"><p keyword>${hotKeyword}</p></div>
 				</#list>
 			</div>
 		</div>
@@ -59,7 +47,7 @@
 			<p>搜索记录</p>
 			<ul id="search-history-list" class="list-group">
 				<#list searchHistories as searchHistory>
-			   		<li class="list-group-item">${searchHistory}</li>
+			   		<li class="list-group-item" history>${searchHistory}</li>
 	 			</#list>
 			</ul>
 			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
@@ -95,8 +83,25 @@
 			}
 			
 			$("#search-button").click(function(){
+				location.href = "/search_result?query=" + $("#search-input").val();
 				insertSearchHistory(3, $("#search-input").val());
-				console.log($("#search-input").val());
+			});
+			
+			$("#search-input").keyup(function () {  
+                if (event.which == 13){  
+                    insertSearchHistory(3, $("#search-input").val());
+                    location.href = "/search_result?query=" + $("#search-input").val();  
+                }  
+            });   
+			
+			$("#hot-keyword-div").on('click', $("[keyword]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+			$("#search-history-list").on('click', $("[history]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
 			});
 			
 		</script>

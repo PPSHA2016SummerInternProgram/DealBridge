@@ -11,9 +11,18 @@
 	 	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 		
 		<style>
-			#header-text{background-color:rgb(220,220,220);}
-			p.summary{font-family:黑体;font-size:15px;color:#000000;}
-			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
+		
+			#header-text{background-color:rgb(248,248,248);}
+			p.summary{padding-left:0px;margin-top:-20px;font-family:Microsoft YaHei;font-size:16px;color:#000000;}
+			p.description{padding-left:0px;padding-right:20px;margin-top:0px;font-family:Microsoft YaHei;font-size:12px;color:#9A9090;}
+			.imgset{
+			  border: none;
+			  width:90%;
+			  height:130px;
+			}
+			#navbar{background:#F0F0F0; padding:15px}
+			#search-icon{position: absolute;top: 10px; left: 80px;}
+			#search-input{padding-left: 30px; opacity:0.5; width: 250px; left: 70px;}
 		</style>
 		
 		
@@ -40,7 +49,7 @@
 						console.log(result[i]);
 						$('#result-content').append('<tr><td width="40%"><img src="' + 
 							result[i].img + 
-							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
+							'" class="img-thumbnail top_pic imgset" ></td><td width="60%">' + 
 							'<p class="summary">' + 
 							result[i].summary +
 							'</p>' +
@@ -58,18 +67,32 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
+			
+			$(document).ready(function(){
+				$('#search-input').click(function(){
+					location.href = "/search";
+				});
+			});
 		</script>
 		
 	</head>
 	
 	<body>
+		<nav id="navbar" class="navbar navbar-default" style="">
+			<div style="height:auto;float:left;">
+			  <a href="/home/3"><p style="margin-top:7px; margin-left: 10px;">首页</p></a>
+			</div>
 		
+			<div class="input-group">
+				<span id="search-icon" class="glyphicon glyphicon-search""></span>
+				<input id="search-input" type="text" class="form-control" placeholder="Search for...">
+			</div><!-- /input-group -->
+		</nav>
+    	
 		<div id="header-text" class="panel-heading">
-			<h3 class="panel-title">
 			<font color="#191919" size="3" face="黑体">
 				搜索结果
 			</font>
-			</h3>
 		</div>
 		
 		<table id="result-content">
