@@ -39,12 +39,12 @@
 				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<tr><td width="40%"><img src="' + 
+						$('#recommend-content').append('<tr onclick=location.href="/discount/' + result[i].discountId + '"><td width="40%"><img src="' + 
 							result[i].img + 
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
 							'<p class="summary">' + 
 							result[i].summary +
-							'</p>' +
+							'</p>' + 
 							'<p class="description">'+result[i].description + '</p>'+
 							'</td></tr>');
 					}

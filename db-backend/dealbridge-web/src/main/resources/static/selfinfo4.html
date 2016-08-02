@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>User Info Page</title>
+      <title>个人信息页面</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- 引入 Bootstrap -->
-      <link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="/font-awesome-4.6.3/css/font-awesome.min.css">
- 	  <script src="/jquery-2.0.0/jquery.min.js"></script>
- 	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+      <link href="./bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="./font-awesome-4.6.3/css/font-awesome.min.css">
+ 	  <script src="./jquery-2.0.0/jquery.min.js"></script>
+ 	  <script src="./bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  
  	<style>
  	
@@ -66,6 +66,7 @@
  		margin:auto;
  		height:80px;
  		position: relative;
+ 		margin:20px auto 0px;
  	
  	}
 
@@ -102,11 +103,13 @@
  
  	
  	<div class="personal" style="color:#cccccc;">
-	<tr>
+   <tr>
+        <!--   <td ><i class="fa fa-user" aria-hidden="true"style="color:#cccccc"></i></td>-->
          <td style="font-family:Microsoft YaHei;padding-top:10px; ">姚莹</td>
       </tr>
       <br>
       <tr >
+        <!--  <td><i class="fa fa-envelope" aria-hidden="true"style="color:#cccccc"></i></td>-->
          <td style="font-size:10px;font-family:Microsoft YaHei;padding-top:10px;">sa515064@mail.ustc.edu.cn</td>
       </tr>
  	</div> 	
@@ -119,16 +122,22 @@
  	 <div class="mycard"style="text-align:left; padding-left:25px;color:rgb(54,53,67);font-size:13px;">我的银行卡</div>
  	<div class="xian"></div>
  	
-
-    
-    <br>
- 	<div class="bank"><img src="/img/招商银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px">招商银行</p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px">信用卡</p>
+ 	
+ 	
+ 	<div class='card-list'>
+ 	<div class='bank-template'  style="display:none;"><div class="bank "><img src="./img/上海银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
+    <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px" class="cardNumber"></p></div>
+	</div>
+ 	<div class="bank" ><img src="./img/招商银行.png" class="img" ><p style="padding-top:5px;position:absolute;left:50px">招商银行</p><span style="position:absolute;padding-top:5px;left:110px;">信用卡</span>
     <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px">**** **** **** 6975</p></div>
- <br>
- <div class="bank"><img src="/img/招商银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px">招商银行</p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px">信用卡</p>
- <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px">**** **** **** 6975</p></div>
-<br>
+
+<div class="bank" ><img src="./img/建设银行.png" class="img" ><p style="padding-top:5px;position:absolute;left:50px">建设银行</p><span style="position:absolute;padding-top:5px;left:110px;">信用卡</span>
+    <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px">**** **** **** 7859</p></div>
+</div>
+
+
  <div class="bank"><i style="position:absolute;left:15px;top:25px;color:#555"class="fa fa-credit-card fa-2x" aria-hidden="true"></i><p style="padding-top:30px;position:absolute;left:60px">
+
  <span  class="panel-group" id="accordion2">
  <a id="test2" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2" style="text-decoration:none;" >添加银行卡</a></span></p></div>
     <div id="collapseOne2" class="panel-collapse collapse ">
@@ -136,7 +145,7 @@
         <form role="form">
  	 		<div class="form-group" style="position:relative;">
      		 <label for="name">添加银行</label>
-  	  		 <select class="form-control" style="width:80%;">
+  	  		 <select class="form-control" id="select_id"style="width:80%;">
         	 <option>上海银行</option>
        		 <option>中信银行</option>
         	 <option>中国银行</option>
@@ -176,7 +185,7 @@
   <tbody>
     <tr width="100%" height=50px; >
      
-      <td onclick=location.href="/favorite/${userId}"><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei;text-align:center">我的收藏</p></td>
+      <td><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei;text-align:center">我的收藏</p></td>
       <td><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei">我的浏览</p></td>
     </tr>
  
@@ -189,10 +198,17 @@
  <script>
  $(document).ready(function(){
 	 $("#queren2").click(function(){
-		 $('#test2').click()
+		
 // 		 console.log('ok')
 // 		 $("#collapseOne").addClass("collapse");
 // 		 $("#collapseOne").removeClass("collapse in");
+		//$("#select_id").change(function(){
+			var checkText=$("#select_id").find("option:selected").text();
+		var element = $($('.bank-template').html());
+		element.find('.bankName').html(checkText);
+		$('.card-list').append(element);
+		//}
+			 $('#test2').click();
 	 });
  });
  
