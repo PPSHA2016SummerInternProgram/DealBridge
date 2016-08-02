@@ -72,6 +72,12 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
+			
+			$(document).ready(function(){
+				$('#search-input').click(function(){
+					location.href = "/search";
+				});
+			});
 		</script>
 		
 	</head>
@@ -95,7 +101,7 @@
 					">
 				</span>
 				<font face="黑体">
-					<input type="text" placeholder="输入银行、城市" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
 				<a href="/userInfo/${userId}" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
