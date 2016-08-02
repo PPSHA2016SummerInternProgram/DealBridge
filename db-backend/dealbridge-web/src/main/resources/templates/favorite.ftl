@@ -29,10 +29,10 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				var str = '<tr favorie-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
+ 	  				var str = '<tr favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td><a href="/discount/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td onclick=location.href="/discount/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' 
  	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
  	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
@@ -55,20 +55,22 @@
  	  </script>
  	  
  	  <script>
- 	    function myFunction() {
- 	    	console.log("aaaa");
- 	    }
- 	   </script>
- 	  
- 	  <script>
  	  	$(document).ready(function(){
  	  		$('#loading-panel').show();
  	  		appendFavorite(${userId}, 0, 6);
  	  	});
  	  </script>
  	  
+ 	  <script>
+  			function backFunction() {
+  				window.history.back();
+  			}
+  	  </script>
+ 	  
  	 
       <style>
+		.divcss5-x5{ padding-bottom:5px; border-bottom:1px solid red} 
+		.divcss5-x10{ padding-bottom:10px; border-bottom:1px solid #000} 
 		.dropbtn {
 		    background-color: rgb(248,248,248);
 		    color: white;
@@ -118,20 +120,23 @@
    <div class="navbar-header" >
    <div class="dropdown" style="float:right;">
   
-  		<button class="dropbtn" style="color:#333"><i class="fa fa-bars" aria-hidden="true"></i></button>
+  		<button class="dropbtn" style="color:#333">
+  		<i class="fa fa-bars" aria-hidden="true">
+  		</i></button>
         <div class="dropdown-content" >
-         <a href="/home">首页</a>
+         <a href="/home/${userId}">首页</a>
          <a href="#">帮助</a>
-         <a href="#">我要反馈</a>
+         <a href="#">我要反馈</a> 
      
       </div>
 	 
+   </div >
+      <a class="navbar-brand" id="edit" style="float:right;border:1px;">编辑</a>
+  	  <a class="navbar-brand" style="float:right;right=100px;border:1px;">收藏夹</a>
+  <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
+
    </div>
-  <a class="navbar-brand" id="edit" href="#" style="float:right;border:1px;">编辑</a>
-  
-   <a class="navbar-brand" href="#">收藏夹</a>
-   </div>
- 	<div style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
+ 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
       </div>
 	 <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
       </div>
@@ -150,10 +155,9 @@
 	
 </body>
  <script>
- 		$('#edit').on('click', deleteFunction)
+ 		$('#edit').on('click', deleteFunction);
 		function deleteFunction()
 		{
-			console.log('kkkkk');
 			var text = $(this).text();
 			if(text==='编辑')
 			{
@@ -174,7 +178,32 @@
 		
 				$('#table2').css('margin-left', "-30px");
 				
-				}
+				var items = $('[data-dis]');
+				var favIds=[];
+				for (var i = 0; i<items.length; i++)
+					{
+					var item = items[i];
+					if($(item).attr('data-dis')==='show')
+						{
+						$(item).closest('tr').hide();
+						favIds.push($(item).closest('tr').attr('favorite-id'));
+						console.log('favorite-id');
+						}
+					
+					}
+				$.ajax({
+					type: "POST",
+					
+					url:"/api/favorite",
+					data:{favIds: favIds},
+					traditional: true,
+					error: function() {
+						console.log("delete favorite discount error");
+					},
+				});
+				
+				updateFavoriteNum();
+			}
 			
 		}
  		
@@ -194,5 +223,17 @@
 				$(this).addClass("fa-check-circle");
 			}
 		}
-		</script>
+		
+		function updateFavoriteNum() {
+			console.log("update favorite num");
+			$.ajax({
+				type: "GET",
+				url: "/api/favorite/${userId}/count",
+				success: function(result) {
+					$("#favNum").html("全部收藏(" + result + ")");
+				}
+			});
+		
+		}
+	</script>
 </html>

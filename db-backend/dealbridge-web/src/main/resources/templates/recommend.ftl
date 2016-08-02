@@ -39,12 +39,12 @@
 				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<tr><td width="40%"><img src="' + 
+						$('#recommend-content').append('<tr onclick=location.href="/discount/' + result[i].discountId + '"><td width="40%"><img src="' + 
 							result[i].img + 
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
 							'<p class="summary">' + 
 							result[i].summary +
-							'</p>' +
+							'</p>' + 
 							'<p class="description">'+result[i].description + '</p>'+
 							'</td></tr>');
 					}
@@ -60,6 +60,12 @@
 				appendDiscount(0, 5);
 			});
 		</script>
+		
+		<script>
+  			function backFunction() {
+  				window.history.back();
+  			}
+  	  </script>
 	</head>
 	
 	<body style="padding-top: 50px;">
@@ -69,7 +75,8 @@
 				<div class="container" style="padding-top:15px;height:30px;">
 		        
 					<div style="height:auto;float:left;">
-					  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">上海</p></a>
+					 
+					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 					</div>
 					
 					<div style="height:auto;float:right;position: relative;">
