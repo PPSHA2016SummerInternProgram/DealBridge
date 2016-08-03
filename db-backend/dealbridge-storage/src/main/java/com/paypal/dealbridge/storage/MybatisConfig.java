@@ -28,6 +28,8 @@ public class MybatisConfig {
         props.put("url", env.getProperty("jdbc.url"));
         props.put("username", env.getProperty("jdbc.username"));
         props.put("password", env.getProperty("jdbc.password"));
+        props.put("testWhileIdle", "true");
+        props.put("timeBetweenEvictionRunsMillis", "11000");
         return DruidDataSourceFactory.createDataSource(props);
     }
     
