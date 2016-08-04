@@ -30,7 +30,7 @@ public interface RecommendMapper {
 	class RecommendSqlBuilder {	
 		public String buildGetDiscountByUserId(@Param("userId") int userId, @Param("startIndex") Integer startIndex,
 				@Param("limitNumber") Integer limitNumber) {
-			String query = "SELECT discount.* FROM discount JOIN recommend ON discount.discount_id=recommend.discount_id WHERE recommend.user_id=#{userId}";
+			String query = "SELECT discount.* FROM discount JOIN recommend ON discount.discount_id=recommend.discount_id WHERE recommend.user_id="+ userId;
 			if (startIndex == null && limitNumber != null) {
 				query += " LIMIT " + limitNumber;
 			} else if (startIndex != null && limitNumber != null) {
