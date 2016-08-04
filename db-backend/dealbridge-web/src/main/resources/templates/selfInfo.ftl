@@ -101,16 +101,16 @@
   </i><span style="text-shadow:1px 1px 1px blue;position:absolute;left:173px;">个人信息</span></div>
  	<div class="xian"></div>
  
- 	<div style="padding-top:30px;;text-align:center;"><span> <img src="/img/1.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span></div>
+ 	<div style="padding-top:30px;;text-align:center;"><span> <img src="/img/user_pic.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span></div>
  
  	
  	<div class="personal" style="color:#cccccc;">
    <tr>
-         <td style="font-family:Microsoft YaHei;padding-top:10px; ">姚莹</td>
+         <td style="font-family:Microsoft YaHei;padding-top:10px; ">${ufi.userName}</td>
       </tr>
       <br>
       <tr >
-         <td style="font-size:10px;font-family:Microsoft YaHei;padding-top:10px;">sa515064@mail.ustc.edu.cn</td>
+         <td style="font-size:10px;font-family:Microsoft YaHei;padding-top:10px;">${ufi.email}</td>
       </tr>
  	</div> 	
 <br>
@@ -125,15 +125,16 @@
  	
  	
  	<div class='card-list'>
- 	<div class='bank-template'  style="display:none;"><div class="bank "><img src="/img/上海银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
+ 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
     <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px" class="cardNumber"></p></div>
 	</div>
- 	<div class="bank" ><img src="/img/招商银行.png" class="img" ><p style="padding-top:5px;position:absolute;left:50px">招商银行</p><span style="position:absolute;padding-top:5px;left:110px;">信用卡</span>
-    <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px">**** **** **** 6975</p></div>
-
-<div class="bank" ><img src="/img/建设银行.png" class="img" ><p style="padding-top:5px;position:absolute;left:50px">建设银行</p><span style="position:absolute;padding-top:5px;left:110px;">信用卡</span>
-    <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px">**** **** **** 7859</p></div>
+	<#list ufi.bankList as bankItem>
+	 	<div class="bank" ><img src="${bankItem.bankImg}" class="img" >
+	 	<p style="padding-top:5px;position:absolute;left:50px">${bankItem.bankOfficial} 信用卡</p>
+	    </div>
+	</#list>
 </div>
+
 
 
  <div class="bank"><i style="position:absolute;left:15px;top:25px;color:#555"class="fa fa-credit-card fa-2x" aria-hidden="true"></i><p style="padding-top:30px;position:absolute;left:60px">
