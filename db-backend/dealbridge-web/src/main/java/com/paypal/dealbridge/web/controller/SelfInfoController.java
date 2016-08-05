@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.domain.UserFullInfo;
@@ -26,7 +27,14 @@ public class SelfInfoController {
 	public UserFullInfo getInfo(@PathVariable("userId")int userId){
 		return userInfoService.getUserInfo(userId);
 	}
-
+	
+	@RequestMapping(path = "/api/userbankcard/{userId}", method = RequestMethod.PUT)
+	@ResponseBody
+	public void addBankCard(@PathVariable("userId")int userId,
+			@RequestParam("bankName") String addBankName){
+		userInfoService.addBankCard(userId, addBankName);	
+	}
+	
 	@RequestMapping(path = "/userInfo/{userId}", method = RequestMethod.GET)
 	public String userInfoPage(@PathVariable("userId")int userId, Model model){
 		UserFullInfo ufi = userInfoService.getUserInfo(userId);

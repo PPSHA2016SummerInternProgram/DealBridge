@@ -31,7 +31,7 @@ public interface FavoriteMapper {
 	class FavoriteSqlBuilder {
 		public String buildGetFavoriteByUserId(@Param("userId") int userId, @Param("startIndex") Integer startIndex, 
 				@Param("limitNum") Integer limitNum) {
-			String query = "SELECT favorite_id,user_id,discount.discount_id,bank_name,summary,description,begin_time,end_time,img FROM discount JOIN favorite ON discount.discount_id=favorite.discount_id WHERE favorite.user_id=#{userId}";
+			String query = "SELECT favorite_id,user_id,discount.discount_id,bank_name,summary,description,begin_time,end_time,img FROM discount JOIN favorite ON discount.discount_id=favorite.discount_id WHERE favorite.user_id=#{userId} ORDER BY favorite_id DESC";
 			if (startIndex == null && limitNum != null) {
 				query += " LIMIT " +limitNum;
 			} else if (startIndex != null && limitNum != null) {

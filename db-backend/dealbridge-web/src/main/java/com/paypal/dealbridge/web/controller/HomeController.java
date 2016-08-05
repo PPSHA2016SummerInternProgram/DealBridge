@@ -17,7 +17,7 @@ public class HomeController {
 	@Autowired
 	private DiscountService discountService;
 	
-	public static final int TOP_DISCOUNT_NUM = 3;
+	public static final int TOP_DISCOUNT_NUM = 6;
 	@RequestMapping(path="/home/{userId}", method=RequestMethod.GET)
 	public String showHomePage(@PathVariable("userId")int userId, Model model) {
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);

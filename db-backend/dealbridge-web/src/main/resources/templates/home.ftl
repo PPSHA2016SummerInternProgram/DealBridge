@@ -178,7 +178,7 @@
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
-	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
 	          </li>
 	      </#list>
 	   </ol>   
@@ -186,7 +186,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="http://localhost:9000/discount/${hot.discountId}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
@@ -199,6 +199,41 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
+	
+	
+	<!--Hot Discount-->
+	<div id="header-text" class="panel-heading">
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			附近推荐
+		</font>
+		</h3>
+	</div>
+	
+	<div id="myCarousel" class="carousel slide">
+	   <!-- 轮播（Carousel）指标 -->
+	   <ol class="carousel-indicators">
+	      <#list hots as hot>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          </li>
+	      </#list>
+	   </ol>   
+	   <!-- 轮播（Carousel）项目 -->
+	   <div class="carousel-inner">
+	      <#list hots as hot>
+	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<div class="carousel-bg"></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
+		  	 </div>
+	      </#list>
+	   </div>
+	   <!-- 轮播（Carousel）导航 -->
+	   <a class="carousel-control left" href="#myCarousel" 
+		  data-slide="prev">&lsaquo;</a>
+	   <a class="carousel-control right" href="#myCarousel" 
+		  data-slide="next">&rsaquo;</a>
+	</div> 
 	
 	
 	<!--Recommend-->
