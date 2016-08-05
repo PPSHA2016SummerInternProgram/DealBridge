@@ -35,15 +35,20 @@ class ComplexEncoder(json.JSONEncoder):
 
 def load_data():
     print "loading data..."
-    global discounts, indices, discounts_detail
+    global indices, discounts_detail, merchant_coordinates
     sql = "SELECT discount_id, bank_name, summary, description, " \
-          "begin_time, end_time, img, merchant_location FROM discount"  # limit 0, 2000"
+          "begin_time, end_time, img, merchant_location, latitude, longitude FROM discount"  # limit 0, 2000"
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
-        discounts = ["%s %s %s" % (result[1], result[2], result[3]) for result in results]
         discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7]) for result in results]
         indices = [result[0] for result in results]
+        for result in results:
+            if result[8] != "":
+                merchant_coordinates.append((result[8], result[9]))
+            else:
+                merchant_coordinates.append(-74.8597760000, 109.8062440000)  # Antarctica
+
     except:
         print "Error, unable to fetch data"
     print "data loading completed!"
@@ -73,24 +78,24 @@ def iriToUri(iri):
     )
 
 
-def address2coord():
-    global merchant_coordinates
-    for discount in discounts_detail:
-        address = discount[7]
-        id = discount[0]
-        url = 'http://api.map.baidu.com/geocoder/v2/?address=%s&output=xml&ak=%s' % (address, key)
-        doc = urlopen(iriToUri(url))
-        dom = parseString(doc.read())
-        status = dom.getElementsByTagName('status')[0].firstChild.data
-        print "id %d address %s" % (id, address)
-        if status == '0':  # valid request
-            lat = dom.getElementsByTagName('lat')[0].firstChild.data
-            lng = dom.getElementsByTagName('lng')[0].firstChild.data
-            print "\t valid %s %s" % (lat, lng)
-            merchant_coordinates.append((float(lat), float(lng)))
-        else:              # invalid request
-            merchant_coordinates.append((0, 0))
-            print "\t invalid "
+# def address2coord():
+#     global merchant_coordinates
+#     for discount in discounts_detail:
+#         address = discount[7]
+#         id = discount[0]
+#         url = 'http://api.map.baidu.com/geocoder/v2/?address=%s&output=xml&ak=%s' % (address, key)
+#         doc = urlopen(iriToUri(url))
+#         dom = parseString(doc.read())
+#         status = dom.getElementsByTagName('status')[0].firstChild.data
+#         print "id %d address %s" % (id, address)
+#         if status == '0':  # valid request
+#             lat = dom.getElementsByTagName('lat')[0].firstChild.data
+#             lng = dom.getElementsByTagName('lng')[0].firstChild.data
+#             print "\t valid %s %s" % (lat, lng)
+#             merchant_coordinates.append((float(lat), float(lng)))
+#         else:              # invalid request
+#             merchant_coordinates.append((0, 0))
+#             print "\t invalid "
 
 
 # localhost:5000/customized/user_id?start=?&end=?
@@ -141,9 +146,37 @@ def customized_recommend(user_id):
 def vicinity_recommend(user_id):
     start = int(request.args['start'])
     end = int(request.args['end'])
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
+    distance = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]  # compute the distance
+    distance = np.array(distance)
+    item_indices = distance.argsort()[start:end+1]
+    data = []
+    for index in item_indices:
+        data.append({
+            "discount_id": discounts_detail[index][0],
+            "bank_name": discounts_detail[index][1],
+            "summary": discounts_detail[index][2],
+            "description": discounts_detail[index][3],
+            "begin_time": discounts_detail[index][4],
+            "end_time": discounts_detail[index][5],
+            "img": discounts_detail[index][6],
+            "distance": distance[index]
+        })
+    data = json.dumps(data, cls=ComplexEncoder)
+    resp = Response(response=data,
+                    status=200,
+                    mimetype="application/json")
+    return resp
+
+
+@app.route("/hot/<int:user_id>")
+def hot_recommend(user_id):
+    start = int(request.args['start'])
+    end = int(request.args['end'])
 
 if __name__ == '__main__':
     load_data()
     # calculate_similarity()
-    address2coord()
+    # address2coord()
     app.run(host='0.0.0.0')
