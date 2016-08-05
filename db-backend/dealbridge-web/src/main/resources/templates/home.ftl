@@ -82,10 +82,10 @@
 		
 	</head>
 	
-	<body style="padding-top: 60px;">
+	<body>
 	
 	<!--Navgation Bar-->
-    <div class="navbar-fixed-top" style="height:50px;background-color:#181818;">
+    <div class="navbar" style="background-color:#181818;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
