@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.service.RecommendService;
 import com.paypal.dealbridge.storage.domain.Discount;
+
 
 @Controller
 public class RecommendController {
@@ -23,12 +25,16 @@ public class RecommendController {
 	@ResponseBody
 	public List<Discount> getDiscountByUserId(@PathVariable("userId") int userId,
 			@RequestParam(value = "startIndex", required = false) Integer startIndex,
-			@RequestParam(value = "limitNumber", required = false) Integer limitNumber) {
+			@RequestParam(value = "limitNumber", required = false) Integer limitNumber,
+			Model model) {
+		model.addAttribute("userId", userId);
 		return recommendService.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
 	
 	@RequestMapping(path = "/recommend/{userId}/{type}", method=RequestMethod.GET)
-	public String showRecommend(@PathVariable("userId") String userId, @PathVariable("type") String type) {
+	public String showRecommend(@PathVariable("userId") String userId, 
+			@PathVariable("type") String type, Model model) {
+		model.addAttribute("userId", userId);
 		return "recommend";
 	}
 

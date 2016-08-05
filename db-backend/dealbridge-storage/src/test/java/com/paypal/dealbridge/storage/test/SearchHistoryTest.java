@@ -25,18 +25,6 @@ public class SearchHistoryTest {
 	
 	@Test
 	public void test() {
-		SearchHistory history = new SearchHistory();
-		history.setUserId(2);
-		history.setKeyword("测试");
-		history.setSearchTime(new Date());
-		
-		searchHistoryMapper.insert(history);
-		List<SearchHistory> records = searchHistoryMapper.selectUserHistory(2);
-		assertEquals(1, records.size());
-		
-		searchHistoryMapper.setInvisibleById(history.getSearchHistoryId());
-		records = searchHistoryMapper.selectUserHistory(2);
-		assertEquals(0, records.size());
 	}
 	
 
