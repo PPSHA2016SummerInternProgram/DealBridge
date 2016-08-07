@@ -90,7 +90,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">上海</p></a>
+			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -199,41 +199,7 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
-	
-	
-	<!--Hot Discount-->
-	<div id="header-text" class="panel-heading">
-		<h3 class="panel-title">
-		<font color="#191919" size="3" face="黑体">
-			附近推荐
-		</font>
-		</h3>
-	</div>
-	
-	<div id="myCarousel" class="carousel slide">
-	   <!-- 轮播（Carousel）指标 -->
-	   <ol class="carousel-indicators">
-	      <#list hots as hot>
-	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
-	          </li>
-	      </#list>
-	   </ol>   
-	   <!-- 轮播（Carousel）项目 -->
-	   <div class="carousel-inner">
-	      <#list hots as hot>
-	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
-			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
-		  	 </div>
-	      </#list>
-	   </div>
-	   <!-- 轮播（Carousel）导航 -->
-	   <a class="carousel-control left" href="#myCarousel" 
-		  data-slide="prev">&lsaquo;</a>
-	   <a class="carousel-control right" href="#myCarousel" 
-		  data-slide="next">&rsaquo;</a>
-	</div> 
+
 	
 	
 	<!--Recommend-->

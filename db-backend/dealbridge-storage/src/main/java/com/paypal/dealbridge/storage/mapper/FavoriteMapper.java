@@ -3,6 +3,7 @@ package com.paypal.dealbridge.storage.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -46,4 +47,7 @@ public interface FavoriteMapper {
 	
 	@Delete("DELETE FROM favorite WHERE favorite_id=#{favoriteId}")
 	int deleteFavorite(int favoriteId);
+	
+	@Insert("INSERT INTO favorite (user_id, discount_id) values (#{userId}, #{discountId})")
+	int addFavorite(@Param("userId")int userId, @Param("discountId")int discountId);
 }

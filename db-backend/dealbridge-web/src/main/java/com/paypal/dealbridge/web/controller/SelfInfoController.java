@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.domain.UserFullInfo;
+import com.paypal.dealbridge.service.BankListService;
 import com.paypal.dealbridge.service.UserInfoService;
 import com.paypal.dealbridge.service.UserInfoServiceNew;
+import com.paypal.dealbridge.storage.domain.Bank;
 import com.paypal.dealbridge.storage.domain.UserInfo;
 
 @Controller
@@ -21,6 +23,8 @@ public class SelfInfoController {
 	
 	@Autowired
 	private UserInfoServiceNew userInfoService;
+	@Autowired
+	private BankListService bankService;
 	
 	@RequestMapping(path = "/api/userInfo/{userId}", method = RequestMethod.GET)
 	@ResponseBody
@@ -38,8 +42,11 @@ public class SelfInfoController {
 	@RequestMapping(path = "/userInfo/{userId}", method = RequestMethod.GET)
 	public String userInfoPage(@PathVariable("userId")int userId, Model model){
 		UserFullInfo ufi = userInfoService.getUserInfo(userId);
+		List<Bank> bankList = bankService.getBankList();
+		
 		model.addAttribute("ufi", ufi);
 		model.addAttribute("userId", userId);
+		model.addAttribute("bankList", bankList);
 		return "selfInfo";
 	}
 }
