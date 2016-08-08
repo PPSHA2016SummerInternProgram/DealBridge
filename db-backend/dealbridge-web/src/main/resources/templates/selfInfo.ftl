@@ -185,7 +185,16 @@
 		var element = $($('.bank-template').html());
 		element.find('.bankName').html(checkText);
 		$('.card-list').append(element);
-
+		//给后台发请求添加银行卡
+		$.ajax({
+ 			type: "POST",
+ 			url: "/api/userbankcard/${userId}",
+ 			data: {"bankName": checkText},
+ 			error: function() {
+				console.log("add bank name error");
+			},
+ 		});
+		
 			 $('#test2').click();
 	 });
  });

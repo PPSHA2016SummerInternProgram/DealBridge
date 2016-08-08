@@ -21,37 +21,25 @@
  		});
  	 </script>
  	 
- 	<script>
+	<script>
         $(document).ready(function(){
-            $(".share-btn").click(function(){
+            $("。share-box").click(function(){
+            	console.log("进入分享选择框");
                 var discountId = ${discount.discountId?c};
                 $.post("/api/share", {user_id:0, discount_id:discountId}, function(data, status, xhr){
                         if (status == "success") {
                                 alert("successfully shared");
+                                console.log("成功分享");
                         } else {
                                 alert("failed to share");
+                                 console.log("分享失败");
                         }
                 })
             });
         });
    </script>
    
-   	<script>
-        $(document).ready(function(){
-       		$('[data-dis]').click(function(){
-       			var discountId=${discount.discountId?c};
-       			$.post("api/favorite",{user_id:0,discount_id:discountId},function(data,status,xhr){
-       				if(status=="success"){
-       					alert("successfully favorite");
-       				}else
-       				{
-       					alert("fail to favorite");
-       					
-       				}
-       			})
-       		});
-        });
-   </script>
+   	
 
  	 <script>
  		 function backFunction()
@@ -246,12 +234,43 @@ function chooseFunction()
 		$(this).attr('data-dis', 'hide')
 		$(this).addClass("fa-heart-o");
 		$(this).removeClass("fa-heart");
+		var discountId=${discount.discountId?c};
+				$.ajax({
+					type: "POST",
+					
+					url:"/api/favorite",
+					data:{userId:0,discountId:discountId},
+					traditional: true,
+					success:function(){
+						console.log("删除收藏成功");
+					},
+					
+					error: function() {
+						console.log("删除收藏失败");
+					},
+				});
 	}else{
 		$(this).attr('data-dis', 'show')
 		$(this).removeClass("fa-heart-o");
 		$(this).addClass("fa-heart");
 		$(this).addClass("heart-color");
 		var discountId=${discount.discountId?c};
+			
+	       		$.ajax({
+					type: "POST",
+					
+					url:"/api/addFavorite",
+					data:{userId:0,discountId:discountId},
+					traditional: true,
+					success:function(){
+						console.log("成功添加收藏");
+					},
+					
+					error: function() {
+						console.log("添加收藏失败");
+					},
+					
+				});
        		
 	}
 	

@@ -15,12 +15,13 @@ app = Flask(__name__)
 
 RECOMMEND_CNT = 100
 key = 'w6LI4tGSMUGsO7rIo1LkLm5n7qdG0Odo'
-db = MySQLdb.connect(host="10.22.96.25", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")  # db supported by Jiezhe
+db = MySQLdb.connect(host="10.24.96.170", user="dealbridge_user", passwd="dealbridge_pwd", db="deal_bridge", charset="utf8")  # db supported by Jiezhe
 cursor = db.cursor()
 discounts_detail = []
 indices = []
 cosine_similarities = None
 merchant_coordinates = []
+preferences = []
 
 
 class ComplexEncoder(json.JSONEncoder):
@@ -43,15 +44,31 @@ def load_data():
         results = cursor.fetchall()
         discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7]) for result in results]
         indices = [result[0] for result in results]
-        for result in results:
-            if result[8] != "":
-                merchant_coordinates.append((result[8], result[9]))
-            else:
-                merchant_coordinates.append(-74.8597760000, 109.8062440000)  # Antarctica
-
+        merchant_coordinates = [(result[8], result[9]) for result in results]
+        # for result in results:
+        #     print result[0]
+        #     if result[8] != "":
+        #         merchant_coordinates.append((result[8], result[9]))
+        #         print result[8], result[9]
+        #     else:
+        #         print 'add default gps'
+        #         merchant_coordinates.append((-74.8597760000, 109.8062440000))  # Antarctica
     except:
         print "Error, unable to fetch data"
     print "data loading completed!"
+
+
+def load_preferences():
+    global preferences
+    print 'loading preference data...'
+    sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        preferences = [(result[0], result[1]) for result in results]
+    except:
+        print "able to fetch user preferences"
+    print 'preference loading completed!'
 
 
 def calculate_similarity():
@@ -78,55 +95,27 @@ def iriToUri(iri):
     )
 
 
-# def address2coord():
-#     global merchant_coordinates
-#     for discount in discounts_detail:
-#         address = discount[7]
-#         id = discount[0]
-#         url = 'http://api.map.baidu.com/geocoder/v2/?address=%s&output=xml&ak=%s' % (address, key)
-#         doc = urlopen(iriToUri(url))
-#         dom = parseString(doc.read())
-#         status = dom.getElementsByTagName('status')[0].firstChild.data
-#         print "id %d address %s" % (id, address)
-#         if status == '0':  # valid request
-#             lat = dom.getElementsByTagName('lat')[0].firstChild.data
-#             lng = dom.getElementsByTagName('lng')[0].firstChild.data
-#             print "\t valid %s %s" % (lat, lng)
-#             merchant_coordinates.append((float(lat), float(lng)))
-#         else:              # invalid request
-#             merchant_coordinates.append((0, 0))
-#             print "\t invalid "
-
-
-# localhost:5000/customized/user_id?start=?&end=?
+# localhost:5000/customized/user_id?start=?&number=?
 @app.route('/customized/<int:user_id>')
 def customized_recommend(user_id):
+    global preferences, cosine_similarities
     offset_start = int(request.args['start'])
-    offset_end = int(request.args['end'])
-    sql = "select discount_id from favorite where user_id = %s"
-    preference = []
-    try:
-        cursor.execute(sql, user_id)
-        results = cursor.fetchall()
-        preference = [result[0] for result in results]
-    except:
-        print "Error, cannot fetch data for user %d" % user_id
-    if len(preference) == 0:
+    offset_end = int(request.args['number']) + offset_start
+    vector = np.zeros_like(cosine_similarities[0], dtype=float)
+    for (id, discount_id) in preferences:
+        if id == user_id:
+            vector += cosine_similarities[indices.index(discount_id)]
+    if vector.sum() == 0:
         return Response(
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
-    vector = [0 for ele in cosine_similarities[0]]
-    for pre in preference:
-        for i in xrange(len(vector)):
-            vector[i] += cosine_similarities[indices.index(pre)][i]
-    vector = np.array(vector)
-    item_indices = vector.argsort()[-offset_end - 1:-offset_start]
+    item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     print item_indices
     data = []
     for index in item_indices:
         data.append({
-            "discount_id": discounts_detail[index][0],
+            "id": discounts_detail[index][0],
             "bank_name": discounts_detail[index][1],
             "summary": discounts_detail[index][2],
             "description": discounts_detail[index][3],
@@ -141,20 +130,19 @@ def customized_recommend(user_id):
     return resp
 
 
-# http://api.map.baidu.com/geocoder?address=%E6%AD%A6%E6%B1%89&output=json&key=f247cdb592eb43ebac6ccd27f796e2d2
-@app.route("/vicinity/<int:user_id>")
-def vicinity_recommend(user_id):
+@app.route("/vicinity")
+def vicinity_recommend():
     start = int(request.args['start'])
-    end = int(request.args['end'])
+    end = int(request.args['number']) + start
     latitude = float(request.args['lat'])
     longitude = float(request.args['lng'])
     distance = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]  # compute the distance
     distance = np.array(distance)
-    item_indices = distance.argsort()[start:end+1]
+    item_indices = distance.argsort()[start:end]
     data = []
     for index in item_indices:
         data.append({
-            "discount_id": discounts_detail[index][0],
+            "id": discounts_detail[index][0],
             "bank_name": discounts_detail[index][1],
             "summary": discounts_detail[index][2],
             "description": discounts_detail[index][3],
@@ -177,6 +165,7 @@ def hot_recommend(user_id):
 
 if __name__ == '__main__':
     load_data()
-    # calculate_similarity()
+    load_preferences()
+    calculate_similarity()
     # address2coord()
-    app.run(host='0.0.0.0')
+    app.run(host='10.225.225.14')

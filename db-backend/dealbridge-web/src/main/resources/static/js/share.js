@@ -15,6 +15,8 @@ $(".share-btn").click(function(){
 	});
 });
 
+
+
 // "取消"按钮事件
 $(".share-cancel-btn").click(function(){
 	$(".share_box").animate({bottom: "-160px"}, 600, 'swing', function(){$(".share_box").hide();});
