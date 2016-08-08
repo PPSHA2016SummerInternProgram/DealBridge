@@ -46,7 +46,7 @@ public class FavoriteController {
 		int count = favoriteService.numOfFavorite(userId);
 		model.addAttribute("count", count);
 		model.addAttribute("userId", userId);
-		return "favorite3";
+		return "favorite";
 	}
 	
 }
