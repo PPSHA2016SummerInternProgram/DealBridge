@@ -27,10 +27,9 @@ public class RecommendController {
 	@RequestMapping(path = "/api/recommend/{userId}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getCustomizedDiscounts(@PathVariable("userId") int userId,
-			@RequestParam(value = "start", required = false) Integer start,
-			@RequestParam(value = "number", required = false) Integer number)
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
 			throws JSONException, RecommendQueryException, ParseException {
-
 		return recommendService.getCustomizedDiscounts(userId, start, number);
 	}
 	
@@ -39,9 +38,18 @@ public class RecommendController {
 	public List<BriefDiscount> getNearbyDiscounts(
 			@RequestParam(value = "latitude") double latitude,
 			@RequestParam(value = "longitude") double longitude,
-			@RequestParam(value = "start", required = false) Integer start,
-			@RequestParam(value = "number", required = false) Integer number) throws JSONException, RecommendQueryException, ParseException{
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number) throws JSONException, RecommendQueryException, ParseException{
 		return recommendService.getNearbyDiscounts(latitude, longitude, start, number);
+	}
+	
+	@RequestMapping(path = "/nearby", method=RequestMethod.GET)
+	public String showNearby(
+		@RequestParam(value = "lat") double latitude,
+		@RequestParam(value = "lng") double longitude, Model model) {
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
+		return "nearby";
 	}
 
 	@RequestMapping(path = "/recommend/{userId}/{type}", method = RequestMethod.GET)
