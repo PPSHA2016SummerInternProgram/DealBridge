@@ -26,7 +26,7 @@ public interface AccountBankMapper {
 	@Select("SELECT bank_official,bank_img FROM account JOIN bank ON bank.bank_name=account.bank_name WHERE user_id=#{userId}")
 	List<AccountBank> getBankByUserId (int userId);
 	
-	@Insert("INSERT INTO account (user_id, bank_name) VALUES (#{userId}, #{addBankName})")
-	int addUserBank (@Param("userId") int userId, @Param("addBankName")String addBankName);
+	@Insert("INSERT INTO account (user_id, bank_name) VALUES (#{userId}, #{bankName})")
+	int addUserBank (@Param("userId") int userId, @Param("bankName")String addBankName);
 	
 }

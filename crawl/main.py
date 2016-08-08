@@ -64,13 +64,13 @@ def get_short_description_page(url, page_queue):
         traceback.print_exc()
 
 
-def get_page_url(queue, total_num_of_page, page_queue):
+def get_page_url(queue, total_num_of_page, page_queue, url_addition_info):
     p_num = queue.get()
     while p_num < total_num_of_page:
         p_num += 1
         queue.put(p_num)
         print multiprocessing.current_process().name + 'processing: ' + str(p_num)
-        url = 'http://www.rong360.com/credit/f-youhui' + '-p' + str(p_num)
+        url = 'http://www.rong360.com/credit/f-youhui' + url_addition_info + '-p' + str(p_num)
         get_short_description_page(url, page_queue)
         p_num = queue.get()
     queue.put(total_num_of_page)
@@ -94,6 +94,42 @@ def get_page_element(page_queue, element_queue):
 
 def callback(x):
     print '{} end.'.format(multiprocessing.current_process().name)
+
+
+def get_classify():
+    classify = {"type1": "美食", "type2": "休闲娱乐",  "type4-sub_type1": "酒店",  "type5": "购物",  "type6": "办卡送礼",
+                "type7": "旅游",  "type9": "汽车",  "type10": "时尚丽人",  "type11": "生活服务",
+                "type4-sub_type2": "出行", "type4-sub_type3": "出行"}
+    for name in classify:
+        total_num_of_page = get_num_of_page('http://www.rong360.com/credit/f-youhui-' + name)
+        print classify[name] + ": " + str(total_num_of_page)
+        thread_num = 20  # num of process
+        section_size = 50
+        section = total_num_of_page / section_size
+        if total_num_of_page % section_size > 0:
+            section += 1
+
+        for k in range(section):
+            begin = k * section_size + 1
+            end = begin + section_size - 1
+            end = min(end, total_num_of_page)
+            print "start to get summary pages from " + str(begin) + " to " + str(end) + \
+                  ", each summary page contains 20 detail content pages."
+            manager = multiprocessing.Manager()
+            queue = manager.Queue()  # a queue storing index of url
+            queue.put(begin - 1)  # Initialization of url index
+
+            page_queue = manager.Queue()  # a queue storing end of urls
+
+            # start multiprocess to get urls
+            pool = Pool(thread_num)
+            for i in range(thread_num):
+                pool.apply_async(get_page_url, args=(queue, end, page_queue, '-' + name))
+            pool.close()
+            pool.join()
+            print 'num of total pages: ' + str(page_queue.qsize())
+
+            store_data.insert_column("classify", classify[name], page_queue)
 
 
 if __name__ == '__main__':
@@ -122,7 +158,7 @@ if __name__ == '__main__':
             # start multiprocess to get urls
             pool = Pool(thread_num)
             for i in range(thread_num):
-                pool.apply_async(get_page_url, args=(queue, end, page_queue))
+                pool.apply_async(get_page_url, args=(queue, end, page_queue, ''))
             pool.close()
             pool.join()
             print 'num of total pages: ' + str(page_queue.qsize())
@@ -152,6 +188,7 @@ if __name__ == '__main__':
                 store_data.store_discount(dicts)
 
             print 'pages: ' + str(begin) + ' - ' + str(end) + ' finished.'
+        get_classify()
     except:
         log.record_error_to_logfile(traceback.format_exc())
 

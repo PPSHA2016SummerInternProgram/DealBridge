@@ -26,10 +26,17 @@
         })
 		</script>
 		<style>
-			#header-text{background-color:rgb(220,220,220);}
+			#header-text{background-color:rgb(220,220,220);padding-top:10px;}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
+
+			.category{padding:0;margin:0;outline:0;background-color:#ffffff;}
+			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
+			a img{width:60%;}
+			a{color:#000000;}
+			a p{margin:0;}
+			
 				
 		</style>
 		
@@ -54,7 +61,7 @@
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
-							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
+							'" class="img-thumbnail top_pic" style="border:0px;"></td><td width="100%"style="padding:0;">' + 
 							'<a href="/discount/' + result[i].discountId + '">'+
 							'<p class="summary">' + result[i].summary + '</p>' +
 							'<p class="description">' + result[i].description + '</p>'+ 
@@ -101,6 +108,7 @@
 		
 	</head>
 	
+
 	<body>
 	
 	<div id='home-div'>
@@ -111,7 +119,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
+			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -133,56 +141,68 @@
 	
 
 
-	<div class="row text-center">
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/${userId}/food">
-		  	<i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
-		  </a>
-		  <p>美食</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/${userId}/food">
-		    <i class="fa fa-film fa-2x" aria-hidden="true"></i>
-		  </a>
-		  <p>电影</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/${userId}/food">
-		    <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
-	      </a>
-		  <p>酒店</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/${userId}/food">
-            <i class="fa fa-book fa-2x" aria-hidden="true"></i>
-          </a>
-		  <p>阅读</p>
-		</div>
 
-
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/${userId}/food">
-            <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
+	<div class="category">
+	
+		<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Meal.png"></img>
+		  	<p>美食</p>
 		  </a>
-		  <p>交通</p>
 		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/${userId}/food">
-            <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
-          </a>
-		  <p>健身</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/${userId}/food">
-            <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
-	      </a>
-		  <p>饮品</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/${userId}/food">
-            <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Car.png"></img>
+		  	<p>洗车</p>
 		  </a>
-		  <p>旅游</p>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Film.png"></img>
+		  	<p>电影</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Entertaiment.png"></img>
+		  	<p>娱乐</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/House.png"></img>
+		  	<p>住房</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Hotel.png"></img>
+		  	<p>酒店</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Beauty.png"></img>
+		  	<p>丽人</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Beach.png"></img>
+		  	<p>旅游</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Shop.png"></img>
+		  	<p>购物</p>
+		  </a>
+		</div>
+			<div class="type">
+		<a href="/recommend/${userId}/food">
+		  	<img src="/img/Other.png"></img>
+		  	<p>更多</p>
+		  </a>
 		</div>
 	</div>
 	
@@ -208,7 +228,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
