@@ -32,7 +32,7 @@
  	  				var str = '<tr favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td onclick=location.href="/discount/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td onclick=location.href="/discount/${userId}/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' 
  	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
  	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';

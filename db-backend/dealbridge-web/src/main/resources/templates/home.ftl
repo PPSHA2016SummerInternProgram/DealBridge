@@ -31,8 +31,9 @@
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
 			.category{padding:0;margin:0;outline:0;background-color:#ffffff;height:150px;}
+
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
-			a img{width:60%;}
+			a img{width:50%;}
 			a{color:#000000;}
 			a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);}
 			
@@ -98,7 +99,7 @@
 		<style>
 			#navbar{background:#F0F0F0; padding:15px}
 			#search-icon{position: absolute;top: 10px;left: 10px;}
-			#search-input{padding-left: 30px; opacity:0.5}
+			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
 			#search-input-div{float:left; width:320px}
@@ -118,7 +119,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
+			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -140,68 +141,80 @@
 	
 
 
+
 	<div class="category">
 	
 		<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Meal.png"></img>
+		  	<img src="/icon/Meal.png"></img>
 		  	<p>美食</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Car.png"></img>
+		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Film.png"></img>
+		  	<img src="/icon/Movie.png"></img>
 		  	<p>电影</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Entertaiment.png"></img>
+		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/House.png"></img>
+		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Hotel.png"></img>
+		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Beauty.png"></img>
+		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Beach.png"></img>
+		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Shop.png"></img>
+		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Other.png"></img>
-		  	<p>更多</p>
+		  	<img src="/icon/Near.png"></img>
+		  	<p>附近</p>
 		  </a>
 		</div>
+	</div>
+	
+	
+    <div id="header-text" class="panel-heading">
+		<a href='/nearby?lat=31.2&lng=120.1'>
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			附近优惠
+		</font>
+		</h3>
+		</a>
 	</div>
 	
 	<!--Hot Discount-->
@@ -226,7 +239,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
+			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
@@ -298,6 +311,55 @@
 		
 	
 	</div>
+	
+	
+	
+	  <script>
+			function clearSearchHistory(userId) {
+				$("#search-history-list").html("");
+				$("#clear-history-text").hide();
+				$.ajax({
+					type: "POST",
+					url: "/api/search_history/" + userId,
+					error: function() {
+						console.log("clear search history error");
+					},
+				});
+			}
+			
+			function insertSearchHistory(userId, keyword) {
+				if (keyword != "") {
+					$.ajax({
+						type: "PUT",
+						url: "/api/search_history/" + userId,
+						data: {keyword: keyword}
+					});
+				}
+			}
+			
+			$("#search-button").click(function(){
+				location.href = "/search_result?query=" + $("#search-input").val();
+				insertSearchHistory(3, $("#search-input").val());
+			});
+			
+			$("#search-input").keyup(function () {  
+                if (event.which == 13){  
+                    insertSearchHistory(3, $("#search-input").val());
+                    location.href = "/search_result?query=" + $("#search-input").val();  
+                }  
+            });   
+			
+			$("#hot-keyword-div").on('click', $("[keyword]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+			$("#search-history-list").on('click', $("[history]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+		</script>
 	
 	
 </body>

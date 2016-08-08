@@ -42,14 +42,10 @@ public class DiscountController {
 		return discountService.getTopDiscount(limitNumber);
 	}
 	
-	@RequestMapping(path = "/api/addFavorite", method = RequestMethod.POST)
-	@ResponseBody
-	public void addFavorite(@RequestParam("userId") int userId, @RequestParam("discountId") int discountId) {
-		favoriteService.addFavorite(userId, discountId);
-	}
 
-	@RequestMapping(path = "/discount/{id}", method = RequestMethod.GET)
-	public String showDiscount(@PathVariable("id") int id, Model model) {
+
+	@RequestMapping(path = "/discount/{userId}/{id}", method = RequestMethod.GET)
+	public String showDiscount(@PathVariable("userId") int userId,@PathVariable("id") int id, Model model) {
 		// Authentication auth =
 		// SecurityContextHolder.getContext().getAuthentication();
 		// String name = auth.getName();
@@ -58,6 +54,7 @@ public class DiscountController {
 		int shareTime = shareService.countSharedTimes(id);
 		model.addAttribute("discount", discount);
 		model.addAttribute("shareTime", shareTime);
+		model.addAttribute("userId", userId);
 		return "discount_detail";
 	}
 }
