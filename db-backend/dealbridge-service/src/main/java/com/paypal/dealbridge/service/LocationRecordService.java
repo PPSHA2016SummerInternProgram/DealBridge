@@ -18,7 +18,7 @@ public class LocationRecordService {
 		return locationRecordMapper.getUserHistroyLocation(userId);
 	}
 	
-	public List<String> getHotLocation(int userId, int limitNumber){
-		return locationRecordMapper.getHotArea(userId, limitNumber);
+	public List<String> getHotLocation(int limitNumber){
+		return locationRecordMapper.getHotArea(limitNumber);
 	}
 }

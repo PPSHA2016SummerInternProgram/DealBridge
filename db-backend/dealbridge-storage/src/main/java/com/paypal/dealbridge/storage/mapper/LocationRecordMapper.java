@@ -12,5 +12,5 @@ public interface LocationRecordMapper {
 	List<String> getUserHistroyLocation(@Param("userId") int userId);
 	
 	@Select("SELECT area FROM location_record GROUP BY area ORDER BY COUNT(*) DESC LIMIT #{limitNumber}")
-	List<String> getHotArea(@Param("userId") int userId, @Param("limitNumber") int limitNumber);
+	List<String> getHotArea(@Param("limitNumber") int limitNumber);
 }
