@@ -135,62 +135,62 @@
 	
 		<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Meal.png"></img>
+		  	<img src="/icon/Meal.png"></img>
 		  	<p>美食</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Car.png"></img>
+		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Movie.png"></img>
+		  	<img src="/icon/Movie.png"></img>
 		  	<p>电影</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Entertaiment.png"></img>
+		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/House.png"></img>
+		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Hotel.png"></img>
+		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Beauty.png"></img>
+		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Beach.png"></img>
+		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Shop.png"></img>
+		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Other.png"></img>
-		  	<p>更多</p>
+		  	<img src="/icon/Near.png"></img>
+		  	<p>附近</p>
 		  </a>
 		</div>
 	</div>
