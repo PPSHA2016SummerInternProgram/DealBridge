@@ -14,6 +14,7 @@
 			#search-input{padding-left: 30px; opacity:0.5}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
+			#search-record-header{text-align:center;}
 		</style>
 		
 
@@ -44,7 +45,7 @@
 		</div>
 		
 		<div>
-			<p>搜索记录</p>
+			<p id='search-record-header'>搜索记录</p>
 			<ul id="search-history-list" class="list-group">
 				<#list searchHistories as searchHistory>
 			   		<li class="list-group-item" history>${searchHistory}</li>

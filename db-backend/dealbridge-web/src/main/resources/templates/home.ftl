@@ -62,7 +62,7 @@
 						console.log(result[i]);
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
 							'" class="img-thumbnail top_pic" style="border:0px;"></td><td width="100%"style="padding:0;">' + 
-							'<a href="/discount/' + result[i].discountId + '">'+
+							'<a href="/discount/${userId}/' + result[i].discountId + '">'+
 							'<p class="summary">' + result[i].summary + '</p>' +
 							'<p class="description">' + result[i].description + '</p>'+ 
 							'<p class="clickrate">' + '点击量：'+ result[i].clickRate + '</p>'+ '</a>' + 
@@ -80,19 +80,7 @@
 				appendDiscount(0, 5);
 			});
 			
-			$(document).ready(function(){
-				$('#search-input').click(function(){
-					$('#home-div').hide();
-					$('#search-div').show();
-				});
-			});
-			
-			$(document).ready(function(){
-				$('#search-hide-button').click(function(){
-					$('#home-div').show();
-					$('#search-div').hide();
-				});
-			});
+
 		</script>
 		
 		
@@ -104,6 +92,7 @@
 			.hot-keyword{border:1px solid #F0F0F0;}
 			#search-input-div{float:left; width:320px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
+			#search-record-header{text-align:center; font-size:16px}
 		</style>
 		
 	</head>
@@ -207,16 +196,6 @@
 	</div>
 	
 	
-    <div id="header-text" class="panel-heading">
-		<a href='/nearby?lat=31.2&lng=120.1'>
-		<h3 class="panel-title">
-		<font color="#191919" size="3" face="黑体">
-			附近优惠
-		</font>
-		</h3>
-		</a>
-	</div>
-	
 	<!--Hot Discount-->
 	<div id="header-text" class="panel-heading">
 		<h3 class="panel-title">
@@ -300,7 +279,7 @@
 		</div>
 		
 		<div>
-			<p>搜索记录</p>
+			<p id='search-record-header'>搜索记录</p>
 			<ul id="search-history-list" class="list-group">
 				<#list searchHistories as searchHistory>
 			   		<li class="list-group-item" history>${searchHistory}</li>
@@ -357,6 +336,21 @@
 			$("#search-history-list").on('click', $("[history]"), function(e){
 				insertSearchHistory(3, e.target.outerText);
 				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+			
+			$(document).ready(function(){
+				$('#search-input').click(function(){
+					$('#home-div').hide(150, 'linear');
+					$('#search-div').show(150, 'linear');
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#search-hide-button').click(function(){
+					$('#home-div').show(150, 'linear');
+					$('#search-div').hide(150, 'linear');
+				});
 			});
 			
 		</script>
