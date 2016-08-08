@@ -200,8 +200,8 @@
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/icon/Other.png"></img>
-		  	<p>更多</p>
+		  	<img src="/icon/Near.png"></img>
+		  	<p>附近</p>
 		  </a>
 		</div>
 	</div>
