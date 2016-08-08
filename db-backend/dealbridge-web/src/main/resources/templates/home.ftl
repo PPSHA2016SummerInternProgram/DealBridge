@@ -50,7 +50,7 @@
 			
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/2", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
@@ -72,14 +72,41 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
+			
+			$(document).ready(function(){
+				$('#search-input').click(function(){
+					$('#home-div').hide();
+					$('#search-div').show();
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#search-hide-button').click(function(){
+					$('#home-div').show();
+					$('#search-div').hide();
+				});
+			});
 		</script>
+		
+		
+		<style>
+			#navbar{background:#F0F0F0; padding:15px}
+			#search-icon{position: absolute;top: 10px;left: 10px;}
+			#search-input{padding-left: 30px; opacity:0.5}
+			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
+			.hot-keyword{border:1px solid #F0F0F0;}
+			#search-input-div{float:left; width:320px}
+			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
+		</style>
 		
 	</head>
 	
-	<body style="padding-top: 60px;">
+	<body>
+	
+	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar-fixed-top" style="height:50px;background-color:#181818;">
+    <div class="navbar" style="background-color:#181818;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
@@ -95,9 +122,9 @@
 					">
 				</span>
 				<font face="黑体">
-					<input type="text" placeholder="输入银行、城市" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
-				<a style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="/userInfo/${userId}" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 		
 		</div>
@@ -108,25 +135,25 @@
 
 	<div class="row text-center">
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		  	<i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>美食</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		    <i class="fa fa-film fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>电影</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		    <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
 	      </a>
 		  <p>酒店</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
             <i class="fa fa-book fa-2x" aria-hidden="true"></i>
           </a>
 		  <p>阅读</p>
@@ -134,25 +161,25 @@
 
 
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>交通</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
           </a>
 		  <p>健身</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
 	      </a>
 		  <p>饮品</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
             <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>旅游</p>
@@ -175,6 +202,7 @@
 	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
 	          </li>
 	      </#list>
+
 	   </ol>   
 	   <!-- 轮播（Carousel）项目 -->
 	   <div class="carousel-inner">
@@ -210,6 +238,48 @@
 	<div id="loading-panel" style="display:none">
 		<p class="text-center">正在加载...</p>
 	</div>
+	
+   </div>
+	
+	
+	<div id='search-div' style="top:0px; position:absolute; display:none">
+		<nav id="navbar" class="navbar navbar-default">
+			<div>
+				<div id='search-input-div' class="input-group" style="float:left;">
+					  <span id="search-icon" class="glyphicon glyphicon-search""></span>
+					  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
+					  <span class="input-group-btn">
+						<button id="search-button" class="btn btn-default" type="button">搜索</button>
+					  </span>
+					  
+				</div>
+				<div id='search-cancel-div' style="float:left;">
+					<p id='search-hide-button'>取消</p>
+				</div>
+			</div>
+		</nav>
+		
+		<div id="hot-keyword-div">
+			<div class="row">
+				<#list hotKeywords as hotKeyword>
+					<div class="col-xs-4 col-sm-4 hot-keyword"><p keyword>${hotKeyword}</p></div>
+				</#list>
+			</div>
+		</div>
+		
+		<div>
+			<p>搜索记录</p>
+			<ul id="search-history-list" class="list-group">
+				<#list searchHistories as searchHistory>
+			   		<li class="list-group-item" history>${searchHistory}</li>
+	 			</#list>
+			</ul>
+			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
+		</div>
+		
+	
+	</div>
+	
 	
 </body>
 </html>
