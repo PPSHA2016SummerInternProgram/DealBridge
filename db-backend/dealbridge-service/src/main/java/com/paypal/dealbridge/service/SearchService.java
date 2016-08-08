@@ -67,16 +67,16 @@ public class SearchService {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject doc = docs.getJSONObject(i);
 			discount.setBankName(doc.getString("bank_name"));
-			discount.setSummary(doc.getString("discount_summary"));
+			discount.setSummary(doc.getString("summary"));
 			discount.setDiscountId(doc.getInt("id"));
-			discount.setDescription((String) doc.getJSONArray("discount_description").get(0));
-			if (!doc.isNull("discount_begin_time")) {
-				discount.setBeginTime(dateFormat.parse(doc.getString("discount_begin_time")));
+			discount.setDescription((String) doc.getJSONArray("description").get(0));
+			if (!doc.isNull("begin_time")) {
+				discount.setBeginTime(dateFormat.parse(doc.getString("begin_time")));
 			}
-			if (!doc.isNull("discount_end_time")) {
-				discount.setEndTime(dateFormat.parse(doc.getString("discount_end_time")));
+			if (!doc.isNull("end_time")) {
+				discount.setEndTime(dateFormat.parse(doc.getString("end_time")));
 			}
-			discount.setImg(doc.getString("discount_img"));
+			discount.setImg(doc.getString("img"));
 
 			discounts.add(discount);
 		}

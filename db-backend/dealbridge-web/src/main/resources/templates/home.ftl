@@ -92,7 +92,7 @@
 		<style>
 			#navbar{background:#F0F0F0; padding:15px}
 			#search-icon{position: absolute;top: 10px;left: 10px;}
-			#search-input{padding-left: 30px; opacity:0.5}
+			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
 			#search-input-div{float:left; width:320px}
@@ -280,6 +280,55 @@
 		
 	
 	</div>
+	
+	
+	
+	  <script>
+			function clearSearchHistory(userId) {
+				$("#search-history-list").html("");
+				$("#clear-history-text").hide();
+				$.ajax({
+					type: "POST",
+					url: "/api/search_history/" + userId,
+					error: function() {
+						console.log("clear search history error");
+					},
+				});
+			}
+			
+			function insertSearchHistory(userId, keyword) {
+				if (keyword != "") {
+					$.ajax({
+						type: "PUT",
+						url: "/api/search_history/" + userId,
+						data: {keyword: keyword}
+					});
+				}
+			}
+			
+			$("#search-button").click(function(){
+				location.href = "/search_result?query=" + $("#search-input").val();
+				insertSearchHistory(3, $("#search-input").val());
+			});
+			
+			$("#search-input").keyup(function () {  
+                if (event.which == 13){  
+                    insertSearchHistory(3, $("#search-input").val());
+                    location.href = "/search_result?query=" + $("#search-input").val();  
+                }  
+            });   
+			
+			$("#hot-keyword-div").on('click', $("[keyword]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+			$("#search-history-list").on('click', $("[history]"), function(e){
+				insertSearchHistory(3, e.target.outerText);
+				location.href = "/search_result?query=" + e.target.outerText;
+			});
+			
+		</script>
 	
 	
 </body>
