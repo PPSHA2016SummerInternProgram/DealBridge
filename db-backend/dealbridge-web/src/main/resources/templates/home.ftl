@@ -75,22 +75,43 @@
 			
 			$(document).ready(function(){
 				$('#search-input').click(function(){
-					location.href = "/search";
+					$('#home-div').hide();
+					$('#search-div').show();
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#search-hide-button').click(function(){
+					$('#home-div').show();
+					$('#search-div').hide();
 				});
 			});
 		</script>
 		
+		
+		<style>
+			#navbar{background:#F0F0F0; padding:15px}
+			#search-icon{position: absolute;top: 10px;left: 10px;}
+			#search-input{padding-left: 30px; opacity:0.5}
+			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
+			.hot-keyword{border:1px solid #F0F0F0;}
+			#search-input-div{float:left; width:320px}
+			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
+		</style>
+		
 	</head>
 	
-	<body style="padding-top: 60px;">
+	<body>
+	
+	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar-fixed-top" style="height:50px;background-color:#181818;">
+    <div class="navbar" style="background-color:#181818;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">上海</p></a>
+			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -178,15 +199,16 @@
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
-	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
 	          </li>
 	      </#list>
+
 	   </ol>   
 	   <!-- 轮播（Carousel）项目 -->
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="http://localhost:9000/discount/${hot.discountId}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
@@ -199,6 +221,7 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
+
 	
 	
 	<!--Recommend-->
@@ -216,6 +239,48 @@
 	<div id="loading-panel" style="display:none">
 		<p class="text-center">正在加载...</p>
 	</div>
+	
+   </div>
+	
+	
+	<div id='search-div' style="top:0px; position:absolute; display:none">
+		<nav id="navbar" class="navbar navbar-default">
+			<div>
+				<div id='search-input-div' class="input-group" style="float:left;">
+					  <span id="search-icon" class="glyphicon glyphicon-search""></span>
+					  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
+					  <span class="input-group-btn">
+						<button id="search-button" class="btn btn-default" type="button">搜索</button>
+					  </span>
+					  
+				</div>
+				<div id='search-cancel-div' style="float:left;">
+					<p id='search-hide-button'>取消</p>
+				</div>
+			</div>
+		</nav>
+		
+		<div id="hot-keyword-div">
+			<div class="row">
+				<#list hotKeywords as hotKeyword>
+					<div class="col-xs-4 col-sm-4 hot-keyword"><p keyword>${hotKeyword}</p></div>
+				</#list>
+			</div>
+		</div>
+		
+		<div>
+			<p>搜索记录</p>
+			<ul id="search-history-list" class="list-group">
+				<#list searchHistories as searchHistory>
+			   		<li class="list-group-item" history>${searchHistory}</li>
+	 			</#list>
+			</ul>
+			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
+		</div>
+		
+	
+	</div>
+	
 	
 </body>
 </html>

@@ -27,6 +27,8 @@ public class BriefDiscount {
 
 	private String img;
 
+	private Double distance;
+
 	public Integer getFavoriteId() {
 		return favoriteId;
 	}
@@ -97,6 +99,14 @@ public class BriefDiscount {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	public Double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(Double distance) {
+		this.distance = distance;
 	}
 
 }

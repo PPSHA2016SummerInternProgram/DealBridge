@@ -12,6 +12,15 @@ sys.setdefaultencoding('utf8')
 db = MySQLdb.connect(host="127.0.0.1", user="root", passwd="abyjun", db="deal_bridge", port=3306, charset='utf8')
 
 
+def insert_column(column_name, column_value, url_queue):
+    cur = db.cursor()
+    for i in range(url_queue.qsize()):
+        end_of_url = url_queue.get()[0]
+        sql = "UPDATE deal_bridge.discount SET " + column_name + " = '" + column_value + "' WHERE end_of_url = '" + end_of_url + "'"
+        cur.execute(sql)
+    db.commit()
+
+
 def remove_existed_url(queue):
     try:
         cur = db.cursor()
