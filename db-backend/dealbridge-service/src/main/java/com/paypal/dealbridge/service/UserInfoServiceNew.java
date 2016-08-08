@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.paypal.dealbridge.domain.UserFullInfo;
 import com.paypal.dealbridge.storage.domain.AccountBank;
+import com.paypal.dealbridge.storage.domain.Bank;
 import com.paypal.dealbridge.storage.domain.User;
 import com.paypal.dealbridge.storage.mapper.AccountBankMapper;
+import com.paypal.dealbridge.storage.mapper.BankMapper;
 import com.paypal.dealbridge.storage.mapper.UserMapper;
 
 
@@ -19,6 +21,8 @@ public class UserInfoServiceNew {
 	private UserMapper userMapper;
 	@Autowired
 	private AccountBankMapper accountBankMapper;
+	@Autowired
+	private BankListService bls;
 	
 	public UserFullInfo getUserInfo(int userId){
 		User user = userMapper.selectUser(userId);
@@ -34,9 +38,11 @@ public class UserInfoServiceNew {
 		return ufi;
 	}
 	
-	public int addBankCard(int userId, String addBankName){
-		int i = accountBankMapper.addUserBank(userId, addBankName);
+	public int addBankCard(int userId, String bankOfficial){
+		String bankName = bls.getBankName(bankOfficial);
+		int i = accountBankMapper.addUserBank(userId, bankName);
 		System.out.println(i);
 		return i;
 	}
+
 }

@@ -30,6 +30,19 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
+			ul
+			{
+			margin:0;
+			padding:0;
+			list-style:none;
+			}
+			li
+			{
+				width:20%;
+				text-decoration:none;
+				display:inline-block;
+				line-height:100px;
+			}
 				
 		</style>
 		
@@ -90,7 +103,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
+			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -110,59 +123,69 @@
 	  
     </div>
 	
-
-
 	<div class="row text-center">
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+	<ul style="width:100%">
+			<li>
 		  <a href="/recommend/${userId}/food">
-		  	<i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
+		  	<img src="/icon/Meal.png">
 		  </a>
 		  <p>美食</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		  </li>
+		  <li>
 		  <a href="/recommend/${userId}/food">
-		    <i class="fa fa-film fa-2x" aria-hidden="true"></i>
+		   	<img src="/icon/Film.png">
 		  </a>
 		  <p>电影</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		  </li>
+		  <li>
 		  <a href="/recommend/${userId}/food">
-		    <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
+		    <img src="/icon/Hotel.png">
 	      </a>
 		  <p>酒店</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		</li>
+		  <li>
 		  <a href="/recommend/${userId}/food">
-            <i class="fa fa-book fa-2x" aria-hidden="true"></i>
+            <img src="/icon/Car.png">
           </a>
-		  <p>阅读</p>
-		</div>
-
-
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		  <p>汽车</p>
+	</li>
+		  <li>
           <a href="/recommend/${userId}/food">
-            <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
+          <img src="/icon/Beach.png">
 		  </a>
 		  <p>交通</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		</li>
+		  <li>
           <a href="/recommend/${userId}/food">
-            <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
+          <img src="/icon/Beauty.png">
           </a>
-		  <p>健身</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		  <p>丽人</p>
+		</li>
+		  <li>
           <a href="/recommend/${userId}/food">
-            <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
+          <img src="/icon/Entertaiment.png">
 	      </a>
-		  <p>饮品</p>
-		</div>
-		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
+		  <p>休闲</p>
+		</li>
+		  <li>
 		  <a href="/recommend/${userId}/food">
-            <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
+		  	<img src="/icon/Shop.png">
 		  </a>
-		  <p>旅游</p>
-		</div>
+		  <p>购物</p>
+		</li>
+		  <li>
+		  <a href="/recommend/${userId}/food">
+		  	<img src="/icon/House.png">
+		  </a>
+		  <p>生活</p>
+		</li>
+		  <li>
+		  <a href="/recommend/${userId}/food">
+		  	<img src="/icon/Other.png">
+		  </a>
+		  <p>其他</p>
+		</li>
+		</ul>
 	</div>
 	
 	<!--Hot Discount-->

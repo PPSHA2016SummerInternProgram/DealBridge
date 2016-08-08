@@ -125,7 +125,7 @@
  	
  	
  	<div class='card-list'>
- 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" id="bank-img" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
+ 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" id="bank-img" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:5px;position:absolute;left:100px;"> 信用卡</p>
     <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px" class="cardNumber"></p></div>
 	</div>
 	<#list ufi.bankList as bankItem>
@@ -149,7 +149,7 @@
      		 
   	  		 <select class="form-control" onchange="changeImg()" id="select_id" style="width:80%;">
   	  		 <#list bankList as bl>
-  	  		 <option value="${bl.bankImg}">${bl.bankOfficial}</option>
+  	  		 <option value="${bl.bankImg}">${bl.bankName}</option>
   	  		 </#list>
      		 </select><button type="button" id="queren2"class="btn btn-default" style="float:right;position:absolute;top:25px;right:10px;">确认</button>
 		  </div>
@@ -181,6 +181,7 @@
 	 $("#queren2").click(function(){
 		
 			var checkText=$("#select_id").find("option:selected").text();
+			console.log(checkText);
 		var element = $($('.bank-template').html());
 		element.find('.bankName').html(checkText);
 		$('.card-list').append(element);
