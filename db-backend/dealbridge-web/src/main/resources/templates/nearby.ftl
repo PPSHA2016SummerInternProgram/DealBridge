@@ -20,14 +20,14 @@
 		
 		
 		<script>
-			var startIndex = 5;
+			var startIndex = 10;
 			$(window).scroll(function() {
 				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 					if($('#loading-panel').is(":visible") == false){
 						$('#loading-panel').show();
 						window.setTimeout(function(){
-							appendDiscount(startIndex, 5);
-							startIndex += 5;
+							appendDiscount(startIndex, 10);
+							startIndex += 10;
 						}, 1000);
 					}
 				}
@@ -57,7 +57,7 @@
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
-				appendDiscount(0, 5);
+				appendDiscount(0, 10);
 			});
 		</script>
 		

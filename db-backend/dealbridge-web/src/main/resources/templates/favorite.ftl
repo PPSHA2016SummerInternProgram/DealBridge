@@ -136,9 +136,7 @@
   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
- 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
-      </div>
-	 <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
+ 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:12px;text-align:center">全部收藏(${count})
       </div>
       
 </nav>
@@ -181,7 +179,7 @@
 				var items = $('[data-dis]');
 				var favIds=[];
 				for (var i = 0; i<items.length; i++)
-					{
+				{
 					var item = items[i];
 					if($(item).attr('data-dis')==='show')
 						{
@@ -190,19 +188,21 @@
 						console.log('favorite-id');
 						}
 					
-					}
-				$.ajax({
-					type: "POST",
+				}
+				if (favIds.length > 0) {
+					$.ajax({
+						type: "POST",
+						
+						url:"/api/favorite",
+						data:{favIds: favIds},
+						traditional: true,
+						error: function() {
+							console.log("delete favorite discount error");
+						},
+					});
 					
-					url:"/api/favorite",
-					data:{favIds: favIds},
-					traditional: true,
-					error: function() {
-						console.log("delete favorite discount error");
-					},
-				});
-				
-				updateFavoriteNum();
+					updateFavoriteNum();
+				}
 			}
 			
 		}
