@@ -206,6 +206,17 @@
 		</div>
 	</div>
 	
+	
+    <div id="header-text" class="panel-heading">
+		<a href='/nearby?lat=31.2&lng=120.1'>
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			附近优惠
+		</font>
+		</h3>
+		</a>
+	</div>
+	
 	<!--Hot Discount-->
 	<div id="header-text" class="panel-heading">
 		<h3 class="panel-title">
