@@ -31,4 +31,10 @@ public class FavoriteService {
 		return i;
 		
 	}
+	
+	public int addFavorite(int userId, int discountId){
+		int i = 0;
+		i = favoriteMapper.addFavorite(userId, discountId);
+		return i;
+	}
 }

@@ -29,14 +29,6 @@ public class FavoriteController {
 		return favoriteService.getFavoriteByUserId(userId, startIndex, limitNum);
 	}
 	
-	@RequestMapping(path="/favorite/{userId}", method=RequestMethod.GET)
-	public String showFavoritePage(@PathVariable("userId") int userId, Model model) {
-		int count = favoriteService.numOfFavorite(userId);
-		model.addAttribute("count", count);
-		model.addAttribute("userId", userId);
-		return "favorite";
-	}
-	
 	@RequestMapping(path="/api/favorite", method=RequestMethod.POST)
 	@ResponseBody
 	public void deleteFavorite(@RequestParam(value = "favIds") List<Integer> favoriteIdList){
@@ -47,6 +39,14 @@ public class FavoriteController {
 	@ResponseBody
 	public int getFavoriteCount(@PathVariable("userId") int userId) {
 		return favoriteService.numOfFavorite(userId);
+	}
+	
+	@RequestMapping(path="/favorite/{userId}", method=RequestMethod.GET)
+	public String showFavoritePage(@PathVariable("userId") int userId, Model model) {
+		int count = favoriteService.numOfFavorite(userId);
+		model.addAttribute("count", count);
+		model.addAttribute("userId", userId);
+		return "favorite3";
 	}
 	
 }

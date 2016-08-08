@@ -111,7 +111,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">上海</p></a>
+			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -199,7 +199,7 @@
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
-	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
 	          </li>
 	      </#list>
 
@@ -208,7 +208,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="http://localhost:9000/discount/${hot.discountId}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
@@ -221,6 +221,7 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
+
 	
 	
 	<!--Recommend-->

@@ -125,7 +125,7 @@
  	
  	
  	<div class='card-list'>
- 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
+ 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" id="bank-img" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
     <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px" class="cardNumber"></p></div>
 	</div>
 	<#list ufi.bankList as bankItem>
@@ -146,26 +146,11 @@
         <form role="form">
  	 		<div class="form-group" style="position:relative;">
      		 <label for="name">添加银行</label>
-  	  		 <select class="form-control" id="select_id"style="width:80%;">
-        	 <option>上海银行</option>
-       		 <option>中信银行</option>
-        	 <option>中国银行</option>
-       	 	 <option>光大银行</option>
-        	 <option>交通银行</option>
-        	  <option>光大银行</option>
-       		 <option>兴业银行</option>
-        	 <option>农业银行</option>
-       	 	 <option>北京银行</option>
-        	 <option>华夏银行</option>
-        	  <option>工商银行</option>
-       		 <option>平安银行</option>
-        	 <option>广发银行</option>
-       	 	 <option>建设银行</option>
-        	 <option>招商银行</option>
-        	  <option>民生银行</option>
-       		 <option>浦发银行</option>
-        	 <option>渣打银行</option>
-       	 	 <option>花旗银行</option>
+     		 
+  	  		 <select class="form-control" onchange="changeImg()" id="select_id" style="width:80%;">
+  	  		 <#list bankList as bl>
+  	  		 <option value="${bl.bankImg}">${bl.bankOfficial}</option>
+  	  		 </#list>
      		 </select><button type="button" id="queren2"class="btn btn-default" style="float:right;position:absolute;top:25px;right:10px;">确认</button>
 		  </div>
 		</form>
@@ -207,12 +192,34 @@
 
  </script>
  
- 	  <script>
-  			function backFunction() {
-  				window.history.back();
-  			}
-  	  </script>
- 	   
+ <script>
+  	function backFunction() {
+  		window.history.back();
+  	}
+
+ 	function changeImg(){
+ 		var bank = document.getElementById('select_id');
+ 		var path = bank.value;
+ 		document.getElementById('bank-img').src = path;
+ 	}
  	
- 	</body>
+ </script>
+ 
+ <!--script>
+ 	function addBankCard(){
+ 		console.log('333');
+ 		var bankName2 = $('[bank-name]');
+ 		console.log(bankName2);
+ 		$.ajax({
+ 			type: "PUT",
+ 			url: "/api/userbankcard/${userId}",
+ 			data: {"bankName": bankName2},
+ 			error: function() {
+				console.log("add bank name error");
+			},
+ 		});
+ 	}
+ </script-->
+ 	   
+ </body>
  </html>
