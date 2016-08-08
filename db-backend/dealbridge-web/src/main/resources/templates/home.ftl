@@ -50,7 +50,7 @@
 			
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/2", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
@@ -72,6 +72,12 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
+			
+			$(document).ready(function(){
+				$('#search-input').click(function(){
+					location.href = "/search";
+				});
+			});
 		</script>
 		
 	</head>
@@ -84,7 +90,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">上海</p></a>
+			  <a href="http://m.dianping.com/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -95,9 +101,9 @@
 					">
 				</span>
 				<font face="黑体">
-					<input type="text" placeholder="输入银行、城市" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
-				<a style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="/userInfo/${userId}" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 		
 		</div>
@@ -108,25 +114,25 @@
 
 	<div class="row text-center">
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		  	<i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>美食</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		    <i class="fa fa-film fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>电影</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
 		    <i class="fa fa-bed fa-2x" aria-hidden="true"></i>
 	      </a>
 		  <p>酒店</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
             <i class="fa fa-book fa-2x" aria-hidden="true"></i>
           </a>
 		  <p>阅读</p>
@@ -134,25 +140,25 @@
 
 
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-bus fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>交通</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-bicycle fa-2x" aria-hidden="true"></i>
           </a>
 		  <p>健身</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-          <a href="/recommend/2/food">
+          <a href="/recommend/${userId}/food">
             <i class="fa fa-glass fa-2x" aria-hidden="true"></i>
 	      </a>
 		  <p>饮品</p>
 		</div>
 		<div class="col-xs-3 col-sm-2 col-md-2" style="border-width: 0;">
-		  <a href="/recommend/2/food">
+		  <a href="/recommend/${userId}/food">
             <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
 		  </a>
 		  <p>旅游</p>
@@ -172,7 +178,7 @@
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
-	          <li data-target="#myCarousel" href="../discount/0" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
 	          </li>
 	      </#list>
 	   </ol>   
@@ -180,7 +186,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="http://localhost:9000/discount/${hot.discountId}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
@@ -193,6 +199,7 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
+
 	
 	
 	<!--Recommend-->
