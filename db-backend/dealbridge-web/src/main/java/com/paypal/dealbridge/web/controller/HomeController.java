@@ -20,13 +20,13 @@ public class HomeController {
 	
 	public static final int TOP_DISCOUNT_NUM = 6;
 	
-	@RequestMapping(path="/home/{userId}", method=RequestMethod.GET)
-	public String showHomePage(@PathVariable("userId")int userId, 
-			@RequestParam(value = "area", required = false) String area, Model model) {
+	@RequestMapping(path="/home/{area}/{userId}", method=RequestMethod.GET)
+	public String showHomePage(@PathVariable("area") String area, @PathVariable("userId")int userId, Model model) {
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);
 		model.addAttribute("hots", hots);
 		model.addAttribute("userId", userId);
 		model.addAttribute("area", area);
 		return "home";
 	}
+	
 }
