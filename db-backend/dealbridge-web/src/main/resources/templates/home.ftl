@@ -30,11 +30,11 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			。category{padding:0;margin:0;outline:0;background-color:#ffffff;}
+			.category{padding:0;margin:0;outline:0;background-color:#ffffff;height:150px;}
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			a img{width:60%;}
 			a{color:#000000;}
-			a p{margin:0;}
+			a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);}
 			
 				
 		</style>

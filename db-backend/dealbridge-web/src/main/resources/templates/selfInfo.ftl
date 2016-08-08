@@ -77,7 +77,7 @@
  	width:32px;
  	height:32px;
  	left:10px;
- 	top:5px;
+ 	top:25px;
  	position:absolute;
  	
  	}
@@ -125,12 +125,12 @@
  	
  	
  	<div class='card-list'>
- 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" id="bank-img" class="img"><p style="padding-top:5px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
+ 	<div class='bank-template' style="display:none;"><div class="bank "><img src="/img/bank/上海银行.png" id="bank-img" class="img"><p style="padding-top:30px;position:absolute;left:50px" class="bankName"></p><p style="padding-top:20px;position:absolute;left:50px;font-size:12px"></p>
     <p style="padding-top:40px;padding-left:-50px;position:absolute;left:100px;font-size:20px" class="cardNumber"></p></div>
 	</div>
 	<#list ufi.bankList as bankItem>
 	 	<div class="bank" ><img src="${bankItem.bankImg}" class="img" >
-	 	<p style="padding-top:5px;position:absolute;left:50px">${bankItem.bankOfficial} 信用卡</p>
+	 	<p style="padding-top:30px;position:absolute;left:50px">${bankItem.bankOfficial} 信用卡</p>
 	    </div>
 	</#list>
 </div>

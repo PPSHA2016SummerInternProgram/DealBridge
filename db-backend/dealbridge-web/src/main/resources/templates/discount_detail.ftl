@@ -238,8 +238,8 @@ function chooseFunction()
 				$.ajax({
 					type: "POST",
 					
-					url:"/api/favorite",
-					data:{userId:0,discountId:discountId},
+					url:"/api/deleteFavorite",
+					data:{userId:userId,discountId:discountId},
 					traditional: true,
 					success:function(){
 						console.log("删除收藏成功");
