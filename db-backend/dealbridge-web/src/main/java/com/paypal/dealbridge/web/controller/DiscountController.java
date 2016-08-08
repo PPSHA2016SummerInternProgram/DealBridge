@@ -49,6 +49,6 @@ public class DiscountController {
 		int shareTime = shareService.countSharedTimes(id);
 		model.addAttribute("discount", discount);
 		model.addAttribute("shareTime", shareTime);
-		return "discount";
+		return "discount_detail";
 	}
 }
