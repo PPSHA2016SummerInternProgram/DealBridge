@@ -13,6 +13,19 @@ public class AccountBank {
 //	public void setBankName(String bankName) {
 //		this.bankName = bankName;
 //	}
+//	public Integer getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(Integer userId) {
+//		this.userId = userId;
+//	}
+//	public Integer getAccountId() {
+//		return accountId;
+//	}
+//	public void setAccountId(Integer accountId) {
+//		this.accountId = accountId;
+//	}
+
 	public String getBankOfficial() {
 		return bankOfficial;
 	}
@@ -25,12 +38,7 @@ public class AccountBank {
 	public void setBankImg(String bankImg) {
 		this.bankImg = bankImg;
 	}
-//	public Integer getAccountId() {
-//		return accountId;
-//	}
-//	public void setAccountId(Integer accountId) {
-//		this.accountId = accountId;
-//	}
+	
 
 	
 	

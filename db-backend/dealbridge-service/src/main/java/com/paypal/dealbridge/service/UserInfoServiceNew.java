@@ -32,6 +32,11 @@ public class UserInfoServiceNew {
 		ufi.setBankList(ab);
 		
 		return ufi;
-
+	}
+	
+	public int addBankCard(int userId, String addBankName){
+		int i = accountBankMapper.addUserBank(userId, addBankName);
+		System.out.println(i);
+		return i;
 	}
 }

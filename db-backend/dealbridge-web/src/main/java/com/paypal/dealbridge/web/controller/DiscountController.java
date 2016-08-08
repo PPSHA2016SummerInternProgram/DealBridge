@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.paypal.dealbridge.service.DiscountService;
+import com.paypal.dealbridge.service.FavoriteService;
 import com.paypal.dealbridge.service.ShareService;
 import com.paypal.dealbridge.storage.domain.Discount;
 
@@ -26,6 +27,8 @@ public class DiscountController {
 	private DiscountService discountService;
 	@Autowired
 	private ShareService shareService;
+	@Autowired
+	private FavoriteService favoriteService;
 
 	@RequestMapping(path = "/api/discount/{id}", method = RequestMethod.GET)
 	@ResponseBody
@@ -37,6 +40,12 @@ public class DiscountController {
 	@ResponseBody
 	public List<Discount> getTopDiscount(@RequestParam("limitNumber") int limitNumber) {
 		return discountService.getTopDiscount(limitNumber);
+	}
+	
+	@RequestMapping(path = "/api/addFavorite", method = RequestMethod.POST)
+	@ResponseBody
+	public void addFavorite(@RequestParam("userId") int userId, @RequestParam("discountId") int discountId) {
+		favoriteService.addFavorite(userId, discountId);
 	}
 
 	@RequestMapping(path = "/discount/{id}", method = RequestMethod.GET)
