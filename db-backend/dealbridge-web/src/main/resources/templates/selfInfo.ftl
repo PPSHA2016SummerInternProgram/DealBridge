@@ -187,7 +187,7 @@
 		$('.card-list').append(element);
 		//给后台发请求添加银行卡
 		$.ajax({
- 			type: "POST",
+ 			type: "PUT",
  			url: "/api/userbankcard/${userId}",
  			data: {"bankName": checkText},
  			error: function() {
