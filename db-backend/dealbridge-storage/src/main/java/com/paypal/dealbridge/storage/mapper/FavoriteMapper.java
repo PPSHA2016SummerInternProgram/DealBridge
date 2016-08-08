@@ -48,6 +48,9 @@ public interface FavoriteMapper {
 	@Delete("DELETE FROM favorite WHERE favorite_id=#{favoriteId}")
 	int deleteFavorite(int favoriteId);
 	
+	@Delete("DELETE FROM favorite WHERE discount_id=#{discountId} AND user_id=#{userId}")
+	int deleteFavoriteById(@Param("userId")int userId, @Param("discountId")int discountId);
+	
 	@Insert("INSERT INTO favorite (user_id, discount_id) values (#{userId}, #{discountId})")
 	int addFavorite(@Param("userId")int userId, @Param("discountId")int discountId);
 }

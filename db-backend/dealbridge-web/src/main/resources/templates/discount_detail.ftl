@@ -255,12 +255,13 @@ function chooseFunction()
 		$(this).addClass("fa-heart");
 		$(this).addClass("heart-color");
 		var discountId=${discount.discountId?c};
+		console.log(discountId);
 			
 	       		$.ajax({
 					type: "POST",
 					
 					url:"/api/addFavorite",
-					data:{userId:0,discountId:discountId},
+					data:{userId:3,discountId:discountId},
 					traditional: true,
 					success:function(){
 						console.log("成功添加收藏");

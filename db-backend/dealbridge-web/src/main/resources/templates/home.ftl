@@ -33,7 +33,7 @@
 
 			.category{padding:0;margin:0;outline:0;background-color:#ffffff;}
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
-			a img{width:60%;}
+			a img{width:50%;}
 			a{color:#000000;}
 			a p{margin:0;}
 			
@@ -158,7 +158,7 @@
 		</div>
 			<div class="type">
 		<a href="/recommend/${userId}/food">
-		  	<img src="/img/Film.png"></img>
+		  	<img src="/img/Movie.png"></img>
 		  	<p>电影</p>
 		  </a>
 		</div>
@@ -239,7 +239,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
+			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>

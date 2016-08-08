@@ -47,6 +47,13 @@ public class FavoriteController {
 		favoriteService.addFavorite(userId, discountId);
 	}
 	
+	@RequestMapping(path="/api/deleteFavorite", method=RequestMethod.POST)
+	@ResponseBody
+	public void deleteFavoriteById(@RequestParam(value = "userId") int userId, @RequestParam("discountId") int discountId){
+		favoriteService.deleteFavoriteById(userId, discountId);
+	}
+	
+	
 //	@RequestMapping(path="/favorite/{area}/{userId}", method=RequestMethod.GET)
 //	public String showFavoritePage(@PathVariable("area") int area, @PathVariable("userId") int userId, Model model) {
 //		int count = favoriteService.numOfFavorite(userId);
