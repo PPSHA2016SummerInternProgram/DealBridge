@@ -29,7 +29,7 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				var str = '<tr data-url="/discount/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
+ 	  				var str = '<tr data-url="/discount/${userId}/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
@@ -167,6 +167,7 @@
 			if(text==='编辑')
 			{
 			$('table').unbind('click');
+			$('tr').off('click').on('click', chooseFunction);
 			
 			$('#favorite-load').css('margin-left', "0px");
 		
@@ -178,6 +179,10 @@
 			}
 			if(text==='删除')
 				{
+				$('table').on('click', 'tr', fun1=function(){
+	 	  			location.href = $(this).attr('data-url');
+ 	  			});
+ 	  			
 				$('#edit').html('<span class="divcss5-x5">编辑</span>');
 				console.log('finish')
 				$('#favorite-load').css('margin-left', "-30px");
@@ -213,20 +218,21 @@
 			
 		}
  		
-		$('table').on('click', '[data-dis]', chooseFunction);
 
 		function chooseFunction()
 		{
 			console.log($(this));
 			var dis = $(this).attr('data-dis');
+			var td0 = $($(this).children()[0]);
+			var i = $(td0.children()[0]);
 			if(dis === 'show'){
 				$(this).attr('data-dis', 'hide')
-				$(this).addClass("fa-circle-thin");
-				$(this).removeClass("fa-check-circle");
+				i.addClass("fa-circle-thin");
+				i.removeClass("fa-check-circle");
 			}else{
 				$(this).attr('data-dis', 'show');
-				$(this).removeClass("fa-circle-thin");
-				$(this).addClass("fa-check-circle");
+				i.removeClass("fa-circle-thin");
+				i.addClass("fa-check-circle");
 			}
 		}
 		
