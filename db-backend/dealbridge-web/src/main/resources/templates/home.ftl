@@ -188,7 +188,7 @@
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/nearby/?lat=31.2099&lng=121.569">
 		  	<img src="/icon/Near.png"></img>
 		  	<p>附近</p>
 		  </a>
