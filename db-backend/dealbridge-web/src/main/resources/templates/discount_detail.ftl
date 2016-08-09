@@ -234,6 +234,7 @@ function chooseFunction()
 		$(this).attr('data-dis', 'hide')
 		$(this).addClass("fa-heart-o");
 		$(this).removeClass("fa-heart");
+		var userId=${userId};
 		var discountId=${discount.discountId?c};
 				$.ajax({
 					type: "POST",
@@ -254,14 +255,16 @@ function chooseFunction()
 		$(this).removeClass("fa-heart-o");
 		$(this).addClass("fa-heart");
 		$(this).addClass("heart-color");
+		var userId=${userId};
 		var discountId=${discount.discountId?c};
 		console.log(discountId);
+		console.log(userId);
 			
 	       		$.ajax({
 					type: "POST",
 					
 					url:"/api/addFavorite",
-					data:{userId:3,discountId:discountId},
+					data:{userId:userId,discountId:discountId},
 					traditional: true,
 					success:function(){
 						console.log("成功添加收藏");
