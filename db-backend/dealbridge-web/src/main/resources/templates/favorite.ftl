@@ -29,10 +29,10 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				var str = '<tr favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
+ 	  				var str = '<tr data-url="/discount/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td onclick=location.href="/discount/${userId}/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' 
  	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
  	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
@@ -136,7 +136,9 @@
   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
- 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:12px;text-align:center">全部收藏(${count})
+ 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
+      </div>
+	 <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
       </div>
       
 </nav>
@@ -153,12 +155,18 @@
 	
 </body>
  <script>
+ 
+ 		$('table').on('click', 'tr', fun1=function(){
+	 	  	location.href = $(this).attr('data-url');
+ 	  	});
+ 	  	
  		$('#edit').on('click', deleteFunction);
 		function deleteFunction()
 		{
 			var text = $(this).text();
 			if(text==='编辑')
 			{
+			$('table').unbind('click');
 			
 			$('#favorite-load').css('margin-left', "0px");
 		
@@ -179,7 +187,7 @@
 				var items = $('[data-dis]');
 				var favIds=[];
 				for (var i = 0; i<items.length; i++)
-				{
+					{
 					var item = items[i];
 					if($(item).attr('data-dis')==='show')
 						{
@@ -188,21 +196,19 @@
 						console.log('favorite-id');
 						}
 					
-				}
-				if (favIds.length > 0) {
-					$.ajax({
-						type: "POST",
-						
-						url:"/api/favorite",
-						data:{favIds: favIds},
-						traditional: true,
-						error: function() {
-							console.log("delete favorite discount error");
-						},
-					});
+					}
+				$.ajax({
+					type: "POST",
 					
-					updateFavoriteNum();
-				}
+					url:"/api/favorite",
+					data:{favIds: favIds},
+					traditional: true,
+					error: function() {
+						console.log("delete favorite discount error");
+					},
+				});
+				
+				updateFavoriteNum();
 			}
 			
 		}
