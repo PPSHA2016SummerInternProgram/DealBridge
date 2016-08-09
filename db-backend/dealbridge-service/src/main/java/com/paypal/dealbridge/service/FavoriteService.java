@@ -44,4 +44,9 @@ public class FavoriteService {
 		i = favoriteMapper.addFavorite(userId, discountId);
 		return i;
 	}
+	
+	//exist or not
+	public Integer existFavorite(int userId, int discountId){
+		return favoriteMapper.existFavorite(userId, discountId);
+	}
 }

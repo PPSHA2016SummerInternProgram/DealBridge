@@ -23,7 +23,7 @@
  	 
 	<script>
         $(document).ready(function(){
-            $("。share-box").click(function(){
+            $(".share-box").click(function(){
             	console.log("进入分享选择框");
                 var discountId = ${discount.discountId?c};
                 $.post("/api/share", {user_id:0, discount_id:discountId}, function(data, status, xhr){
@@ -164,7 +164,7 @@
  
  
  <div class="div2">	
-<div class="cuxian" style="padding-top:275px;">${discount.summary}<i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></i></div>
+<div class="cuxian" style="padding-top:275px;">${discount.summary}<#if favoriteId??><i class="fa fa-heart favorite" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
 <div class="detail">
 ${discount.description}
 </div>
@@ -236,6 +236,7 @@ function chooseFunction()
 		$(this).removeClass("fa-heart");
 		var userId=${userId};
 		var discountId=${discount.discountId?c};
+		var userId=${userId};
 				$.ajax({
 					type: "POST",
 					

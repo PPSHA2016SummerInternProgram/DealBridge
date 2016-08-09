@@ -45,7 +45,7 @@
 							'<p class="summary">' + 
 							result[i].summary +
 							'</p>' + 
-							'<p class="description">'+result[i].description + '<br>' + '距离： ' + result[i].distance.toFixed(1) + '千米' + '</p>'+
+							'<p class="description">'+result[i].description + '<br>' + '距离： ' + result[i].distance.toFixed(3) + '千米' + '</p>'+
 							'</td></tr>');
 					}
 					$('#loading-panel').hide();
