@@ -53,6 +53,12 @@ public class FavoriteController {
 		favoriteService.deleteFavoriteById(userId, discountId);
 	}
 	
+	@RequestMapping(path="/api/existFavorite", method=RequestMethod.GET)
+	@ResponseBody
+	public Integer existFavorite(@RequestParam(value = "userId") int userId, @RequestParam("discountId") int discountId){
+		return favoriteService.existFavorite(userId, discountId);
+	}
+	
 	
 //	@RequestMapping(path="/favorite/{area}/{userId}", method=RequestMethod.GET)
 //	public String showFavoritePage(@PathVariable("area") int area, @PathVariable("userId") int userId, Model model) {
