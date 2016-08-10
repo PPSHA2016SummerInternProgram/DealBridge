@@ -37,16 +37,11 @@ public class UserInfoServiceNew {
 		
 		return ufi;
 	}
-//	
-//	public int addBankCard(int userId, String bankOfficial){
-//		String bankName = bls.getBankName(bankOfficial);
-//		int i = accountBankMapper.addUserBank(userId, bankName);
-//		System.out.println(i);
-//		return i;
-//	}
 	
-	public int addBankCard(int userId, String bankName){
+	public int addBankCard(int userId, String bankOfficial){
+		String bankName = bls.getBankName(bankOfficial);
 		int i = accountBankMapper.addUserBank(userId, bankName);
+		System.out.println(i);
 		return i;
 	}
 

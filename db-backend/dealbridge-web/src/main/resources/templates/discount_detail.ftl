@@ -11,7 +11,7 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
- 	 <script>
+ 	 <!--script>
  	 $(document).ready(function(){
  			setInterval(function(){
  				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
@@ -19,7 +19,7 @@
  				});
  			}, 3000);
  		});
- 	 </script>
+ 	 </script-->
  	 
 	<script>
         $(document).ready(function(){
@@ -234,7 +234,6 @@ function chooseFunction()
 		$(this).attr('data-dis', 'hide')
 		$(this).addClass("fa-heart-o");
 		$(this).removeClass("fa-heart");
-		var userId=${userId};
 		var discountId=${discount.discountId?c};
 		var userId=${userId};
 				$.ajax({
