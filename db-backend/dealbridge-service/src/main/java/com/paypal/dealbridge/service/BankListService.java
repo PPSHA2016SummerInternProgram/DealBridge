@@ -28,17 +28,11 @@ public class BankListService {
 		}
 	}
 	
-//	public List<Bank> getBankList(){
-//		if(bankNO == null){
-//			bankListCache();
-//		}
-//		System.out.println(bankNO);
-//		return bankList;
-// 	}
-	
 	public List<Bank> getBankList(){
-
-		return bankMapper.getBankList();
+		if(bankNO.isEmpty()){
+			bankListCache();
+		}
+		return bankList;
  	}
 	
 	public String getBankName(String bankOfficial){

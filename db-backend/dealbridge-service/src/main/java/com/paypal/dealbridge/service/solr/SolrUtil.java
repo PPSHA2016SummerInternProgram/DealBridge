@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SolrUtil {
-	private static final String SOLR_URL = "http://localhost:8983/solr/dealbridge/";
+	private static final String SOLR_URL = "http://10.24.96.170:8983/solr/dealbridge/";
 
 	public String searchDiscount(String query) throws SolrQueryException {
 		RestTemplate restTemplate = new RestTemplate();
