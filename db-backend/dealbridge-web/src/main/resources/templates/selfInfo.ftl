@@ -162,7 +162,7 @@
 </div>
 <br>
 	
- 	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;position:fixed;bottom:0px">
+ 	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;position:fixed;bottom:0px;margin-bottom:0px;">
   <thead>
   <tbody>
     <tr width="100%" height=50px; >
