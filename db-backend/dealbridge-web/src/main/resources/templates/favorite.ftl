@@ -132,7 +132,7 @@
 	 
    </div >
       <a class="navbar-brand" id="edit" style="float:right;border:1px;">编辑</a>
-  	  <a class="navbar-brand" style="float:right;right=100px;border:1px;">收藏夹</a>
+  	  <a class="navbar-brand" style="right:165px;border:1px;position:absolute;">收藏夹</a>
   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>

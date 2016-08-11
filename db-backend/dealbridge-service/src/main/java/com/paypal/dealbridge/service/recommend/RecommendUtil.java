@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class RecommendUtil {
 	@Value("${recommender.url}")
 	private String recommenderUrl;
+
 	private Logger logger = Logger.getLogger(this.getClass());
 	
 	public String getCustomizedDiscounts(int userId, int start, int number) throws RecommendQueryException {

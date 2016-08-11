@@ -33,12 +33,16 @@
 			.category{padding:0;margin:0;outline:0;background-color:#ffffff;height:150px;}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
-			a img{width:50%;}
-			a{color:#000000;}
-			a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);}
-			
+			.type a img{width:50%;}
+			.type a{color:#000000;}
+			.type a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);}
+			.discount_img{border:0;}
+			.tdimg{width:35%;height:100px;}
+			.tdcontent{width:65%;height:100px;padding:0;}
 				
-		</style>
+			</style>
+		
+	
 		
 		<script>
 			var startIndex = 5;
@@ -55,18 +59,19 @@
 			});
 		</script>
 			
-		<script>
-			function appendDiscount(startIndex, limitNumber) {
+
+		
+			<script>
+				function appendDiscount(startIndex, limitNumber) {
 				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<tr><td width="40%"><img src="' + result[i].img + 
-							'" class="img-thumbnail top_pic" style="border:0px;"></td><td width="100%"style="padding:0;">' + 
-							'<a href="/discount/${userId}/' + result[i].discountId + '">'+
-							'<p class="summary">' + result[i].summary + '</p>' +
-							'<p class="description">' + result[i].description + '</p>'+ 
-							'<p class="clickrate">' + '点击量：'+ result[i].clickRate + '</p>'+ '</a>' + 
-							'</td></tr>');
+						$('#recommend-content').append('<a href="/discount/${userId}/'+result[i].discountId+'" class="item"><div class="pic_item">'+
+						'<img src="'+result[i].img+'" class="pic"></img>'+
+						'</div><div class="content"><div class="summary">'+'【'+result[i].bankName+'】'+result[i].summary+'</div>'+
+						'<div class="detail">'+result[i].description+'</div><div class="clickrate">点击量:'+result[i].clickRate+'</div></div></a>');
+						
+						
 					}
 					$('#loading-panel').hide();
 				});
@@ -238,13 +243,13 @@
 	<div id="header-text" class="panel-heading">
 		<h3 class="panel-title">
 		<font color="#191919" size="3" face="黑体">
-			向您推荐
+			猜你喜欢
 		</font>
 		</h3>
 	</div>
 	
-	<table id="recommend-content">
-	</table>
+	<div id="recommend-content">
+	</div>
 	
 	<div id="loading-panel" style="display:none">
 		<p class="text-center">正在加载...</p>
