@@ -1,5 +1,6 @@
 package com.paypal.dealbridge.service.solr;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -7,11 +8,12 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SolrUtil {
-	private static final String SOLR_URL = "http://10.24.96.170:8983/solr/dealbridge/";
+	@Value("${solr.url}")
+	private String solrUrl;
 
 	public String searchDiscount(String query) throws SolrQueryException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = SOLR_URL + "select?q=" + query + "&wt=json";
+		String url = solrUrl + "select?q=" + query + "&wt=json";
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
 			return response.getBody();
@@ -22,7 +24,7 @@ public class SolrUtil {
 	
 	public String searchDiscount(String query, int start, int rows) throws SolrQueryException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = SOLR_URL + "select?q=" + query + "&start=" + start + "&rows=" + rows + "&wt=json";
+		String url = solrUrl + "select?q=" + query + "&start=" + start + "&rows=" + rows + "&wt=json";
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
 			return response.getBody();
