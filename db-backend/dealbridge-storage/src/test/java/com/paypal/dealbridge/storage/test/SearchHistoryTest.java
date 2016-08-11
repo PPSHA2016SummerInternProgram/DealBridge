@@ -22,9 +22,24 @@ public class SearchHistoryTest {
 	@Autowired
 	private SearchHistoryMapper searchHistoryMapper;
 	
+	private int userId = 1024;
+	private String keyword = "test keyword";
 	
 	@Test
-	public void test() {
+	public void testInsert() {
+		List<String> histories;
+		histories = searchHistoryMapper.selectUserHistory(userId, 10);
+		assertEquals(0, histories.size());
+		
+		SearchHistory record = new SearchHistory();
+		record.setUserId(userId);
+		record.setKeyword(keyword);
+		record.setSearchTime(new Date());
+		searchHistoryMapper.insert(record);
+		
+		histories = searchHistoryMapper.selectUserHistory(userId, 10);
+		assertEquals(1, histories.size());
+		assertEquals(keyword, histories.get(0));
 	}
 	
 
