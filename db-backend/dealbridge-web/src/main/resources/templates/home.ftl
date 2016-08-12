@@ -26,7 +26,7 @@
         })
 		</script>
 		<style>
-		
+			#header-text{background-color:rgb(220,220,220);padding-top:10px;}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
@@ -34,17 +34,11 @@
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			.type a img{width:50%;}
-			.type a{color:#000000;tetx-decoration:none;}
-			.type a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);text-decoration:none;}
-			a:link{ decoration:none} /* 未访问的链接 */ 
-			a:visited{decoration:none} /* 已访问的链接 */ 
-			a:hover{text-decoration:none}/* 鼠标在链接上 */ 
-			a:active{ text-decoration:none}/* 点击激活链接 */ 
+			.type a{color:#000000;}
+			.type a p{margin:0; font-family:Microsoft YaHei;color:rgb(150,150,150);}
 			.discount_img{border:0;}
 			.tdimg{width:35%;height:100px;}
 			.tdcontent{width:65%;height:100px;padding:0;}
-			.index-title{color:#666;height:38px;padding-left:10px;padding-top:10px;background-color:rgb(243,243,203);background-size:auto 1px;}
-			
 				
 			</style>
 		
@@ -90,8 +84,6 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
-			
-
 		</script>
 		
 		
@@ -104,8 +96,6 @@
 			#search-input-div{float:left; width:320px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
 			#search-record-header{text-align:center; font-size:16px}
-			#header-text p{font-family:Microsoft YaHei;background-color:rgb(230,230,230);padding:0;}
-			
 		</style>
 		
 	</head>
@@ -210,8 +200,15 @@
 	
 	
 	<!--Hot Discount-->
+	<div id="header-text" class="panel-heading">
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			当前热门
+		</font>
+		</h3>
+	</div>
 	
-	<div id="myCarousel " class="carousel slide">
+	<div id="myCarousel" class="carousel slide">
 	   <!-- 轮播（Carousel）指标 -->
 	   <ol class="carousel-indicators">
 	      <#list hots as hot>
@@ -226,7 +223,7 @@
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
 			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
 		  	 </div>
 	      </#list>
 	   </div>
@@ -241,8 +238,12 @@
 	
 	
 	<!--Recommend-->
-	<div class="index-title" >
-		猜你喜欢
+	<div id="header-text" class="panel-heading">
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			猜你喜欢
+		</font>
+		</h3>
 	</div>
 	
 	<div id="recommend-content">
