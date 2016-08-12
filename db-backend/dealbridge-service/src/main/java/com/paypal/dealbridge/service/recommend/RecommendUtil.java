@@ -9,8 +9,12 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RecommendUtil {
+
+	private static final String RECOMMEND_URL = "http://10.24.96.170:5000/";
+
 	@Value("${recommender.url}")
 	private String recommenderUrl;
+
 
 	private Logger logger = Logger.getLogger(this.getClass());
 	
