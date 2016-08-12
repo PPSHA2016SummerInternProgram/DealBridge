@@ -84,8 +84,6 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
-			
-
 		</script>
 		
 		
@@ -225,7 +223,7 @@
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
 			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
 		  	 </div>
 	      </#list>
 	   </div>
