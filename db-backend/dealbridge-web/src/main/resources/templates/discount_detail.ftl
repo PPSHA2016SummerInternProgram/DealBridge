@@ -14,6 +14,7 @@
  	 <!--script>
  	 $(document).ready(function(){
  			setInterval(function(){
+ 				
  				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
  				$("#shareTime").html('分享量：'+data);
  				});
@@ -23,10 +24,15 @@
  	 
 	<script>
         $(document).ready(function(){
+      		
+ 			 
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
+            	
+            	var userId=${userId};
                 var discountId = ${discount.discountId?c};
-                $.post("/api/share", {user_id:0, discount_id:discountId}, function(data, status, xhr){
+               
+                $.post("/api/share", {user_id:userId, discount_id:discountId}, function(data, status, xhr){
                         if (status == "success") {
                                 alert("successfully shared");
                                 console.log("成功分享");
@@ -118,8 +124,8 @@
    .detail
    {
   font-size:14px;
-  color:rgb(130,130,130);
-  padding:10px 10px 20px 10px;
+  color:#191919;
+  padding:15px 10px 20px 10px;
   
   font-family:Microspft YaHei;
    
@@ -151,32 +157,47 @@
  	}
  	.heart-color
  	{
- 	color:orange;
+ 	color:#ff5d1d;
  	}
+ 	#discount-title
+ 	{
+ 	position:relative;
+ 	padding-top:170px;
+ 	color:#ffffff;
+ 	padding-left:10px;
+ 	font-size:17px;
+ 	}
+ 	.shuxian
+ 	{
  	
+ 	float:right;
+ 	margin-right:60px;
+ 	height:30px;
+ 	background-color:rgb(220,220,220);
+ 	width:1px;
+ 	}
  	</style>
  	</head>
  	</body>
-<div class="div1">	
-<div class="dingbu" style="position:fixed;color:#333"><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:22px;"></i></div>
- 	<div><img src=${discount.img} width="100%" height=225 style="position:absolute;top:45px;"></img></div>
+<div >	
+<div class="dingbu" style="position:fixed;color:#333"><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
+ 	<div><img src=${discount.img} width="100%" height=150 style="position:absolute;top:45px;"></img></div>
  </div>
  
  
- <div class="div2">	
-<div class="cuxian" style="padding-top:275px;">${discount.summary}<#if favoriteId??><i class="fa fa-heart favorite" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
-<div class="detail">
+
+<div id="discount-title" >【${discount.bankName}】${discount.summary}<p class="shuxian"></p><#if favoriteId??><i class="fa fa-heart favorite heart-color" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
+<div class="detail">使用${discount.bankName}信用卡，
 ${discount.description}
 </div>
 
+
+<div style="line-height:38px;">
+<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:100px;">  <span>        点击量：<b>${discount.clickRate}</b></span></div>
+<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:100px;"><span >分享量：<b>${shareTime}</b></span> </div>
 </div>
-
-
-</div class="div3">
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;"><span >分享量：<b>${shareTime}</b></span> <span>点赞数：<b>${discount.clickRate}</b></span></div>
-<br>
-
- 	<div class="cuxian" >活动详情</div>
+<div>
+	<div class="cuxian" style="float:none;" >活动详情</div>
  
  	
 
