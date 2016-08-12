@@ -39,7 +39,11 @@
 			.discount_img{border:0;}
 			.tdimg{width:35%;height:100px;}
 			.tdcontent{width:65%;height:100px;padding:0;}
-				
+			
+			a:link{ decoration:none} /* 鏈闂殑閾炬帴 */ 
+			a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
+			a:hover{text-decoration:none}/* 榧犳爣鍦ㄩ摼鎺ヤ笂 */ 
+			a:active{ text-decoration:none}/* 鐐瑰嚮婵�娲婚摼鎺� */ 
 			</style>
 		
 	
