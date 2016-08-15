@@ -3,6 +3,8 @@ package com.paypal.dealbridge.web.controller;
 import java.text.ParseException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,8 +54,9 @@ public class RecommendController {
 		return "nearby";
 	}
 
-	@RequestMapping(path = "/recommend/{userId}/{type}", method = RequestMethod.GET)
-	public String showRecommend(@PathVariable("userId") String userId, @PathVariable("type") String type, Model model) {
+	@RequestMapping(path = "/recommend/{type}", method = RequestMethod.GET)
+	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
+		int userId = (int)session.getAttribute("userId");
 		model.addAttribute("userId", userId);
 		return "recommend";
 	}

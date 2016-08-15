@@ -2,6 +2,8 @@ package com.paypal.dealbridge.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +41,9 @@ public class SelfInfoController {
 		userInfoService.addBankCard(userId, addBankName);	
 	}
 	
-	@RequestMapping(path = "/userInfo/{userId}", method = RequestMethod.GET)
-	public String userInfoPage(@PathVariable("userId")int userId, Model model){
+	@RequestMapping(path = "/userInfo", method = RequestMethod.GET)
+	public String userInfoPage(HttpSession session, Model model){
+		int userId = (int)session.getAttribute("userId");
 		UserFullInfo ufi = userInfoService.getUserInfo(userId);
 		List<Bank> bankList = bankService.getBankList();
 		

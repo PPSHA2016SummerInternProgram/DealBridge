@@ -44,12 +44,9 @@ public class DiscountController {
 	
 
 
-	@RequestMapping(path = "/discount/{userId}/{id}", method = RequestMethod.GET)
-	public String showDiscount(@PathVariable("userId") int userId,@PathVariable("id") int id, Model model) {
-		// Authentication auth =
-		// SecurityContextHolder.getContext().getAuthentication();
-		// String name = auth.getName();
-		// System.out.println(name);
+	@RequestMapping(path = "/discount/{id}", method = RequestMethod.GET)
+	public String showDiscount(@PathVariable("id") int id, Model model, HttpSession session) {
+		int userId = (int)session.getAttribute("userId");
 		Discount discount = discountService.getDiscountById(id);
 		Integer favoriteId = favoriteService.existFavorite(userId, id);
 		int shareTime = shareService.countSharedTimes(id);

@@ -29,7 +29,7 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				var str = '<tr data-url="/discount/${userId}/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
+ 	  				var str = '<tr data-url="/discount/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
@@ -124,7 +124,7 @@
   		<i class="fa fa-bars" aria-hidden="true">
   		</i></button>
         <div class="dropdown-content" >
-         <a href="/home/${userId}">首页</a>
+         <a href="/home">首页</a>
          <a href="#">帮助</a>
          <a href="#">我要反馈</a> 
      

@@ -66,7 +66,7 @@
 				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<a href="/discount/${userId}/'+result[i].discountId+'" class="item"><div class="pic_item">'+
+						$('#recommend-content').append('<a href="/discount/'+result[i].discountId+'" class="item"><div class="pic_item">'+
 						'<img src="'+result[i].img+'" class="pic"></img>'+
 						'</div><div class="content"><div class="summary">'+'【'+result[i].bankName+'】'+result[i].summary+'</div>'+
 						'<div class="detail">'+result[i].description+'</div><div class="clickrate">点击量:'+result[i].clickRate+'</div></div></a>');
@@ -126,7 +126,7 @@
 				<font face="黑体">
 					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
-				<a href="/userInfo/${userId}" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 		
 		</div>
@@ -139,55 +139,55 @@
 	<div class="category">
 	
 		<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Meal.png"></img>
 		  	<p>美食</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Movie.png"></img>
 		  	<p>电影</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/food">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
@@ -223,7 +223,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
 		  	 </div>
