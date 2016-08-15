@@ -31,11 +31,11 @@
  	  				console.log(result[i]);
  	  				var str = '<tr data-url="/discount/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
- 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
- 	  				+ result[i].bankName + '】' 
- 	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;"><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
  	  				if (result[i].startTime == null)
  	  					str += '不限';
  	  				else
@@ -144,7 +144,7 @@
 </nav>
 	
 	<!--favorites list-->
-	<table class="table table-striped table-hover " style="transition:0.3s ease-out;margin-left:-30px;margin-bottom:0;margin-top:100px;" id="favorite-load">
+	<table class="table table-striped table-hover " style="transition:0.2s ease-out;margin-left:-30px;margin-bottom:0;margin-top:100px;" id="favorite-load">
 	</table>
 	
 	<div id="loading-panel" style="display:none">
@@ -192,16 +192,18 @@
 				var items = $('[data-dis]');
 				var favIds=[];
 				for (var i = 0; i<items.length; i++)
+				{
+				var item = items[i];
+				if($(item).attr('data-dis')==='show')
 					{
-					var item = items[i];
-					if($(item).attr('data-dis')==='show')
-						{
-						$(item).closest('tr').hide();
-						favIds.push($(item).closest('tr').attr('favorite-id'));
-						console.log('favorite-id');
-						}
-					
+					$(item).closest('tr').hide();
+					favIds.push($(item).closest('tr').attr('favorite-id'));
+					console.log('favorite-id');
 					}
+				
+				}
+				if(favIds.length>0)
+				{
 				$.ajax({
 					type: "POST",
 					
@@ -214,6 +216,7 @@
 				});
 				
 				updateFavoriteNum();
+				}
 			}
 			
 		}

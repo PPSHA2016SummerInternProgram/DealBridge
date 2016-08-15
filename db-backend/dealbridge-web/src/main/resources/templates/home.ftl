@@ -39,7 +39,11 @@
 			.discount_img{border:0;}
 			.tdimg{width:35%;height:100px;}
 			.tdcontent{width:65%;height:100px;padding:0;}
-				
+			
+			a:link{ decoration:none} /* 鏈闂殑閾炬帴 */ 
+			a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
+			a:hover{text-decoration:none}/* 榧犳爣鍦ㄩ摼鎺ヤ笂 */ 
+			a:active{ text-decoration:none}/* 鐐瑰嚮婵�娲婚摼鎺� */ 
 			</style>
 		
 	
@@ -84,8 +88,6 @@
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
-			
-
 		</script>
 		
 		
@@ -145,49 +147,56 @@
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/car">
 		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/movie">
 		  	<img src="/icon/Movie.png"></img>
-		  	<p>电影</p>
+		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/entertainment">
 		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/housing">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/hotel">
 		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+		<a href="/recommend/fashion">
 		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/travel">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/food">
+
+		<a href="/recommend/shop">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
@@ -225,7 +234,7 @@
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
 			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">${hot.summary}</font></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
 		  	 </div>
 	      </#list>
 	   </div>
