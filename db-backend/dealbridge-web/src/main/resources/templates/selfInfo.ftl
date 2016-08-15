@@ -11,6 +11,16 @@
  	  
  	<style>
  	
+ 	#user-dropdown-button {
+ 		position: relative;
+	    left: 250px;
+	    font-size: small;
+	    top: -7px;
+	    background-color: #181818;
+	    border: transparent;
+	    font-family:Microsoft YaHei;
+ 	}
+ 	
  	.mycard
  	{
  		padding-top:10px;
@@ -96,25 +106,48 @@
  	<body>
  
  	<div style="background-color:#181818; ">
-  <div class="mycard" style="position:relative;">
-  <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-8px;">
-  </i><span style="text-shadow:1px 1px 1px blue;position:absolute;left:173px;">个人信息</span></div>
- 	<div class="xian"></div>
+      <div class="mycard" style="position:relative;">
+        <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-8px;"></i>
+        <span style="text-shadow:1px 1px 1px blue;position:absolute;left:150px;top:6px">个人信息</span>
+        <button type="button" class="dropdown-toggle" id="user-dropdown-button" data-toggle="dropdown">
+                               切换用户
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-button">
+	      <li role="presentation" class="user-li" userId=4>
+	         <a role="menuitem"  href="#">tianshu</a>
+	      </li>
+	      <li role="presentation" class="user-li" userId=2>
+	         <a role="menuitem"  href="#">yao</a>
+	      </li>
+	      <li role="presentation" class="user-li" userId=1>
+	         <a role="menuitem"  href="#">flemming</a>
+	      </li>
+   		</ul>
+   		
+      </div>
+ 	
+ 	  <div class="xian">
+      </div>
  
- 	<div style="padding-top:30px;;text-align:center;"><span> <img src="/img/user_pic.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span></div>
+ 	  <div style="padding-top:30px;;text-align:center;">
+ 	    <span> <img src="/img/user_pic.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span>
+ 	  </div>
  
  	
- 	<div class="personal" style="color:#cccccc;">
-   <tr>
-         <td style="font-family:Microsoft YaHei;padding-top:10px; ">${ufi.userName}</td>
-      </tr>
+ 	  <div class="personal" style="color:#cccccc;">
+        <tr>
+          <td style="font-family:Microsoft YaHei;padding-top:10px; ">${ufi.userName}</td>
+        </tr>
+        <br>
+        <tr >
+          <td style="font-size:10px;font-family:Microsoft YaHei;padding-top:10px;">${ufi.email}</td>
+        </tr>
+ 	  </div> 	
+      
       <br>
-      <tr >
-         <td style="font-size:10px;font-family:Microsoft YaHei;padding-top:10px;">${ufi.email}</td>
-      </tr>
- 	</div> 	
-<br>
-  <div>
+    <div>
+  
   <div class="cuxian"></div>
   </div>
   
@@ -178,6 +211,20 @@
  
 
  <script>
+ 	$(".user-li").click(function(){
+ 		var userId = $(this).attr("userId");
+ 		console.log("switch to user: " + userId);
+ 		$.ajax({
+ 			type: "POST",
+ 			url: "/api/login",
+ 			data: {"userId": userId},
+ 			success: function() {
+ 				location.reload();
+ 			},
+ 		});
+ 	});
+ 
+ 
  $(document).ready(function(){
 	 $("#queren2").click(function(){
 		
