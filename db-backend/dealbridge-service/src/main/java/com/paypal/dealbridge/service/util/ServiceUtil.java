@@ -27,6 +27,9 @@ public class ServiceUtil {
 		if (!doc.isNull("distance")) {
 			discount.setDistance(doc.getDouble("distance"));
 		}
+		if(!doc.isNull("click_rate")) {
+			discount.setClickRate(doc.getInt("click_rate"));
+		}
 		discount.setImg(doc.getString("img"));
 		
 		return discount;

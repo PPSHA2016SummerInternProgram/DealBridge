@@ -36,7 +36,7 @@
 			
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<tr onclick=location.href="/discount/${userId}/' + result[i].discountId + '"><td width="40%"><img src="' + 
@@ -57,7 +57,7 @@
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
-				appendDiscount(0, 5);
+				appendDiscount(0, 10);
 			});
 		</script>
 		
@@ -101,7 +101,7 @@
 		<div id="header-text" class="panel-heading">
 			<h3 class="panel-title">
 			<font color="#191919" size="3" face="黑体">
-				向您推荐
+				向您推荐 ${type}
 			</font>
 			</h3>
 		</div>

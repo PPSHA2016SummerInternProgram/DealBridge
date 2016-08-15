@@ -147,49 +147,49 @@
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/car">
 		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/movie">
 		  	<img src="/icon/Movie.png"></img>
-		  	<p>电影</p>
+		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/entertainment">
 		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/housing">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/hotel">
 		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/fashion">
 		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/travel">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommend/${userId}/shop">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
