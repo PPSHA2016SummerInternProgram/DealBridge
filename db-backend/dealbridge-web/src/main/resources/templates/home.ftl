@@ -70,32 +70,11 @@
 				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-<<<<<<< HEAD
-					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
- 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
- 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
-					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
- 	  				if (result[i].startTime == null)
- 	  					str += '不限';
- 	  				else
- 	  					str += result[i].startTime;
- 	  				str += ' 至 '; 
- 	  				if (result[i].endTime == null)
- 	  					str += '不限';
- 	  				else
- 	  					str += result[i].endTime;
- 	  				str += '</div></td></tr>';
- 	  				$('#recommend-content').append(str);
 
-=======
 						$('#recommend-content').append('<a href="/discount/'+result[i].discountId+'" class="item"><div class="pic_item">'+
 						'<img src="'+result[i].img+'" class="pic"></img>'+
 						'</div><div class="content"><div class="summary">'+'【'+result[i].bankName+'】'+result[i].summary+'</div>'+
 						'<div class="detail">'+result[i].description+'</div><div class="clickrate">点击量:'+result[i].clickRate+'</div></div></a>');
-						
->>>>>>> f18c0e2297eb1e52d72b286732dda5513037b7d4
 						
 					}
 					$('#loading-panel').hide();
@@ -104,14 +83,12 @@
 			
 		</script>
 	
-		
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
 		</script>
-		
 		
 		<style>
 			#navbar{background:#F0F0F0; padding:15px}
