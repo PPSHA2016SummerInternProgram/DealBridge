@@ -178,11 +178,13 @@
  	height:100px;
  	width:150px;
  	opacity:0.8;
- 	background-color:rgb(100,100,100);
+ 	background-color:rgb(50,50,50);
+ 	font-size:18px;
  	border-radius:5px;
  	text-align:center;
  	color:#ffffff;
  	left:120px;
+ 	padding-top:10px;
  	}
  	.pic
  	{
@@ -225,7 +227,8 @@
 </div>
 <!--弹出添加收藏成功-->
 <div class="jump_box">
-删除收藏成功!
+添加收藏成功！
+<i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>
 </div>
 <div>
 	<div class="cuxian" style="float:none;" >活动详情</div>
@@ -299,11 +302,12 @@ function chooseFunction()
 					traditional: true,
 					success:function(){
 						console.log("删除收藏成功");
-						$(".jump_box").html("删除收藏成功");
+						
+						$(".jump_box").html('删除收藏成功！<i class="fa fa-heart-o favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
-						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
+					//	$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+					//	$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
 					},
 					
 					error: function() {
@@ -334,19 +338,21 @@ function chooseFunction()
 					success:function(){
 						console.log("成功添加收藏");
 						
-						$(".jump_box").html("添加收藏成功");
+						$(".jump_box").html('添加收藏成功！<i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
-						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
+						
+					//	$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
+					//	$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+					//	$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+				
 					},
 					
 					error: function() {
 						console.log("添加收藏失败");
-						$(".jump_box").html("添加收藏失败");
+						$(".jump_box").html('添加收藏失败！');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"-=30px",width:"-=50px"}, "slow");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "1");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
 					},
 					
 				});
