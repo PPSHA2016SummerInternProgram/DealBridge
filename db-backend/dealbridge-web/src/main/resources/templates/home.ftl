@@ -67,7 +67,7 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<a href="/discount/'+result[i].discountId+'" class="item"><div class="pic_item">'+
@@ -97,7 +97,7 @@
 			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
-			#search-input-div{float:left; width:320px}
+			#search-input-div{float:left; width:280px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
 			#search-record-header{text-align:center; font-size:16px}
 		</style>
@@ -126,7 +126,7 @@
 					">
 				</span>
 				<font face="黑体">
-					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-entry" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
 				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
@@ -141,62 +141,62 @@
 	<div class="category">
 	
 		<div class="type">
-		<a href="/recommend/food">
+		<a href="/recommendation/food">
 		  	<img src="/icon/Meal.png"></img>
 		  	<p>美食</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/car">
+		<a href="/recommendation/car">
 		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/movie">
+		<a href="/recommendation/movie">
 		  	<img src="/icon/Movie.png"></img>
 		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/entertainment">
+		<a href="/recommendation/entertainment">
 		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/housing">
+		<a href="/recommendation/housing">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/hotel">
+		<a href="/recommendation/hotel">
 		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/fashion">
+		<a href="/recommendation/fashion">
 		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/travel">
+		<a href="/recommendation/travel">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommend/shop">
+		<a href="/recommendation/shop">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
@@ -354,7 +354,7 @@
 			
 			
 			$(document).ready(function(){
-				$('#search-input').click(function(){
+				$('#search-entry').click(function(){
 					$('#home-div').hide(150, 'linear');
 					$('#search-div').show(150, 'linear');
 				});

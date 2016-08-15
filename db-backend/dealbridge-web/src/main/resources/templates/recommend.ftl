@@ -37,7 +37,7 @@
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
 
-				$.getJSON("/api/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 						$('#recommend-content').append('<tr onclick=location.href="/discount' + result[i].discountId + '"><td width="40%"><img src="' + 
