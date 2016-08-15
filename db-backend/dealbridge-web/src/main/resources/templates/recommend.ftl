@@ -78,20 +78,10 @@
 					<div style="height:auto;float:left;">
 					 
 					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
+					  
 					</div>
+					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">附近</span>
 					
-					<div style="height:auto;float:right;position: relative;">
-						<span class="glyphicon glyphicon-search" aria-hidden="true" style="
-							position: absolute;
-							left: 8px;
-							top: 3.5px;
-							">
-						</span>
-						<font face="黑体">
-							<input type="text" placeholder="输入银行、城市" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
-						</font>
-						<a style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-					</div>
 				
 				</div>
 			  
@@ -99,13 +89,7 @@
 	
 	
 		<!--Recommend-->
-		<div id="header-text" class="panel-heading">
-			<h3 class="panel-title">
-			<font color="#191919" size="3" face="黑体">
-				向您推荐 ${type}
-			</font>
-			</h3>
-		</div>
+	
 		
 		<table id="recommend-content">
 		</table>
