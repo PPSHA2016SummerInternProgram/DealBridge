@@ -30,7 +30,7 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			.category{padding:0;margin:0;outline:0;background-color:#ffffff;height:150px;}
+			.category{padding:0;padding-top:60px;margin:0;outline:0;background-color:#ffffff;height:150px;}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			.type a img{width:50%;}
@@ -67,14 +67,35 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<a href="/discount/${userId}/'+result[i].discountId+'" class="item"><div class="pic_item">'+
+<<<<<<< HEAD
+					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
+ 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				if (result[i].startTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].startTime;
+ 	  				str += ' 至 '; 
+ 	  				if (result[i].endTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].endTime;
+ 	  				str += '</div></td></tr>';
+ 	  				$('#recommend-content').append(str);
+
+=======
+						$('#recommend-content').append('<a href="/discount/'+result[i].discountId+'" class="item"><div class="pic_item">'+
 						'<img src="'+result[i].img+'" class="pic"></img>'+
 						'</div><div class="content"><div class="summary">'+'【'+result[i].bankName+'】'+result[i].summary+'</div>'+
 						'<div class="detail">'+result[i].description+'</div><div class="clickrate">点击量:'+result[i].clickRate+'</div></div></a>');
 						
+>>>>>>> f18c0e2297eb1e52d72b286732dda5513037b7d4
 						
 					}
 					$('#loading-panel').hide();
@@ -82,6 +103,7 @@
 			}
 			
 		</script>
+	
 		
 		<script>
 			$(document).ready(function(){
@@ -97,7 +119,7 @@
 			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
-			#search-input-div{float:left; width:320px}
+			#search-input-div{float:left; width:280px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
 			#search-record-header{text-align:center; font-size:16px}
 		</style>
@@ -110,7 +132,7 @@
 	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar" style="background-color:#181818;">
+    <div class="navbar navbar-fixed-top" style="background-color:#181818;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
@@ -126,9 +148,9 @@
 					">
 				</span>
 				<font face="黑体">
-					<input id="search-input" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-entry" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
-				<a href="/userInfo/${userId}" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 		
 		</div>
@@ -141,55 +163,62 @@
 	<div class="category">
 	
 		<div class="type">
-		<a href="/recommend/${userId}/food">
+		<a href="/recommendation/food">
 		  	<img src="/icon/Meal.png"></img>
 		  	<p>美食</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/car">
+
+		<a href="/recommendation/car">
 		  	<img src="/icon/Car.png"></img>
 		  	<p>洗车</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/movie">
+
+		<a href="/recommendation/movie">
 		  	<img src="/icon/Movie.png"></img>
 		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/entertainment">
+
+		<a href="/recommendation/entertainment">
 		  	<img src="/icon/Entertaiment.png"></img>
 		  	<p>娱乐</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/housing">
+
+		<a href="/recommendation/housing">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/hotel">
+
+		<a href="/recommendation/hotel">
 		  	<img src="/icon/Hotel.png"></img>
 		  	<p>酒店</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/fashion">
+		<a href="/recommendation/fashion">
 		  	<img src="/icon/Beauty.png"></img>
 		  	<p>丽人</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/travel">
+
+		<a href="/recommendation/travel">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
-		<a href="/recommend/${userId}/shop">
+
+		<a href="/recommendation/shop">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
@@ -225,7 +254,7 @@
 	   <div class="carousel-inner">
 	      <#list hots as hot>
 	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${userId}/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
 			 	<div class="carousel-bg"></div>
 			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
 		  	 </div>
@@ -250,14 +279,12 @@
 		</h3>
 	</div>
 	
-	<div id="recommend-content">
-	</div>
-	
+
+		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="recommend-content"></table>
 	<div id="loading-panel" style="display:none">
 		<p class="text-center">正在加载...</p>
 	</div>
 	
-   </div>
 	
 	
 	<div id='search-div' style="top:0px; position:absolute; display:none">
@@ -347,7 +374,7 @@
 			
 			
 			$(document).ready(function(){
-				$('#search-input').click(function(){
+				$('#search-entry').click(function(){
 					$('#home-div').hide(150, 'linear');
 					$('#search-div').show(150, 'linear');
 				});
@@ -360,6 +387,13 @@
 				});
 			});
 			
+		</script>
+		
+		<script>
+			$('table').on('click', 'tr', fun1=function(){
+	 	  	location.href = $(this).attr('data-url');
+ 	  		});
+ 	  	
 		</script>
 	
 </body>

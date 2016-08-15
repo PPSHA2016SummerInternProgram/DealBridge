@@ -2,6 +2,8 @@ package com.paypal.dealbridge.web.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +29,8 @@ public class ShareController {
 	
 	@RequestMapping(path="/api/share", method=RequestMethod.POST)
 	@ResponseBody
-	public int insertShareRecord(@RequestParam("user_id") int userId, @RequestParam("discount_id") int discountId) {
+	public int insertShareRecord(@RequestParam("discount_id") int discountId, HttpSession session) {
+		int userId = (int)session.getAttribute("userId");
 		Share share = new Share();
 		share.setShareTime(new Date());
 		share.setUserId(userId);

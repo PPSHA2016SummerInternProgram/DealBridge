@@ -31,7 +31,7 @@
 			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
-			#search-input-div{float:left; width:320px}
+			#search-input-div{float:left; width:280px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
 		</style>
 		

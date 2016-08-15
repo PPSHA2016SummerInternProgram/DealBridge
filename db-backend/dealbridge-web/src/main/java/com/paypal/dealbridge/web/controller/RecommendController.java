@@ -4,7 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.List;
 
-import org.json.JSONArray;
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ public class RecommendController {
 	@Autowired
 	private RecommendService recommendService;
 
-	@RequestMapping(path = "/api/recommend/{userId}", method = RequestMethod.GET)
+	@RequestMapping(path = "/api/recommendation/{userId}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getCustomizedDiscounts(@PathVariable("userId") int userId,
 			@RequestParam(value = "startIndex", required = false) Integer start,
@@ -34,37 +35,36 @@ public class RecommendController {
 		return recommendService.getCustomizedDiscounts(userId, start, number);
 	}
 
-	@RequestMapping(path = "/api/{type}/{userId}", method = RequestMethod.GET)
+	@RequestMapping(path = "/api/recommendation/{type}/{userId}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<BriefDiscount> getTypeDiscounts(@PathVariable("userId") int userId,
-												@PathVariable("type") String type,
-												@RequestParam(value = "startIndex", required = false) Integer start,
-												@RequestParam(value = "limitNumber", required = false) Integer number)
-		throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
-													return recommendService.getDiscountByType(userId, start, number, type);
+	public List<BriefDiscount> getTypeDiscounts(@PathVariable("type") String type, @PathVariable("userId") int userId,
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+			throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+		return recommendService.getDiscountByType(userId, start, number, type);
 	}
 
 	@RequestMapping(path = "/api/nearby", method = RequestMethod.GET)
 	@ResponseBody
-	public List<BriefDiscount> getNearbyDiscounts(
-			@RequestParam(value = "latitude") double latitude,
+	public List<BriefDiscount> getNearbyDiscounts(@RequestParam(value = "latitude") double latitude,
 			@RequestParam(value = "longitude") double longitude,
 			@RequestParam(value = "startIndex", required = false) Integer start,
-			@RequestParam(value = "limitNumber", required = false) Integer number) throws JSONException, RecommendQueryException, ParseException{
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+			throws JSONException, RecommendQueryException, ParseException {
 		return recommendService.getNearbyDiscounts(latitude, longitude, start, number);
 	}
-	
-	@RequestMapping(path = "/nearby", method=RequestMethod.GET)
-	public String showNearby(
-		@RequestParam(value = "lat") double latitude,
-		@RequestParam(value = "lng") double longitude, Model model) {
+
+	@RequestMapping(path = "/nearby", method = RequestMethod.GET)
+	public String showNearby(@RequestParam(value = "lat") double latitude,
+			@RequestParam(value = "lng") double longitude, Model model) {
 		model.addAttribute("latitude", latitude);
 		model.addAttribute("longitude", longitude);
 		return "nearby";
 	}
 
-	@RequestMapping(path = "/recommend/{userId}/{type}", method = RequestMethod.GET)
-	public String showRecommend(@PathVariable("userId") String userId, @PathVariable("type") String type, Model model) {
+	@RequestMapping(path = "/recommendation/{type}", method = RequestMethod.GET)
+	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
 		model.addAttribute("userId", userId);
 		model.addAttribute("type", type);
 		return "recommend";
