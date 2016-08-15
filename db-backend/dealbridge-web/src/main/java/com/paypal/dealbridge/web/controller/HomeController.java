@@ -28,7 +28,9 @@ public class HomeController {
 	
 	@RequestMapping(path="/home", method=RequestMethod.GET)
 	public String showDefaultHomePage() throws UnsupportedEncodingException {
-		return "redirect:/home/shanghai";
+		String url = "redirect:/home/上海";
+		url = new String(url.getBytes(), "iso-8859-1");
+		return url;
 	}
 	
 	@RequestMapping(path="/home/{area}", method=RequestMethod.GET)

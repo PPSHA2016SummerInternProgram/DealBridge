@@ -114,14 +114,17 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-dropdown-button">
-	      <li role="presentation" class="user-li" userId=4>
-	         <a role="menuitem"  href="#">tianshu</a>
-	      </li>
-	      <li role="presentation" class="user-li" userId=2>
+	      <li role="presentation" class="user-li" userId=1>
 	         <a role="menuitem"  href="#">yao</a>
 	      </li>
-	      <li role="presentation" class="user-li" userId=1>
+	      <li role="presentation" class="user-li" userId=2>
 	         <a role="menuitem"  href="#">flemming</a>
+	      </li>
+	      <li role="presentation" class="user-li" userId=3>
+	         <a role="menuitem"  href="#">aby</a>
+	      </li>
+	      <li role="presentation" class="user-li" userId=4>
+	         <a role="menuitem"  href="#">tianshu</a>
 	      </li>
    		</ul>
    		

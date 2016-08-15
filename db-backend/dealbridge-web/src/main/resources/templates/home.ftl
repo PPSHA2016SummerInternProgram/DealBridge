@@ -126,7 +126,7 @@
 					">
 				</span>
 				<font face="黑体">
-					<input id="search-entry" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-entry" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;disabled: disabled">
 				</font>
 				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
@@ -354,10 +354,12 @@
 			
 			
 			$(document).ready(function(){
+				/*
 				$('#search-entry').click(function(){
 					$('#home-div').hide(150, 'linear');
 					$('#search-div').show(150, 'linear');
 				});
+				*/
 			});
 			
 			$(document).ready(function(){
