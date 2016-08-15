@@ -21,7 +21,6 @@ public class BankListService {
 	
 	public void bankListCache(){
 		bankList = bankMapper.getBankList();
-		System.out.println(bankList);
 		for(Bank i : bankList){
 			bankNO.put(i.getBankOfficial(), i.getBankName());
 //			bankNI.put(i.getBankName(), i.getBankImg());

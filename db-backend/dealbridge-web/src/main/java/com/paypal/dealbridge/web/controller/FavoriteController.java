@@ -2,6 +2,8 @@ package com.paypal.dealbridge.web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,18 +61,9 @@ public class FavoriteController {
 		return favoriteService.existFavorite(userId, discountId);
 	}
 	
-	
-//	@RequestMapping(path="/favorite/{area}/{userId}", method=RequestMethod.GET)
-//	public String showFavoritePage(@PathVariable("area") int area, @PathVariable("userId") int userId, Model model) {
-//		int count = favoriteService.numOfFavorite(userId);
-//		model.addAttribute("count", count);
-//		model.addAttribute("userId", userId);
-//		model.addAttribute("area", area);
-//		return "favorite";
-//	}
-//	
-	@RequestMapping(path="/favorite/{userId}", method=RequestMethod.GET)
-	public String showFavoritePage(@PathVariable("userId") int userId, Model model) {
+	@RequestMapping(path="/favorite", method=RequestMethod.GET)
+	public String showFavoritePage(Model model, HttpSession session) {
+		int userId = (int)session.getAttribute("userId");
 		int count = favoriteService.numOfFavorite(userId);
 		model.addAttribute("count", count);
 		model.addAttribute("userId", userId);
