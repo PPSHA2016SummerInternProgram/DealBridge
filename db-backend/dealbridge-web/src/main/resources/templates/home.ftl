@@ -158,78 +158,78 @@
 
 
 
-	<div class="category">
-	
-		<div class="type">
-		<a href="/recommendation/food">
-		  	<img src="/icon/Meal.png"></img>
-		  	<p>美食</p>
-		  </a>
-		</div>
-			<div class="type">
+	 <div class="category">
+   
+      <div class="type">
+      <a href="/recommendation/food">
+        <img src="/icon/Meal.png"></img>
+        <p>美食</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/car">
-		  	<img src="/icon/Car.png"></img>
-		  	<p>洗车</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/car">
+        <img src="/icon/Car.png"></img>
+        <p>洗车</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/outing">
-		  	<img src="/icon/Movie.png"></img>
-		  	<p>出行</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/outing">
+        <img src="/icon/Movie.png"></img>
+        <p>出行</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/entertainment">
-		  	<img src="/icon/Entertaiment.png"></img>
-		  	<p>娱乐</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/entertainment">
+        <img src="/icon/Entertaiment.png"></img>
+        <p>娱乐</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/hotel">
-		  	<img src="/icon/House.png"></img>
-		  	<p>住房</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/hotel">
+        <img src="/icon/House.png"></img>
+        <p>住房</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/hotel">
-		  	<img src="/icon/Hotel.png"></img>
-		  	<p>酒店</p>
-		  </a>
-		</div>
-			<div class="type">
-		<a href="/recommendation/fashion">
-		  	<img src="/icon/Beauty.png"></img>
-		  	<p>丽人</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/hotel">
+        <img src="/icon/Hotel.png"></img>
+        <p>酒店</p>
+        </a>
+      </div>
+         <div class="type">
+      <a href="/recommendation/fashion">
+        <img src="/icon/Beauty.png"></img>
+        <p>丽人</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/travelling">
-		  	<img src="/icon/Beach.png"></img>
-		  	<p>旅游</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/travelling">
+        <img src="/icon/Beach.png"></img>
+        <p>旅游</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/shopping">
-		  	<img src="/icon/Shop.png"></img>
-		  	<p>购物</p>
-		  </a>
-		</div>
-		
-		<div class="type">
-		  <a href="/nearby/?lat=31.2099&lng=121.569">
-		  	<img src="/icon/Near.png"></img>
-		  	<p>附近</p>
-		  </a>
-		</div>
-	</div>
-	
+      <a href="/recommendation/shopping">
+        <img src="/icon/Shop.png"></img>
+        <p>购物</p>
+        </a>
+      </div>
+      
+      <div class="type">
+        <a href="/nearby/?lat=31.2099&lng=121.569">
+        <img src="/icon/Near.png"></img>
+        <p>附近</p>
+        </a>
+      </div>
+   </div>
+
 	
 
 	
@@ -259,7 +259,25 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
-
+	<!--Bank entry-->
+	<div id="header-text" class="panel-heading">
+		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			精选银行
+		</font>
+		</h3>
+	</div>
+	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
+    <thead>
+    <tbody>
+    <tr width="100%" height=50px; >
+     
+      <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+     <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+    </tr>
+  	</tbody>
+	</table> 
 	
 	
 	<!--Recommend-->
