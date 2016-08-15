@@ -30,7 +30,7 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			.category{padding:0;margin:0;outline:0;background-color:#ffffff;height:150px;}
+			.category{padding:0;padding-top:60px;margin:0;outline:0;background-color:#ffffff;height:150px;}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			.type a img{width:50%;}
@@ -110,7 +110,7 @@
 	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar" style="background-color:#181818;">
+    <div class="navbar navbar-fixed-top" style="background-color:#181818;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         

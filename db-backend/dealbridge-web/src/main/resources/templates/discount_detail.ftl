@@ -9,7 +9,9 @@
       <link rel="stylesheet" href="/font-awesome-4.6.3/css/font-awesome.min.css">
  	  <script src="/jquery-2.0.0/jquery.min.js"></script>
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
- 	  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+ 	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
+ 	  
+ 	 
 
  	 <!--script>
  	 $(document).ready(function(){
@@ -186,8 +188,8 @@
  	{
  	height:180px;
  	width:100%;
- 	position:absolute;
- 	top:45px;
+ 	
+ 	padding-top:45px;
  	text-align:center;
  	}
  	.pic img
@@ -204,9 +206,9 @@
  
  	</style>
  	</head>
- 	</body style="position:relative;">
+ 	<body style="position:relative;">
 	
-	<div class="dingbu container" style="position:fixed;color:#333 "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
+	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
 	
 	<div class="pic"><img src=${discount.img} ></img></div>
 
@@ -227,9 +229,6 @@
 </div>
 <div>
 	<div class="cuxian" style="float:none;" >活动详情</div>
- 
- 	
-
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
@@ -240,9 +239,12 @@
  	<#if discount.discountUsage??>
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
  	</#if>
- 
+
 </div>
 </div>
+
+
+
 
  	<!-- 分享 -->
  	<div id="footer" style="border-radius: 0px;position:fixed;bottom: 0;z-index: 100;width: 100%; display:none;" class="footerbar">
@@ -331,6 +333,7 @@ function chooseFunction()
 					traditional: true,
 					success:function(){
 						console.log("成功添加收藏");
+						
 						$(".jump_box").html("添加收藏成功");
 						$(".jump_box").show();
 						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
