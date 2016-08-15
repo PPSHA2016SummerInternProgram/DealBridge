@@ -20,14 +20,14 @@
 		
 		
 		<script>
-			var startIndex = 5;
+			var startIndex = 10;
 			$(window).scroll(function() {
 				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 					if($('#loading-panel').is(":visible") == false){
 						$('#loading-panel').show();
 						window.setTimeout(function(){
-							appendDiscount(startIndex, 5);
-							startIndex += 5;
+							appendDiscount(startIndex, 10);
+							startIndex += 10;
 						}, 1000);
 					}
 				}
@@ -36,16 +36,16 @@
 			
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommend/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/nearby", {latitude:${latitude}, longitude:${longitude}, startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<tr onclick=location.href="/discount/${userId}/' + result[i].discountId + '"><td width="40%"><img src="' + 
+						$('#recommend-content').append('<tr onclick=location.href="/discount/' + result[i].discountId + '"><td width="40%"><img src="' + 
 							result[i].img + 
 							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
 							'<p class="summary">' + 
 							result[i].summary +
 							'</p>' + 
-							'<p class="description">'+result[i].description + '</p>'+
+							'<p class="description">'+result[i].description + '<br>' + '距离： ' + result[i].distance.toFixed(3) + '千米' + '</p>'+
 							'</td></tr>');
 					}
 					$('#loading-panel').hide();
@@ -57,7 +57,7 @@
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
-				appendDiscount(0, 5);
+				appendDiscount(0, 10);
 			});
 		</script>
 		
@@ -101,7 +101,7 @@
 		<div id="header-text" class="panel-heading">
 			<h3 class="panel-title">
 			<font color="#191919" size="3" face="黑体">
-				向您推荐
+				附近优惠
 			</font>
 			</h3>
 		</div>

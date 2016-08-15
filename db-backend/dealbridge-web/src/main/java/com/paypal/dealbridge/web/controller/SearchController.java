@@ -61,6 +61,10 @@ public class SearchController {
 	
 	@RequestMapping(path = "/search_result", method=RequestMethod.GET)
 	public String showSearchResult(@RequestParam("query") String query, Model model) {
+		List<String> hotKeywords = searchService.getHotKeywords(9);
+		List<String> searchHistories = searchService.getUserHistory(3, 10);
+		model.addAttribute("searchHistories", searchHistories);
+		model.addAttribute("hotKeywords", hotKeywords);
 		model.addAttribute("query", query);
 		return "search_result";
 	}

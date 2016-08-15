@@ -32,9 +32,21 @@ public class FavoriteService {
 		
 	}
 	
+	public int deleteFavoriteById(int userId, int discountId){
+		int i = 0;
+			i = favoriteMapper.deleteFavoriteById(userId, discountId);
+		return i;
+		
+	}
+	
 	public int addFavorite(int userId, int discountId){
 		int i = 0;
 		i = favoriteMapper.addFavorite(userId, discountId);
 		return i;
+	}
+	
+	//exist or not
+	public Integer existFavorite(int userId, int discountId){
+		return favoriteMapper.existFavorite(userId, discountId);
 	}
 }

@@ -11,54 +11,43 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
- 	 <script>
+ 	 <!--script>
  	 $(document).ready(function(){
  			setInterval(function(){
+ 				
  				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
  				$("#shareTime").html('分享量：'+data);
  				});
  			}, 3000);
  		});
- 	 </script>
+ 	 </script-->
  	 
- 	<script>
+	<script>
         $(document).ready(function(){
-            $(".share-btn").click(function(){
+      		
+ 			 
+            $(".share-box").click(function(){
+            	console.log("进入分享选择框");
+            	
+            	var userId=${userId};
                 var discountId = ${discount.discountId?c};
-                $.post("/api/share", {user_id:0, discount_id:discountId}, function(data, status, xhr){
+               
+                $.post("/api/share", {user_id:userId, discount_id:discountId}, function(data, status, xhr){
                         if (status == "success") {
                                 alert("successfully shared");
+                                console.log("成功分享");
                         } else {
                                 alert("failed to share");
+                                 console.log("分享失败");
                         }
                 })
             });
         });
    </script>
    
-   	<script>
-        $(document).ready(function(){
-       		$('[data-dis]').click(function(){
-       			var discountId=${discount.discountId?c};
-       			$.post("api/favorite",{user_id:0,discount_id:discountId},function(data,status,xhr){
-       				if(status=="success"){
-       					alert("successfully favorite");
-       				}else
-       				{
-       					alert("fail to favorite");
-       					
-       				}
-       			})
-       		});
-        });
-   </script>
+   	
 
- 	 <script>
- 		 function backFunction()
- 		 {
- 			 window.history.back();
- 		 }
- 	 </script>
+ 	
  	 
  	 
  	<style>
@@ -130,23 +119,15 @@
    .detail
    {
   font-size:14px;
-  color:rgb(130,130,130);
-  padding:10px 10px 20px 10px;
-  
+  color:#191919;
+  padding:15px 10px 20px 10px;
+ 
   font-family:Microspft YaHei;
    
    }
    
 
- 	.img
- 	{
- 	width:32px;
- 	height:32px;
- 	left:10px;
- 	top:5px;
- 	position:absolute;
- 	
- 	}
+ 
  	
  	body
  	{
@@ -163,32 +144,89 @@
  	}
  	.heart-color
  	{
- 	color:orange;
+ 	color:#ff5d1d;
+ 	}
+ 	#discount-title
+ 	{
+ 	
+ 	color:#000000;
+ 	padding-left:10px;
+ 	font-size:19px;
+ 	}
+ 	.content
+ 	{
+ 	position:absolute;
+ 	top:250px;
+ 	}
+ 	.shuxian
+ 	{
+ 	
+ 	float:right;
+ 	margin-right:60px;
+ 	height:30px;
+ 	background-color:rgb(220,220,220);
+ 	width:1px;
  	}
  	
+ 	.jump_box
+ 	{
+ 	display:none;
+ 	position:absolute;
+ 	margin:auto;
+ 	height:100px;
+ 	width:150px;
+ 	opacity:0.8;
+ 	background-color:rgb(100,100,100);
+ 	border-radius:5px;
+ 	text-align:center;
+ 	color:#ffffff;
+ 	left:120px;
+ 	}
+ 	.pic
+ 	{
+ 	height:180px;
+ 	width:100%;
+ 	position:absolute;
+ 	top:45px;
+ 	text-align:center;
+ 	}
+ 	.pic img
+ 	{
+ 	
+ 
+ 	height:180px;
+ 	width:100%;
+ 	margin:0px auto;
+ 	
+ 	
+ 
+ 	}
+ 
  	</style>
  	</head>
- 	</body>
-<div class="div1">	
-<div class="dingbu" style="position:fixed;color:#333"><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:22px;"></i></div>
- 	<div><img src=${discount.img} width="100%" height=225 style="position:absolute;top:45px;"></img></div>
- </div>
+ 	</body style="position:relative;">
+	
+	<div class="dingbu container" style="position:fixed;color:#333 "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
+	
+	<div class="pic"><img src=${discount.img} ></img></div>
+
  
  
- <div class="div2">	
-<div class="cuxian" style="padding-top:275px;">${discount.summary}<i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></i></div>
-<div class="detail">
-${discount.description}
+<div class="content">
+<div id="discount-title" >【${discount.bankName}】${discount.summary}<p class="shuxian"></p><#if favoriteId??><i class="fa fa-heart favorite heart-color" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
+<div class="detail">使用${discount.bankName}信用卡，${discount.description}</div>
+
+
+<div class="twotag" style="height:38px;">
+<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:150px;">  <span>        点击量：<b>${discount.clickRate}</b></span></div>
+<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:100px;"><span >分享量：<b>${shareTime}</b></span> </div>
 </div>
-
+<!--弹出添加收藏成功-->
+<div class="jump_box">
+删除收藏成功!
 </div>
-
-
-</div class="div3">
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;"><span >分享量：<b>${shareTime}</b></span> <span>点赞数：<b>${discount.clickRate}</b></span></div>
-<br>
-
- 	<div class="cuxian" >活动详情</div>
+<div>
+	<div class="cuxian" style="float:none;" >活动详情</div>
  
  	
 
@@ -203,6 +241,9 @@ ${discount.description}
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
  	</#if>
  
+</div>
+</div>
+
  	<!-- 分享 -->
  	<div id="footer" style="border-radius: 0px;position:fixed;bottom: 0;z-index: 100;width: 100%; display:none;" class="footerbar">
 <ul class="ui-navbar">
@@ -246,17 +287,77 @@ function chooseFunction()
 		$(this).attr('data-dis', 'hide')
 		$(this).addClass("fa-heart-o");
 		$(this).removeClass("fa-heart");
+		var discountId=${discount.discountId?c};
+		var userId=${userId};
+				$.ajax({
+					type: "POST",
+					
+					url:"/api/deleteFavorite",
+					data:{userId:userId,discountId:discountId},
+					traditional: true,
+					success:function(){
+						console.log("删除收藏成功");
+						$(".jump_box").html("删除收藏成功");
+						$(".jump_box").show();
+						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
+						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+					},
+					
+					error: function() {
+						console.log("删除收藏失败");
+						$(".jump_box").html("删除收藏失败");
+						$(".jump_box").show();
+						$(".jump_box").animate({bottom: "0px;",height:"-=30px",width:"-=50px"}, "slow");
+						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "1");
+					},
+				});
+			
 	}else{
 		$(this).attr('data-dis', 'show')
 		$(this).removeClass("fa-heart-o");
 		$(this).addClass("fa-heart");
 		$(this).addClass("heart-color");
+		var userId=${userId};
 		var discountId=${discount.discountId?c};
+		console.log(discountId);
+		console.log(userId);
+			
+	       		$.ajax({
+					type: "POST",
+					
+					url:"/api/addFavorite",
+					data:{userId:userId,discountId:discountId},
+					traditional: true,
+					success:function(){
+						console.log("成功添加收藏");
+						$(".jump_box").html("添加收藏成功");
+						$(".jump_box").show();
+						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
+						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+					},
+					
+					error: function() {
+						console.log("添加收藏失败");
+						$(".jump_box").html("添加收藏失败");
+						$(".jump_box").show();
+						$(".jump_box").animate({bottom: "0px;",height:"-=30px",width:"-=50px"}, "slow");
+						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "1");
+					},
+					
+				});
        		
 	}
 	
 }
 </script>
+ <script>
+ 	function backFunction() {
+  		window.history.back();
+  	}
+
+ 	 </script>
 
  	</body>
  	</html>

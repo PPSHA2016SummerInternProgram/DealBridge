@@ -29,13 +29,13 @@
  	  		$.getJSON("/api/favorite", {userId:userId, startIndex:startIndex, limitNum:limitNum}, function(result){
  	  			for (i in result) {
  	  				console.log(result[i]);
- 	  				var str = '<tr favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
+ 	  				var str = '<tr data-url="/discount/${userId}/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
  	  				'<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
- 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td onclick=location.href="/discount/' + result[i].discountId + '"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
- 	  				+ result[i].bankName + '】' 
- 	  				+ result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;height:50px">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;"><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
  	  				if (result[i].startTime == null)
  	  					str += '不限';
  	  				else
@@ -132,7 +132,7 @@
 	 
    </div >
       <a class="navbar-brand" id="edit" style="float:right;border:1px;">编辑</a>
-  	  <a class="navbar-brand" style="float:right;right=100px;border:1px;">收藏夹</a>
+  	  <a class="navbar-brand" style="right:165px;border:1px;position:absolute;">收藏夹</a>
   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
@@ -144,7 +144,7 @@
 </nav>
 	
 	<!--favorites list-->
-	<table class="table table-striped table-hover " style="transition:0.3s ease-out;margin-left:-30px;margin-bottom:0;margin-top:100px;" id="favorite-load">
+	<table class="table table-striped table-hover " style="transition:0.2s ease-out;margin-left:-30px;margin-bottom:0;margin-top:100px;" id="favorite-load">
 	</table>
 	
 	<div id="loading-panel" style="display:none">
@@ -155,12 +155,19 @@
 	
 </body>
  <script>
+ 
+ 		$('table').on('click', 'tr', fun1=function(){
+	 	  	location.href = $(this).attr('data-url');
+ 	  	});
+ 	  	
  		$('#edit').on('click', deleteFunction);
 		function deleteFunction()
 		{
 			var text = $(this).text();
 			if(text==='编辑')
 			{
+			$('table').unbind('click');
+			$('tr').off('click').on('click', chooseFunction);
 			
 			$('#favorite-load').css('margin-left', "0px");
 		
@@ -172,6 +179,10 @@
 			}
 			if(text==='删除')
 				{
+				$('table').on('click', 'tr', fun1=function(){
+	 	  			location.href = $(this).attr('data-url');
+ 	  			});
+ 	  			
 				$('#edit').html('<span class="divcss5-x5">编辑</span>');
 				console.log('finish')
 				$('#favorite-load').css('margin-left', "-30px");
@@ -181,16 +192,18 @@
 				var items = $('[data-dis]');
 				var favIds=[];
 				for (var i = 0; i<items.length; i++)
+				{
+				var item = items[i];
+				if($(item).attr('data-dis')==='show')
 					{
-					var item = items[i];
-					if($(item).attr('data-dis')==='show')
-						{
-						$(item).closest('tr').hide();
-						favIds.push($(item).closest('tr').attr('favorite-id'));
-						console.log('favorite-id');
-						}
-					
+					$(item).closest('tr').hide();
+					favIds.push($(item).closest('tr').attr('favorite-id'));
+					console.log('favorite-id');
 					}
+				
+				}
+				if(favIds.length>0)
+				{
 				$.ajax({
 					type: "POST",
 					
@@ -203,24 +216,26 @@
 				});
 				
 				updateFavoriteNum();
+				}
 			}
 			
 		}
  		
-		$('table').on('click', '[data-dis]', chooseFunction);
 
 		function chooseFunction()
 		{
 			console.log($(this));
 			var dis = $(this).attr('data-dis');
+			var td0 = $($(this).children()[0]);
+			var i = $(td0.children()[0]);
 			if(dis === 'show'){
 				$(this).attr('data-dis', 'hide')
-				$(this).addClass("fa-circle-thin");
-				$(this).removeClass("fa-check-circle");
+				i.addClass("fa-circle-thin");
+				i.removeClass("fa-check-circle");
 			}else{
 				$(this).attr('data-dis', 'show');
-				$(this).removeClass("fa-circle-thin");
-				$(this).addClass("fa-check-circle");
+				i.removeClass("fa-circle-thin");
+				i.addClass("fa-check-circle");
 			}
 		}
 		
