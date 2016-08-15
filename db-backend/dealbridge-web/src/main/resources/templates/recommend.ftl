@@ -80,7 +80,7 @@
 					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 					  
 					</div>
-					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">附近</span>
+					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">哈哈</span>
 					
 				
 				</div>
