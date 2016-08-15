@@ -146,7 +146,7 @@
 					">
 				</span>
 				<font face="黑体">
-					<input id="search-entry" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+					<input id="search-entry" type="text" placeholder="输入关键字搜索" readonly="readonly" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
 				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
@@ -175,7 +175,7 @@
 		</div>
 			<div class="type">
 
-		<a href="/recommendation/movie">
+		<a href="/recommendation/outing">
 		  	<img src="/icon/Movie.png"></img>
 		  	<p>出行</p>
 		  </a>
@@ -189,7 +189,7 @@
 		</div>
 			<div class="type">
 
-		<a href="/recommendation/housing">
+		<a href="/recommendation/hotel">
 		  	<img src="/icon/House.png"></img>
 		  	<p>住房</p>
 		  </a>
@@ -209,20 +209,21 @@
 		</div>
 			<div class="type">
 
-		<a href="/recommendation/travel">
+		<a href="/recommendation/travelling">
 		  	<img src="/icon/Beach.png"></img>
 		  	<p>旅游</p>
 		  </a>
 		</div>
 			<div class="type">
 
-		<a href="/recommendation/shop">
+		<a href="/recommendation/shopping">
 		  	<img src="/icon/Shop.png"></img>
 		  	<p>购物</p>
 		  </a>
 		</div>
-			<div class="type">
-		<a href="/nearby/?lat=31.2099&lng=121.569">
+		
+		<div class="type">
+		  <a href="/nearby/?lat=31.2099&lng=121.569">
 		  	<img src="/icon/Near.png"></img>
 		  	<p>附近</p>
 		  </a>
@@ -277,7 +278,7 @@
 		<p class="text-center">正在加载...</p>
 	</div>
 	
-	
+</div>
 	
 	<div id='search-div' style="top:0px; position:absolute; display:none">
 		<nav id="navbar" class="navbar navbar-default">

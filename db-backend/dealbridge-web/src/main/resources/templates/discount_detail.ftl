@@ -354,16 +354,14 @@ function chooseFunction()
 						$(".jump_box").show();
 						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
 					},
-					
 				});
-       		
 	}
 	
 }
 </script>
  <script>
  	function backFunction() {
-  		window.history.back();
+  		window.location.replace("/home/北京/${userId}");  <!-- go to previous page and reload the page -->
   	}
 
  	 </script>
