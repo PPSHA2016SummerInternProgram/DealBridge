@@ -1,5 +1,6 @@
 package com.paypal.dealbridge.service;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,18 @@ public class RecommendService {
 			result.add(discount);
 		}
 		
+		return result;
+	}
+
+	public List<BriefDiscount> getDiscountByType(int userId, int start, int number, String type) throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+		JSONArray jsonArray = new JSONArray(recommendUtil.getDiscountByType(userId, start, number, type));
+		List<BriefDiscount> result = new ArrayList<>();
+		for (int i = 0; i < jsonArray.length(); i++) {
+			BriefDiscount discount = new BriefDiscount();
+			JSONObject item = (JSONObject) jsonArray.get(i);
+			discount = serviceUtil.JsonToBriefDiscount(item);
+			result.add(discount);
+		}
 		return result;
 	}
 	

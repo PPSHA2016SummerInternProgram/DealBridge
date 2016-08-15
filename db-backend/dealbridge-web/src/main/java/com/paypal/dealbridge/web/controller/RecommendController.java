@@ -1,5 +1,6 @@
 package com.paypal.dealbridge.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.List;
 
@@ -32,7 +33,17 @@ public class RecommendController {
 			throws JSONException, RecommendQueryException, ParseException {
 		return recommendService.getCustomizedDiscounts(userId, start, number);
 	}
-	
+
+	@RequestMapping(path = "/api/{type}/{userId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<BriefDiscount> getTypeDiscounts(@PathVariable("userId") int userId,
+												@PathVariable("type") String type,
+												@RequestParam(value = "startIndex", required = false) Integer start,
+												@RequestParam(value = "limitNumber", required = false) Integer number)
+		throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+													return recommendService.getDiscountByType(userId, start, number, type);
+	}
+
 	@RequestMapping(path = "/api/nearby", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getNearbyDiscounts(
@@ -55,6 +66,7 @@ public class RecommendController {
 	@RequestMapping(path = "/recommend/{userId}/{type}", method = RequestMethod.GET)
 	public String showRecommend(@PathVariable("userId") String userId, @PathVariable("type") String type, Model model) {
 		model.addAttribute("userId", userId);
+		model.addAttribute("type", type);
 		return "recommend";
 	}
 
