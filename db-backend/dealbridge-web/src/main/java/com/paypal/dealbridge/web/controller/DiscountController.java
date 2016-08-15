@@ -52,6 +52,7 @@ public class DiscountController {
 		// System.out.println(name);
 		Discount discount = discountService.getDiscountById(id);
 		Integer favoriteId = favoriteService.existFavorite(userId, id);
+		discountService.updateClickRate(id);
 		int shareTime = shareService.countSharedTimes(id);
 		model.addAttribute("discount", discount);
 		model.addAttribute("shareTime", shareTime);

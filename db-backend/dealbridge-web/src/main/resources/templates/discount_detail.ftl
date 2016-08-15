@@ -345,16 +345,14 @@ function chooseFunction()
 						$(".jump_box").animate({bottom: "0px;",height:"-=30px",width:"-=50px"}, "slow");
 						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "1");
 					},
-					
 				});
-       		
 	}
 	
 }
 </script>
  <script>
  	function backFunction() {
-  		window.history.back();
+  		window.location.replace("/home/北京/${userId}");  <!-- go to previous page and reload the page -->
   	}
 
  	 </script>
