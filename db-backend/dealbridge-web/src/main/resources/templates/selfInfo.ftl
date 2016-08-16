@@ -13,7 +13,7 @@
  	
  	#user-dropdown-button {
  		position: relative;
-	    left: 250px;
+	    left: 300px;
 	    font-size: small;
 	    top: -7px;
 	    background-color: #181818;
@@ -203,7 +203,7 @@
   <tbody>
     <tr width="100%" height=50px; >
      
-      <td onclick=location.href="/favorite/${userId}"><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei;text-align:center">我的收藏</p></td>
+      <td onclick=location.href="/favorite"><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei;text-align:center">我的收藏</p></td>
       <td><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei">我的浏览</p></td>
     </tr>
  

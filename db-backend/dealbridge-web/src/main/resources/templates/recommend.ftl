@@ -15,6 +15,18 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
+			#recommend-content .item
+		{
+	    margin-left: 10px;
+	    padding: 15px 10px 0px 0;
+	    box-sizing: border-box;
+	  
+	    background-repeat: repeat-x;
+	    background-position: 0 bottom;
+	    background-size: auto 1px;
+	    display: -webkit-box;
+	    border-bottom:1px solid #ccc;
+		}
 		</style>
 		
 		
@@ -40,14 +52,23 @@
 				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						$('#recommend-content').append('<tr onclick=location.href="/discount' + result[i].discountId + '"><td width="40%"><img src="' + 
-							result[i].img + 
-							'" class="img-thumbnail top_pic"></td><td width="60%">' + 
-							'<p class="summary">' + 
-							result[i].summary +
-							'</p>' + 
-							'<p class="description">'+result[i].description + '</p>'+
-							'</td></tr>');
+						var str = '<tr onclick=location.href="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
+ 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="90%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				if (result[i].startTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].startTime;
+ 	  				str += ' 至 '; 
+ 	  				if (result[i].endTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].endTime;
+ 	  				str += '</div></td></tr>';
+ 	  				$('#recommend-content').append(str);
 					}
 					$('#loading-panel').hide();
 				});
@@ -80,7 +101,7 @@
 					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 					  
 					</div>
-					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">附近</span>
+					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">${type}</span>
 					
 				
 				</div>
@@ -91,8 +112,7 @@
 		<!--Recommend-->
 	
 		
-		<table id="recommend-content">
-		</table>
+		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="recommend-content"></table>
 		
 		<div id="loading-panel" style="display:none">
 			<p class="text-center">正在加载...</p>

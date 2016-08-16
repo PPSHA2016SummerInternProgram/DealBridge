@@ -33,29 +33,29 @@
 	    	<div class="home-place-list">
 	    	   <ul class="J_citylist">
                 
-                <li><a href="/home/上海/3" data-id="1">上海</a></li>
+                <li><a href="/home/上海" data-id="1">上海</a></li>
                 
-                <li><a href="/home/北京/3" data-id="2">北京</a></li>
+                <li><a href="/home/北京" data-id="2">北京</a></li>
                 
-                <li><a href="/home/广州/3" data-id="4">广州</a></li>
+                <li><a href="/home/广州" data-id="4">广州</a></li>
                 
-                <li><a href="/home/深圳/3" data-id="7">深圳</a></li>
+                <li><a href="/home/深圳" data-id="7">深圳</a></li>
                 
-                <li><a href="/home/成都/3" data-id="8">成都</a></li>
+                <li><a href="/home/成都" data-id="8">成都</a></li>
                 
-                <li><a href="/home/重庆/3" data-id="9">重庆</a></li>
+                <li><a href="/home/重庆" data-id="9">重庆</a></li>
                 
-                <li><a href="/home/天津/3" data-id="10">天津</a></li>
+                <li><a href="/home/天津" data-id="10">天津</a></li>
                 
-                <li><a href="/home/杭州/3" data-id="3">杭州</a></li>
+                <li><a href="/home/杭州" data-id="3">杭州</a></li>
                 
-                <li><a href="/home/南京/3" data-id="5">南京</a></li>
+                <li><a href="/home/南京" data-id="5">南京</a></li>
                 
-                <li><a href="/home/苏州/3" data-id="6">苏州</a></li>
+                <li><a href="/home/苏州" data-id="6">苏州</a></li>
                 
-                <li><a href="/home/武汉/3" data-id="16">武汉</a></li>
+                <li><a href="/home/武汉" data-id="16">武汉</a></li>
                 
-                <li><a href="/home/西安/3" data-id="17">西安</a></li>
+                <li><a href="/home/西安" data-id="17">西安</a></li>
                 
             </ul> 	
 	    	</div>

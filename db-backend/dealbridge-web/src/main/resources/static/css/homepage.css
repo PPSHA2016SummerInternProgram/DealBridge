@@ -37,13 +37,14 @@
 		#recommend-content .item
 		{
 	    margin-left: 10px;
-	    padding: 15px 10px 15px 0;
+	    padding: 15px 10px 0px 0;
 	    box-sizing: border-box;
 	  
 	    background-repeat: repeat-x;
 	    background-position: 0 bottom;
 	    background-size: auto 1px;
 	    display: -webkit-box;
+	    border-bottom:1px solid #ccc;
 		}
 		.pic_item
 		{

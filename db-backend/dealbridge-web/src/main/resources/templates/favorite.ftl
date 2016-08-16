@@ -136,7 +136,7 @@
   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
- 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:5px;text-align:center">全部收藏(${count})
+ 	<div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:10px;text-align:center">全部收藏(${count})
       </div>
 	 <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
       </div>
