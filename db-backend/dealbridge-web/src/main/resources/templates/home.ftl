@@ -167,7 +167,7 @@
 			<div class="type">
 
 		<a href="/recommendation/outing">
-		  	<img src="/icon/Movie.png"></img>
+		  	<img src="/icon/Airplane.png"></img>
 		  	<p>出行</p>
 		  </a>
 		</div>
