@@ -407,8 +407,7 @@
  	  	
 		</script>
 		
-		  <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jwdindex.js"></script>
+	
 	
 </body>
 </html>
