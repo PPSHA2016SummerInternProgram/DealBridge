@@ -173,21 +173,12 @@
       </div>
          <div class="type">
 
-<<<<<<< HEAD
 		<a href="/recommendation/outing">
 		  	<img src="/icon/Airplane.png"></img>
 		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
-=======
-      <a href="/recommendation/outing">
-        <img src="/icon/Movie.png"></img>
-        <p>出行</p>
-        </a>
-      </div>
-         <div class="type">
->>>>>>> 8e3880fdf3be3f4cfa9d163fd1846c9d88e26125
 
       <a href="/recommendation/entertainment">
         <img src="/icon/Entertaiment.png"></img>
