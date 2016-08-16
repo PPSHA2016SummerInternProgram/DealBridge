@@ -259,7 +259,7 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
-	<!--Bank entry-->
+	<!--Bank entry
 	<div id="header-text" class="panel-heading">
 		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
 		<h3 class="panel-title">
@@ -268,16 +268,16 @@
 		</font>
 		</h3>
 	</div>
-	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
+	<table class="table table-bordered " style="background-color:#ffffff; border-color:white;border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
     <thead>
     <tbody>
     <tr width="100%" height=50px; >
      
-      <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
-     <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+      <td><div><img src="/img/bank/中信银行.png"width=30px;height=30px;><strong style="font-size:17px;font-family:Microsoft YaHei;">中信银行</strong></div></td>
+     <td><div><img src="/img/bank/中信银行.png"width=30px;height=30px;><strong style="font-size:17px;font-family:Microsoft YaHei;">中信银行</strong></div></td>
     </tr>
   	</tbody>
-	</table> 
+	</table> -->
 	
 	
 	<!--Recommend-->

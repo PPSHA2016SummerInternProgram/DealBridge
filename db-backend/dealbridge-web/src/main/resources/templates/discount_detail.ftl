@@ -361,7 +361,7 @@ function chooseFunction()
 </script>
  <script>
  	function backFunction() {
-  		window.location.replace("/home/北京/${userId}");  <!-- go to previous page and reload the page -->
+  		window.history.back();  <!-- go to previous page and reload the page -->
   	}
 
  	 </script>
