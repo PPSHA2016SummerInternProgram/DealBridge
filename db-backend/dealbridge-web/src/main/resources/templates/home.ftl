@@ -96,14 +96,12 @@
 			
 		</script>
 	
-		
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
 				appendDiscount(0, 5);
 			});
 		</script>
-		
 		
 		<style>
 			#navbar{background:#F0F0F0; padding:15px}
@@ -169,12 +167,12 @@
       </div>
          <div class="type">
 
-      <a href="/recommendation/outing">
-        <img src="/icon/Movie.png"></img>
-        <p>出行</p>
-        </a>
-      </div>
-         <div class="type">
+		<a href="/recommendation/outing">
+		  	<img src="/icon/Airplane.png"></img>
+		  	<p>出行</p>
+		  </a>
+		</div>
+			<div class="type">
 
       <a href="/recommendation/entertainment">
         <img src="/icon/Entertaiment.png"></img>
