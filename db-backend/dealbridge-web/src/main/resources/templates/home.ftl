@@ -5,10 +5,16 @@
 		<title>DealBridge Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	    
+	    <!--
+	   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="/css/jwdindex.css">-->
+	    
 	    <link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" >
-	    <link rel="stylesheet" href="/css/homepage.css"> 
-	    
+	    <link rel="stylesheet" href="/css/homepage.css">  
 	 	<script src="/jquery-2.0.0/jquery.min.js"></script>
 	 	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
 		<script src="/js/hammer.min.js"></script>
@@ -26,11 +32,11 @@
         })
 		</script>
 		<style>
-			#header-text{background-color:rgb(220,220,220);padding-top:10px;}
+			#header-text{background-color:#ffffff;padding-top:10px;border-bottom:1px solid #ccc;}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			.category{padding:0;padding-top:60px;margin:0;outline:0;background-color:#ffffff;height:150px;}
+			.category{padding:0;padding-top:60px;margin:0;outline:0;background-color:#ffffff;height:200px;}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			.type a img{width:50%;}
@@ -72,10 +78,10 @@
 						console.log(result[i]);
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
  	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
+ 	  				+ result[i].img + '" width="100%" height="90%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
  	  				if (result[i].startTime == null)
  	  					str += '不限';
  	  				else
@@ -87,6 +93,7 @@
  	  					str += result[i].endTime;
  	  				str += '</div></td></tr>';
  	  				$('#recommend-content').append(str);
+
 						
 					}
 					$('#loading-panel').hide();
@@ -149,87 +156,89 @@
 
 
 
-	<div class="category">
-	
-		<div class="type">
-		<a href="/recommendation/food">
-		  	<img src="/icon/Meal.png"></img>
-		  	<p>美食</p>
-		  </a>
-		</div>
-			<div class="type">
+	 <div class="category">
+   
+      <div class="type">
+      <a href="/recommendation/food">
+        <img src="/icon/Meal.png"></img>
+        <p>美食</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/car">
-		  	<img src="/icon/Car.png"></img>
-		  	<p>洗车</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/car">
+        <img src="/icon/Car.png"></img>
+        <p>洗车</p>
+        </a>
+      </div>
+         <div class="type">
 
+<<<<<<< HEAD
 		<a href="/recommendation/outing">
 		  	<img src="/icon/Airplane.png"></img>
 		  	<p>出行</p>
 		  </a>
 		</div>
 			<div class="type">
+=======
+      <a href="/recommendation/outing">
+        <img src="/icon/Movie.png"></img>
+        <p>出行</p>
+        </a>
+      </div>
+         <div class="type">
+>>>>>>> 8e3880fdf3be3f4cfa9d163fd1846c9d88e26125
 
-		<a href="/recommendation/entertainment">
-		  	<img src="/icon/Entertaiment.png"></img>
-		  	<p>娱乐</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/entertainment">
+        <img src="/icon/Entertaiment.png"></img>
+        <p>娱乐</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/hotel">
-		  	<img src="/icon/House.png"></img>
-		  	<p>住房</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/hotel">
+        <img src="/icon/House.png"></img>
+        <p>住房</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/hotel">
-		  	<img src="/icon/Hotel.png"></img>
-		  	<p>酒店</p>
-		  </a>
-		</div>
-			<div class="type">
-		<a href="/recommendation/fashion">
-		  	<img src="/icon/Beauty.png"></img>
-		  	<p>丽人</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/hotel">
+        <img src="/icon/Hotel.png"></img>
+        <p>酒店</p>
+        </a>
+      </div>
+         <div class="type">
+      <a href="/recommendation/fashion">
+        <img src="/icon/Beauty.png"></img>
+        <p>丽人</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/travelling">
-		  	<img src="/icon/Beach.png"></img>
-		  	<p>旅游</p>
-		  </a>
-		</div>
-			<div class="type">
+      <a href="/recommendation/travelling">
+        <img src="/icon/Beach.png"></img>
+        <p>旅游</p>
+        </a>
+      </div>
+         <div class="type">
 
-		<a href="/recommendation/shopping">
-		  	<img src="/icon/Shop.png"></img>
-		  	<p>购物</p>
-		  </a>
-		</div>
-		
-		<div class="type">
-		  <a href="/nearby/?lat=31.2099&lng=121.569">
-		  	<img src="/icon/Near.png"></img>
-		  	<p>附近</p>
-		  </a>
-		</div>
-	</div>
+      <a href="/recommendation/shopping">
+        <img src="/icon/Shop.png"></img>
+        <p>购物</p>
+        </a>
+      </div>
+      
+      <div class="type">
+        <a href="/nearby/?lat=31.2099&lng=121.569">
+        <img src="/icon/Near.png"></img>
+        <p>附近</p>
+        </a>
+      </div>
+   </div>
+
 	
-	
-	<!--Hot Discount-->
-	<div id="header-text" class="panel-heading" style="margin-top: 20px;">
-		<h3 class="panel-title">
-		<font color="#191919" size="3" face="黑体">
-			当前热门
-		</font>
-		</h3>
-	</div>
+
 	
 	<div id="myCarousel" class="carousel slide">
 	   <!-- 轮播（Carousel）指标 -->
@@ -257,11 +266,30 @@
 		  data-slide="next">&rsaquo;</a>
 	</div> 
 	
-
+	<!--Bank entry-->
+	<div id="header-text" class="panel-heading">
+		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			精选银行
+		</font>
+		</h3>
+	</div>
+	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
+    <thead>
+    <tbody>
+    <tr width="100%" height=50px; >
+     
+      <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+     <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+    </tr>
+  	</tbody>
+	</table> 
 	
 	
 	<!--Recommend-->
 	<div id="header-text" class="panel-heading">
+		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
 		<h3 class="panel-title">
 		<font color="#191919" size="3" face="黑体">
 			猜你喜欢
@@ -385,6 +413,9 @@
  	  		});
  	  	
 		</script>
+		
+		  <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jwdindex.js"></script>
 	
 </body>
 </html>

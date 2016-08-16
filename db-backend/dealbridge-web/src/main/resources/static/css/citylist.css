@@ -4,7 +4,7 @@ a
  	}
  	body
  	{
- 	font-family:Hiragino Sans GB,Arial,Helvetica,"����"��sans-serif;
+ 	font-family:Hiragino Sans GB,Arial,Helvetica,"宋体"，sans-serif;
  	font-size:14px;
  	background-color:#f0f0f0;
  	a:text-decoration:none;
@@ -93,6 +93,7 @@ a
  		color:#323232;
  		overflow:hidden;
  		white-space:nowrap;
+ 		text-decoration:none;
  	}
  	
  	#backicon
@@ -103,5 +104,8 @@ a
  	font-size:35px;
  
  	}
-
+	a:link{ decoration:none} /* 鏈闂殑閾炬帴 */ 
+	a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
+	a:hover{text-decoration:none}/* 榧犳爣鍦ㄩ摼鎺ヤ笂 */ 
+	a:active{ text-decoration:none}/* 鐐瑰嚮婵�娲婚摼鎺� */ 
  	
