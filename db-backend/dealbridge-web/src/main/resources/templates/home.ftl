@@ -378,15 +378,15 @@
 			
 			$(document).ready(function(){
 				$('#search-entry').click(function(){
-					$('#home-div').hide(150, 'linear');
-					$('#search-div').show(150, 'linear');
+					$('#home-div').hide();
+					$('#search-div').show();
 				});
 			});
 			
 			$(document).ready(function(){
 				$('#search-hide-button').click(function(){
-					$('#home-div').show(150, 'linear');
-					$('#search-div').hide(150, 'linear');
+					$('#home-div').show();
+					$('#search-div').hide();
 				});
 			});
 			

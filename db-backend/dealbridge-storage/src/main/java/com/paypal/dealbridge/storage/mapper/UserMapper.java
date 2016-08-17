@@ -1,15 +1,11 @@
 package com.paypal.dealbridge.storage.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
 import com.paypal.dealbridge.storage.domain.User;
-import com.paypal.dealbridge.storage.domain.UserInfo;
-
-import org.apache.ibatis.annotations.Result;
 
 @Mapper
 public interface UserMapper {

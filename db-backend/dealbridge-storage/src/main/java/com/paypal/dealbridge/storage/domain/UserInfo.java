@@ -1,7 +1,6 @@
 package com.paypal.dealbridge.storage.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class UserInfo {
 	private Integer userId;
