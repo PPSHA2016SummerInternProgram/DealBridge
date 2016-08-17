@@ -1,20 +1,17 @@
 package com.paypal.dealbridge.service.recommend;
 
+import java.io.UnsupportedEncodingException;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 @Service
 public class RecommendUtil {
 
-	private static final String RECOMMEND_URL = "http://10.24.96.170:5000/";
 
 	@Value("${recommender.url}")
 	private String recommenderUrl;

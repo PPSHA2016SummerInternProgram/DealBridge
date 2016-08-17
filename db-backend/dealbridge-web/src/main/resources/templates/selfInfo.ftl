@@ -107,7 +107,7 @@
  
  	<div style="background-color:#181818; ">
       <div class="mycard " style="position:relative;">
-        <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-8px;"></i>
+        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-8px;"></i>
         <span style="text-shadow:1px 1px 1px blue;position:absolute;left:179px;top:6px">个人信息</span>
         <button type="button" class="dropdown-toggle" id="user-dropdown-button" data-toggle="dropdown">
            ${ufi.userName}
@@ -255,7 +255,7 @@
  
  <script>
   	function backFunction() {
-  		window.history.back();
+  		location.href="/home";
   	}
 
  	function changeImg(){

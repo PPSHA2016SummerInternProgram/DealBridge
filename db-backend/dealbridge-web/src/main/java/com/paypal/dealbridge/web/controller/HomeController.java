@@ -1,7 +1,6 @@
 package com.paypal.dealbridge.web.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
