@@ -29,7 +29,7 @@ public class SearchHistory {
 	}
 
 	public Date getSearchTime() {
-		return searchTime;
+		return (Date)searchTime.clone();
 	}
 
 	public void setSearchTime(Date searchTime) {

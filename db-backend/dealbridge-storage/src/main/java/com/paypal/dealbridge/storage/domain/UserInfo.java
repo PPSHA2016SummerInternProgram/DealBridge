@@ -1,7 +1,6 @@
 package com.paypal.dealbridge.storage.domain;
 
 import java.util.Date;
-import java.util.List;
 
 public class UserInfo {
 	private Integer userId;
@@ -41,7 +40,7 @@ public class UserInfo {
 		this.gender = gender;
 	}
 	public Date getBirthday() {
-		return birthday;
+		return (Date)birthday.clone();
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;

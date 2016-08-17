@@ -1,7 +1,5 @@
 package com.paypal.dealbridge.service.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class DiscountServiceTest {

@@ -5,12 +5,6 @@
 		<title>DealBridge Home Page</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	    
-	    <!--
-	   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="/css/jwdindex.css">-->
 	    
 	    <link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" >
@@ -266,13 +260,13 @@
 		</font>
 		</h3>
 	</div>
-	<table class="table table-bordered " style="background-color:#ffffff; border-color:white;border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
+	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
     <thead>
     <tbody>
     <tr width="100%" height=50px; >
      
-      <td><div><img src="/img/bank/中信银行.png"width=30px;height=30px;><strong style="font-size:17px;font-family:Microsoft YaHei;">中信银行</strong></div></td>
-     <td><div><img src="/img/bank/中信银行.png"width=30px;height=30px;><strong style="font-size:17px;font-family:Microsoft YaHei;">中信银行</strong></div></td>
+      <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
+     <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
     </tr>
   	</tbody>
 	</table> -->
@@ -384,15 +378,15 @@
 			
 			$(document).ready(function(){
 				$('#search-entry').click(function(){
-					$('#home-div').hide(150, 'linear');
-					$('#search-div').show(150, 'linear');
+					$('#home-div').hide();
+					$('#search-div').show();
 				});
 			});
 			
 			$(document).ready(function(){
 				$('#search-hide-button').click(function(){
-					$('#home-div').show(150, 'linear');
-					$('#search-div').hide(150, 'linear');
+					$('#home-div').show();
+					$('#search-div').hide();
 				});
 			});
 			
@@ -404,9 +398,7 @@
  	  		});
  	  	
 		</script>
-		
-		  <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jwdindex.js"></script>
+
 	
 </body>
 </html>

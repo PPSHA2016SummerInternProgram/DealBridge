@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.service.FavoriteService;
-import com.paypal.dealbridge.storage.domain.Discount;
 import com.paypal.dealbridge.storage.domain.BriefDiscount;
 
 @Controller

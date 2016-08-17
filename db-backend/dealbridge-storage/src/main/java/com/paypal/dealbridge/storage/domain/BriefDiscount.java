@@ -3,7 +3,6 @@ package com.paypal.dealbridge.storage.domain;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.deser.std.NumberDeserializers;
 
 public class BriefDiscount {
 	private Integer favoriteId;
@@ -81,7 +80,7 @@ public class BriefDiscount {
 	}
 
 	public Date getBeginTime() {
-		return beginTime;
+		return (Date)beginTime.clone();
 	}
 
 	public void setBeginTime(Date beginTime) {
@@ -89,7 +88,7 @@ public class BriefDiscount {
 	}
 
 	public Date getEndTime() {
-		return endTime;
+		return (Date)endTime.clone();
 	}
 
 	public void setEndTime(Date endTime) {
