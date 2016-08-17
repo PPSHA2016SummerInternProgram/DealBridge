@@ -101,7 +101,8 @@
 					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 					  
 					</div>
-					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">${type}</span>
+					
+					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei" id="recommendtype">推荐</span>
 					
 				
 				</div>
@@ -118,5 +119,8 @@
 			<p class="text-center">正在加载...</p>
 		</div>
 	</body>
+	<script>
+	
+	</script>
 
 </html>
