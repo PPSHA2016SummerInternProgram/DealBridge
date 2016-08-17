@@ -77,5 +77,4 @@ if __name__ == '__main__':
         pool.apply_async(download_img, args=(queue, imgs))
     pool.close()
     pool.join()
-    file.close()
 
