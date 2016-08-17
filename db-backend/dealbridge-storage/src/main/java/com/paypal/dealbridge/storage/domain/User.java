@@ -38,7 +38,7 @@ public class User {
 		return (Date)birthday.clone();
 	}
 	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+		this.birthday = (Date)birthday.clone();
 	}
 	public String getEmail() {
 		return email;

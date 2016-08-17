@@ -38,7 +38,7 @@ public class RecommendService {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		
@@ -51,7 +51,7 @@ public class RecommendService {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		return result;
@@ -63,7 +63,7 @@ public class RecommendService {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		return result;

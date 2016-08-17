@@ -33,7 +33,7 @@ public class LocationRecord {
 		return (Date)locationTime.clone();
 	}
 	public void setLocationTime(Date locationTime) {
-		this.locationTime = locationTime;
+		this.locationTime = new Date(locationTime.getTime());
 	}
 
 	

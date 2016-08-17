@@ -24,7 +24,7 @@ public class Share {
 	}
 
 	public void setShareTime(Date shareTime) {
-		this.shareTime = shareTime;
+		this.shareTime = (Date)shareTime.clone();
 	}
 
 	public Integer getUserId() {

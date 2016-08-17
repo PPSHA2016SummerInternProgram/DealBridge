@@ -33,7 +33,7 @@ public class SearchHistory {
 	}
 
 	public void setSearchTime(Date searchTime) {
-		this.searchTime = searchTime;
+		this.searchTime = new Date(searchTime.getTime());
 	}
 
 	public int getUserId() {
