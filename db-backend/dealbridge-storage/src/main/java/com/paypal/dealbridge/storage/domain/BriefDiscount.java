@@ -84,7 +84,7 @@ public class BriefDiscount {
 	}
 
 	public void setBeginTime(Date beginTime) {
-		this.beginTime = beginTime;
+		this.beginTime = (Date)beginTime.clone();
 	}
 
 	public Date getEndTime() {
@@ -92,7 +92,7 @@ public class BriefDiscount {
 	}
 
 	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+		this.endTime = (Date)endTime.clone();
 	}
 
 	public String getImg() {
