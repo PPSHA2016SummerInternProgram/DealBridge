@@ -30,7 +30,7 @@ public class LocationRecord {
 		this.userId = userId;
 	}
 	public Date getLocationTime() {
-		return locationTime;
+		return (Date)locationTime.clone();
 	}
 	public void setLocationTime(Date locationTime) {
 		this.locationTime = locationTime;

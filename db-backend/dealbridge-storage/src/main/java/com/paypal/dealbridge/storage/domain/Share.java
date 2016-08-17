@@ -20,7 +20,7 @@ public class Share {
 	}
 
 	public Date getShareTime() {
-		return shareTime;
+		return (Date)shareTime.clone();
 	}
 
 	public void setShareTime(Date shareTime) {
