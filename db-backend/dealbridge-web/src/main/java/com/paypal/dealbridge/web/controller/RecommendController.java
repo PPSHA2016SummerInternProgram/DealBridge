@@ -2,12 +2,14 @@ package com.paypal.dealbridge.web.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,13 +28,30 @@ public class RecommendController {
 	@Autowired
 	private RecommendService recommendService;
 
+	private final static HashMap<String, String> _types = new HashMap<String, String>(){
+		{
+			put("food", "美食");
+			put("entertainment", "休闲娱乐");
+			put("shopping", "购物");
+			put("car", "汽车");
+			put("dailyservice", "生活服务");
+			put("travelling", "旅游");
+			put("fashion", "时尚丽人");
+			put("cards_gifts", "办卡送礼");
+			put("hotel", "酒店");
+			put("outing", "出行");
+		}
+	};
+
 	@RequestMapping(path = "/api/recommendation/{userId}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getCustomizedDiscounts(@PathVariable("userId") int userId,
 			@RequestParam(value = "startIndex", required = false) Integer start,
-			@RequestParam(value = "limitNumber", required = false) Integer number)
+			@RequestParam(value = "limitNumber", required = false) Integer number,
+			@RequestParam(value = "lat") Double latitude,
+			@RequestParam(value = "lng") Double longitude)
 			throws JSONException, RecommendQueryException, ParseException {
-		return recommendService.getCustomizedDiscounts(userId, start, number);
+		return recommendService.getCustomizedDiscounts(userId, start, number, latitude, longitude);
 	}
 
 	@RequestMapping(path = "/api/recommendation/{type}/{userId}", method = RequestMethod.GET)
@@ -67,6 +86,7 @@ public class RecommendController {
 		int userId = (int) session.getAttribute("userId");
 		model.addAttribute("userId", userId);
 		model.addAttribute("type", type);
+		model.addAttribute("type_chinese", _types.get(type));
 		return "recommend";
 	}
 

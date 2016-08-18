@@ -102,7 +102,7 @@
 					  
 					</div>
 					
-					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei" id="recommendtype">推荐</span>
+					 <span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei" id="recommendtype">推荐 ${type_chinese}</span>
 					
 				
 				</div>

@@ -73,7 +73,7 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}}, function(result){
 					
 					for (i in result) {
 						console.log(result[i]);
@@ -250,7 +250,7 @@
       </div>
       
       <div class="type">
-        <a href="/nearby/?lat=31.2099&lng=121.569">
+        <a href="/nearby/?lat=${latitude}&lng=${longitude}">
         <img src="/icon/Near.png"></img>
         <p>附近</p>
         </a>

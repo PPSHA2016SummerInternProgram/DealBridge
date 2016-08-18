@@ -17,9 +17,9 @@ public class RecommendUtil {
 
 	private Logger logger = Logger.getLogger(this.getClass());
 
-	public String getCustomizedDiscounts(int userId, int start, int number) throws RecommendQueryException {
+	public String getCustomizedDiscounts(int userId, int start, int number, double latitude, double longitude) throws RecommendQueryException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "customized/" + userId + "?start=" + start + "&number=" + number;
+		String url = recommenderUrl + "customized/" + userId + "?start=" + start + "&number=" + number + "&lat=" + latitude + "&lng=" + longitude;
 		logger.info(String.format("Ask for customized discounts from %s", url));
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {

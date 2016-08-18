@@ -32,8 +32,8 @@ public class RecommendService {
 		return recommendMapper.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
 	
-	public List<BriefDiscount> getCustomizedDiscounts(int userId, int start, int number) throws JSONException, RecommendQueryException, ParseException {
-		JSONArray jsonArray =  new JSONArray(recommendUtil.getCustomizedDiscounts(userId, start, number));
+	public List<BriefDiscount> getCustomizedDiscounts(int userId, int start, int number, double latitude, double longitude) throws JSONException, RecommendQueryException, ParseException {
+		JSONArray jsonArray =  new JSONArray(recommendUtil.getCustomizedDiscounts(userId, start, number, latitude, longitude));
 		List<BriefDiscount> result = new ArrayList<>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();

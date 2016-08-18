@@ -15,13 +15,12 @@ app = Flask(__name__)
 
 RECOMMEND_CNT = 100
 key = 'w6LI4tGSMUGsO7rIo1LkLm5n7qdG0Odo'
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
-cursor = db.cursor()
 discounts_detail = []
 indices = []
 cosine_similarities = None
 merchant_coordinates = []
 preferences = []
+click_rates = []
 types = {
     "shopping": "购物",
     "entertainment": "休闲娱乐",
@@ -48,6 +47,8 @@ class ComplexEncoder(json.JSONEncoder):
 def load_data():
     print "loading data..."
     global indices, discounts_detail, merchant_coordinates
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
     sql = "SELECT discount_id, bank_name, summary, description, begin_time, " \
           "end_time, img, merchant_location, latitude, longitude, classify FROM discount"
     try:
@@ -67,20 +68,39 @@ def load_data():
     except:
         print "Error, unable to fetch data"
     print "data loading completed!"
+    db.close()
 
 
 def load_preferences():
     global preferences
     print 'loading preference data...'
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
     sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
         preferences = [(result[0], result[1]) for result in results]
     except:
-        print "able to fetch user preferences"
+        print "unable to fetch user preferences"
     print 'preference loading completed!'
+    db.close()
 
+
+def load_click():
+    global click_rates
+    print 'loading click rates data...'
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
+    sql = "select clickrate from discount"
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        click_rates = [result[0] for result in results]
+    except:
+        print 'unable to fetch click rate data'
+    print 'click rate data loading completed!'
+    db.close()
 
 def calculate_similarity():
     print "calculating similarity..."
@@ -112,7 +132,11 @@ def customized_recommend(user_id):
     global preferences, cosine_similarities
     offset_start = int(request.args['start'])
     offset_end = int(request.args['number']) + offset_start
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
+    load_click()
+    load_preferences()
     for (id, discount_id) in preferences:
         if id == user_id:
             vector += cosine_similarities[indices.index(discount_id)]
@@ -132,7 +156,9 @@ def customized_recommend(user_id):
             "description": discounts_detail[index][3],
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6]
+            "img": discounts_detail[index][6],
+            "click_rate": click_rates[index],
+            "distance": vincenty(merchant_coordinates[index], (latitude, longitude)).kilometers
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
@@ -158,8 +184,6 @@ def type_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
-    print len(indices)
-
     for i in xrange(len(indices)):
         if discounts_detail[i][8] != _type.decode("UTF-8"):
             vector[i] = 0
@@ -222,4 +246,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='10.225.224.18')
+    app.run(host='192.168.115.1')
