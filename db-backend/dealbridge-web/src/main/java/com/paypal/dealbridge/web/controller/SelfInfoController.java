@@ -40,7 +40,7 @@ public class SelfInfoController {
 	}
 	
 	@RequestMapping(path = "/userInfo", method = RequestMethod.GET)
-	public String userInfoPage(HttpSession session, Model model) throws Exception{
+	public String userInfoPage(HttpSession session, Model model){
 		int userId = (int)session.getAttribute("userId");
 		UserFullInfo ufi = userInfoService.getUserInfo(userId);
 		List<Bank> bankList = bankService.getBankList();
@@ -48,9 +48,6 @@ public class SelfInfoController {
 		model.addAttribute("ufi", ufi);
 		model.addAttribute("userId", userId);
 		model.addAttribute("bankList", bankList);
-		if (true) {
-			throw new Exception();
-		}
 		return "selfInfo";
 	}
 }
