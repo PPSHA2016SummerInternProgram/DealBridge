@@ -80,19 +80,33 @@ public class BriefDiscount {
 	}
 
 	public Date getBeginTime() {
-		return beginTime;
+
+		if (beginTime == null)
+			return null;
+		else
+			return (Date)beginTime.clone();
 	}
 
 	public void setBeginTime(Date beginTime) {
-		this.beginTime = beginTime;
+		if (beginTime == null)
+			this.beginTime = null;
+		else
+			this.beginTime = (Date)beginTime.clone();
 	}
 
 	public Date getEndTime() {
-		return endTime;
+
+		if (endTime == null)
+			return null;
+		else
+			return (Date)endTime.clone();
 	}
 
 	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+		if (endTime == null)
+			this.endTime = null;
+		else
+			this.endTime = (Date)endTime.clone();
 	}
 
 	public String getImg() {
