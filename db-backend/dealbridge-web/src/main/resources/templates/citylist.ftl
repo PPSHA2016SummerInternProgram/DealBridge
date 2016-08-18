@@ -35,7 +35,7 @@
                 
                 <li><a href="/home/上海" data-id="1">上海</a></li>
                 
-                <li><a href="/home/北京" data-id="2">北京</a></li>
+                <li><a href="/home" data-id="2">北京</a></li>
                 
                 <li><a href="/home/广州" data-id="4">广州</a></li>
                 

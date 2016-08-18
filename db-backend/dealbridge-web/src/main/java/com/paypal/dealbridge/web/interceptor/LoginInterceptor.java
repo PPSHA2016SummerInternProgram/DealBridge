@@ -34,6 +34,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (session.getAttribute("userId") == null) {
 			session.setAttribute("userId", guestUserId);
 		}
+		if (session.getAttribute("area") == null){
+			session.setAttribute("area", "shanghai");
+		}
 		
 		return true;
 	}

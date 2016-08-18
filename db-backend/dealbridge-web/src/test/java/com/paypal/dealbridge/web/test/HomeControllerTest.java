@@ -10,7 +10,7 @@ public class HomeControllerTest {
 	public void test() {
 		HomeController homeController = new HomeController();
 		try{
-			homeController.showHomePage("shanghai", null, null);
+			homeController.showHomePage(null, null);
 		}
 		catch(Exception e){
 			
