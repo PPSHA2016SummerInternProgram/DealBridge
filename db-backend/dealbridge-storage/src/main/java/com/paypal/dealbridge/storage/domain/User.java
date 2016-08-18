@@ -35,10 +35,16 @@ public class User {
 		this.gender = gender;
 	}
 	public Date getBirthday() {
-		return (Date)birthday.clone();
+		if (birthday == null)
+			return null;
+		else
+			return (Date)birthday.clone();
 	}
 	public void setBirthday(Date birthday) {
-		this.birthday = (Date)birthday.clone();
+		if (birthday == null)
+			this.birthday = null;
+		else
+			this.birthday = (Date)birthday.clone();
 	}
 	public String getEmail() {
 		return email;
