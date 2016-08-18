@@ -131,7 +131,7 @@ public class Discount {
 	}
 
 	public void setImg(String img) {
-		this.img = img;
+		this.img = "/img/discount-img/" + img;
 	}
 
 	public String getMerchantDescription() {

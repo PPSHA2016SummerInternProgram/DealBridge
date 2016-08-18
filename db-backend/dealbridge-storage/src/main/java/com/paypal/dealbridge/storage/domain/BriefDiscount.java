@@ -114,7 +114,12 @@ public class BriefDiscount {
 	}
 
 	public void setImg(String img) {
-		this.img = img;
+		if (img.startsWith("http")) {
+			this.img = img;
+		} else {
+			this.img = "/img/discount-img/" + img;
+		}
+
 	}
 
 	public Double getDistance() {
