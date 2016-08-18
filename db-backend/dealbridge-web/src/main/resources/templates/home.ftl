@@ -26,11 +26,13 @@
         })
 		</script>
 		<style>
-			#header-text{background-color:#ffffff;padding-top:10px;border-bottom:1px solid #ccc;}
+			#header-text{background-color:#ffffff;padding-top:10px;border-bottom:1px solid rgb(220,220,220);}
+			#bank-header{background-color:#ffffff;padding-top:10px;border-top:1px solid rgb(220,220,220);}
+			.bank-div{width:33%;float:left;padding-left:20px;background-color:#ffffff; }
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			.category{padding:0;padding-top:60px;margin:0;outline:0;background-color:#ffffff;height:200px;}
+			.category{padding:0;padding-top:10px;margin:0;outline:0;background-color:#ffffff;height:145px;}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;}
 			.type a img{width:50%;}
@@ -39,6 +41,10 @@
 			.discount_img{border:0;}
 			.tdimg{width:35%;height:100px;}
 			.tdcontent{width:65%;height:100px;padding:0;}
+			
+			html{font-size:50px;}
+			 .imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
+			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
 			
 			a:link{ decoration:none} /* 鏈闂殑閾炬帴 */ 
 			a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
@@ -68,24 +74,29 @@
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
 				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+					
 					for (i in result) {
 						console.log(result[i]);
-					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
- 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="90%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
- 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					
+					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
+ 	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:20px;">'+result[i].distance+'</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
+ 	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].startTime == null)
- 	  					str += '不限';
+ 	  					str += '活动';
  	  				else
  	  					str += result[i].startTime;
- 	  				str += ' 至 '; 
+ 	  				str += '至 '; 
  	  				if (result[i].endTime == null)
  	  					str += '不限';
  	  				else
  	  					str += result[i].endTime;
  	  				str += '</div></td></tr>';
+ 	  				
+ 	  					$('.imgtext').attr('data-content',result[i].bankName);
+ 	  				
  	  				$('#recommend-content').append(str);
 
 						
@@ -122,7 +133,7 @@
 	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar navbar-fixed-top" style="background-color:#181818;">
+    <div class="navbar navbar-fixed-top" style="background-color:#337ab7;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
@@ -141,12 +152,36 @@
 					<input id="search-entry" type="text" placeholder="输入关键字搜索" readonly="readonly" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
 				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-			</div>
-		
-		</div>
-	  
+			</div>	
+		</div> 
     </div>
-	
+    
+    
+	<div id="myCarousel" class="carousel slide">
+	   <!-- 轮播（Carousel）指标 -->
+	   <ol class="carousel-indicators">
+	      <#list hots as hot>
+	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
+	          </li>
+	      </#list>
+
+	   </ol>   
+	   <!-- 轮播（Carousel）项目 -->
+	   <div class="carousel-inner">
+	      <#list hots as hot>
+	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
+			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:125px;border:0px;"></a>
+			 	<div class="carousel-bg"></div>
+			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
+		  	 </div>
+	      </#list>
+	   </div>
+	   <!-- 轮播（Carousel）导航 -->
+	   <a class="carousel-control left" href="#myCarousel" 
+		  data-slide="prev">&lsaquo;</a>
+	   <a class="carousel-control right" href="#myCarousel" 
+		  data-slide="next">&rsaquo;</a>
+	</div> 
 
 
 
@@ -225,34 +260,10 @@
 	
 
 	
-	<div id="myCarousel" class="carousel slide">
-	   <!-- 轮播（Carousel）指标 -->
-	   <ol class="carousel-indicators">
-	      <#list hots as hot>
-	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
-	          </li>
-	      </#list>
 
-	   </ol>   
-	   <!-- 轮播（Carousel）项目 -->
-	   <div class="carousel-inner">
-	      <#list hots as hot>
-	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:200px;border:0px;"></a>
-			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
-		  	 </div>
-	      </#list>
-	   </div>
-	   <!-- 轮播（Carousel）导航 -->
-	   <a class="carousel-control left" href="#myCarousel" 
-		  data-slide="prev">&lsaquo;</a>
-	   <a class="carousel-control right" href="#myCarousel" 
-		  data-slide="next">&rsaquo;</a>
-	</div> 
 	
-	<!--Bank entry
-	<div id="header-text" class="panel-heading">
+	<!--Bank Entry-->
+	<div id="bank-header" class="panel-heading">
 		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
 		<h3 class="panel-title">
 		<font color="#191919" size="3" face="黑体">
@@ -260,16 +271,12 @@
 		</font>
 		</h3>
 	</div>
-	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;margin-bottom:0px;">
-    <thead>
-    <tbody>
-    <tr width="100%" height=50px; >
-     
-      <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
-     <td><div><img src="/img/bank/中信银行.png"width=50px;height=50px;><strong style="font-size:20px;font-family:Microsoft YaHei;position:relative;">中信银行</strong></div></td>
-    </tr>
-  	</tbody>
-	</table> -->
+	
+     <div > 
+      	<div class="bank-div"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">中行</span></div>
+        <div class="bank-div"><span style="font-size:17px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">建行</span></div>
+          <div class="bank-div"><span style="font-size:17px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">建行</span></div>
+   	 </div>
 	
 	
 	<!--Recommend-->

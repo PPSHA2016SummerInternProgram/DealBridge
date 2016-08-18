@@ -237,7 +237,7 @@
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用时间：</p>
- 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.begintime??>${discount.begintime?date}<#else>不限</#if>至<#if discount.endtime??>${discount.endtime?date}<#else>不限</#if></p>
+ 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.startTime??>${discount.startTime?date}<#else>活动</#if>至<#if discount.endTime??>${discount.endTime?date}<#else>不限</#if></p>
  	
  	<#if discount.discountUsage??>
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
