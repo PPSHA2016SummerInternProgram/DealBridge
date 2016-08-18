@@ -80,7 +80,7 @@ public class BriefDiscount {
 	}
 
 	public Date getBeginTime() {
-		return (Date)beginTime.clone();
+		return beginTime;
 	}
 
 	public void setBeginTime(Date beginTime) {
@@ -88,7 +88,7 @@ public class BriefDiscount {
 	}
 
 	public Date getEndTime() {
-		return (Date)endTime.clone();
+		return endTime;
 	}
 
 	public void setEndTime(Date endTime) {
