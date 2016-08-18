@@ -1,7 +1,6 @@
 package com.paypal.dealbridge.web.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -28,8 +27,7 @@ public class HomeController {
 	
 	@RequestMapping(path="/home", method=RequestMethod.GET)
 	public String showDefaultHomePage() throws UnsupportedEncodingException {
-		String url = "redirect:/home/上海";
-		url = new String(url.getBytes(), "iso-8859-1");
+		String url = "redirect:/home/shanghai";
 		return url;
 	}
 	

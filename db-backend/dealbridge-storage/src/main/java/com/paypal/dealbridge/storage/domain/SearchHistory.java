@@ -29,11 +29,17 @@ public class SearchHistory {
 	}
 
 	public Date getSearchTime() {
-		return searchTime;
+		if (searchTime == null)
+			return null;
+		else
+			return (Date)searchTime.clone();
 	}
 
 	public void setSearchTime(Date searchTime) {
-		this.searchTime = searchTime;
+		if (searchTime == null)
+			this.searchTime = null;
+		else
+			this.searchTime = new Date(searchTime.getTime());
 	}
 
 	public int getUserId() {
