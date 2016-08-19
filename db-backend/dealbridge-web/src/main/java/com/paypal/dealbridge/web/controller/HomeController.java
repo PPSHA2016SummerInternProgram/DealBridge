@@ -27,7 +27,6 @@ public class HomeController {
 	public String showHomePage(HttpSession session, Model model) {
 		int userId = (int)session.getAttribute("userId");
 		String area = (String)session.getAttribute("area");
-		System.out.println(area);
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);
 		List<String> hotKeywords = searchService.getHotKeywords(9);
 		List<String> searchHistories = searchService.getUserHistory(3, 10);
