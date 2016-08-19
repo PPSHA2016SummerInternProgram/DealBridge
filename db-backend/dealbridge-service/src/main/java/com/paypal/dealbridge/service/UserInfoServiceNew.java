@@ -39,7 +39,6 @@ public class UserInfoServiceNew {
 	public int addBankCard(int userId, String bankOfficial){
 		String bankName = bls.getBankName(bankOfficial);
 		int i = accountBankMapper.addUserBank(userId, bankName);
-		System.out.println(i);
 		return i;
 	}
 

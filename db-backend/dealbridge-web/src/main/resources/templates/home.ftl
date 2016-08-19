@@ -75,7 +75,7 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}}, function(result){
 					
 					for (i in result) {
 						console.log(result[i]);
