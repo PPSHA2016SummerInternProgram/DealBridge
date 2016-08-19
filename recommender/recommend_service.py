@@ -137,6 +137,9 @@ def customized_recommend(user_id):
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     load_click()
     load_preferences()
+    distance = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
+    distance = np.array(distance)
+    distance_weight = 1.0/(0.1*distance + 1)
     for (id, discount_id) in preferences:
         if id == user_id:
             vector += cosine_similarities[indices.index(discount_id)]
@@ -145,6 +148,10 @@ def customized_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
+    print distance[1:100]
+    print distance_weight[1:100]
+    print vector[1:100]
+    vector += distance_weight
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     print item_indices
     data = []
@@ -158,7 +165,7 @@ def customized_recommend(user_id):
             "end_time": discounts_detail[index][5],
             "img": discounts_detail[index][6],
             "click_rate": click_rates[index],
-            "distance": vincenty(merchant_coordinates[index], (latitude, longitude)).kilometers
+            "distance": distance[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
