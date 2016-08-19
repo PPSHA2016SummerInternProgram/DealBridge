@@ -48,8 +48,8 @@ public class HomeController {
 	@RequestMapping(path="/home/{area}", method=RequestMethod.GET)
 	public String showHomePage(
 			@PathVariable("area") String area, HttpSession session, Model model,
-			@RequestParam("lat") Double latitude,
-			@RequestParam("lng") Double longitude
+			@RequestParam(value="lat", required=false) Double latitude,
+			@RequestParam(value="lng", required=false) Double longitude
 	) {
 		int userId = (int)session.getAttribute("userId");
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);

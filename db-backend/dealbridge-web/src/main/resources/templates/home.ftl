@@ -29,12 +29,18 @@
 		</script>
 		<style>
 			#header-text{background-color:#ffffff;padding-top:10px;border-bottom:1px solid rgb(220,220,220);}
-			#bank-header{background-color:#ffffff;padding-top:30px;border-top:1px solid rgb(220,220,220);}
-			.bank-div{width:33%;float:left;padding-left:20px;background-color:#ffffff; }
+			#bank-header{background-color:#ffffff;padding-top:20px;border-top:1px solid rgb(248,248,248);height:50px;margin-bottom:10px;}
+			.bank-div{width:33%;float:left;background-color:#f3f8ff;margin:auto; text-align:center;padding-top:3px;border:1px solid #ffffff;}
+			.bank-div img{width:20%;height:20%;}
+			.bank-div p{font-size:12px; color:rgb(150,150,150);}
+			#entrance-deader{background-color:#ffffff;padding-top:20px;border-top:1px solid rgb(220,220,220);height:50px;margin-bottom:10px;}
+			.entrance-div{width:90%; margin:0 auto; height:120px;text-align:center;margin-bottom:12px;position:relative;}
+			.entrance-div img{width:100%; height:100%}
+			.entrance-div p{color:white;font-family:Microsoft YaHei;font-size:17px;position:absolute;left:150px;top:50px;font-weight:bold;}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
-			.category{padding:0;padding-top:10px;margin:0;outline:0;background-color:#ffffff;height:145px;}
+			.category{padding:0;padding-top:10px;margin:0;outline:0;background-color:#ffffff;height:160px;border-bottom:1px solid rgb(220,220,220);}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;padding:10px 0px 10px 0px;}
 			.type a img{width:37%;}
@@ -83,7 +89,7 @@
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
- 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:20px;">'+result[i].distance+'</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(3)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].startTime == null)
@@ -291,11 +297,26 @@
 		</h3>
 	</div>
 	
-     <div > 
-      	<div class="bank-div"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">中行</span></div>
-        <div class="bank-div"><span style="font-size:17px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">建行</span></div>
-          <div class="bank-div"><span style="font-size:17px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">建行</span></div>
+     <div style="height:80px;"> 
+      	<div class="bank-div"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></div>
+        <div class="bank-div"><img src="/img/bank_image_transparent/交通.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">交通</span><p>周末美食五折团</p></div>
+          <div class="bank-div"><img src="/img/bank_image_transparent/农业.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">农行</span><p>赢5000航空里程</p></div>
    	 </div>
+	
+	
+	<!--Entrance-->
+	<div id="entrance" class="panel-heading">
+		<div style="background-color:#ee5555;height:18px;width:4px;float:left;margin-right:6px;padding-top:2px;"></div>
+		<h3 class="panel-title">
+		<font color="#191919" size="3" face="黑体">
+			精选频道
+		</font>
+		</h3>
+	</div>
+	<div class="entrance-div"><a href="/nearby/?lat=${latitude}&lng=${longitude}"><img src="/img/homeimg/3.jpeg"></img><p>附近优惠</p></a></div>
+	<div class="entrance-div"><a href="/favorite"><img src="/img/homeimg/2.jpeg"></img><p>我的收藏</p></a></div>
+	<div class="entrance-div"><img src="/img/homeimg/1.jpeg"></img><p>热门优惠</p></img></div>
+	
 	
 	
 	<!--Recommend-->
@@ -307,7 +328,6 @@
 		</font>
 		</h3>
 	</div>
-	
 
 		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="recommend-content"></table>
 	<div id="loading-panel" style="display:none">

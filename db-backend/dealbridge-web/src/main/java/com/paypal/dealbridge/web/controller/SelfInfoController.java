@@ -48,9 +48,7 @@ public class SelfInfoController {
 		model.addAttribute("ufi", ufi);
 		model.addAttribute("userId", userId);
 		model.addAttribute("bankList", bankList);
-		if (true) {
-			throw new Exception();
-		}
+		
 		return "selfInfo";
 	}
 }
