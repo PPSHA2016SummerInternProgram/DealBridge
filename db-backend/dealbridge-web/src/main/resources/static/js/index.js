@@ -51,7 +51,12 @@ var app = {
 //              'Heading: '           + position.coords.heading           + '\n' +
 //              'Speed: '             + position.coords.speed             + '\n' +
 //              'Timestamp: '         + position.timestamp                + '\n');
-        window.open("/home1?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
+
+		$.post("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
+			window.open("/home");
+		});
+		
+        //window.open("/home1?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
     };
     
     // onError Callback receives a PositionError object
