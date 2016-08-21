@@ -89,7 +89,7 @@
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
- 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(3)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].startTime == null)
@@ -207,7 +207,8 @@
       <div class="type">
       <a href="/recommendation/car">
         <!-- Convertible icon by Icons8 -->
-		<img class="icon icons8-Convertible" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACbUlEQVRoQ+2XT27aQBTGvxeLbpsjsKzUQkE468AJSk/Q5AbjE5ScwHODuidIOEHYhwgXt1KX9ASl2yrwqjGJYrAxA8MQUQ1bv3+/73t4xoQj/9GRzw8H8NIOOgecA4YKuBUyFNA43TlgLKFhAeeAjoBvR6JRASZxU0514reJse5AYyRO5w+4BaE689D50ZTxNgNuirUK8Dw8NRaD8HTfEFYB6neiB6LPyyrylAlB0pLRJnV1nlsFUAPUhkFEwKfVYZj4ch8Q1gHU4MVOACDujVvySkfpdTEHAUiduBcXxPQl5wQ4Snx5uSvEwQAW6yS6BFK7/zo7MIMjz0Owy2u2EODNSFQrM4QENACq7qrOdnk8AUj+9bj/syknurk5ADX8qxlGAJ3qFtl7HHMMokgHJgdQGwY3BHzY+1C7FtwAkwOoD8XvF1W/DHQBI0887j/9XwoAAt5VrEPlMXiQ+LKj+h0lgBp87Kt3jAM41NLk+/y/DtSGQUzA+yJtGfgGcG/xjHrr4kx90ejza+yH6QFbeJBVHigiwnnBveVj4subzLXg2nTYYqG4tA/j+fnau1B6Is/RBVP41CSb+HivOTTAn5nH7exX3cbL3NLJzBwzKF0hUqtEiy8tBvqJH3ZN3NDs8zXxw4tsHw2A9AZZqvScufP9TA5MAN7difYJ0W1ZjaI+GwFUwfq9ENlVWmrCfDU+k49/bBOEkg+f1HIOxi0pVztoAagkpRCpNw+pK3a6NgNmlqbKrw6U9iESBLTTPoyYwb11fbQBzLS1l+0A7GmrV9k5oKeTvSjngD1t9So7B/R0shflHLCnrV7lo3fgH4hJBEC9m+v8AAAAAElFTkSuQmCC" width="30" height="30"><p>洗车</p>
+		<!-- SUV icon by Icons8 -->
+		<img class="icon icons8-SUV" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB2ElEQVRIS+1WwW3bQBCcIf23OkjyjqVQCPWOU4HVge0OjhUkHZAlSBWEriDKWwosiDbgp0pwvgbIDZbyCSRFwUfAtj66H+92d3aHu3NHHGjxQLg4Ar8b80eqS6o/35rAL3DhyrsUXGaj+MbVXu12qO4vogmByy5B1FYgkyxMrl39asD9hRkT/OXq3LTrAt4AjlKipPjfky/BwzBZV4P359GMxDcR/MlG8bk9s/tl5ZTr7GsyeSn5GvBgET0COBVgmoXxVdN5H3Bwa3pFziWAD+qT+zK8Hyb6vXdtgc/m5twjfz//L61stuMluAL4EZA1iFpVIggIjjc+8uj5+LQcJlpI69oCD+bmJ8gfL1HU5VwgKcHU8+WmmcSbAleTtEmswnhaG6e3qLiNHds/71axTcJOxOGBW8WDEolgTVA7+LRLY22mA1MRmZBMCHyxezqqtTlWjfZyGiuZqzAuz6sC0QW8EPl+N0pmtn+UZv9Extrhrddif7FRMO1EaMWkUTVbhXHPBXjw1xgIY4gs4UFjGIC9qrC0Ape3U04VkC29rlKoiamS5Tlnlt4qxTbxvQ+B0rnAmEDvyUPa1G2Xysu+EQT5CdKmhB5fIC4MvorNkepXodElyMGo/g9TadYf6JjBewAAAABJRU5ErkJggg==" width="30" height="30"><p>洗车</p>
         </a>
       </div>
       
@@ -276,7 +277,8 @@
       <div class="type">
         <a href="/recommendation/dailyservice">
         <!-- Washing Machine icon by Icons8 -->
-		<img class="icon icons8-Washing-Machine" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAACXUlEQVRIS+2XTW7TUBSFz7ENqmMk2h10B7grwMxQQGq6grbzVHgHpCsgUsyYdAVNJWIxwzuo2UF3QCrhpALbFz0nrtLgJHbcCAZkZPm93O/dn3fPNTH3i5rtDsh3BHbn39d9FmCkiXRN3zvPbTF/mLxtOyL8Whey6v+kvDI/e4Hacw9W3pJ8XwcskIupUR6LyC2BPkAbxEv1XkTOLd/rPCpYIN+soWcro9GbdkhB0PA9Vxx3d2Il37cIxkhL9AMFSPXkmpDQjIyjsRk71Hi5NXCZFG0l1FsHT4uGgUDCWSHZAnFIPl8H38hjBdRA1/R7/SLApHl2kkK6qw5QGawqVkuMlvmle7PKq8lrdz/V4wHBF0X7KoEzT1PDXge9b0QKrsVhkeeVwBScLgvvMu9V2IX4tLheGqy8tXxvo74dNdujRa9LgyG4avi91rpqLVofN88GIA7n10qD841ZHwePQexDZEDKYCd6cqWM3lm/DkXYAtmC4IaQvlKhot5fCaxpCKqqllKhNIW62w9EpzRYhdoc6yd5ky8bcjPS9yaNpL95qIGRNeztFeVr6SFmdVGvuJS2Ck51JGFM/bqMx4YkBwl0u9Z1yqRMjS1K7rTEKTI2fxh1SKR6MJXFP8en8jmeWRWRUEuNI137uRtD7yzmTtWCgaSTpE9HqRZfkswGgo0byIM7qDxH6prDjxdqqrh7FmfGd34YIYPuKBMJ4sOqQbGyx4sHoEhAIJNFAWwhnTKTaS1wmQJbtuc/OIvMY8zV69Lwb4X6r33C5OEG4JaZGNeFdUGHbwF0888XtfYb98DSLgVnm8sAAAAASUVORK5CYII=" width="30" height="30">
+		<!-- Dog House icon by Icons8 -->
+		<img class="icon icons8-Dog-House" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABv0lEQVRIS+3WQU7CQBQG4PdjMaEs5AZyA/EGZWlh4Q2ErakJNxBvgLFxa2+gC1OXcIR6A7xBWbQkCj4zoyVQWtpOSdzQbTPzzXszb+aB/umDisvGoDGvL56Jya+FWh+TkV90nsKwQEN9MQbQEhgze3qotYviheA4GkWpgueG4yiY+jJi0JNK5LngJLTmPjgCnJs3PRU8E05DP81rucfH7qOngu+Ed6FfOBoLuMrLtgqeCmehIGrIvSXyVfBEOC+6OtUK+BZcFFXFN2BVVAVfwWXRoriE94UWwbFvNDcedCwPhDMxQFyD4kYSl4Oo06hkir48eXAEpuUDOMmNMn8QMALY+72j0SLmAQGnSQtMqnNmnkFGx5Vm/c1+yYqUid/1QDPiT6DcrvpiEmUuvoB1PLiwLqv4nm6UU2BaQwC3iStnnumh1kx7d//OylRkL2X8Xd21h9G/3DAx3+uuPdi130HHckC42ivMzBsrTpo8I2NqER/gQ6pFBpQP17xrGcyQLc3WJVDyVGu8PBctUmIdy66xaxnfTD0wmus4iJyos0yrZdn0EfXW/zN4WgE5tVd7EptP9QkoNy6zvS03ffroH3a9O+8oL0UNAAAAAElFTkSuQmCC" width="30" height="30">
 		<p>生活</p>
         </a>
       </div>
