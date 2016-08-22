@@ -138,21 +138,6 @@ public class RecommendController {
 		return "recommend";
 	}
 	
-	@RequestMapping(path = "/hot", method = RequestMethod.GET)
-	public String showRHot( Model model, HttpSession session) {
-		String area = (String) session.getAttribute("area");
-		model.addAttribute("area", area);		
-		return "hot";
-	}
-	
-	@RequestMapping(path = "/api/hot", method = RequestMethod.GET)
-	@ResponseBody
-	public List<BriefDiscount> getHotDiscounts(@RequestParam(value = "area", required = false)String area,
-			@RequestParam(value = "startIndex", required = false) Integer start,
-			@RequestParam(value = "limitNumber", required = false) Integer number)
-			throws JSONException, RecommendQueryException, ParseException {
-		return recommendService.getHotDiscounts(area, start, number);
-	}
 	
 	
 }
