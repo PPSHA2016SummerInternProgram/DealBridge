@@ -142,7 +142,7 @@ public class RecommendController {
 		return "recommend";
 	}
 	
-	//Yao add
+	
 	@RequestMapping(path = "/hot", method = RequestMethod.GET)
 	public String showRHot( Model model, HttpSession session) {
 		String area = (String) session.getAttribute("area");
