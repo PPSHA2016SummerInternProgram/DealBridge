@@ -30,10 +30,10 @@ public class RecommendUtil {
 
 	}
 
-	public String getDiscountByType(int userId, int start, int number, String type, String area)
+	public String getDiscountByType(int userId, double latitude, double longitude, int start, int number, String type, String area)
 			throws RecommendQueryException, UnsupportedEncodingException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "type/" + userId + "?start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
+		String url = recommenderUrl + "type/" + userId + "?latitude=" + latitude +"&longitude=" + longitude + "&start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
 		logger.info("Querying different types of discounts " + url);
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
@@ -63,6 +63,21 @@ public class RecommendUtil {
 		String url = recommenderUrl + "bank?lat=" + latitude + "&lng=" + longitude + "&start=" + start + "&number="
 				+ number + "&userId=" + userId + "&bankName=" + bankName;
 		logger.info(String.format("Discounts depend on bank from %s", url));
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+		if (response.getStatusCode() == HttpStatus.OK) {
+			return response.getBody();
+		} else {
+			throw new RecommendQueryException();
+		}
+	}
+	
+	//Yao add
+	public String getHotDiscounts(String area, int start, int number)
+			throws RecommendQueryException {
+		RestTemplate restTemplate = new RestTemplate();
+		String url = recommenderUrl + "hot/area=" + area + "&start=" + start + "&number="
+				+ number;
+		logger.info(String.format("Ask for hot discounts from %s", url));
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
 			return response.getBody();

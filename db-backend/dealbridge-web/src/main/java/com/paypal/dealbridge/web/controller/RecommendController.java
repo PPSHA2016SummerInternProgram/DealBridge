@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.paypal.dealbridge.service.RecommendService;
 import com.paypal.dealbridge.service.recommend.RecommendQueryException;
 import com.paypal.dealbridge.storage.domain.BriefDiscount;
+import com.paypal.dealbridge.storage.domain.Discount;
 
 @Controller
 public class RecommendController {
@@ -80,11 +81,13 @@ public class RecommendController {
 	@RequestMapping(path = "/api/recommendation/{type}/{userId}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getTypeDiscounts(@PathVariable("type") String type, @PathVariable("userId") int userId,
+			@RequestParam(value = "latitude", required = false) double latitude,
+			@RequestParam(value = "longtitude", required = false) double longitude,
 			@RequestParam(value = "area", required = false) String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 			throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
-		return recommendService.getDiscountByType(userId, start, number, type, area);
+		return recommendService.getDiscountByType(userId, latitude, longitude, start, number, type, area);
 	}
 
 	@RequestMapping(path = "/api/nearby", method = RequestMethod.GET)
@@ -134,11 +137,32 @@ public class RecommendController {
 	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
 		int userId = (int) session.getAttribute("userId");
 		String area = (String) session.getAttribute("area");
+		double latitude = (double) session.getAttribute("latitude");
+		double longitude = (double) session.getAttribute("longitude");
 		model.addAttribute("area", area);
 		model.addAttribute("userId", userId);
 		model.addAttribute("type", type);
 		model.addAttribute("type_chinese", typeMap.get(type));
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
 		return "recommend";
+	}
+	
+	//Yao add
+	@RequestMapping(path = "/hot", method = RequestMethod.GET)
+	public String showRHot( Model model, HttpSession session) {
+		String area = (String) session.getAttribute("area");
+		model.addAttribute("area", area);		
+		return "hot";
+	}
+	
+	@RequestMapping(path = "/api/hot", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Discount> getHotDiscounts(@RequestParam(value = "area", required = false)String area,
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+			throws JSONException, RecommendQueryException, ParseException {
+		    return recommendService.getHotDiscounts(area, start, number);
 	}
 	
 	
