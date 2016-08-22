@@ -248,8 +248,8 @@
 </div>
 
  <#if discount.latitude??>
-<div class="cuxian" style="float:none;" >导航</div>
-<div style="height:320px;border:#ccc solid 1px; margin: 5px;" id="dituContent"></div>
+<div class="cuxian" style="float:none;" id="map-head" >导航(点击显示或隐藏地图)</div>
+<div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
  </#if>
 
  	<!-- 分享 -->
@@ -373,6 +373,15 @@ function chooseFunction()
  <#if discount.latitude??>
 	 <script type="text/javascript">
 	    initMap(${discount.latitude}, ${discount.longitude}, 15);//创建和初始化地图
+	 </script>
+	 <script>
+	 	$("#map-head").click(function(){
+	 		if ($("#dituContent").css("display") == "none") {
+	 			$("#dituContent").show();
+	 		} else {
+	 			$("#dituContent").hide();
+	 		}
+	 	});
 	 </script>
 </#if>
  
