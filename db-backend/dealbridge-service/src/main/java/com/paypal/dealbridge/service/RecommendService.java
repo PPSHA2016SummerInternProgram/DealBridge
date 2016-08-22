@@ -45,8 +45,8 @@ public class RecommendService {
 		return result;
 	}
 
-	public List<BriefDiscount> getDiscountByType(int userId, int start, int number, String type) throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
-		JSONArray jsonArray = new JSONArray(recommendUtil.getDiscountByType(userId, start, number, type));
+	public List<BriefDiscount> getDiscountByType(int userId, int start, int number, String type, String area) throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+		JSONArray jsonArray = new JSONArray(recommendUtil.getDiscountByType(userId, start, number, type, area));
 		List<BriefDiscount> result = new ArrayList<>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();

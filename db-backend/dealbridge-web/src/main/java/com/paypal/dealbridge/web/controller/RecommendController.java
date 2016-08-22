@@ -81,10 +81,11 @@ public class RecommendController {
 	@RequestMapping(path = "/api/recommendation/{type}/{userId}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<BriefDiscount> getTypeDiscounts(@PathVariable("type") String type, @PathVariable("userId") int userId,
+			@RequestParam(value = "area", required = false) String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 			throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
-		return recommendService.getDiscountByType(userId, start, number, type);
+		return recommendService.getDiscountByType(userId, start, number, type, area);
 	}
 
 	@RequestMapping(path = "/api/nearby", method = RequestMethod.GET)
@@ -133,6 +134,8 @@ public class RecommendController {
 	@RequestMapping(path = "/recommendation/{type}", method = RequestMethod.GET)
 	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
 		int userId = (int) session.getAttribute("userId");
+		String area = (String) session.getAttribute("area");
+		model.addAttribute("area", area);
 		model.addAttribute("userId", userId);
 		model.addAttribute("type", type);
 		model.addAttribute("type_chinese", typeMap.get(type));
