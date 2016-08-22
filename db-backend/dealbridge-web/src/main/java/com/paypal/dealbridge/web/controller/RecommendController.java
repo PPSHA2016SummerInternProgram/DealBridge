@@ -82,7 +82,7 @@ public class RecommendController {
 	@ResponseBody
 	public List<BriefDiscount> getTypeDiscounts(@PathVariable("type") String type, @PathVariable("userId") int userId,
 			@RequestParam(value = "latitude", required = false) double latitude,
-			@RequestParam(value = "longtitude", required = false) double longitude,
+			@RequestParam(value = "longitude", required = false) double longitude,
 			@RequestParam(value = "area", required = false) String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
