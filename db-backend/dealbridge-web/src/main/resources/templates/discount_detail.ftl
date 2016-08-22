@@ -209,7 +209,7 @@
  
  	</style>
  	</head>
- 	<body style="position:relative;">
+ 	<body style="position:relative; font-family:Microsoft YaHei">
 	
 	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
 	

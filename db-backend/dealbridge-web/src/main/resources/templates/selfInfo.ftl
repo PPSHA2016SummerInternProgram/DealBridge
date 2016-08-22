@@ -156,8 +156,17 @@
   </div>
   
  </div>
- 	 <div class="mycard"style="text-align:left; padding-left:25px;color:rgb(54,53,67);font-size:13px;">我的银行卡</div>
- 	<div class="xian"></div>
+ 
+ 
+ 	<table class="table table-bordered " style=" border-left-color:white;border-right:none;bottom:0px;margin-bottom:0px;height:50px;">
+	 	<tbody>
+		    <tr width="100%"  >   
+		      <td onclick=location.href="/favorite" style="padding:15px;10px;"><i class="fa fa-heart-o " aria-hidden="true" style="color:#337ab7;float:left;padding-left:10px;padding-top:4px;font-size:17px;"></i><p style="font-family:Microsoft YaHei;padding-left:5px;margin-bottom:0px;float:left;padding-top:3px;">我的收藏</p><i class="fa fa-angle-right" aria-hidden="true"style="float:right;padding-right:20px;font-size:20px;color:#ccc;"></i></td>     
+		    </tr>
+	 	 </tbody>
+	</table> 
+ 	<div class="mycard"style="text-align:left; padding-left:15px;color:rgb(54,53,67);font-size:13px;"><i class="fa fa-credit-card" aria-hidden="true"style="color:#337ab7;float:left;padding-left:10px;padding-top:4px;font-size:17px;"></i><p style="font-family:Microsoft YaHei;padding-left:5px;margin-bottom:0px;float:left;padding-top:3px;">我的银行卡</p></div>
+ 	<!--<div class="xian"></div>-->
  	
  	
  	
@@ -185,11 +194,12 @@
  	 		<div class="form-group" style="position:relative;">
      		 <label for="name">添加银行</label>
      		 
-  	  		 <select class="form-control" onchange="changeImg()" id="select_id" style="width:80%;">
+  	  		 <select class="form-control" onchange="changeImg()" id="select_id" style="width:60%;">
   	  		 <#list bankList as bl>
   	  		 <option value="${bl.bankImg}">${bl.bankOfficial}</option>
   	  		 </#list>
-     		 </select><button type="button" id="queren2"class="btn btn-default" style="float:right;position:absolute;top:25px;right:10px;">确认</button>
+     		 </select><button type="button" id="queren2"class="btn btn-default" style="float:right;position:absolute;top:25px;right:80px;">确认</button>
+     		 <button type="button" id="cancel"class="btn btn-default" style="float:right;position:absolute;top:25px;right:10px;">取消</button>
 		  </div>
 		</form>
       </div>
@@ -199,18 +209,7 @@
 </div>
 <br>
 	
- 	<table class="table table-bordered " style="background-color:white; border-left-color:white;border-right:none;text-align:center;position:fixed;bottom:0px;margin-bottom:0px;">
-  <thead>
-  <tbody>
-    <tr width="100%" height=50px; >
-     
-      <td onclick=location.href="/favorite"><i class="fa fa-heart fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei;text-align:center">我的收藏</p></td>
-      <td><i class="fa fa-eye fa-2x" aria-hidden="true" style="color:orange;"></i><p style="font-family:Microsoft YaHei">我的浏览</p></td>
-    </tr>
- 
 
-  </tbody>
-</table> 
  
  
 
@@ -232,8 +231,8 @@
  $(document).ready(function(){
 	 $("#queren2").click(function(){
 		
-			var checkText=$("#select_id").find("option:selected").text();
-			console.log(checkText);
+		var checkText=$("#select_id").find("option:selected").text();
+		console.log(checkText);
 		var element = $($('.bank-template').html());
 		element.find('.bankName').html(checkText);
 		$('.card-list').append(element);
@@ -247,6 +246,13 @@
 			},
  		});
 		
+			 $('#test2').click();
+	 });
+ });
+ 
+ $(document).ready(function(){
+	 $("#cancel").click(function(){
+		   	 //模拟test2的click事件
 			 $('#test2').click();
 	 });
  });
