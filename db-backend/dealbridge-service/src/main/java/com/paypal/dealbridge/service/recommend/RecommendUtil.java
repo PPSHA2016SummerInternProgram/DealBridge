@@ -30,10 +30,10 @@ public class RecommendUtil {
 
 	}
 
-	public String getDiscountByType(int userId, int start, int number, String type, String area)
+	public String getDiscountByType(int userId, double latitude, double longitude, int start, int number, String type, String area)
 			throws RecommendQueryException, UnsupportedEncodingException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "type/" + userId + "?start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
+		String url = recommenderUrl + "type/" + userId + "?latitude=" + latitude +"&longitude=" + longitude + "&start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
 		logger.info("Querying different types of discounts " + url);
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
