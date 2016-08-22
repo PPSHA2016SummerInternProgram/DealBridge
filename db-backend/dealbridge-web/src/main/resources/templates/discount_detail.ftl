@@ -157,8 +157,9 @@
  	}
  	.content
  	{
- 	position:absolute;
- 	top:250px;
+ 	position:relative;
+ 	padding-top:10px;
+ 	
  	}
  	.shuxian
  	{
@@ -191,7 +192,7 @@
  	height:180px;
  	width:100%;
  	
- 	padding-top:45px;
+ 	margin-top:45px;
  	text-align:center;
  	}
  	.pic img

@@ -16,7 +16,7 @@
 	   	right:20px;
 	    font-size: small;
 	   
-	    background-color: #181818;
+	    background-color: #337ab7;
 	    border: transparent;
 	    font-family:Microsoft YaHei;
  	}
@@ -105,7 +105,7 @@
  	
  	<body>
  
- 	<div style="background-color:#181818; ">
+ 	<div style="background-color:#337ab7; ">
       <div class="mycard " style="position:relative;text-align:center;">
         <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:0px;"></i>
        
