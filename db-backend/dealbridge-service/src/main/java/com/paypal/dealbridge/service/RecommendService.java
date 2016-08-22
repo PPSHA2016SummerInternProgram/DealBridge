@@ -69,5 +69,17 @@ public class RecommendService {
 		return result;
 	}
 	
+	public List<BriefDiscount> getDiscountsByBank(double latitude, double longitude, int start, int number, int userId, String bankName) 
+			throws JSONException, RecommendQueryException, ParseException {
+		JSONArray jsonArray =  new JSONArray(recommendUtil.getDiscountsByBank(latitude, longitude, start, number, userId, bankName));
+		List<BriefDiscount> result = new ArrayList<>();
+		for (int i = 0; i < jsonArray.length(); i++) {
+			BriefDiscount discount = new BriefDiscount();
+			JSONObject item = (JSONObject) jsonArray.get(i);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
+			result.add(discount);
+		}
+		return result;
+	}
 
 }

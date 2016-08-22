@@ -56,5 +56,19 @@ public class RecommendUtil {
 			throw new RecommendQueryException();
 		}
 	}
+	
+	public String getDiscountsByBank(double latitude, double longitude, int start, int number, int userId, String bankName)
+			throws RecommendQueryException {
+		RestTemplate restTemplate = new RestTemplate();
+		String url = recommenderUrl + "bank?lat=" + latitude + "&lng=" + longitude + "&start=" + start + "&number="
+				+ number + "&userId=" + userId + "&bankName=" + bankName;
+		logger.info(String.format("Discounts depend on bank from %s", url));
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+		if (response.getStatusCode() == HttpStatus.OK) {
+			return response.getBody();
+		} else {
+			throw new RecommendQueryException();
+		}
+	}
 
 }
