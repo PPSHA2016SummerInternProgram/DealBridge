@@ -247,10 +247,10 @@
 </div>
 </div>
 
-
+ <#if discount.latitude??>
 <div class="cuxian" style="float:none;" >导航</div>
 <div style="height:320px;border:#ccc solid 1px; margin: 5px;" id="dituContent"></div>
-
+ </#if>
 
  	<!-- 分享 -->
  	<div id="footer" style="border-radius: 0px;position:fixed;bottom: 0;z-index: 100;width: 100%; display:none;" class="footerbar">
@@ -370,9 +370,11 @@ function chooseFunction()
 
  </body>
  <script type="text/javascript" src="/js/map.js"></script>
- <script type="text/javascript">
-    initMap(31.19807, 121.626801, 15);//创建和初始化地图
- </script>
+ <#if discount.latitude??>
+	 <script type="text/javascript">
+	    initMap(${discount.latitude}, ${discount.longitude}, 15);//创建和初始化地图
+	 </script>
+</#if>
  
  
  </html>

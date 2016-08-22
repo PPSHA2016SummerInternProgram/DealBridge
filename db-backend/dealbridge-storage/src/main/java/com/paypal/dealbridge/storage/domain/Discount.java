@@ -24,6 +24,8 @@ public class Discount {
 	private String merchantTel;
 	private String endOfUrl;
 	private Integer clickrate;
+	private Double latitude;
+	private Double longitude;
 	
 
 	public Integer getDiscountId() {
@@ -176,6 +178,22 @@ public class Discount {
 
 	public void setClickRate(Integer clickrate) {
 		this.clickrate = clickrate;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 	
 	
