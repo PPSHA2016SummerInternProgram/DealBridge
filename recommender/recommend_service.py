@@ -34,6 +34,26 @@ types = {
     "outing": "出行"
 }
 
+banks = {
+    "shanghai": "上海",
+    "zhongguo": "中国",
+    "zhongxin": "中信",
+    "jiaohang": "交行",
+    "guangda": "光大",
+    "xingye": "兴业",
+    "nongye": "农业",
+    "huaxia": "华夏",
+    "gonghang": "工行",
+    "pingan": "平安",
+    "guangfa": "广发",
+    "jianshe": "建设",
+    "zhaoshang": "招商",
+    "minsheng": "民生",
+    "pufa": "浦发",
+    "zhada": "渣打银行",
+    "huaqi": "花旗"
+}
+
 class ComplexEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, datetime):
@@ -137,6 +157,9 @@ def customized_recommend(user_id):
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     load_click()
     load_preferences()
+    distance = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
+    distance = np.array(distance)
+    distance_weight = 1.0/(0.1*distance + 1)
     for (id, discount_id) in preferences:
         if id == user_id:
             vector += cosine_similarities[indices.index(discount_id)]
@@ -145,6 +168,10 @@ def customized_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
+    print distance[1:100]
+    print distance_weight[1:100]
+    print vector[1:100]
+    vector += distance_weight
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     print item_indices
     data = []
@@ -158,7 +185,55 @@ def customized_recommend(user_id):
             "end_time": discounts_detail[index][5],
             "img": discounts_detail[index][6],
             "click_rate": click_rates[index],
-            "distance": vincenty(merchant_coordinates[index], (latitude, longitude)).kilometers
+            "distance": distance[index]
+        })
+    data = json.dumps(data, cls=ComplexEncoder)
+    resp = Response(response=data,
+                    status=200,
+                    mimetype="application/json")
+    return resp
+
+
+@app.route("/bank")
+def bank_recommend():
+    global preferences, cosine_similarities
+    offset_start = int(request.args['start'])
+    offset_end = int(request.args['number']) + offset_start
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
+    bank_name = request.args['bankName']
+    user_id = int(request.args['userId'])
+    vector = np.zeros_like(cosine_similarities[0], dtype=float)
+    load_preferences()
+    distance_1 = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
+    distance = np.array(distance_1)
+    distance_weight = 1.0/(0.1*distance + 1)
+    for (id, discount_id) in preferences:
+        if id == user_id:
+            vector += cosine_similarities[indices.index(discount_id)]
+    if vector.sum() == 0:
+        return Response(
+            response=json.dumps([]),
+            status=200,
+            mimetype="application/json")
+    vector += distance_weight
+    _bank = banks[bank_name]
+    for i in xrange(len(indices)):
+        if discounts_detail[i][1] != _bank.decode("UTF-8"):
+            vector[i] = 0
+    print vector.sum()
+    item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
+    data = []
+    for index in item_indices:
+        data.append({
+            "id": discounts_detail[index][0],
+            "bank_name": discounts_detail[index][1],
+            "summary": discounts_detail[index][2],
+            "description": discounts_detail[index][3],
+            "begin_time": discounts_detail[index][4],
+            "end_time": discounts_detail[index][5],
+            "img": discounts_detail[index][6],
+            "distance": distance_1[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
@@ -246,4 +321,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='192.168.115.1')
+    app.run(host='10.225.224.182')
