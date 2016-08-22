@@ -70,5 +70,20 @@ public class RecommendUtil {
 			throw new RecommendQueryException();
 		}
 	}
+	
+	//Yao add
+	public String getHotDiscounts(String area, int start, int number)
+			throws RecommendQueryException {
+		RestTemplate restTemplate = new RestTemplate();
+		String url = recommenderUrl + "hot/area=" + area + "&start=" + start + "&number="
+				+ number;
+		logger.info(String.format("Ask for hot discounts from %s", url));
+		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+		if (response.getStatusCode() == HttpStatus.OK) {
+			return response.getBody();
+		} else {
+			throw new RecommendQueryException();
+		}
+	}
 
 }

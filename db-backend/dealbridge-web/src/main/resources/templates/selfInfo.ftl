@@ -157,7 +157,7 @@
   
  </div>
  
- 
+
  	<table class="table table-bordered " style=" border-left-color:white;border-right:none;bottom:0px;margin-bottom:0px;height:50px;">
 	 	<tbody>
 		    <tr width="100%"  >   

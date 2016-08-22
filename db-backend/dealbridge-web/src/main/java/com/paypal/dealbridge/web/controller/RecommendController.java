@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.paypal.dealbridge.service.RecommendService;
 import com.paypal.dealbridge.service.recommend.RecommendQueryException;
 import com.paypal.dealbridge.storage.domain.BriefDiscount;
+import com.paypal.dealbridge.storage.domain.Discount;
 
 @Controller
 public class RecommendController {
@@ -136,6 +137,23 @@ public class RecommendController {
 		model.addAttribute("type", type);
 		model.addAttribute("type_chinese", typeMap.get(type));
 		return "recommend";
+	}
+	
+	//Yao add
+	@RequestMapping(path = "/hot", method = RequestMethod.GET)
+	public String showRHot( Model model, HttpSession session) {
+		String area = (String) session.getAttribute("area");
+		model.addAttribute("area", area);		
+		return "hot";
+	}
+	
+	@RequestMapping(path = "/api/hot", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Discount> getHotDiscounts(@RequestParam(value = "area", required = false)String area,
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+			throws JSONException, RecommendQueryException, ParseException {
+		    return recommendService.getHotDiscounts(area, start, number);
 	}
 	
 	

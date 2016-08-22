@@ -81,5 +81,10 @@ public class RecommendService {
 		}
 		return result;
 	}
+	
+	//Yao add
+	public List<Discount> getHotDiscounts(String area, Integer start, Integer number){
+		return recommendMapper.getHotDiscounts(area,start,number);
+	}
 
 }
