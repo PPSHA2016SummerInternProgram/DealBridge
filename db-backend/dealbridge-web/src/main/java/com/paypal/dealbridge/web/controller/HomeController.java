@@ -23,10 +23,14 @@ public class HomeController {
 	
 	public static final int TOP_DISCOUNT_NUM = 6;
 	
+
 	@RequestMapping(path="/home", method=RequestMethod.GET)
 	public String showHomePage(HttpSession session, Model model) {
 		int userId = (int)session.getAttribute("userId");
 		String area = (String)session.getAttribute("area");
+		double latitude = (double)session.getAttribute("latitude");
+		double longitude = (double)session.getAttribute("longitude");
+		
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);
 		List<String> hotKeywords = searchService.getHotKeywords(9);
 		List<String> searchHistories = searchService.getUserHistory(3, 10);
@@ -35,8 +39,8 @@ public class HomeController {
 		model.addAttribute("hots", hots);
 		model.addAttribute("userId", userId);
 		model.addAttribute("area", area);
-		model.addAttribute("latitude", 30.3);
-		model.addAttribute("longitude", 120.2);
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
 		return "home";
 	}
 	

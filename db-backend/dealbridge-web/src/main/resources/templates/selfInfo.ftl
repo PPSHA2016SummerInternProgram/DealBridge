@@ -12,11 +12,11 @@
  	<style>
  	
  	#user-dropdown-button {
- 		position: relative;
-	    left: 300px;
+ 		position: absolute;
+	   	right:20px;
 	    font-size: small;
-	    top: -7px;
-	    background-color: #181818;
+	   
+	    background-color: #337ab7;
 	    border: transparent;
 	    font-family:Microsoft YaHei;
  	}
@@ -105,10 +105,10 @@
  	
  	<body>
  
- 	<div style="background-color:#181818; ">
-      <div class="mycard " style="position:relative;">
-        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-8px;"></i>
-        <span style="text-shadow:1px 1px 1px blue;position:absolute;left:179px;top:6px">个人信息</span>
+ 	<div style="background-color:#337ab7; ">
+      <div class="mycard " style="position:relative;text-align:center;">
+        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:0px;"></i>
+       
         <button type="button" class="dropdown-toggle" id="user-dropdown-button" data-toggle="dropdown">
            ${ufi.userName}
           <span class="caret"></span>
@@ -127,8 +127,9 @@
 	         <a role="menuitem"  href="#">tianshu</a>
 	      </li>
    		</ul>
-   		
+   		个人信息
       </div>
+      
  	
  	  <div class="xian">
       </div>

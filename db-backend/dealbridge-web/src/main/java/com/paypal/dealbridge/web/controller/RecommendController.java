@@ -113,5 +113,5 @@ public class RecommendController {
 		model.addAttribute("type_chinese", _types.get(type));
 		return "recommend";
 	}
-
+	
 }

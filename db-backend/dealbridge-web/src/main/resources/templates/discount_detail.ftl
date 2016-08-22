@@ -10,7 +10,7 @@
  	  <script src="/jquery-2.0.0/jquery.min.js"></script>
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
- 	  
+ 	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
  	 
 
  	 <!--script>
@@ -157,8 +157,9 @@
  	}
  	.content
  	{
- 	position:absolute;
- 	top:250px;
+ 	position:relative;
+ 	padding-top:10px;
+ 	
  	}
  	.shuxian
  	{
@@ -191,7 +192,7 @@
  	height:180px;
  	width:100%;
  	
- 	padding-top:45px;
+ 	margin-top:45px;
  	text-align:center;
  	}
  	.pic img
@@ -247,6 +248,8 @@
 </div>
 
 
+<div class="cuxian" style="float:none;" >导航</div>
+<div style="height:320px;border:#ccc solid 1px; margin: 5px;" id="dituContent"></div>
 
 
  	<!-- 分享 -->
@@ -359,12 +362,17 @@ function chooseFunction()
 	
 }
 </script>
- <script>
- 	function backFunction() {
-  		window.history.back();  <!-- go to previous page and reload the page -->
-  	}
+    <script>
+ 	    function backFunction() {
+  		    window.history.back();  <!-- go to previous page and reload the page -->
+  	    }
+    </script>
 
- 	 </script>
-
- 	</body>
- 	</html>
+ </body>
+ <script type="text/javascript" src="/js/map.js"></script>
+ <script type="text/javascript">
+    initMap(31.19807, 121.626801, 15);//创建和初始化地图
+ </script>
+ 
+ 
+ </html>

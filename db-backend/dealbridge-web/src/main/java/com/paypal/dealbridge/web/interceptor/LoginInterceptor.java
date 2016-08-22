@@ -37,6 +37,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (session.getAttribute("area") == null){
 			session.setAttribute("area", "上海");
 		}
+		if (session.getAttribute("latitude") == null){
+			session.setAttribute("latitude", 30.3);
+		}
+		if (session.getAttribute("longitude") == null){
+			session.setAttribute("longitude", 120.2);
+		}
+		
 		
 		return true;
 	}

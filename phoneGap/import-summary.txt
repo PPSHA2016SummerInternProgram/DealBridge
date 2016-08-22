@@ -1,0 +1,49 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* build.gradle
+* gradle\
+* gradle\wrapper\
+* gradle\wrapper\gradle-wrapper.jar
+* gradle\wrapper\gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => example\src\main\AndroidManifest.xml
+* libs\arm64-v8a\libjpush217.so => example\src\main\jniLibs\arm64-v8a\libjpush217.so
+* libs\armeabi-v7a\libjpush217.so => example\src\main\jniLibs\armeabi-v7a\libjpush217.so
+* libs\armeabi\libjpush217.so => example\src\main\jniLibs\armeabi\libjpush217.so
+* libs\jpush-android-2.1.7.jar => example\libs\jpush-android-2.1.7.jar
+* libs\mips64\libjpush217.so => example\src\main\jniLibs\mips64\libjpush217.so
+* libs\mips\libjpush217.so => example\src\main\jniLibs\mips\libjpush217.so
+* libs\x86\libjpush217.so => example\src\main\jniLibs\x86\libjpush217.so
+* libs\x86_64\libjpush217.so => example\src\main\jniLibs\x86_64\libjpush217.so
+* proguard-project.txt => example\proguard-project.txt
+* res\ => example\src\main\res\
+* src\ => example\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
