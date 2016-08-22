@@ -70,11 +70,11 @@ def load_data():
     db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
     cursor = db.cursor()
     sql = "SELECT discount_id, bank_name, summary, description, begin_time, " \
-          "end_time, img, merchant_location, latitude, longitude, classify FROM discount"
+          "end_time, img, merchant_location, latitude, longitude, classify, area FROM discount"
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
-        discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[10]) for result in results]
+        discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[10], result[11]) for result in results]
         indices = [result[0] for result in results]
         merchant_coordinates = [(result[8], result[9]) for result in results]
         # for result in results:
@@ -168,9 +168,6 @@ def customized_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
-    print distance[1:100]
-    print distance_weight[1:100]
-    print vector[1:100]
     vector += distance_weight
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     print item_indices
@@ -249,7 +246,9 @@ def type_recommend(user_id):
     offset_end = int(request.args['number']) + offset_start
     _type = request.args['type']
     _type = types[_type]
-    print _type
+    area = str(request.args['area'])
+    area = unquote(area).decode("utf-8") + "市".decode("utf-8")
+    print area
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     for (id, discount_id) in preferences:
         if id == user_id:
@@ -262,9 +261,11 @@ def type_recommend(user_id):
     for i in xrange(len(indices)):
         if discounts_detail[i][8] != _type.decode("UTF-8"):
             vector[i] = 0
-    # print vector[1:100]
+        if area == "全国":
+            continue
+        elif discounts_detail[i][9] != area:
+            vector[i] = 0
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
-    # print item_indices
     data = []
     for index in item_indices:
         data.append({
@@ -321,4 +322,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='10.225.224.182')
+    app.run(host='192.168.112.200')

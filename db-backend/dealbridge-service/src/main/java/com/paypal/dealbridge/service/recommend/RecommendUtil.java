@@ -17,9 +17,9 @@ public class RecommendUtil {
 
 	private Logger logger = Logger.getLogger(this.getClass());
 
-	public String getCustomizedDiscounts(int userId, int start, int number, double latitude, double longitude) throws RecommendQueryException {
+	public String getCustomizedDiscounts(int userId, int start, int number, double latitude, double longitude, String area) throws RecommendQueryException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "customized/" + userId + "?start=" + start + "&number=" + number + "&lat=" + latitude + "&lng=" + longitude;
+		String url = recommenderUrl + "customized/" + userId + "?start=" + start + "&number=" + number + "&lat=" + latitude + "&lng=" + longitude + "&area=" + area;
 		logger.info(String.format("Ask for customized discounts from %s", url));
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
@@ -30,10 +30,10 @@ public class RecommendUtil {
 
 	}
 
-	public String getDiscountByType(int userId, int start, int number, String type, String area)
+	public String getDiscountByType(int userId, double latitude, double longitude, int start, int number, String type, String area)
 			throws RecommendQueryException, UnsupportedEncodingException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "type/" + userId + "?start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
+		String url = recommenderUrl + "type/" + userId + "?latitude=" + latitude +"&longitude=" + longitude + "&start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
 		logger.info("Querying different types of discounts " + url);
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {

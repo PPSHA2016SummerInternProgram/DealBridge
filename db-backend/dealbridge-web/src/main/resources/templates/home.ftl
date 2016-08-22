@@ -11,22 +11,8 @@
 	    <link rel="stylesheet" href="/css/homepage.css">  
 	 	<script src="/jquery-2.0.0/jquery.min.js"></script>
 	 	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
-		<script src="/js/hammer.min.js"></script>
-		
 	
 		
-		<script>
-          $(function(){
-            var myElement= document.getElementById('myCarousel')
-            var hm=new Hammer(myElement);
-            hm.on("swipeleft",function(){
-                $('#myCarousel').carousel('next')
-            })
-            hm.on("swiperight",function(){
-                $('#myCarousel').carousel('prev')
-            })
-        })
-		</script>
 		<style>
 			#header-text{background-color:#ffffff;padding-top:10px;border-bottom:1px solid rgb(220,220,220);}
 			#bank-header{background-color:#ffffff;padding-top:20px;border-top:1px solid rgb(248,248,248);height:50px;margin-bottom:10px;}
@@ -81,7 +67,7 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}, area:${area}, function(result){
 					
 					for (i in result) {
 						console.log(result[i]);
@@ -164,34 +150,7 @@
 		</div> 
     </div>
     
-    
-	<div id="myCarousel" class="carousel slide">
-	   <!-- 轮播（Carousel）指标 -->
-	   <ol class="carousel-indicators">
-	      <#list hots as hot>
-	          <li data-target="#myCarousel" data-slide-to="${hot_index}" <#if hot_index == 0>class="active"</#if>>
-	          </li>
-	      </#list>
-
-	   </ol>   
-	   <!-- 轮播（Carousel）项目 -->
-	   <div class="carousel-inner">
-	      <#list hots as hot>
-	      	 <div class=<#if hot_index == 0>"item active"<#else>"item"</#if>>
-			 	<a href="/discount/${hot.discountId?c}"><img src="${hot.img}" class="center-block" style="width:100%;height:125px;border:0px;"></a>
-			 	<div class="carousel-bg"></div>
-			 	<div class="carousel-caption"><font color="#FFFFFF" face="黑体">【${hot.bankName}】${hot.summary}</font></div>
-		  	 </div>
-	      </#list>
-	   </div>
-	   <!-- 轮播（Carousel）导航 -->
-	   <a class="carousel-control left" href="#myCarousel" 
-		  data-slide="prev">&lsaquo;</a>
-	   <a class="carousel-control right" href="#myCarousel" 
-		  data-slide="next">&rsaquo;</a>
-	</div> 
-
-
+	<div style="padding-top:50px"></div>
 
  <div class="category">
    

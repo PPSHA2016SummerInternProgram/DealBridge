@@ -45,6 +45,8 @@ public class DiscountController {
 	@RequestMapping(path = "/discount/{id}", method = RequestMethod.GET)
 	public String showDiscount(@PathVariable("id") int id, Model model, HttpSession session) {
 		int userId = (int)session.getAttribute("userId");
+		double latitude = (double)session.getAttribute("latitude");
+		double longitude = (double)session.getAttribute("longitude");
 		Discount discount = discountService.getDiscountById(id);
 		Integer favoriteId = favoriteService.existFavorite(userId, id);
 		discountService.updateClickRate(id);
@@ -53,6 +55,8 @@ public class DiscountController {
 		model.addAttribute("shareTime", shareTime);
 		model.addAttribute("userId", userId);
 		model.addAttribute("favoriteId", favoriteId);
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
 		return "discount_detail";
 	}
 }
