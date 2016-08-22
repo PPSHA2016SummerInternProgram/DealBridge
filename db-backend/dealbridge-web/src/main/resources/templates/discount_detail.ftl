@@ -209,7 +209,7 @@
  
  	</style>
  	</head>
- 	<body style="position:relative;">
+ 	<body style="position:relative; font-family:Microsoft YaHei">
 	
 	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
 	
@@ -247,10 +247,10 @@
 </div>
 </div>
 
-
-<div class="cuxian" style="float:none;" >导航</div>
-<div style="height:320px;border:#ccc solid 1px; margin: 5px;" id="dituContent"></div>
-
+ <#if discount.latitude??>
+<div class="cuxian" style="float:none;" id="map-head" >导航(点击显示或隐藏地图)</div>
+<div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
+ </#if>
 
  	<!-- 分享 -->
  	<div id="footer" style="border-radius: 0px;position:fixed;bottom: 0;z-index: 100;width: 100%; display:none;" class="footerbar">
@@ -370,9 +370,20 @@ function chooseFunction()
 
  </body>
  <script type="text/javascript" src="/js/map.js"></script>
- <script type="text/javascript">
-    initMap(31.19807, 121.626801, 15);//创建和初始化地图
- </script>
+ <#if discount.latitude??>
+	 <script type="text/javascript">
+	    initMap(${discount.latitude}, ${discount.longitude}, 15);//创建和初始化地图
+	 </script>
+	 <script>
+	 	$("#map-head").click(function(){
+	 		if ($("#dituContent").css("display") == "none") {
+	 			$("#dituContent").show();
+	 		} else {
+	 			$("#dituContent").hide();
+	 		}
+	 	});
+	 </script>
+</#if>
  
  
  </html>

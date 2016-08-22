@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class GPSController {
 
-	@RequestMapping(path = "/api/gps", method = RequestMethod.POST)
+	@RequestMapping(path = "/api/gps", method = RequestMethod.GET)
 	@ResponseBody
 	public void setGPS(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude,
 			HttpSession session) {

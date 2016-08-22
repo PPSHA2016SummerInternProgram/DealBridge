@@ -52,7 +52,7 @@
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
 
-				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber}, function(result){
+				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber, area:${area}}, function(result){
 					for (i in result) {
 						console.log(result[i]);
 					
@@ -128,8 +128,12 @@
 			<p class="text-center">正在加载...</p>
 		</div>
 	</body>
-	<script>
 	
+	<script>
+		$('table').on('click', 'tr', fun1=function(){
+ 	  	location.href = $(this).attr('data-url');
+  		});
+  	
 	</script>
 
 </html>

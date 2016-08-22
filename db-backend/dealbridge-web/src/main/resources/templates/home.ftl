@@ -276,7 +276,7 @@
 	</div>
 	<div class="entrance-div"><a href="/nearby/?lat=${latitude}&lng=${longitude}"><img src="/img/homeimg/3.jpeg"></img><p>附近优惠</p></a></div>
 	<div class="entrance-div"><a href="/favorite"><img src="/img/homeimg/2.jpeg"></img><p>我的收藏</p></a></div>
-	<div class="entrance-div"><img src="/img/homeimg/1.jpeg"></img><p>热门优惠</p></img></div>
+	<div class="entrance-div"><a href="/hot"><img src="/img/homeimg/1.jpeg"></img><p>热门优惠</p></img></a></div>
 	
 	
 	

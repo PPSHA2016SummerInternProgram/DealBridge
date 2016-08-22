@@ -1,5 +1,7 @@
 package com.paypal.dealbridge.web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,12 @@ public class SampleController {
     public String greeting(@RequestParam("user") String user, Model model) {
     	model.addAttribute("user", user);
     	return "sample";
+    }
+    
+    @RequestMapping(path="/gps_test", method=RequestMethod.GET)
+    public String greeting(HttpSession session) {
+    	System.out.println((double)session.getAttribute("latitude"));
+    	return "home";
     }
     
 }
