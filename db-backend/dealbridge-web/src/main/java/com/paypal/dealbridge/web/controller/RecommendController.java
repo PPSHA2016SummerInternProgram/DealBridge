@@ -4,12 +4,12 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +28,7 @@ public class RecommendController {
 	@Autowired
 	private RecommendService recommendService;
 
-	private final static HashMap<String, String> _types = new HashMap<String, String>(){
+	private Map<String, String> typeMap = new HashMap<String, String>(){
 		{
 			put("food", "美食");
 			put("entertainment", "休闲娱乐");
@@ -40,6 +40,29 @@ public class RecommendController {
 			put("cards_gifts", "办卡送礼");
 			put("hotel", "酒店");
 			put("outing", "出行");
+		}
+	};
+	
+	private Map<String, String> bankMap = new HashMap<String, String>() {
+		{
+			put("上海", "shanghai");
+			put("中信", "zhongxin");
+			put("中国", "zhongguo");
+			put("交行", "jiaohang");
+			put("光大", "guangda");
+			put("兴业", "xingye");
+			put("农业", "nongye");
+			put("北京银行", "beijing");
+			put("华夏", "huaxia");
+			put("工行", "gonghang");
+			put("平安", "pingan");
+			put("广发", "guangfa");
+			put("建设", "jianshe");
+			put("招商", "zhaoshang");
+			put("民生", "minsheng");
+			put("浦发", "pufa");
+			put("渣打银行", "zhada");
+			put("花旗", "huaqi");
 		}
 	};
 
@@ -72,7 +95,31 @@ public class RecommendController {
 			throws JSONException, RecommendQueryException, ParseException {
 		return recommendService.getNearbyDiscounts(latitude, longitude, start, number);
 	}
-
+	
+	
+	@RequestMapping(path = "/api/recommend/{bankName}/{userId}", method = RequestMethod.GET)
+	public List<BriefDiscount> getBankDiscounts(@PathVariable("bankName") String bankName, 
+			@PathVariable("userId") int userId, 
+			@RequestParam(value = "latitude") double latitude,
+			@RequestParam(value = "longitude") double longitude,
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+	throws JSONException, RecommendQueryException, ParseException {
+		return recommendService.getDiscountsByBank(latitude, longitude, start, number, userId, bankMap.get(bankName));
+	}
+	
+	@RequestMapping(path = "/bankRecommend/{bankName}", method = RequestMethod.GET)
+	public String showBankDiscount(@PathVariable("bankName") String bankName, Model model, HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
+		double latitude = (double) session.getAttribute("latitude");
+		double longitude = (double) session.getAttribute("longitude");
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
+		model.addAttribute("userId", userId);
+		model.addAttribute("bankName", bankName);
+		return "bank_discount";
+	}
+	
 	@RequestMapping(path = "/nearby", method = RequestMethod.GET)
 	public String showNearby(@RequestParam(value = "lat") double latitude,
 			@RequestParam(value = "lng") double longitude, Model model) {
@@ -80,14 +127,15 @@ public class RecommendController {
 		model.addAttribute("longitude", longitude);
 		return "nearby";
 	}
+	
 
 	@RequestMapping(path = "/recommendation/{type}", method = RequestMethod.GET)
 	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
 		int userId = (int) session.getAttribute("userId");
 		model.addAttribute("userId", userId);
 		model.addAttribute("type", type);
-		model.addAttribute("type_chinese", _types.get(type));
+		model.addAttribute("type_chinese", typeMap.get(type));
 		return "recommend";
 	}
-
+	
 }
