@@ -23,6 +23,7 @@ public class HomeController {
 	
 	public static final int TOP_DISCOUNT_NUM = 6;
 	
+
 	@RequestMapping(path="/home", method=RequestMethod.GET)
 	public String showHomePage(HttpSession session, Model model) {
 		int userId = (int)session.getAttribute("userId");

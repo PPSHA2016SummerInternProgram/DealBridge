@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,7 +71,31 @@ public class RecommendController {
 			throws JSONException, RecommendQueryException, ParseException {
 		return recommendService.getNearbyDiscounts(latitude, longitude, start, number);
 	}
-
+	
+	
+	@RequestMapping(path = "/api/recommend/{bankName}/{userId}", method = RequestMethod.GET)
+	public List<BriefDiscount> getBankDiscounts(@PathVariable("bankName") String bankName, 
+			@PathVariable("userId") int userId, 
+			@RequestParam(value = "latitude") double latitude,
+			@RequestParam(value = "longitude") double longitude,
+			@RequestParam(value = "startIndex", required = false) Integer start,
+			@RequestParam(value = "limitNumber", required = false) Integer number)
+	throws JSONException, RecommendQueryException, ParseException {
+		return recommendService.getDiscountsByBank(latitude, longitude, start, number, userId, bankName);
+	}
+	
+	@RequestMapping(path = "/bankRecommend/{bankName}", method = RequestMethod.GET)
+	public String showBankDiscount(@PathVariable("bankName") String bankName, Model model, HttpSession session) {
+		int userId = (int) session.getAttribute("userId");
+		double latitude = (double) session.getAttribute("latitude");
+		double longitude = (double) session.getAttribute("longitude");
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
+		model.addAttribute("userId", userId);
+		model.addAttribute("bankName", bankName);
+		return "bank_discount";
+	}
+	
 	@RequestMapping(path = "/nearby", method = RequestMethod.GET)
 	public String showNearby(@RequestParam(value = "lat") double latitude,
 			@RequestParam(value = "lng") double longitude, Model model) {
@@ -80,6 +103,7 @@ public class RecommendController {
 		model.addAttribute("longitude", longitude);
 		return "nearby";
 	}
+	
 
 	@RequestMapping(path = "/recommendation/{type}", method = RequestMethod.GET)
 	public String showRecommend(@PathVariable("type") String type, Model model, HttpSession session) {
@@ -89,5 +113,5 @@ public class RecommendController {
 		model.addAttribute("type_chinese", _types.get(type));
 		return "recommend";
 	}
-
+	
 }
