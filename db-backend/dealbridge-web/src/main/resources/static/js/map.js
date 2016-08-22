@@ -1,9 +1,9 @@
     //创建和初始化地图函数：
-    function initMap(latitude, longitude, level){
+    function initMap(latitude, longitude, userLat, userLgt, level){
         createMap(latitude, longitude, level);//创建地图
         setMapEvent();//设置地图事件
         addMapControl();//向地图添加控件
-        addMarker(latitude, longitude);//向地图中添加marker
+        addMarker(latitude, longitude, userLat, userLgt);//向地图中添加marker
     }
     
     //创建地图函数：
@@ -37,10 +37,11 @@
     
 
     //创建marker
-    function addMarker(latitude, longitude){
+    function addMarker(latitude, longitude, userLat, userLgt){
         //标注点数组
    	 	var markerPoint = longitude + "|" + latitude;
-    	var markerArr = [{title:"目的地",content:"目标地点",point:markerPoint,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}];
+   	 	var userMarkerPoint = userLgt + "|" + userLat;
+    	var markerArr = [{title:"目的地",content:"目标地点",point:markerPoint,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}},{title:"我的位置",content:"我现在的位置",point:userMarkerPoint,isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}];
     	window.markerArr = markerArr;
     
         for(var i=0;i<markerArr.length;i++){
