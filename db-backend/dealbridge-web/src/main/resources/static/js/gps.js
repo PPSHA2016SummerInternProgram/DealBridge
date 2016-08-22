@@ -21,6 +21,8 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
+    
+    
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -28,6 +30,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
+    
+    
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
@@ -51,9 +55,10 @@ var app = {
 //              'Heading: '           + position.coords.heading           + '\n' +
 //              'Speed: '             + position.coords.speed             + '\n' +
 //              'Timestamp: '         + position.timestamp                + '\n');
-
-		$.post("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
-			window.open("/home");
+		
+		
+		$.get("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
+			window.open("/gps_test");
 		});
 		
         //window.open("/home1?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
