@@ -82,7 +82,7 @@ public class RecommendController {
 	@ResponseBody
 	public List<BriefDiscount> getTypeDiscounts(@PathVariable("type") String type, @PathVariable("userId") int userId,
 			@RequestParam(value = "latitude", required = false) double latitude,
-			@RequestParam(value = "longtitude", required = false) double longitude,
+			@RequestParam(value = "longitude", required = false) double longitude,
 			@RequestParam(value = "area", required = false) String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
@@ -104,8 +104,8 @@ public class RecommendController {
 	@RequestMapping(path = "/api/recommend/{bankName}/{userId}", method = RequestMethod.GET)
 	public List<BriefDiscount> getBankDiscounts(@PathVariable("bankName") String bankName, 
 			@PathVariable("userId") int userId, 
-			@RequestParam(value = "latitude") double latitude,
-			@RequestParam(value = "longitude") double longitude,
+			@RequestParam(value = "latitude") Double latitude,
+			@RequestParam(value = "longitude") Double longitude,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 	throws JSONException, RecommendQueryException, ParseException {

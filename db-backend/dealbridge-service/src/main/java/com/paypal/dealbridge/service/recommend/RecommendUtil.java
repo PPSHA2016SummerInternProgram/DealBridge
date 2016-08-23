@@ -1,6 +1,7 @@
 package com.paypal.dealbridge.service.recommend;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +34,8 @@ public class RecommendUtil {
 	public String getDiscountByType(int userId, double latitude, double longitude, int start, int number, String type, String area)
 			throws RecommendQueryException, UnsupportedEncodingException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "type/" + userId + "?latitude=" + latitude +"&longitude=" + longitude + "&start=" + start + "&type=" + type + "&number=" + number + "&area=" + area;
+		String city = URLEncoder.encode(area, "utf-8");
+		String url = recommenderUrl + "type/" + userId + "?start=" + start + "&type=" + type + "&number=" + number + "&area=" + city + "&lat=" + latitude + "&lng=" + longitude;
 		logger.info("Querying different types of discounts " + url);
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
@@ -70,7 +72,7 @@ public class RecommendUtil {
 			throw new RecommendQueryException();
 		}
 	}
-	
+
 	//Yao add
 	public String getHotDiscounts(String area, int start, int number)
 			throws RecommendQueryException {
