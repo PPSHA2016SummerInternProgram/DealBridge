@@ -86,7 +86,7 @@
 	
 	<body style="padding-top: 50px;">
 			<!--Navgation Bar-->
-		    <div class="navbar-fixed-top" style="height:50px;background-color:#181818;">
+		    <div class="navbar-fixed-top" style="height:50px;background-color:#337ab7;">
 			
 				<div class="container" style="padding-top:15px;height:30px;">
 		        
@@ -94,7 +94,7 @@
 					 
 					   <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 					</div>
-					<span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">附近</span>
+					<span style="color:#ffffff;padding-left:10px;font-family:Microsoft YaHei">精选银行</span>
 				
 				
 				</div>

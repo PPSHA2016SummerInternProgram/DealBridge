@@ -67,7 +67,7 @@
 		
 			<script>
 				function appendDiscount(startIndex, limitNumber) {
-				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}}, function(result){
+				$.getJSON("/api/recommendation/${userId}", {startIndex:startIndex, limitNumber:limitNumber, lat:${latitude}, lng:${longitude}, area:${area}, function(result){
 					
 					for (i in result) {
 						console.log(result[i]);
@@ -78,10 +78,10 @@
  	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(3)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
- 	  				if (result[i].startTime == null)
+ 	  				if (result[i].beginTime == null)
  	  					str += '活动';
  	  				else
- 	  					str += result[i].startTime;
+ 	  					str += result[i].beginTime;
  	  				str += '至 '; 
  	  				if (result[i].endTime == null)
  	  					str += '不限';
@@ -259,7 +259,7 @@
 	</div>
 	
      <div style="height:80px;"> 
-      	<div class="bank-div"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></div>
+      	<div class="bank-div"><a href="/bankRecommend/光大"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></a></div>
         <div class="bank-div"><img src="/img/bank_image_transparent/交通.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">交通</span><p>周末美食五折团</p></div>
           <div class="bank-div"><img src="/img/bank_image_transparent/农业.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">农行</span><p>赢5000航空里程</p></div>
    	 </div>

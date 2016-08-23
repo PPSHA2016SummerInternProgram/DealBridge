@@ -26,8 +26,7 @@
  	 
 	<script>
         $(document).ready(function(){
-      		
- 			 
+      		 
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -73,15 +72,11 @@
  	}
 	 	.cuxian
  	{
- 	font-family:Microsoft YaHei;
- 			padding-left:10px;
- 	font-size:14px;
- 	color:#323232;
- 	line-height:35px;
- 	background-color:#f2f2f2;
+ 	height:50px;
+ 	color:#ccc;
+ 	
  	border-bottom:1px solid #e2e2e2;
- 	font-weight:700;
- 	display:block;
+ 	background-color:#f2f2f2;
  	}
  	.personal
  	{
@@ -202,9 +197,30 @@
  	height:180px;
  	width:100%;
  	margin:0px auto;
- 	
- 	
  
+ 	}
+ 	
+ 	.merchant_info
+ 	{
+ 	height:50px;
+ 	color:orange;
+ 	
+ 	border-bottom:1px solid #e2e2e2;
+ 	background-color:#f2f2f2;
+ 	
+ 	}
+ 	.merchant_info p
+ 	{
+ 	padding-left:10px;
+ 	padding-top:15px;
+ 	padding-bottom:10px;
+ 	}
+ 	
+ 	.merchant_location p
+ 	{
+ 	padding-left:10px;
+ 	padding-top:15px;
+ 	color:rgb(100,100,100);
  	}
  
  	</style>
@@ -222,23 +238,35 @@
 <div class="detail">使用${discount.bankName}信用卡，${discount.description}</div>
 
 
-<div class="twotag" style="height:38px;">
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:150px;">  <span>        点击量：<b>${discount.clickRate}</b></span></div>
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:100px;"><span >分享量：<b>${shareTime}</b></span> </div>
+<div class="twotag" style="height:38px;text-align:center;">
+<div style="font-size:13px;color:rgb(130,130,130);float:right;padding-right:20px; ">  <span>        点击量:<b>${discount.clickRate}</b></span></div>
+<!--<div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >分享量:<b>${shareTime}</b></span> </div>-->
 </div>
 <!--弹出添加收藏成功-->
 <div class="jump_box">
 添加收藏成功！
 <i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>
 </div>
+
+<!--商家信息-->
+<div class="merchant_info">
+<p>商家信息</p>
+</div>
+<div class="merchant_location">
+<p><i class="fa fa-map-marker " aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantLocation}</p>
+<p><i class="fa fa-phone" aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantTel}</p>
+</div>
+
+
+<!--活动详情-->
 <div>
-	<div class="cuxian" style="float:none;" >活动详情</div>
+	<div class="cuxian" style="float:none;" ><p>活动详情</p></div>
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用时间：</p>
- 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.startTime??>${discount.startTime?date}<#else>活动</#if>至<#if discount.endTime??>${discount.endTime?date}<#else>不限</#if></p>
+ 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.beginTime??>${discount.beginTime?date}<#else>活动</#if>至<#if discount.endTime??>${discount.endTime?date}<#else>不限</#if></p>
  	
  	<#if discount.discountUsage??>
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
@@ -372,7 +400,7 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
-	    initMap(${discount.latitude}, ${discount.longitude}, 15);//创建和初始化地图
+	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){

@@ -72,10 +72,11 @@ public class RecommendController {
 	public List<BriefDiscount> getCustomizedDiscounts(@PathVariable("userId") int userId,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number,
+			@RequestParam(value = "area", required = false) String area,
 			@RequestParam(value = "lat") Double latitude,
 			@RequestParam(value = "lng") Double longitude)
 			throws JSONException, RecommendQueryException, ParseException {
-		return recommendService.getCustomizedDiscounts(userId, start, number, latitude, longitude);
+		return recommendService.getCustomizedDiscounts(userId, start, number, latitude, longitude, area);
 	}
 
 	@RequestMapping(path = "/api/recommendation/{type}/{userId}", method = RequestMethod.GET)
@@ -148,7 +149,7 @@ public class RecommendController {
 		return "recommend";
 	}
 	
-	//Yao add
+	
 	@RequestMapping(path = "/hot", method = RequestMethod.GET)
 	public String showRHot( Model model, HttpSession session) {
 		String area = (String) session.getAttribute("area");
