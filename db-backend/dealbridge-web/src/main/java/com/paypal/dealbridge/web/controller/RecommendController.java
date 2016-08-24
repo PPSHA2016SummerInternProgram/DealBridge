@@ -103,6 +103,7 @@ public class RecommendController {
 	
 	
 	@RequestMapping(path = "/api/recommend/{bankName}/{userId}", method = RequestMethod.GET)
+	@ResponseBody
 	public List<BriefDiscount> getBankDiscounts(@PathVariable("bankName") String bankName, 
 			@PathVariable("userId") int userId, 
 			@RequestParam(value = "latitude") double latitude,
