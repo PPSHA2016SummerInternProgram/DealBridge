@@ -108,10 +108,11 @@ public class RecommendController {
 			@PathVariable("userId") int userId, 
 			@RequestParam(value = "latitude") double latitude,
 			@RequestParam(value = "longitude") double longitude,
+			@RequestParam(value = "area") String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 	throws JSONException, RecommendQueryException, ParseException {
-		return recommendService.getDiscountsByBank(latitude, longitude, start, number, userId, bankName);
+		return recommendService.getDiscountsByBank(latitude, longitude, area, start, number, userId, bankName);
 	}
 	
 	@RequestMapping(path = "/bankRecommend/{bankName}", method = RequestMethod.GET)
@@ -119,10 +120,12 @@ public class RecommendController {
 		int userId = (int) session.getAttribute("userId");
 		double latitude = (double) session.getAttribute("latitude");
 		double longitude = (double) session.getAttribute("longitude");
+		String area = (String) session.getAttribute("area");
 		model.addAttribute("latitude", latitude);
 		model.addAttribute("longitude", longitude);
 		model.addAttribute("userId", userId);
 		model.addAttribute("bankName", bankName);
+		model.addAttribute("area", area);
 		return "bank_discount";
 	}
 	
