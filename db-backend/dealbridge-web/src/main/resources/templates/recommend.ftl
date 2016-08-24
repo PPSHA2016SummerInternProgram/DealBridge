@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+bed6b5b215f30a6279deb6473ecde330<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,6 +51,7 @@
 			
 		<script>
 			function appendDiscount(startIndex, limitNumber) {
+
 
 				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber, area:'${area}', latitude: '${latitude}', longitude:'${longitude}'}, function(result){
 					for (i in result) {

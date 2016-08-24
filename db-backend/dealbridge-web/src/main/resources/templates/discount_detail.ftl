@@ -402,7 +402,9 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
+	 	console.log(${discount.latitude});
 	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
+	    console.log(${discount.latitude});
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){
