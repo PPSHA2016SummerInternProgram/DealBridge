@@ -56,7 +56,7 @@
  	  				+ result[i].img + '" width="100%" height="90%"></td><td style="position:relative;border-top:0px;padding-top:0px;"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
  	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"> 距您：'+result[i].distance.toFixed(3)+'千米'+'</div></td></tr>';
+ 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"> 距您：'+result[i].distance.toFixed(2)+'km'+'</div></td></tr>';
  	  		
  	  				$('#recommend-content').append(str);
 
