@@ -82,8 +82,6 @@
                 
                 <li><a href="#H">H</a></li>
                 
-                <li><a href="#I">I</a></li>
-                
                 <li><a href="#J">J</a></li>
                 
                 <li><a href="#K">K</a></li>
@@ -126,102 +124,16 @@
         <div class="hd">A</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+                <li><a href="/home" class="area" city="安庆" >安庆</a></li>
+                <li><a href="/home" class="area" city="安定" >安定</a></li>
+                <li><a href="/home" class="area" city="安平" >安平</a></li>
+                <li><a href="/home" class="area" city="安阳" >安阳</a></li>
+                <li><a href="/home" class="area" city="鞍山" >鞍山</a></li>
+                <li><a href="/home" class="area" city="安吉" >安吉</a></li>
+                <li><a href="/home" class="area" city="安岳" >安岳</a></li>
+                <li><a href="/home" class="area" city="安泽" >安泽</a></li>
+
                 
-                <li>
-                    <a href="home" class="area" city="aichi" >爱知</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="aomori" >青森</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ayutthaya" >大城</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="arhus" >奥胡斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="armenia" >亚美尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="azores" >亚速尔群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="amritsar" >阿姆利则</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="arusha" >阿鲁沙</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="addisababa" >亚的斯亚贝巴</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="austria" >奥地利</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="angola" >安哥拉</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="anguilla" >安圭拉</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="antigandbarbuda" >安提瓜和巴布达</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="andorra" >安道尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="aachen" >亚琛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="augsburg" >奥格斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="amalfi" >阿马尔菲</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="assisi" >阿西西</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="akaroa" >阿卡罗阿</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="alsace" >阿尔萨斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="arles" >阿尔勒</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="annecy" >阿讷西</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="aix" >艾克斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=A&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -232,156 +144,19 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="北京/3" >北京</a>
+                    <a href="home" class="area" city="北京" >北京</a>
                 </li>
+                <li><a href="/home" class="area" city="蚌埠" >蚌埠</a></li>
+                <li><a href="/home" class="area" city="白银" >白银</a></li>
+                <li><a href="/home" class="area" city="百色" >百色</a></li>
+                <li><a href="/home" class="area" city="保亭" >保亭</a></li>
+                <li><a href="/home" class="area" city="北戴河" >北戴河</a></li>
+                <li><a href="/home" class="area" city="保定" >保定</a></li>
+                <li><a href="/home" class="area" city="本溪" >本溪</a></li>
+                <li><a href="/home" class="area" city="宝山" >宝山</a></li>
+                <li><a href="/home" class="area" city="北仑" >北仑</a></li>
+
                 
-                <li>
-                    <a href="home" class="area" city="beppu" >别府</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bagan" >蒲甘</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bhutan" >不丹</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="belize" >伯利兹</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bulgarian" >保加利亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="britishcolumbia" >不列颠哥伦比亚省</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="banffpark" >班夫国家公园</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="botswana" >博茨瓦纳</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bangalore" >班加罗尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="batam" >巴淡岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="balikpapan" >巴里巴板</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bodrum" >博德鲁姆</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="belgrade" >贝尔格莱德</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="badischl" >巴德依舍</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bangladesh" >孟加拉国</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bhaktapur" >巴德岗</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bahamas" >巴哈马</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="barbados" >巴巴多斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bahrain" >巴林</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="brazil" >巴西</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="burkinafaso" >布基纳法索</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="burundi" >布隆迪</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bremen" >不莱梅</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bonn" >波恩</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="berchtesgaden" >贝希特斯加登</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="badenbaden" >巴登-巴登</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bamberg" >班贝格</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bologna" >博洛尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bergamo" >贝加莫</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bergen" >卑尔根</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bratislava" >布拉迪斯拉发</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="belgium" >比利时</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="blois" >布洛瓦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="brittany" >布列塔尼</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="bordeaux" >波尔多</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="burgundy" >勃艮第</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=B&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -392,144 +167,29 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="成都/3" >成都</a>
+                    <a href="home" class="area" city="成都" >成都</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="chongqing" >重庆</a>
+                    <a href="home" class="area" city="重庆" >重庆</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="changsha" >长沙</a>
+                    <a href="home" class="area" city="长沙" >长沙</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="changchun" >长春</a>
+                    <a href="home" class="area" city="长春" >长春</a>
                 </li>
                 
-                <li>
-                    <a href="home" class="area" city="chiayi" >嘉义</a>
-                </li>
+                <li><a href="/home" class="area" city="巢湖" >巢湖</a></li>
+                <li><a href="/home" class="area" city="潮州" >潮州</a></li>
+                <li><a href="/home" class="area" city="沧州" >沧州</a></li>
+                <li><a href="/home" class="area" city="承德" >承德</a></li>
+                <li><a href="/home" class="area" city="赤壁" >赤壁</a></li>
+                <li><a href="/home" class="area" city="常熟" >常熟</a></li>
+  
                 
-                <li>
-                    <a href="home" class="area" city="chiba" >千叶</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="centralafrica" >中非</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="chad" >乍得</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="capeverde" >佛得角</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="croatia" >克罗地亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="calgary" >卡尔加里</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="canada" >加拿大</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="canaryislands" >加那利群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="calcutta" >加尔各答</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="chennai" >金奈</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cuba" >古巴</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="colombia" >哥伦比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cameroon" >喀麦隆</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cappadocia" >卡帕多奇亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="canakkale" >恰纳卡莱</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cyprus" >塞浦路斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cookislands" >库克群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="caymanislands" >开曼群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cinqueterre" >五渔村</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="como" >科莫</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="capri" >卡普里岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="catania" >卡塔尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="czech" >捷克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ceskykrumlov" >捷克克鲁姆洛夫</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="chile" >智利</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="caen" >卡昂</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="cotedazur" >蔚蓝海岸</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="colmar" >科尔马</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="chamonix" >霞慕尼</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=C&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -540,72 +200,23 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="dalian" >大连</a>
+                    <a href="home" class="area" city="大连" >大连</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="dongguan" >东莞</a>
+                    <a href="home" class="area" city="东莞" >东莞</a>
                 </li>
                 
-                <li>
-                    <a href="home" class="area" city="daegu" >大邱</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dumaguete" >杜马盖地</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="danang" >岘港</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="denmark" >丹麦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dubrovnik" >杜布罗夫尼克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="Democraticcongo" >刚果民主共和国</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="delhi" >德里</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="djibouti" >吉布提</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dominica" >多米尼克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dominican" >多米尼加共和国</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dresden" >德累斯顿</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dortmund" >多特蒙德</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="duisburg" >杜伊斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="dunedin" >但尼丁</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=D&amp;returl=&amp;type=">更多</a>
-                </li>
+                 <li><a href="/home" class="area" city="敦煌" >敦煌</a></li>
+                 <li><a href="/home" class="area" city="定州" >定州</a></li>
+                 <li><a href="/home" class="area" city="大兴安岭" >大兴安岭</a></li>
+                 <li><a href="/home" class="area" city="大庆" >大庆</a></li>
+                 <li><a href="/home" class="area" city="东营" >东营</a></li>
+                 <li><a href="/home" class="area" city="大港" >大港</a></li>
+                 <li><a href="/home" class="area" city="定海" >定海</a></li>
+                 <li><a href="/home" class="area" city="大关" >大关</a></li>
+        
+
             </ul>
         </div>
     </div>
@@ -614,42 +225,15 @@
         <div class="hd">E</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+   
+   				<li><a href="/home" class="area" city="恩平" >恩平</a></li>
+   				<li><a href="/home" class="area" city="鄂州" >鄂州</a></li>
+   				<li><a href="/home" class="area" city="恩施" >恩施</a></li>
+   				<li><a href="/home" class="area" city="鄂伦春旗" >鄂伦春旗</a></li>
+   				<li><a href="/home" class="area" city="峨边" >峨边</a></li>
+   				<li><a href="/home" class="area" city="峨山" >峨山</a></li>
+   				<li><a href="/home" class="area" city="鄂尔多斯" >鄂尔多斯</a></li>
                 
-                <li>
-                    <a href="home" class="area" city="easttimor" >东帝汶</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ekaterinburg" >叶卡捷琳堡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="edmonton" >埃德蒙顿</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ecuador" >厄瓜多尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="eritrea" >厄立特里亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="egypt" >埃及</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="essen" >埃森</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="evian" >依云</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=E&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -660,32 +244,21 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="fuzhou" >福州</a>
+                    <a href="home" class="area" city="福州" >福州</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="foshan" >佛山</a>
+                    <a href="home" class="area" city="佛山" >佛山</a>
                 </li>
                 
-                <li>
-                    <a href="home" class="area" city="fethiye" >费特希耶</a>
-                </li>
+                <li><a href="/home" class="area" city="阜阳" >阜阳</a></li>
+                <li><a href="/home" class="area" city="福州" >福州</a></li>
+                <li><a href="/home" class="area" city="佛山" >佛山</a></li>
+                <li><a href="/home" class="area" city="福泉" >福泉</a></li>
+                <li><a href="/home" class="area" city="凤凰" >凤凰</a></li>
+                <li><a href="/home" class="area" city="抚顺" >抚顺</a></li>
+                <li><a href="/home" class="area" city="福山" >福山</a></li>
                 
-                <li>
-                    <a href="home" class="area" city="fozdoiguacu" >伊瓜苏市</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="freiburg" >弗莱堡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="fes" >菲斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=F&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -696,100 +269,21 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="guangzhou" >广州</a>
+                    <a href="home" class="area" city="广州" >广州</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="guiyang" >贵阳</a>
+                    <a href="home" class="area" city="贵阳" >贵阳</a>
                 </li>
                 
-                <li>
-                    <a href="home" class="area" city="gyeongju" >庆州</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="gifu" >岐阜</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="guam" >关岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="gambia" >冈比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="guinea" >几内亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ghana" >加纳</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="gabon" >加蓬</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="guatemala" >危地马拉</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="goreme" >格雷梅</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="guyana" >圭亚那</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="graz" >格拉茨</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="greece" >希腊</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="germany" >德国</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="goettingen" >哥廷根</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="genoa" >热那亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="greymouth" >格雷茅斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="grenada" >格林纳达</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="georgia" >格鲁吉亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ghent" >根特</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="grasse" >格拉斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="grenoble" >格勒诺布尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=G&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="广德" >广德</a></li>
+                <li><a href="/home" class="area" city="桂平" >桂平</a></li>
+                <li><a href="/home" class="area" city="桂林" >桂林</a></li>
+                <li><a href="/home" class="area" city="甘南" >甘南</a></li>
+                <li><a href="/home" class="area" city="公安" >公安</a></li>
+                <li><a href="/home" class="area" city="高雄" >高雄</a></li>
+                <li><a href="/home" class="area" city="根河" >根河</a></li>
+             
             </ul>
         </div>
     </div>
@@ -800,151 +294,37 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="hangzhou" >杭州</a>
+                    <a href="home" class="area" city="杭州" >杭州</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="haerbin" >哈尔滨</a>
+                    <a href="home" class="area" city="哈尔滨" >哈尔滨</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="hefei" >合肥</a>
+                    <a href="home" class="area" city="合肥" >合肥</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="haikou" >海口</a>
+                    <a href="home" class="area" city="海口" >海口</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="huhehaote" >呼和浩特</a>
+                    <a href="home" class="area" city="呼和浩特" >呼和浩特</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="hongkong" >香港</a>
+                    <a href="home" class="area" city="香港" >香港</a>
                 </li>
                 
-                <li>
-                    <a href="home" class="area" city="hsinchu" >新竹</a>
-                </li>
+        		<li><a href="/home" class="area" city="黄山" >黄山</a></li>
+        		<li><a href="/home" class="area" city="徽县" >徽县</a></li>
+        		<li><a href="/home" class="area" city="海口" >海口</a></li>
                 
-                <li>
-                    <a href="home" class="area" city="hyogo" >兵库</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hiroshima" >广岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="halongbay" >下龙湾</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hue" >顺化</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="houeisay" >会晒</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="huahin" >华欣</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="helsingor" >赫尔辛格</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="haifa" >海法</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hungary" >匈牙利</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="havana" >哈瓦那</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hurghada" >胡尔格达</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hallstatt" >哈尔施塔特</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hannover" >汉诺威</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hamilton" >汉密尔顿</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="hokitika" >霍基蒂卡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=H&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
     
-    <div id="I" class="hot-trade modebox">
-        <div class="hd">I</div>
-        <div class="home-place-list">
-            <ul class="J_citylist">
-                
-                <li>
-                    <a href="home" class="area" city="ilan" >宜兰</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ibaraki" >茨城</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="iraq" >伊拉克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="iran" >伊朗</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="irkutsk" >伊尔库茨克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="iceland" >冰岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="india" >印度</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ingolstadt" >因戈尔施塔特</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="italy" >意大利</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="invercargill" >因弗卡吉尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=I&amp;returl=&amp;type=">更多</a>
-                </li>
-            </ul>
-        </div>
-    </div>
     
     <div id="J" class="hot-trade modebox">
         <div class="hd">J</div>
@@ -952,24 +332,17 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="jinan" >济南</a>
+                    <a href="home" class="area" city="济南" >济南</a>
                 </li>
-                
-                <li>
-                    <a href="home" class="area" city="jerusalem" >耶路撒冷</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="jodhpur" >焦特布尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="jaisalmer" >杰伊瑟尔梅尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=J&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="建宁" >建宁</a></li>
+                <li><a href="/home" class="area" city="九华山" >九华山</a></li>
+                <li><a href="/home" class="area" city="焦作" >焦作</a></li>
+                <li><a href="/home" class="area" city="荆州" >荆州</a></li>
+                <li><a href="/home" class="area" city="吉林" >吉林</a></li>
+                <li><a href="/home" class="area" city="江阴" >江阴</a></li>
+                <li><a href="/home" class="area" city="金州" >金州</a></li>
+          
+               
             </ul>
         </div>
     </div>
@@ -980,100 +353,16 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="kunming" >昆明</a>
+                    <a href="home" class="area" city="昆明" >昆明</a>
                 </li>
-                
-                <li>
-                    <a href="home" class="area" city="keelung" >基隆</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kangwon-do" >江原道</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kanagawa" >神奈川</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kamakura" >镰仓</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kumamoto" >熊本</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kagoshima" >鹿儿岛</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kobe" >神户</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="krabitown" >甲米</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kashan" >卡尚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kingston" >金斯顿</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="khajuraho" >克久拉霍</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kyrgyzstan" >吉尔吉斯斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kazakhstan" >哈萨克斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kusadasi" >库萨达斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kayseri" >开塞利</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kiribati" >基里巴斯</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kathmandu" >加德满都</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="koblenz" >科布伦茨</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="konstanz" >康斯坦茨</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="karlsruhe" >卡尔斯鲁厄</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kutnahora" >库特纳霍拉</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="kaikoura" >凯库拉</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=K&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="崆峒" >崆峒</a></li>
+                <li><a href="/home" class="area" city="昆山" >昆山</a></li>
+                <li><a href="/home" class="area" city="康定" >康定</a></li>
+                <li><a href="/home" class="area" city="开江" >开江</a></li>
+                <li><a href="/home" class="area" city="开远" >开远</a></li>
+                <li><a href="/home" class="area" city="开化" >开化</a></li>
+          
+               
             </ul>
         </div>
     </div>
@@ -1084,92 +373,16 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="lanzhou" >兰州</a>
+                    <a href="home" class="area" city="兰州" >兰州</a>
                 </li>
-                
-                <li>
-                    <a href="home" class="area" city="laocai" >老街市</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="luangprabang" >琅勃拉邦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="liechtenstein" >列支敦士登</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="libya" >利比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="liberia" >利比里亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="luxembourg" >卢森堡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="luxembourgcity" >卢森堡市</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="linz" >林茨</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lumbini" >蓝毗尼</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="leipzig" >莱比锡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lubeck" >吕贝克</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lindau" >林道</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lombardy" >伦巴第大区</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lucca" >卢卡</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="laspezia" >拉斯佩齐亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="latvia" >拉脱维亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="ljubljana" >卢布尔雅那</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="leuven" >鲁汶</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="liege" >列日</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="lille" >里尔</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=L&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="六安" >六安</a></li>
+                <li><a href="/home" class="area" city="龙岩" >龙岩</a></li>
+                <li><a href="/home" class="area" city="灵台" >灵台</a></li>
+                <li><a href="/home" class="area" city="龙门" >龙门</a></li>
+                <li><a href="/home" class="area" city="雷州" >雷州</a></li>
+                <li><a href="/home" class="area" city="廊坊" >廊坊</a></li>
+                <li><a href="/home" class="area" city="六合" >六合</a></li>
+          
             </ul>
         </div>
     </div>
@@ -1178,62 +391,16 @@
         <div class="hd">M</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+
+                 <li><a href="/home" class="area" city="马鞍山" >马鞍山</a></li>
+                 <li><a href="/home" class="area" city="明溪" >明溪</a></li>
+                 <li><a href="/home" class="area" city="梅州" >梅州</a></li>
+                 <li><a href="/home" class="area" city="蒙山" >蒙山</a></li>
+                 <li><a href="/home" class="area" city="民和" >民和</a></li>
+                 <li><a href="/home" class="area" city="苗栗" >苗栗</a></li>
+                 <li><a href="/home" class="area" city="马关" >马关</a></li>
+    
                 
-                <li>
-                    <a href="home" class="area" city="miaoli" >苗栗</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mongolia" >蒙古</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="miyagi" >宫城</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="muine" >美奈</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mandalay" >曼德勒</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mexico" >墨西哥</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="micronesia" >密克罗尼西亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mainz" >美因茨</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mannheim" >曼海姆</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="moldova" >摩尔多瓦</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="morocco" >摩洛哥</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="mauritania" >毛里塔尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="montpellier" >蒙彼利埃</a>
-                </li>
-                
-                <li>
-                    <a href="home" class="area" city="citylist?c=M&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
