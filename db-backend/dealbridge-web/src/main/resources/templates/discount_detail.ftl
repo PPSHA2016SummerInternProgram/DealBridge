@@ -279,7 +279,7 @@
 
  <#if discount.latitude??>
 <div class="cuxian" style="float:none; padding-top:20px; color:#ccc" id="map-head" >导航(点击显示或隐藏地图)</div>
-<div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
+<div style="height:320px;width:100%;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
  </#if>
 
  	<!-- 分享 -->
