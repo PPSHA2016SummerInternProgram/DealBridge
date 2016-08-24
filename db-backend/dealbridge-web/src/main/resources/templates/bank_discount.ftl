@@ -15,18 +15,22 @@
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
 			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}
+			html{font-size:50px;}
+			.imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
+			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
+			
 			#recommend-content .item
-		{
-	    margin-left: 10px;
-	    padding: 15px 10px 0px 0;
-	    box-sizing: border-box;
-	  
-	    background-repeat: repeat-x;
-	    background-position: 0 bottom;
-	    background-size: auto 1px;
-	    display: -webkit-box;
-	     border-bottom:1px solid #ccc;
-		}	
+			{
+		    margin-left: 10px;
+		    padding: 11px 10px 11px 0;
+		    box-sizing: border-box;
+		  
+		    background-repeat: repeat-x;
+		    background-position: 0 bottom;
+		    background-size: auto 1px;
+		    display: -webkit-box;
+		     border-bottom:1px solid #ccc;
+			}	
 		</style>
 		
 		
@@ -51,19 +55,29 @@
 				$.getJSON("/api/recommend/${bankName}/${userId}", {latitude:${latitude}, longitude:${longitude}, startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-						var str = '<tr onclick=location.href="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' + 
- 	  				'<td width="30%" height=120px style="padding:0px 0px 1px 0px;border-top:0px;"><img src="' 
- 	  				+ result[i].img + '" width="100%" height="90%"></td><td style="position:relative;border-top:0px;padding-top:0px;"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
- 	  				+ result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
-					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
- 	  				+ result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:80px;"> 距您：'+result[i].distance.toFixed(3)+'千米'+'</div></td></tr>';
- 	  		
- 	  				$('#recommend-content').append(str);
-
+						var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
+	 	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
+	 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
+	 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(2)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+						+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+	 	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
+	 	  				if (result[i].beginTime == null)
+	 	  					str += '活动';
+	 	  				else
+	 	  					str += result[i].beginTime;
+	 	  				str += '至 '; 
+	 	  				if (result[i].endTime == null)
+	 	  					str += '不限';
+	 	  				else
+	 	  					str += result[i].endTime;
+	 	  				str += '</div></td></tr>';
+	 	  				
+	 	  					$('.imgtext').attr('data-content',result[i].bankName);
+	 	  				
+	 	  				$('#recommend-content').append(str);
 
 						
 					}
-					
 					$('#loading-panel').hide();
 				});
 			}
