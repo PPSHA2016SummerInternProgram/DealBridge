@@ -9,7 +9,7 @@
     //创建地图函数：
     function createMap(latitude, longitude, level){
         var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(longitude, latitude);//定义一个中心点坐标
+        var point = new BMap.Point(longitude-0.05, latitude+0.05);//定义一个中心点坐标
         map.centerAndZoom(point, level);//设定地图的中心点和坐标并将地图显示在地图容器中
         window.map = map;//将map变量存储在全局
     }
@@ -49,7 +49,12 @@
             var p0 = json.point.split("|")[0];
             var p1 = json.point.split("|")[1];
             var point = new BMap.Point(p0,p1);
-			var iconImg = createIcon(json.icon);
+            var iconImg;
+            if (i == 0) {
+				iconImg = createIcon(json.icon);
+			} else {
+				iconImg = new BMap.Icon("/img/nav-icon.png", new BMap.Size(15, 15));;
+			}
             var marker = new BMap.Marker(point,{icon:iconImg});
 			var iw = createInfoWindow(i);
 			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
