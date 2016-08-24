@@ -193,7 +193,7 @@ def customized_recommend(user_id):
 
 @app.route("/bank")
 def bank_recommend():
-    global preferences, cosine_similarities
+    global preferences, cosine_similarities, click_rates
     offset_start = int(request.args['start'])
     offset_end = int(request.args['number']) + offset_start
     latitude = float(request.args['lat'])
@@ -202,6 +202,7 @@ def bank_recommend():
     user_id = int(request.args['userId'])
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     load_preferences()
+    load_click()
     distance_1 = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
     distance = np.array(distance_1)
     distance_weight = 1.0/(0.1*distance + 1)
@@ -230,7 +231,8 @@ def bank_recommend():
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
             "img": discounts_detail[index][6],
-            "distance": distance_1[index]
+            "distance": distance_1[index],
+            "click_rate": click_rates[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
@@ -291,6 +293,8 @@ def type_recommend(user_id):
 
 @app.route("/vicinity")
 def vicinity_recommend():
+    global click_rates
+    load_click()
     start = int(request.args['start'])
     end = int(request.args['number']) + start
     latitude = float(request.args['lat'])
@@ -308,7 +312,8 @@ def vicinity_recommend():
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
             "img": discounts_detail[index][6],
-            "distance": distance[index]
+            "distance": distance[index],
+            "click_rate": click_rates[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
@@ -327,4 +332,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='192.168.112.200')
+    app.run(host='192.168.112.36')

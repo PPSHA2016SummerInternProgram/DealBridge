@@ -34,8 +34,15 @@ public class CityListController {
 	}
 	
 	@RequestMapping(path = "/citylist", method = RequestMethod.GET)
-	public String showCityList(Model model){
+	public String showCityList(Model model, HttpSession session){
 		List<String> hotCity = lrs.getHotLocation(HOT_CITY_NUM);
+		String city = (String) session.getAttribute("area");
+		String locatedCity = (String) session.getAttribute("locatedCity");
+		if(locatedCity == null) {
+			locatedCity = city;
+			session.setAttribute("locatedCity", locatedCity);
+		}
+		model.addAttribute("city", locatedCity);
 		model.addAttribute("hotcity", hotCity);
 		return "citylist";
 	}

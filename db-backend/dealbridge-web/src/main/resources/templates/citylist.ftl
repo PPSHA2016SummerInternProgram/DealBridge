@@ -25,7 +25,7 @@
  	
  	<section>
 	 	 <div class="position-city J_citylist">
-	        <span class="text">无法获取您的定位</span>
+	        <span class="text">${city}</span>
 	        <a></a>
 	    </div>
 	    <div class="hot-trade modebox">

@@ -3,11 +3,13 @@ package com.paypal.dealbridge.web.controller;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.paypal.dealbridge.web.util.DistanceUtil;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -157,7 +159,11 @@ public class RecommendController {
 	@RequestMapping(path = "/hot", method = RequestMethod.GET)
 	public String showRHot( Model model, HttpSession session) {
 		String area = (String) session.getAttribute("area");
-		model.addAttribute("area", area);		
+		double latitude = (double) session.getAttribute("latitude");
+		double longitude = (double) session.getAttribute("longitude");
+		model.addAttribute("area", area);
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
 		return "hot";
 	}
 	
@@ -165,9 +171,16 @@ public class RecommendController {
 	@ResponseBody
 	public List<Discount> getHotDiscounts(@RequestParam(value = "area", required = false)String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
+										  @RequestParam("lat") double latitude,
+										  @RequestParam("lng") double longitude,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 			throws JSONException, RecommendQueryException, ParseException {
-		    return recommendService.getHotDiscounts(area, start, number);
+				List<Discount> discounts = recommendService.getHotDiscounts(area, start, number);
+				for(Discount discount: discounts) {
+					discount.setDistance(DistanceUtil.getDistance(longitude, latitude, discount.getLongitude(), discount.getLatitude()));
+				}
+
+		    return discounts;
 	}
 	
 	
