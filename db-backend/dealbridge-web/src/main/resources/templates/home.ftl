@@ -23,9 +23,7 @@
 			.entrance-div{width:90%; margin:0 auto; height:120px;text-align:center;margin-bottom:12px;position:relative;}
 			.entrance-div img{width:100%; height:100%}
 			.entrance-div p{color:white;font-family:Microsoft YaHei;font-size:17px;position:absolute;left:150px;top:50px;font-weight:bold;}
-			p.summary{font-family:黑体;font-size:15px;color:#000000;}
-			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
-			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
+		
 			.category{padding:0;padding-top:10px;margin:0;outline:0;background-color:#ffffff;height:160px;border-bottom:1px solid rgb(220,220,220);}
 
 			.type{width:20%;float:left;text-align:center;background-color:#ffffff;padding:10px 0px 10px 0px;}
@@ -44,6 +42,14 @@
 			a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
 			a:hover{text-decoration:none}/* 榧犳爣鍦ㄩ摼鎺ヤ笂 */ 
 			a:active{ text-decoration:none}/* 鐐瑰嚮婵�娲婚摼鎺� */ 
+			a{color:rgb(50,50,50);}
+			
+			.hot-keyword p{margin:0px;padding:10px 10px;}
+			.title1{color:rgb(150,150,150);padding-left:20px;}
+			
+			
+			#clear-history-text{padding:2px 20px 10px 20px;float:right;}
+			.history-item{padding:5px 20px 5px 20px; border-bottom:1px solid rgb(220,220,220);}
 			</style>
 		
 	
@@ -114,8 +120,8 @@
 			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
-			#search-input-div{float:left; width:280px}
-			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
+			#search-input-div{float:left; width:78%;}
+			#search-cancel-div{float:left; }
 			#search-record-header{text-align:center; font-size:16px}
 		</style>
 		
@@ -127,7 +133,7 @@
 	<div id='home-div'>
 	
 	<!--Navgation Bar-->
-    <div class="navbar navbar-fixed-top" style="background-color:#337ab7;">
+    <div class="navbar navbar-fixed-top" style="background-color:#337ab7; font-family:Microsoft YaHei;">
 	
 		<div class="container" style="padding-top:15px;height:30px;">
         
@@ -142,12 +148,14 @@
 					top: 3.7px;
 					">
 				</span>
-				<font face="黑体">
+				
 					<input id="search-entry" type="text" placeholder="输入关键字搜索" readonly="readonly" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
+
 				</font>
 				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;position: relative;top: 2.2px;left: 5px;">
 				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 				</a>
+
 			</div>	
 		</div> 
     </div>
@@ -261,9 +269,11 @@
 	</div>
 	
      <div style="height:80px;"> 
-      	<div class="bank-div"><a href="/bankRecommend/guangda"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></a></div>
-        <div class="bank-div"><a href="/bankRecommend/jiaohang"><img src="/img/bank_image_transparent/交通.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">交通</span><p>周末美食五折团</p></a></div>
-          <div class="bank-div"><a href="/bankRecommend/nongye"><img src="/img/bank_image_transparent/农业.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">农行</span><p>赢5000航空里程</p></a></div>
+
+      	<div class="bank-div"><a href="/bankRecommend/光大"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></a></div>
+        <div class="bank-div"><a href="/bankRecommend/交行"><img src="/img/bank_image_transparent/交通.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">交通</span><p>周末美食五折团</p></div>
+          <div class="bank-div"><a href="/bankRecommend/农行"><img src="/img/bank_image_transparent/农业.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">农行</span><p>赢5000航空里程</p></div>
+
    	 </div>
 	
 	
@@ -299,23 +309,20 @@
 	
 </div>
 	
-	<div id='search-div' style="top:0px; position:absolute; display:none">
+	<div id='search-div' style="top:0px; position:absolute; display:none;font-family:Microsoft YaHei">
 		<nav id="navbar" class="navbar navbar-default">
 			<div>
+				<i id='search-hide-button' class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-right:20px;padding-top:2px;color:rgb(150,150,150);float:left;"></i>
 				<div id='search-input-div' class="input-group" style="float:left;">
 					  <span id="search-icon" class="glyphicon glyphicon-search""></span>
-					  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
-					  <span class="input-group-btn">
-						<button id="search-button" class="btn btn-default" type="button">搜索</button>
-					  </span>
-					  
+					  <input id="search-input" type="text" class="form-control" placeholder="搜索银行、类别或商家...">
+					
 				</div>
-				<div id='search-cancel-div' style="float:left;">
-					<p id='search-hide-button'>取消</p>
-				</div>
+				<div id="search-button"  style="float:left;padding:7px 10px">搜索</div>
 			</div>
 		</nav>
 		
+		<div><p class="title1">热门搜索</p></div>
 		<div id="hot-keyword-div">
 			<div class="row">
 				<#list hotKeywords as hotKeyword>
@@ -325,13 +332,14 @@
 		</div>
 		
 		<div>
-			<p id='search-record-header'>搜索记录</p>
-			<ul id="search-history-list" class="list-group">
+			<div id="clear-history-text" onclick="clearSearchHistory(3)"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:18px;color:rgb(150,150,150);"></i></div>
+			<p class="title1">搜索记录</p>
+			<div id="search-history-list" class="list-group">
 				<#list searchHistories as searchHistory>
-			   		<li class="list-group-item" history>${searchHistory}</li>
+			   		<p class="history-item" history>${searchHistory}</p>
 	 			</#list>
-			</ul>
-			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
+			</div>
+			
 		</div>
 		
 	

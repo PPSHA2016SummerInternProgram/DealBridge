@@ -26,7 +26,8 @@
  	 
 	<script>
         $(document).ready(function(){
-      		 
+      		 console.log("${discount.merchantLocation}hahah");
+      		 console.log("aaa");
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -248,38 +249,45 @@
 <i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>
 </div>
 
+
+
 <!--商家信息-->
+<#if discount.merchantLocation!=""|discount.merchantTel!="">
 <div class="merchant_info">
 <p>商家信息</p>
 </div>
 <div class="merchant_location">
-<p><i class="fa fa-map-marker " aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantLocation}</p>
-<p><i class="fa fa-phone" aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantTel}</p>
+<#if discount.merchantLocation!=""><p><i class="fa fa-map-marker " aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantLocation}</p></#if>
+<#if discount.merchantTel!=""><p><i class="fa fa-phone" aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantTel}</p></#if>
 </div>
+</#if>
 
 
 <!--活动详情-->
 <div>
-	<div class="merchant_info">
-    <p>商家信息</p>
-    </div>
+
+	<div class="merchant_info"><p>活动详情</p></div>
+
  	
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">适用地区：</p>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
  	
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用时间：</p>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">使用时间：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.beginTime??>${discount.beginTime?date}<#else>活动</#if>至<#if discount.endTime??>${discount.endTime?date}<#else>不限</#if></p>
  	
- 	<#if discount.discountUsage??>
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
- 	</#if>
+ 	<!--<#if discount.discountUsage??>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">使用规则：</p>
+ 	<p style="padding-left:10px;font-family:Microsoft YaHei;">${discount.discountUsage}</p>
+ 	</#if>-->
 
 </div>
 </div>
 
  <#if discount.latitude??>
-<div class="cuxian" style="float:none; padding-top:20px; color:#ccc" id="map-head" >导航(点击显示或隐藏地图)</div>
-<div style="height:320px;width:100%;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
+
+<div class="merchant_info" style="float:none;padding-top:10px;padding-left:10px;" id="map-head" ><i class="fa fa-map-o" aria-hidden="true"></i> 导航<span style="font-size:13px;color:rgb(150,150,150);">(点击显示或隐藏地图)</span></div>
+<div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
+
  </#if>
 
  	<!-- 分享 -->
@@ -416,6 +424,7 @@ function chooseFunction()
 	 	});
 	 </script>
 </#if>
+
  
  
  </html>

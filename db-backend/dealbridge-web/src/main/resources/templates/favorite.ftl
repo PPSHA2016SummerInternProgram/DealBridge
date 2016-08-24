@@ -31,17 +31,19 @@
                console.log(result[i]);
                var str = '<tr data-url="/discount/' + result[i].discountId + '"favorite-id="' + result[i].favoriteId + '" style="background-color:#ffffff"><td width=30px height=120px style="padding:0px 0px 1px 0px;">' + 
                 '<i class="fa fa-circle-thin" id="dis" data-dis aria-hidden="true" style="font-size:20px;padding:48px 3px 48px 13px;"></i></td>' + 
-                '<td width="30%" height=120px style="padding:0px 0px 1px 0px;"><img src="' 
-                + result[i].img + '" width="100%" height="100%"></td><td style="position:relative;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">【' 
-                + result[i].bankName + '】' + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+                '<td width="30%" height=120px style="padding:0px 0px 1px 0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
+                + result[i].img + '" width="100%" height="100%"></td><td style="position:relative;"><div style="padding:6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;">' 
+                + result[i].summary + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
                + 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
                 + result[i].description + '</div><div style="color:#000000;font-size:10px;position:absolute;top:100px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> 活动时间：';
-               if (result[i].startTime == null)
-                  str += '不限';
+               if (result[i].beginTime == null)
+                  str += '活动至';
                else
-                  str += result[i].startTime;
-               str += ' 至 '; 
-                if (result[i].endTime == null)
+               {
+                  str += result[i].beginTime;
+               	  str += ' 至 '; 
+               }
+               if (result[i].endTime == null)
                   str += '不限';
                else
                   str += result[i].endTime;
@@ -69,6 +71,10 @@
     
     
       <style>
+      html{font-size:50px;}
+			.imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
+			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
+			
       .divcss5-x5{ padding-bottom:5px; border-bottom:1px solid red} 
       .divcss5-x10{ padding-bottom:10px; border-bottom:1px solid #000} 
       .dropbtn {
@@ -117,28 +123,16 @@
    <body>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
-   <div class="navbar-header" >
-   <div class="dropdown" style="float:right;">
-  
-      <button class="dropbtn" style="color:#333">
-      <i class="fa fa-bars" aria-hidden="true">
-      </i></button>
-        <div class="dropdown-content" >
-         <a href="/home">首页</a>
-         <a href="#">帮助</a>
-         <a href="#">我要反馈</a> 
-     
-      </div>
-   
-   </div >
-      <a class="navbar-brand" id="edit" style="float:right;border:1px;">编辑</a>
-    <a class="navbar-brand" style="left:20px;border:1px;position:absolute;">收藏夹</a>
-  <i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
+   <div class="navbar-header" style="background-color:#337ab7;color:#ffffff;">
+    <a href="/home" class="navbar-brand"  style="float:right;border:1px;color:#ffffff;">首页</a>
+    <a class="navbar-brand" id="edit" style="float:right;border:1px;color:#ffffff">编辑</a>
+    <a class="navbar-brand" style="left:20px;border:1px;position:absolute;color:#ffffff">收藏夹</a>
+  	<i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:10px;"></i>
 
    </div>
-  <div id="favNum" style="padding-top:4px;background-color:#ffffff;color:red;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:10px;text-align:center">全部收藏(${count})
+  <div id="favNum" style="padding-top:4px;background-color:#ffffff;color:orange;font-family:Microsoft YaHei;padding-left:7px;padding-bottom:4px;font-size:14px;text-align:center">全部收藏(${count})
       </div>
-   <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
+  <div style="padding-top:4px;background-color:#f2eef2;opacity:0.3;filter:alpha(opacity=30);color:#333;padding-left:7px;padding-bottom:4px;font-size:3px;">最近一个月收藏
       </div>
       
 </nav>

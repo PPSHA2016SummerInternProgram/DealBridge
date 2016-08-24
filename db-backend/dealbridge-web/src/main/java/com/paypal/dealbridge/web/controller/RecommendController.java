@@ -114,7 +114,9 @@ public class RecommendController {
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 	throws JSONException, RecommendQueryException, ParseException {
+
 		return recommendService.getDiscountsByBank(latitude, longitude, area, start, number, userId, bankName);
+
 	}
 	
 	@RequestMapping(path = "/bankRecommend/{bankName}", method = RequestMethod.GET)

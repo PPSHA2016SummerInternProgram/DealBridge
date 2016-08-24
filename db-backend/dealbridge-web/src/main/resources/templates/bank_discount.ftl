@@ -14,7 +14,13 @@
 			#header-text{background-color:#337ab7;}
 			p.summary{font-family:黑体;font-size:15px;color:#000000;}
 			p.description{font-family:黑体;font-size:12px;color:#9A9090;}
-			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}	
+
+			p.clickrate{font-family:黑体;font-size:10px;color:#9A9090;}
+			html{font-size:50px;}
+			.imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
+			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
+			
+
 			#recommend-content .item
 			{
 		    margin-left: 10px;
@@ -25,11 +31,13 @@
 		    background-position: 0 bottom;
 		    background-size: auto 1px;
 		    display: -webkit-box;
+
 		    border-bottom:1px solid #ccc;
 			}
 			html{font-size:50px;}
 			.imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
 			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
+
 		</style>
 		
 		
@@ -56,7 +64,7 @@
 				$.getJSON("/api/recommend/${bankName}/${userId}", {latitude:${latitude}, longitude:${longitude}, area:'${area}', startIndex:startIndex, limitNumber:limitNumber}, function(result){
 					for (i in result) {
 						console.log(result[i]);
-					
+		
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
@@ -83,6 +91,7 @@
  	  					$('.imgtext').attr('data-content',result[i].bankName);
  	  				
  	  				$('#recommend-content').append(str);
+
 
 						
 					}
