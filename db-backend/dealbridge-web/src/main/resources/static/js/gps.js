@@ -55,11 +55,11 @@ var app = {
 //              'Heading: '           + position.coords.heading           + '\n' +
 //              'Speed: '             + position.coords.speed             + '\n' +
 //              'Timestamp: '         + position.timestamp                + '\n');
-		
-		
-		$.get("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
-			window.open("/gps_test");
-		});
+
+		window.open("/home?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude)
+//		$.get("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
+//			window.open("/gps_test");
+//		});
 		
         //window.open("/home1?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
     };
@@ -71,7 +71,7 @@ var app = {
               'message: ' + error.message + '\n');
     }
     
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 60000, enableHighAccuracy: true});
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 6000, enableHighAccuracy: true});
 	
     },
     // Update DOM on a Received Event

@@ -79,6 +79,7 @@ public class RecommendService {
 			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
+		System.out.println(result);
 		return result;
 	}
 	

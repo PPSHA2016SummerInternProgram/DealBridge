@@ -241,11 +241,15 @@ def bank_recommend():
 
 @app.route("/type/<int:user_id>")
 def type_recommend(user_id):
-    global preferences, cosine_similarities, types
+    global preferences, cosine_similarities, types, click_rates
     offset_start = int(request.args['start'])
     offset_end = int(request.args['number']) + offset_start
     _type = request.args['type']
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
     _type = types[_type]
+    load_preferences()
+    load_click()
     area = str(request.args['area'])
     area = unquote(area).decode("utf-8") + "市".decode("utf-8")
     print area
@@ -261,10 +265,9 @@ def type_recommend(user_id):
     for i in xrange(len(indices)):
         if discounts_detail[i][8] != _type.decode("UTF-8"):
             vector[i] = 0
-        if area == "全国":
-            continue
-        elif discounts_detail[i][9] != area:
-            vector[i] = 0
+        if discounts_detail[i][9] != area:
+           vector[i] = 0
+    print vector[1:100], vector.sum()
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     data = []
     for index in item_indices:
@@ -275,7 +278,9 @@ def type_recommend(user_id):
             "description": discounts_detail[index][3],
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6]
+            "img": discounts_detail[index][6],
+            "distance": vincenty((latitude, longitude), merchant_coordinates[index]).kilometers,
+            "click_rate": click_rates[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,

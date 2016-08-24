@@ -260,7 +260,9 @@
 
 <!--活动详情-->
 <div>
-	<div class="cuxian" style="float:none;" ><p>活动详情</p></div>
+	<div class="merchant_info">
+    <p>商家信息</p>
+    </div>
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
@@ -276,7 +278,7 @@
 </div>
 
  <#if discount.latitude??>
-<div class="cuxian" style="float:none;" id="map-head" >导航(点击显示或隐藏地图)</div>
+<div class="cuxian" style="float:none; padding-top:20px; color:#ccc" id="map-head" >导航(点击显示或隐藏地图)</div>
 <div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
  </#if>
 
