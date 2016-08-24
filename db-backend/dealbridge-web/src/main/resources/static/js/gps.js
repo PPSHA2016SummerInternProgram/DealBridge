@@ -55,11 +55,11 @@ var app = {
 //              'Heading: '           + position.coords.heading           + '\n' +
 //              'Speed: '             + position.coords.speed             + '\n' +
 //              'Timestamp: '         + position.timestamp                + '\n');
-		
-		
-		$.get("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
-			window.open("/gps_test");
-		});
+
+		window.open("/home?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
+//		$.get("/api/gps", {latitude: position.coords.latitude, longitutde: position.coords.longitude}, function(){
+//			window.open("/gps_test");
+//		});
 		
         //window.open("/home1?lat=" + position.coords.latitude + "&lng=" + position.coords.longitude);
     };
@@ -67,11 +67,13 @@ var app = {
     // onError Callback receives a PositionError object
     //
     function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+//        alert('code: '    + error.code    + '\n' +
+//              'message: ' + error.message + '\n');
+        alert("获取GPS信息失败，进入默认城市");
+        window.open("/home?lat=" + 31.219916 + "&lng=" + 121.52614);
     }
     
-    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 60000, enableHighAccuracy: true});
+    navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 3000, enableHighAccuracy: true});
 	
     },
     // Update DOM on a Received Event

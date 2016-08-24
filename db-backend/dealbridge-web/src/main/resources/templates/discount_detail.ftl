@@ -265,7 +265,9 @@
 
 <!--活动详情-->
 <div>
+
 	<div class="merchant_info"><p>活动详情</p></div>
+
  	
  	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
@@ -282,8 +284,10 @@
 </div>
 
  <#if discount.latitude??>
+
 <div class="merchant_info" style="float:none;padding-top:10px;padding-left:10px;" id="map-head" ><i class="fa fa-map-o" aria-hidden="true"></i> 导航<span style="font-size:13px;color:rgb(150,150,150);">(点击显示或隐藏地图)</span></div>
 <div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
+
  </#if>
 
  	<!-- 分享 -->
@@ -406,7 +410,9 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
+	 	console.log(${discount.latitude});
 	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
+	    console.log(${discount.latitude});
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){

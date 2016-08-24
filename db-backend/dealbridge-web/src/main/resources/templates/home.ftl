@@ -145,13 +145,17 @@
 				<span class="glyphicon glyphicon-search" aria-hidden="true" style="
 					position: absolute;
 					left: 8px;
-					top: 3.5px;
+					top: 3.7px;
 					">
 				</span>
 				
 					<input id="search-entry" type="text" placeholder="输入关键字搜索" readonly="readonly" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
-				
-				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+
+				</font>
+				<a href="/userInfo" style="padding-left:9px;padding-right:9px;color:#FFFFFF;font-size:16px;position: relative;top: 2.2px;left: 5px;">
+				  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				</a>
+
 			</div>	
 		</div> 
     </div>
@@ -265,9 +269,11 @@
 	</div>
 	
      <div style="height:80px;"> 
+
       	<div class="bank-div"><a href="/bankRecommend/光大"><img src="/img/bank_image_transparent/光大.png"><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px">光大</span><p>首刷送十万积分</p></a></div>
         <div class="bank-div"><a href="/bankRecommend/交行"><img src="/img/bank_image_transparent/交通.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">交通</span><p>周末美食五折团</p></div>
           <div class="bank-div"><a href="/bankRecommend/农行"><img src="/img/bank_image_transparent/农业.png" ><span style="font-size:15px;font-family:Microsoft YaHei;position:relative;padding-left:10px;">农行</span><p>赢5000航空里程</p></div>
+
    	 </div>
 	
 	

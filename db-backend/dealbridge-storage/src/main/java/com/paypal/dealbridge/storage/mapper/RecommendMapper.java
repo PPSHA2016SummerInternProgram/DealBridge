@@ -38,7 +38,9 @@ public interface RecommendMapper {
 			@Result(property = "merchantLocation", column = "merchant_location"),
 			@Result(property = "merchantTel", column = "merchant_tel"),
 			@Result(property = "endOfUrl", column = "end_of_url"),
-			@Result(property = "bankName", column = "bank_name") })
+			@Result(property = "bankName", column = "bank_name"),
+			@Result(property = "longitude", column = "longitude"),
+			@Result(property = "latitude", column = "lon")})
 	@SelectProvider(type = RecommendSqlBuilder.class, method = "buildGetHotDiscounts")
 	List<Discount> getHotDiscounts(@Param("area")String area, @Param("start")Integer start,@Param("number") Integer number);
 
@@ -55,7 +57,7 @@ public interface RecommendMapper {
 		}
 		
 		public String buildGetHotDiscounts(@Param("area")String area, @Param("start")Integer start,@Param("number") Integer number){
-			String query = "SELECT discount.* FROM discount  WHERE discount.area like '%"+ area +"%' ORDER BY clickrate DESC" ;
+			String query = "SELECT discount.* FROM discount  WHERE discount.area = '"+ area + "市" +"' ORDER BY clickrate DESC" ;
 			if (start == null && number != null) {
 				query += " LIMIT " + number;
 			} else if (start != null && number != null) {
