@@ -1,2 +1,7 @@
 .metadata/
 .recommenders/
+*.jar
+*.so
+*.apk
+*.class
+build/
