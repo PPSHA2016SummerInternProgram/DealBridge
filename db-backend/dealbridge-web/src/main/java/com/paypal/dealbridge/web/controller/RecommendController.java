@@ -113,7 +113,7 @@ public class RecommendController {
 			@RequestParam(value = "area") String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
-	throws JSONException, RecommendQueryException, ParseException {
+	throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
 		return recommendService.getDiscountsByBank(latitude, longitude, area, start, number, userId, bankName);
 	}
 	
@@ -169,17 +169,17 @@ public class RecommendController {
 	
 	@RequestMapping(path = "/api/hot", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Discount> getHotDiscounts(@RequestParam(value = "area", required = false)String area,
+	public List<Discount> getHotDiscounts(
+			@RequestParam(value = "area", required = false)String area,
 			@RequestParam(value = "startIndex", required = false) Integer start,
-										  @RequestParam("lat") double latitude,
-										  @RequestParam("lng") double longitude,
+			@RequestParam("lat") double latitude,
+			@RequestParam("lng") double longitude,
 			@RequestParam(value = "limitNumber", required = false) Integer number)
 			throws JSONException, RecommendQueryException, ParseException {
 				List<Discount> discounts = recommendService.getHotDiscounts(area, start, number);
 				for(Discount discount: discounts) {
 					discount.setDistance(DistanceUtil.getDistance(longitude, latitude, discount.getLongitude(), discount.getLatitude()));
 				}
-
 		    return discounts;
 	}
 	

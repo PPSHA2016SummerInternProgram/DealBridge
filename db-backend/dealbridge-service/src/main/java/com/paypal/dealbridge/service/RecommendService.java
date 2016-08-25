@@ -70,7 +70,7 @@ public class RecommendService {
 	}
 	
 	public List<BriefDiscount> getDiscountsByBank(double latitude, double longitude, String area, int start, int number, int userId, String bankName) 
-			throws JSONException, RecommendQueryException, ParseException {
+			throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
 		JSONArray jsonArray =  new JSONArray(recommendUtil.getDiscountsByBank(latitude, longitude, area, start, number, userId, bankName));
 		List<BriefDiscount> result = new ArrayList<>();
 		for (int i = 0; i < jsonArray.length(); i++) {

@@ -60,9 +60,10 @@ public class RecommendUtil {
 	}
 	
 	public String getDiscountsByBank(double latitude, double longitude, String area, int start, int number, int userId, String bankName)
-			throws RecommendQueryException {
+			throws RecommendQueryException, UnsupportedEncodingException {
 		RestTemplate restTemplate = new RestTemplate();
-		String url = recommenderUrl + "bank?lat=" + latitude + "&lng=" + longitude + "&area=" + area + "&start=" + start + "&number="
+		String city = URLEncoder.encode(area, "utf-8");
+		String url = recommenderUrl + "bank?lat=" + latitude + "&lng=" + longitude + "&area=" + city + "&start=" + start + "&number="
 				+ number + "&userId=" + userId + "&bankName=" + bankName;
 		logger.info(String.format("Discounts depend on bank from %s", url));
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);

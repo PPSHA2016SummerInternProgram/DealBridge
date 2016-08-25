@@ -1,4 +1,4 @@
-# encoding=utf-8
+﻿# encoding=utf-8
 
 import MySQLdb
 from flask import Flask, Response, request
@@ -200,6 +200,9 @@ def bank_recommend():
     longitude = float(request.args['lng'])
     bank_name = request.args['bankName']
     user_id = int(request.args['userId'])
+    area = str(request.args['area'])
+    area = unquote(area).decode("utf-8") + "市".decode("utf-8")
+    print area
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     load_preferences()
     load_click()
@@ -219,6 +222,8 @@ def bank_recommend():
     for i in xrange(len(indices)):
         if discounts_detail[i][1] != _bank.decode("UTF-8"):
             vector[i] = 0
+        if discounts_detail[i][9] != area:
+	    vector[i] = 0
     print vector.sum()
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     data = []
