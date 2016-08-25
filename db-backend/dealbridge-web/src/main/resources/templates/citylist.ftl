@@ -326,7 +326,6 @@
                 </li>
                 
                 <li><a href="/home" class="area" city="阜阳" >阜阳</a></li>
-                <li><a href="/home" class="area" city="福州" >福州</a></li>
                 <li><a href="/home" class="area" city="福泉" >福泉</a></li>
                 <li><a href="/home" class="area" city="凤凰" >凤凰</a></li>
                 <li><a href="/home" class="area" city="抚顺" >抚顺</a></li>
