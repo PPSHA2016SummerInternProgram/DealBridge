@@ -43,7 +43,7 @@
 		
 		
 		<script>
-			var startIndex = 5;
+			var startIndex =10;
 			$(window).scroll(function() {
 				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 					if($('#loading-panel').is(":visible") == false){
