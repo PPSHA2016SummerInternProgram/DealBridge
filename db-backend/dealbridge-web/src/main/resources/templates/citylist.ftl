@@ -735,27 +735,27 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="shanghai" >上海</a>
+                    <a href="home" class="area" city="上海" >上海</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="shenzhen" >深圳</a>
+                    <a href="home" class="area" city="深圳" >深圳</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="suzhou" >苏州</a>
+                    <a href="home" class="area" city="苏州" >苏州</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="shenyang" >沈阳</a>
+                    <a href="home" class="area" city="沈阳" >沈阳</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="sanya" >三亚</a>
+                    <a href="home" class="area" city="三亚" >三亚</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="shijiazhuang" >石家庄</a>
+                    <a href="home" class="area" city="石家庄" >石家庄</a>
                 </li>
                 
                 <li><a href="/home" class="area" city="宿州" >宿州</a></li>
@@ -802,11 +802,11 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="tianjin" >天津</a>
+                    <a href="home" class="area" city="天津" >天津</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="taiyuan" >太原</a>
+                    <a href="home" class="area" city="太原" >太原</a>
                 </li>
                 
                <li><a href="/home" class="area" city="铜陵" >铜陵</a></li>
@@ -836,15 +836,15 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="wuxi" >无锡</a>
+                    <a href="home" class="area" city="无锡" >无锡</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="wuhan" >武汉</a>
+                    <a href="home" class="area" city="武汉" >武汉</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="wulumuqi" >乌鲁木齐</a>
+                    <a href="home" class="area" city="乌鲁木齐" >乌鲁木齐</a>
                 </li>
                 
                <li><a href="/home" class="area" city="芜湖" >芜湖</a></li>
@@ -873,15 +873,15 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="xiamen" >厦门</a>
+                    <a href="home" class="area" city="厦门" >厦门</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="xian" >西安</a>
+                    <a href="home" class="area" city="西安" >西安</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="xining" >西宁</a>
+                    <a href="home" class="area" city="西宁" >西宁</a>
                 </li>
                 <li><a href="/home" class="area" city="宣城" >宣城</a></li>
                  <li><a href="/home" class="area" city="新丰" >新丰</a></li>
@@ -910,7 +910,7 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="yangzhou" >扬州</a>
+                    <a href="home" class="area" city="扬州" >扬州</a>
                 </li>
 				 <li><a href="/home" class="area" city="永春" >永春</a></li>
                  <li><a href="/home" class="area" city="永安" >永安</a></li>
@@ -970,15 +970,15 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home" class="area" city="zhengzhou" >郑州</a>
+                    <a href="home" class="area" city="郑州" >郑州</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="zhuhai" >珠海</a>
+                    <a href="home" class="area" city="珠海" >珠海</a>
                 </li>
                 
                 <li>
-                    <a href="home" class="area" city="zhanghua" >彰化</a>
+                    <a href="home" class="area" city="彰化" >彰化</a>
                 </li>
                 
                	 <li><a href="/home" class="area" city="张家川" >张家川</a></li>
