@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 import com.paypal.dealbridge.service.solr.SolrQueryException;
 import com.paypal.dealbridge.service.solr.SolrUtil;
 import com.paypal.dealbridge.storage.domain.BriefDiscount;
+import com.paypal.dealbridge.storage.domain.Discount;
 import com.paypal.dealbridge.storage.domain.SearchHistory;
+import com.paypal.dealbridge.storage.mapper.DiscountMapper;
 import com.paypal.dealbridge.storage.mapper.SearchHistoryMapper;
 
 @Service
@@ -29,6 +31,8 @@ public class SearchService {
 	private SearchHistoryMapper searchHistoryMapper;
 	@Autowired
 	private SolrUtil solrUtil;
+	@Autowired
+	private DiscountMapper discountMapper;
 
 	private List<String> hotKeywords;
 	private Date hotKeywordsRefreshTime;
@@ -90,10 +94,16 @@ public class SearchService {
 		return convertToBriefDiscounts(docs);
 	}
 
-	public List<BriefDiscount> searchDiscount(String query, int start, int rows)
+	public List<Discount> searchDiscount(String query, String area, int start, int rows)
 			throws SolrQueryException, JSONException, ParseException {
-		JSONObject resultData = new JSONObject(solrUtil.searchDiscount(query, start, rows));
+		JSONObject resultData = new JSONObject(solrUtil.searchDiscount(query, area, start, rows));
 		JSONArray docs = resultData.getJSONObject("response").getJSONArray("docs");
-		return convertToBriefDiscounts(docs);
+		
+		List<Discount> discounts = new ArrayList<Discount>();
+		for (int i = 0; i < docs.length(); i++) {
+			Discount discount = discountMapper.selectByPrimaryKey(docs.getJSONObject(i).getInt("id"));
+			discounts.add(discount);
+		}
+		return discounts;
 	}
 }

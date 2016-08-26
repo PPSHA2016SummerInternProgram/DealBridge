@@ -3,6 +3,8 @@ package com.paypal.dealbridge.web.controller;
 import java.text.ParseException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.paypal.dealbridge.service.SearchService;
 import com.paypal.dealbridge.service.solr.SolrQueryException;
 import com.paypal.dealbridge.storage.domain.BriefDiscount;
+import com.paypal.dealbridge.storage.domain.Discount;
 
 @Controller
 public class SearchController {
-	// TODO check userId from session
 
 	@Autowired
 	private SearchService searchService;
@@ -45,8 +47,8 @@ public class SearchController {
 	
 	@RequestMapping(path="/api/search", method = RequestMethod.GET)
 	@ResponseBody
-	public List<BriefDiscount> search(@RequestParam("query") String query, @RequestParam("start") int start, @RequestParam("rows") int rows) throws SolrQueryException, JSONException, ParseException {
-		return searchService.searchDiscount(query, start, rows);
+	public List<Discount> search(@RequestParam("query") String query, @RequestParam("area") String area, @RequestParam("start") int start, @RequestParam("rows") int rows) throws SolrQueryException, JSONException, ParseException {
+		return searchService.searchDiscount(query, area, start, rows);
 	}
 	
 	@RequestMapping(path = "/search", method = RequestMethod.GET)
@@ -59,12 +61,14 @@ public class SearchController {
 	}
 	
 	@RequestMapping(path = "/search_result", method=RequestMethod.GET)
-	public String showSearchResult(@RequestParam("query") String query, Model model) {
+	public String showSearchResult(@RequestParam("query") String query, HttpSession session, Model model) {
 		List<String> hotKeywords = searchService.getHotKeywords(9);
 		List<String> searchHistories = searchService.getUserHistory(3, 10);
+		String area = (String)session.getAttribute("area");
 		model.addAttribute("searchHistories", searchHistories);
 		model.addAttribute("hotKeywords", hotKeywords);
 		model.addAttribute("query", query);
+		model.addAttribute("area", area);
 		return "search_result";
 	}
 }
