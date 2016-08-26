@@ -29,7 +29,7 @@
 		<nav id="navbar" class="navbar navbar-default" style="">
 				<div class="input-group">
 				  <span id="search-icon" class="glyphicon glyphicon-search""></span>
-				  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
+				  <input id="search-input" type="text" class="form-control" placeholder="搜索银行或商家...">
 				  <span class="input-group-btn">
 					<button id="search-button" class="btn btn-default" type="button">搜索</button>
 				  </span>

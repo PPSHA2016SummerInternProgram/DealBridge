@@ -24,4 +24,10 @@ public class SampleController {
     	return "sample";
     }
     
+    @RequestMapping(path="/gps_test", method=RequestMethod.GET)
+    public String greeting(HttpSession session) {
+    	System.out.println((double)session.getAttribute("latitude"));
+    	return "home";
+    }
+    
 }

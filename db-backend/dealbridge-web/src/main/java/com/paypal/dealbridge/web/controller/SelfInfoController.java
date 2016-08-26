@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.paypal.dealbridge.domain.UserFullInfo;
 import com.paypal.dealbridge.service.BankListService;
-import com.paypal.dealbridge.service.UserInfoService;
 import com.paypal.dealbridge.service.UserInfoServiceNew;
 import com.paypal.dealbridge.storage.domain.Bank;
-import com.paypal.dealbridge.storage.domain.UserInfo;
 
 @Controller
 public class SelfInfoController {
@@ -50,6 +48,7 @@ public class SelfInfoController {
 		model.addAttribute("ufi", ufi);
 		model.addAttribute("userId", userId);
 		model.addAttribute("bankList", bankList);
+
 		return "selfInfo";
 	}
 }

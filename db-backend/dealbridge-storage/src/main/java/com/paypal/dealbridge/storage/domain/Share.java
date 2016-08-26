@@ -20,11 +20,17 @@ public class Share {
 	}
 
 	public Date getShareTime() {
-		return shareTime;
+		if (shareTime == null)
+			return null;
+		else
+			return (Date)shareTime.clone();
 	}
 
 	public void setShareTime(Date shareTime) {
-		this.shareTime = shareTime;
+		if (shareTime == null)
+			this.shareTime = null;
+		else
+			this.shareTime = (Date)shareTime.clone();
 	}
 
 	public Integer getUserId() {

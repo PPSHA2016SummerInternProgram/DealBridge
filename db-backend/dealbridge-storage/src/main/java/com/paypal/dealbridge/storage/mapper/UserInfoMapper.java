@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
-import com.paypal.dealbridge.storage.domain.User;
 import com.paypal.dealbridge.storage.domain.UserInfo;
 
 import org.apache.ibatis.annotations.Result;

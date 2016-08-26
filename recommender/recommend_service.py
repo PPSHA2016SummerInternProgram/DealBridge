@@ -1,4 +1,4 @@
-# encoding=utf-8
+﻿# encoding=utf-8
 
 import MySQLdb
 from flask import Flask, Response, request
@@ -6,6 +6,7 @@ import json, re, jieba, urlparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import numpy as np
+import random
 from datetime import date, datetime
 from geopy.distance import vincenty
 from urllib import urlopen
@@ -15,13 +16,12 @@ app = Flask(__name__)
 
 RECOMMEND_CNT = 100
 key = 'w6LI4tGSMUGsO7rIo1LkLm5n7qdG0Odo'
-db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
-cursor = db.cursor()
 discounts_detail = []
 indices = []
 cosine_similarities = None
 merchant_coordinates = []
 preferences = []
+click_rates = []
 types = {
     "shopping": "购物",
     "entertainment": "休闲娱乐",
@@ -33,6 +33,26 @@ types = {
     "cards_gifts": "办卡送礼",
     "hotel": "酒店",
     "outing": "出行"
+}
+
+banks = {
+    "shanghai": "上海",
+    "zhongguo": "中国",
+    "zhongxin": "中信",
+    "jiaohang": "交行",
+    "guangda": "光大",
+    "xingye": "兴业",
+    "nongye": "农业",
+    "huaxia": "华夏",
+    "gonghang": "工行",
+    "pingan": "平安",
+    "guangfa": "广发",
+    "jianshe": "建设",
+    "zhaoshang": "招商",
+    "minsheng": "民生",
+    "pufa": "浦发",
+    "zhada": "渣打银行",
+    "huaqi": "花旗"
 }
 
 class ComplexEncoder(json.JSONEncoder):
@@ -48,12 +68,14 @@ class ComplexEncoder(json.JSONEncoder):
 def load_data():
     print "loading data..."
     global indices, discounts_detail, merchant_coordinates
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
     sql = "SELECT discount_id, bank_name, summary, description, begin_time, " \
-          "end_time, img, merchant_location, latitude, longitude, classify FROM discount"
+          "end_time, img, merchant_location, latitude, longitude, classify, area FROM discount"
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
-        discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[10]) for result in results]
+        discounts_detail = [(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[10], result[11]) for result in results]
         indices = [result[0] for result in results]
         merchant_coordinates = [(result[8], result[9]) for result in results]
         # for result in results:
@@ -67,20 +89,39 @@ def load_data():
     except:
         print "Error, unable to fetch data"
     print "data loading completed!"
+    db.close()
 
 
 def load_preferences():
     global preferences
     print 'loading preference data...'
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
     sql = "select user.user_id, favorite.discount_id from user, favorite where user.user_id = favorite.user_id"
     try:
         cursor.execute(sql)
         results = cursor.fetchall()
         preferences = [(result[0], result[1]) for result in results]
     except:
-        print "able to fetch user preferences"
+        print "unable to fetch user preferences"
     print 'preference loading completed!'
+    db.close()
 
+
+def load_click():
+    global click_rates
+    print 'loading click rates data...'
+    db = MySQLdb.connect(host="localhost", user="root", passwd="", db="deal_bridge", charset="utf8")
+    cursor = db.cursor()
+    sql = "select clickrate from discount"
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        click_rates = [result[0] for result in results]
+    except:
+        print 'unable to fetch click rate data'
+    print 'click rate data loading completed!'
+    db.close()
 
 def calculate_similarity():
     print "calculating similarity..."
@@ -112,7 +153,14 @@ def customized_recommend(user_id):
     global preferences, cosine_similarities
     offset_start = int(request.args['start'])
     offset_end = int(request.args['number']) + offset_start
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
+    load_click()
+    load_preferences()
+    distance = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
+    distance = np.array(distance)
+    distance_weight = 1.0/(0.1*distance + 1)
     for (id, discount_id) in preferences:
         if id == user_id:
             vector += cosine_similarities[indices.index(discount_id)]
@@ -121,6 +169,7 @@ def customized_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
+    vector += distance_weight
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     print item_indices
     data = []
@@ -132,8 +181,59 @@ def customized_recommend(user_id):
             "description": discounts_detail[index][3],
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6]
+            "img": discounts_detail[index][6],
+            "click_rate": click_rates[index],
+            "distance": distance[index]
         })
+    data = json.dumps(data, cls=ComplexEncoder)
+    resp = Response(response=data,
+                    status=200,
+                    mimetype="application/json")
+    return resp
+
+
+@app.route("/bank")
+def bank_recommend():
+    global preferences, cosine_similarities, click_rates
+    offset_start = int(request.args['start'])
+    offset_end = int(request.args['number']) + offset_start
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
+    bank_name = request.args['bankName']
+    user_id = int(request.args['userId'])
+    area = str(request.args['area'])
+    area = unquote(area).decode("utf-8") + "市".decode("utf-8")
+    print area
+    load_click()
+    distance_1 = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
+    distance = np.array(distance_1)
+    distance_weight = 1.0/(0.1*distance + 1)
+    _bank = banks[bank_name]
+    max = distance_weight.max()
+    for i in xrange(len(indices)):
+        if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
+            distance_weight[i] = random.random() * max
+            continue
+        if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
+            continue
+        distance_weight[i] = -1
+    print distance_weight.sum()
+    item_indices = distance_weight.argsort()[-offset_end-1:-offset_start-1]
+    data = []
+    for index in reversed(item_indices):
+        print distance[index], distance_weight[index], discounts_detail[index][2]
+        if distance_weight[index] > 0:
+            data.append({
+                "id": discounts_detail[index][0],
+                "bank_name": discounts_detail[index][1],
+                "summary": discounts_detail[index][2],
+                "description": discounts_detail[index][3],
+                "begin_time": discounts_detail[index][4],
+                "end_time": discounts_detail[index][5],
+                "img": discounts_detail[index][6],
+                "distance": distance_1[index],
+                "click_rate": click_rates[index]
+            })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
                     status=200,
@@ -143,12 +243,18 @@ def customized_recommend(user_id):
 
 @app.route("/type/<int:user_id>")
 def type_recommend(user_id):
-    global preferences, cosine_similarities, types
+    global preferences, cosine_similarities, types, click_rates
     offset_start = int(request.args['start'])
     offset_end = int(request.args['number']) + offset_start
     _type = request.args['type']
+    latitude = float(request.args['lat'])
+    longitude = float(request.args['lng'])
     _type = types[_type]
-    print _type
+    load_preferences()
+    load_click()
+    area = str(request.args['area'])
+    area = unquote(area).decode("utf-8") + "市".decode("utf-8")
+    print area
     vector = np.zeros_like(cosine_similarities[0], dtype=float)
     for (id, discount_id) in preferences:
         if id == user_id:
@@ -158,25 +264,32 @@ def type_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
-    print len(indices)
-
+    max = vector.max()
     for i in xrange(len(indices)):
-        if discounts_detail[i][8] != _type.decode("UTF-8"):
-            vector[i] = 0
-    # print vector[1:100]
+        if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
+            vector[i] = random.random() * max
+            continue
+        if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
+            continue
+        vector[i] = -1
+     #   if discounts_detail[i][9] != area:
+     #      vector[i] = 0
+    print vector[1:100], vector.sum()
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
-    # print item_indices
     data = []
     for index in item_indices:
-        data.append({
-            "id": discounts_detail[index][0],
-            "bank_name": discounts_detail[index][1],
-            "summary": discounts_detail[index][2],
-            "description": discounts_detail[index][3],
-            "begin_time": discounts_detail[index][4],
-            "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6]
-        })
+        if vector[index] > 0:
+            data.append({
+                "id": discounts_detail[index][0],
+                "bank_name": discounts_detail[index][1],
+                "summary": discounts_detail[index][2],
+                "description": discounts_detail[index][3],
+                "begin_time": discounts_detail[index][4],
+                "end_time": discounts_detail[index][5],
+                "img": discounts_detail[index][6],
+                "distance": vincenty((latitude, longitude), merchant_coordinates[index]).kilometers,
+                "click_rate": click_rates[index]
+            })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
                     status=200,
@@ -186,6 +299,8 @@ def type_recommend(user_id):
 
 @app.route("/vicinity")
 def vicinity_recommend():
+    global click_rates
+    load_click()
     start = int(request.args['start'])
     end = int(request.args['number']) + start
     latitude = float(request.args['lat'])
@@ -203,7 +318,8 @@ def vicinity_recommend():
             "begin_time": discounts_detail[index][4],
             "end_time": discounts_detail[index][5],
             "img": discounts_detail[index][6],
-            "distance": distance[index]
+            "distance": distance[index],
+            "click_rate": click_rates[index]
         })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
@@ -222,4 +338,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='10.225.224.18')
+    app.run(host='192.168.112.36')

@@ -32,26 +32,26 @@ public class RecommendService {
 		return recommendMapper.getDiscountByUserId(userId, startIndex, limitNumber);
 	}
 	
-	public List<BriefDiscount> getCustomizedDiscounts(int userId, int start, int number) throws JSONException, RecommendQueryException, ParseException {
-		JSONArray jsonArray =  new JSONArray(recommendUtil.getCustomizedDiscounts(userId, start, number));
+	public List<BriefDiscount> getCustomizedDiscounts(int userId, int start, int number, double latitude, double longitude, String area) throws JSONException, RecommendQueryException, ParseException {
+		JSONArray jsonArray =  new JSONArray(recommendUtil.getCustomizedDiscounts(userId, start, number, latitude, longitude, area));
 		List<BriefDiscount> result = new ArrayList<>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		
 		return result;
 	}
 
-	public List<BriefDiscount> getDiscountByType(int userId, int start, int number, String type) throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
-		JSONArray jsonArray = new JSONArray(recommendUtil.getDiscountByType(userId, start, number, type));
+	public List<BriefDiscount> getDiscountByType(int userId, double latitude, double longitude, int start, int number, String type, String area) throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+		JSONArray jsonArray = new JSONArray(recommendUtil.getDiscountByType(userId, latitude, longitude, start, number, type, area));
 		List<BriefDiscount> result = new ArrayList<>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		return result;
@@ -63,11 +63,29 @@ public class RecommendService {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			BriefDiscount discount = new BriefDiscount();
 			JSONObject item = (JSONObject) jsonArray.get(i);
-			discount = serviceUtil.JsonToBriefDiscount(item);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
 			result.add(discount);
 		}
 		return result;
 	}
 	
+	public List<BriefDiscount> getDiscountsByBank(double latitude, double longitude, String area, int start, int number, int userId, String bankName) 
+			throws JSONException, RecommendQueryException, ParseException, UnsupportedEncodingException {
+		JSONArray jsonArray =  new JSONArray(recommendUtil.getDiscountsByBank(latitude, longitude, area, start, number, userId, bankName));
+		List<BriefDiscount> result = new ArrayList<>();
+		for (int i = 0; i < jsonArray.length(); i++) {
+			BriefDiscount discount = new BriefDiscount();
+			JSONObject item = (JSONObject) jsonArray.get(i);
+			discount = serviceUtil.convertJsonToBriefDiscount(item);
+			result.add(discount);
+		}
+		System.out.println(result);
+		return result;
+	}
+	
+	
+	public List<Discount> getHotDiscounts(String area, Integer start, Integer number){
+		return recommendMapper.getHotDiscounts(area,start,number);
+	}
 
 }

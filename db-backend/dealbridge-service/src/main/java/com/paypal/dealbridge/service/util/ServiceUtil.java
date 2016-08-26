@@ -11,7 +11,7 @@ import com.paypal.dealbridge.storage.domain.BriefDiscount;
 
 @Service
 public class ServiceUtil {
-	public BriefDiscount JsonToBriefDiscount(JSONObject doc) throws JSONException, ParseException {
+	public BriefDiscount convertJsonToBriefDiscount(JSONObject doc) throws JSONException, ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		BriefDiscount discount = new BriefDiscount();
 		discount.setBankName(doc.getString("bank_name"));

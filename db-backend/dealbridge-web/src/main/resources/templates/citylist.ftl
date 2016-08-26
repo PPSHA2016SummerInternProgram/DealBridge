@@ -25,7 +25,7 @@
  	
  	<section>
 	 	 <div class="position-city J_citylist">
-	        <span class="text">无法获取您的定位</span>
+	        <span class="text">${city}</span>
 	        <a></a>
 	    </div>
 	    <div class="hot-trade modebox">
@@ -33,29 +33,29 @@
 	    	<div class="home-place-list">
 	    	   <ul class="J_citylist">
                 
-                <li><a href="/home/上海/3" data-id="1">上海</a></li>
+                <li><a href="/home" class="area" city="上海" >上海</a></li>
                 
-                <li><a href="/home/北京/3" data-id="2">北京</a></li>
+                <li><a href="/home" class="area" city="北京" >北京</a></li>
                 
-                <li><a href="/home/广州/3" data-id="4">广州</a></li>
+                <li><a href="/home" class="area" city="广州" >广州</a></li>
                 
-                <li><a href="/home/深圳/3" data-id="7">深圳</a></li>
+                <li><a href="/home" class="area" city="深圳" >深圳</a></li>
                 
-                <li><a href="/home/成都/3" data-id="8">成都</a></li>
+                <li><a href="/home" class="area" city="成都" >成都</a></li>
                 
-                <li><a href="/home/重庆/3" data-id="9">重庆</a></li>
+                <li><a href="/home" class="area" city="重庆" >重庆</a></li>
                 
-                <li><a href="/home/天津/3" data-id="10">天津</a></li>
+                <li><a href="/home" class="area" city="天津" >天津</a></li>
                 
-                <li><a href="/home/杭州/3" data-id="3">杭州</a></li>
+                <li><a href="/home" class="area" city="杭州" >杭州</a></li>
                 
-                <li><a href="/home/南京/3" data-id="5">南京</a></li>
+                <li><a href="/home" class="area" city="南京" >南京</a></li>
                 
-                <li><a href="/home/苏州/3" data-id="6">苏州</a></li>
+                <li><a href="/home" class="area" city="苏州" >苏州</a></li>
                 
-                <li><a href="/home/武汉/3" data-id="16">武汉</a></li>
+                <li><a href="/home" class="area" city="武汉" >武汉</a></li>
                 
-                <li><a href="/home/西安/3" data-id="17">西安</a></li>
+                <li><a href="/home" class="area" city="西安" >西安</a></li>
                 
             </ul> 	
 	    	</div>
@@ -82,8 +82,6 @@
                 
                 <li><a href="#H">H</a></li>
                 
-                <li><a href="#I">I</a></li>
-                
                 <li><a href="#J">J</a></li>
                 
                 <li><a href="#K">K</a></li>
@@ -94,8 +92,6 @@
                 
                 <li><a href="#N">N</a></li>
                 
-                <li><a href="#O">O</a></li>
-                
                 <li><a href="#P">P</a></li>
                 
                 <li><a href="#Q">Q</a></li>
@@ -105,10 +101,6 @@
                 <li><a href="#S">S</a></li>
                 
                 <li><a href="#T">T</a></li>
-                
-                <li><a href="#U">U</a></li>
-                
-                <li><a href="#V">V</a></li>
                 
                 <li><a href="#W">W</a></li>
                 
@@ -126,102 +118,27 @@
         <div class="hd">A</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+                <li><a href="/home" class="area" city="安庆" >安庆</a></li>
+                <li><a href="/home" class="area" city="安定" >安定</a></li>
+                <li><a href="/home" class="area" city="安平" >安平</a></li>
+                <li><a href="/home" class="area" city="安阳" >安阳</a></li>
+                <li><a href="/home" class="area" city="鞍山" >鞍山</a></li>
+                <li><a href="/home" class="area" city="安吉" >安吉</a></li>
+                <li><a href="/home" class="area" city="安岳" >安岳</a></li>
+                <li><a href="/home" class="area" city="安泽" >安泽</a></li>
                 
-                <li>
-                    <a href="home/aichi" data-id="3188">爱知</a>
-                </li>
+                <li><a href="/home" class="area" city="安国" >安国</a></li>
+                 <li><a href="/home" class="area" city="阿荣旗" >阿荣旗</a></li>
+                 <li><a href="/home" class="area" city="安丘" >安丘</a></li>
+                 <li><a href="/home" class="area" city="敖汉旗" >敖汉旗</a></li>
+                 <li><a href="/home" class="area" city="安宁" >安宁</a></li>
+                 <li><a href="/home" class="area" city="阿图什" >阿图什</a></li>
+                 <li><a href="/home" class="area" city="阿克苏" >阿克苏</a></li>
+                 <li><a href="/home" class="area" city="阿瓦提" >阿瓦提</a></li>
+                 <li><a href="/home" class="area" city="阿拉山口" >阿拉山口</a></li>
+                 <li><a href="/home" class="area" city="安塞" >安塞</a></li>
+
                 
-                <li>
-                    <a href="home/aomori" data-id="3207">青森</a>
-                </li>
-                
-                <li>
-                    <a href="home/ayutthaya" data-id="3228">大城</a>
-                </li>
-                
-                <li>
-                    <a href="home/arhus" data-id="3237">奥胡斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/armenia" data-id="3244">亚美尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/azores" data-id="3245">亚速尔群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/amritsar" data-id="3320">阿姆利则</a>
-                </li>
-                
-                <li>
-                    <a href="home/arusha" data-id="3366">阿鲁沙</a>
-                </li>
-                
-                <li>
-                    <a href="home/addisababa" data-id="3375">亚的斯亚贝巴</a>
-                </li>
-                
-                <li>
-                    <a href="home/austria" data-id="3391">奥地利</a>
-                </li>
-                
-                <li>
-                    <a href="home/angola" data-id="3399">安哥拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/anguilla" data-id="3400">安圭拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/antigandbarbuda" data-id="3401">安提瓜和巴布达</a>
-                </li>
-                
-                <li>
-                    <a href="home/andorra" data-id="3402">安道尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/aachen" data-id="3451">亚琛</a>
-                </li>
-                
-                <li>
-                    <a href="home/augsburg" data-id="3460">奥格斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/amalfi" data-id="3487">阿马尔菲</a>
-                </li>
-                
-                <li>
-                    <a href="home/assisi" data-id="3499">阿西西</a>
-                </li>
-                
-                <li>
-                    <a href="home/akaroa" data-id="4038">阿卡罗阿</a>
-                </li>
-                
-                <li>
-                    <a href="home/alsace" data-id="4057">阿尔萨斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/arles" data-id="4059">阿尔勒</a>
-                </li>
-                
-                <li>
-                    <a href="home/annecy" data-id="4064">阿讷西</a>
-                </li>
-                
-                <li>
-                    <a href="home/aix" data-id="4066">艾克斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=A&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -232,156 +149,44 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/北京/3" data-id="2">北京</a>
+                    <a href="home" class="area" city="北京" >北京</a>
                 </li>
+                <li><a href="/home" class="area" city="蚌埠" >蚌埠</a></li>
+                <li><a href="/home" class="area" city="白银" >白银</a></li>
+                <li><a href="/home" class="area" city="百色" >百色</a></li>
+                <li><a href="/home" class="area" city="保亭" >保亭</a></li>
+                <li><a href="/home" class="area" city="北戴河" >北戴河</a></li>
+                <li><a href="/home" class="area" city="保定" >保定</a></li>
+                <li><a href="/home" class="area" city="本溪" >本溪</a></li>
+                <li><a href="/home" class="area" city="宝山" >宝山</a></li>
+                <li><a href="/home" class="area" city="北仑" >北仑</a></li>
+
+                <li><a href="/home" class="area" city="亳州" >亳州</a></li>
+                <li><a href="/home" class="area" city="宾阳" >宾阳</a></li>
+                <li><a href="/home" class="area" city="巴马" >巴马</a></li>
+                <li><a href="/home" class="area" city="柏乡" >柏乡</a></li>
+                <li><a href="/home" class="area" city="霸州" >霸州</a></li>
+                <li><a href="/home" class="area" city="博野" >博野</a></li>
+                <li><a href="/home" class="area" city="宝清" >宝清</a></li>
+                <li><a href="/home" class="area" city="宝泉岭" >宝泉岭</a></li>
                 
-                <li>
-                    <a href="home/beppu" data-id="3198">别府</a>
-                </li>
+                <li><a href="/home" class="area" city="贝康" >北康</a></li>
+                <li><a href="/home" class="area" city="北安" >北安</a></li>
+                <li><a href="/home" class="area" city="巴东" >巴东</a></li>
+                <li><a href="/home" class="area" city="宝清" >保靖</a></li>
+                <li><a href="/home" class="area" city="白城" >白城</a></li>
+                <li><a href="/home" class="area" city="北宁" >北宁</a></li>
+                <li><a href="/home" class="area" city="北镇" >北镇</a></li>
+                <li><a href="/home" class="area" city="巴林左旗" >巴林左旗</a></li>
+                <li><a href="/home" class="area" city="巴林右旗" >巴林右旗</a></li>
+                <li><a href="/home" class="area" city="八里罕" >八里罕</a></li>
+                <li><a href="/home" class="area" city="博克图" >博克图</a></li>
+                <li><a href="/home" class="area" city="包头" >包头</a></li>
+                <li><a href="/home" class="area" city="宝鸡" >宝鸡</a></li>
+                <li><a href="/home" class="area" city="巴中" >巴中</a></li>
+                <li><a href="/home" class="area" city="拜城" >拜城</a></li>
+                <li><a href="/home" class="area" city="宝兴" >宝兴</a></li>
                 
-                <li>
-                    <a href="home/bagan" data-id="3224">蒲甘</a>
-                </li>
-                
-                <li>
-                    <a href="home/bhutan" data-id="3231">不丹</a>
-                </li>
-                
-                <li>
-                    <a href="home/belize" data-id="3256">伯利兹</a>
-                </li>
-                
-                <li>
-                    <a href="home/bulgarian" data-id="3265">保加利亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/britishcolumbia" data-id="3288">不列颠哥伦比亚省</a>
-                </li>
-                
-                <li>
-                    <a href="home/banffpark" data-id="3291">班夫国家公园</a>
-                </li>
-                
-                <li>
-                    <a href="home/botswana" data-id="3309">博茨瓦纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/bangalore" data-id="3323">班加罗尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/batam" data-id="3328">巴淡岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/balikpapan" data-id="3330">巴里巴板</a>
-                </li>
-                
-                <li>
-                    <a href="home/bodrum" data-id="3353">博德鲁姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/belgrade" data-id="3380">贝尔格莱德</a>
-                </li>
-                
-                <li>
-                    <a href="home/badischl" data-id="3393">巴德依舍</a>
-                </li>
-                
-                <li>
-                    <a href="home/bangladesh" data-id="3398">孟加拉国</a>
-                </li>
-                
-                <li>
-                    <a href="home/bhaktapur" data-id="3410">巴德岗</a>
-                </li>
-                
-                <li>
-                    <a href="home/bahamas" data-id="3415">巴哈马</a>
-                </li>
-                
-                <li>
-                    <a href="home/barbados" data-id="3417">巴巴多斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/bahrain" data-id="3421">巴林</a>
-                </li>
-                
-                <li>
-                    <a href="home/brazil" data-id="3422">巴西</a>
-                </li>
-                
-                <li>
-                    <a href="home/burkinafaso" data-id="3424">布基纳法索</a>
-                </li>
-                
-                <li>
-                    <a href="home/burundi" data-id="3425">布隆迪</a>
-                </li>
-                
-                <li>
-                    <a href="home/bremen" data-id="3434">不莱梅</a>
-                </li>
-                
-                <li>
-                    <a href="home/bonn" data-id="3435">波恩</a>
-                </li>
-                
-                <li>
-                    <a href="home/berchtesgaden" data-id="3444">贝希特斯加登</a>
-                </li>
-                
-                <li>
-                    <a href="home/badenbaden" data-id="3446">巴登-巴登</a>
-                </li>
-                
-                <li>
-                    <a href="home/bamberg" data-id="3457">班贝格</a>
-                </li>
-                
-                <li>
-                    <a href="home/bologna" data-id="3481">博洛尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/bergamo" data-id="3500">贝加莫</a>
-                </li>
-                
-                <li>
-                    <a href="home/bergen" data-id="4006">卑尔根</a>
-                </li>
-                
-                <li>
-                    <a href="home/bratislava" data-id="4020">布拉迪斯拉发</a>
-                </li>
-                
-                <li>
-                    <a href="home/belgium" data-id="4043">比利时</a>
-                </li>
-                
-                <li>
-                    <a href="home/blois" data-id="4051">布洛瓦</a>
-                </li>
-                
-                <li>
-                    <a href="home/brittany" data-id="4061">布列塔尼</a>
-                </li>
-                
-                <li>
-                    <a href="home/bordeaux" data-id="4062">波尔多</a>
-                </li>
-                
-                <li>
-                    <a href="home/burgundy" data-id="4065">勃艮第</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=B&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -392,144 +197,47 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/成都/3" data-id="8">成都</a>
+                    <a href="home" class="area" city="成都" >成都</a>
                 </li>
                 
                 <li>
-                    <a href="home/chongqing" data-id="9">重庆</a>
+                    <a href="home" class="area" city="重庆" >重庆</a>
                 </li>
                 
                 <li>
-                    <a href="home/changsha" data-id="344">长沙</a>
+                    <a href="home" class="area" city="长沙" >长沙</a>
                 </li>
                 
                 <li>
-                    <a href="home/changchun" data-id="70">长春</a>
+                    <a href="home" class="area" city="长春" >长春</a>
                 </li>
                 
-                <li>
-                    <a href="home/chiayi" data-id="3172">嘉义</a>
-                </li>
+                <li><a href="/home" class="area" city="巢湖" >巢湖</a></li>
+                <li><a href="/home" class="area" city="潮州" >潮州</a></li>
+                <li><a href="/home" class="area" city="沧州" >沧州</a></li>
+                <li><a href="/home" class="area" city="承德" >承德</a></li>
+                <li><a href="/home" class="area" city="赤壁" >赤壁</a></li>
+                <li><a href="/home" class="area" city="常熟" >常熟</a></li>
                 
-                <li>
-                    <a href="home/chiba" data-id="3208">千叶</a>
-                </li>
+                <li><a href="/home" class="area" city="滁州" >滁州</a></li>
+                <li><a href="/home" class="area" city="池州" >池州</a></li>
+                <li><a href="/home" class="area" city="昌江" >昌江</a></li>
+                <li><a href="/home" class="area" city="长阳" >长阳</a></li>
+                <li><a href="/home" class="area" city="崇阳" >崇阳</a></li>
+                <li><a href="/home" class="area" city="常宁" >常宁</a></li>
+                <li><a href="/home" class="area" city="常德" >常德</a></li>
+                <li><a href="/home" class="area" city="长白" >长白</a></li>
                 
-                <li>
-                    <a href="home/centralafrica" data-id="3233">中非</a>
-                </li>
+                <li><a href="/home" class="area" city="昌都" >昌都</a></li>
+                <li><a href="/home" class="area" city="昌吉" >昌吉</a></li>
+                <li><a href="/home" class="area" city="昌宁" >昌宁</a></li>
+                <li><a href="/home" class="area" city="呈贡" >呈贡</a></li>
+                <li><a href="/home" class="area" city="常山" >常山</a></li>
+                <li><a href="/home" class="area" city="楚雄" >楚雄</a></li>
+                <li><a href="/home" class="area" city="慈溪" >慈溪</a></li>
+                <li><a href="/home" class="area" city="淳安" >淳安</a></li>
+  
                 
-                <li>
-                    <a href="home/chad" data-id="3242">乍得</a>
-                </li>
-                
-                <li>
-                    <a href="home/capeverde" data-id="3257">佛得角</a>
-                </li>
-                
-                <li>
-                    <a href="home/croatia" data-id="3267">克罗地亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/calgary" data-id="3294">卡尔加里</a>
-                </li>
-                
-                <li>
-                    <a href="home/canada" data-id="3301">加拿大</a>
-                </li>
-                
-                <li>
-                    <a href="home/canaryislands" data-id="3304">加那利群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/calcutta" data-id="3319">加尔各答</a>
-                </li>
-                
-                <li>
-                    <a href="home/chennai" data-id="3324">金奈</a>
-                </li>
-                
-                <li>
-                    <a href="home/cuba" data-id="3336">古巴</a>
-                </li>
-                
-                <li>
-                    <a href="home/colombia" data-id="3342">哥伦比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/cameroon" data-id="3343">喀麦隆</a>
-                </li>
-                
-                <li>
-                    <a href="home/cappadocia" data-id="3347">卡帕多奇亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/canakkale" data-id="3355">恰纳卡莱</a>
-                </li>
-                
-                <li>
-                    <a href="home/cyprus" data-id="3382">塞浦路斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/cookislands" data-id="3429">库克群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/caymanislands" data-id="3430">开曼群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/cinqueterre" data-id="3479">五渔村</a>
-                </li>
-                
-                <li>
-                    <a href="home/como" data-id="3483">科莫</a>
-                </li>
-                
-                <li>
-                    <a href="home/capri" data-id="3488">卡普里岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/catania" data-id="3495">卡塔尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/czech" data-id="4012">捷克</a>
-                </li>
-                
-                <li>
-                    <a href="home/ceskykrumlov" data-id="4013">捷克克鲁姆洛夫</a>
-                </li>
-                
-                <li>
-                    <a href="home/chile" data-id="4039">智利</a>
-                </li>
-                
-                <li>
-                    <a href="home/caen" data-id="4053">卡昂</a>
-                </li>
-                
-                <li>
-                    <a href="home/cotedazur" data-id="4055">蔚蓝海岸</a>
-                </li>
-                
-                <li>
-                    <a href="home/colmar" data-id="4078">科尔马</a>
-                </li>
-                
-                <li>
-                    <a href="home/chamonix" data-id="4079">霞慕尼</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=C&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -540,72 +248,49 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/dalian" data-id="19">大连</a>
+                    <a href="home" class="area" city="大连" >大连</a>
                 </li>
                 
                 <li>
-                    <a href="home/dongguan" data-id="219">东莞</a>
+                    <a href="home" class="area" city="东莞" >东莞</a>
                 </li>
                 
-                <li>
-                    <a href="home/daegu" data-id="3183">大邱</a>
-                </li>
+                 <li><a href="/home" class="area" city="敦煌" >敦煌</a></li>
+                 <li><a href="/home" class="area" city="定州" >定州</a></li>
+                 <li><a href="/home" class="area" city="大兴安岭" >大兴安岭</a></li>
+                 <li><a href="/home" class="area" city="大庆" >大庆</a></li>
+                 <li><a href="/home" class="area" city="东营" >东营</a></li>
+                 <li><a href="/home" class="area" city="大港" >大港</a></li>
+                 <li><a href="/home" class="area" city="定海" >定海</a></li>
+                 <li><a href="/home" class="area" city="大关" >大关</a></li>
+                 
+                <li><a href="/home" class="area" city="东山" >东山</a></li>
+                <li><a href="/home" class="area" city="德化" >德化</a></li>
+                <li><a href="/home" class="area" city="定西" >定西</a></li>
+                <li><a href="/home" class="area" city="东兴" >东兴</a></li>
+                <li><a href="/home" class="area" city="德江" >德江</a></li>
+                <li><a href="/home" class="area" city="定安" >定安</a></li>
+                <li><a href="/home" class="area" city="定州" >定州</a></li>
+                <li><a href="/home" class="area" city="定兴" >定兴</a></li>
                 
-                <li>
-                    <a href="home/dumaguete" data-id="3210">杜马盖地</a>
-                </li>
+                <li><a href="/home" class="area" city="郸城" >郸城</a></li>
+                <li><a href="/home" class="area" city="邓州" >邓州</a></li>
+                <li><a href="/home" class="area" city="丹江口" >丹江口</a></li>
+                <li><a href="/home" class="area" city="当阳" >当阳</a></li>
+                <li><a href="/home" class="area" city="德惠" >德惠</a></li>
+                <li><a href="/home" class="area" city="敦化" >敦化</a></li>
+                <li><a href="/home" class="area" city="丹阳" >丹阳</a></li>
                 
-                <li>
-                    <a href="home/danang" data-id="3213">岘港</a>
-                </li>
-                
-                <li>
-                    <a href="home/denmark" data-id="3234">丹麦</a>
-                </li>
-                
-                <li>
-                    <a href="home/dubrovnik" data-id="3269">杜布罗夫尼克</a>
-                </li>
-                
-                <li>
-                    <a href="home/Democraticcongo" data-id="3282">刚果民主共和国</a>
-                </li>
-                
-                <li>
-                    <a href="home/delhi" data-id="3317">德里</a>
-                </li>
-                
-                <li>
-                    <a href="home/djibouti" data-id="3340">吉布提</a>
-                </li>
-                
-                <li>
-                    <a href="home/dominica" data-id="3389">多米尼克</a>
-                </li>
-                
-                <li>
-                    <a href="home/dominican" data-id="3390">多米尼加共和国</a>
-                </li>
-                
-                <li>
-                    <a href="home/dresden" data-id="3442">德累斯顿</a>
-                </li>
-                
-                <li>
-                    <a href="home/dortmund" data-id="3459">多特蒙德</a>
-                </li>
-                
-                <li>
-                    <a href="home/duisburg" data-id="3469">杜伊斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/dunedin" data-id="4026">但尼丁</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=D&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="东海" >东海</a></li>
+                <li><a href="/home" class="area" city="杜蒙" >杜蒙</a></li>
+                <li><a href="/home" class="area" city="多伦" >多伦</a></li>
+                <li><a href="/home" class="area" city="德州" >德州</a></li>
+                <li><a href="/home" class="area" city="定陶" >定陶</a></li>
+                <li><a href="/home" class="area" city="大同" >大同</a></li>
+                <li><a href="/home" class="area" city="德清" >德清</a></li>
+                <li><a href="/home" class="area" city="定海" >定海</a></li>
+        
+
             </ul>
         </div>
     </div>
@@ -614,42 +299,15 @@
         <div class="hd">E</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+   
+   				<li><a href="/home" class="area" city="恩平" >恩平</a></li>
+   				<li><a href="/home" class="area" city="鄂州" >鄂州</a></li>
+   				<li><a href="/home" class="area" city="恩施" >恩施</a></li>
+   				<li><a href="/home" class="area" city="鄂伦春旗" >鄂伦春旗</a></li>
+   				<li><a href="/home" class="area" city="峨边" >峨边</a></li>
+   				<li><a href="/home" class="area" city="峨山" >峨山</a></li>
+   				<li><a href="/home" class="area" city="鄂尔多斯" >鄂尔多斯</a></li>
                 
-                <li>
-                    <a href="home/easttimor" data-id="3232">东帝汶</a>
-                </li>
-                
-                <li>
-                    <a href="home/ekaterinburg" data-id="3262">叶卡捷琳堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/edmonton" data-id="3299">埃德蒙顿</a>
-                </li>
-                
-                <li>
-                    <a href="home/ecuador" data-id="3333">厄瓜多尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/eritrea" data-id="3334">厄立特里亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/egypt" data-id="3367">埃及</a>
-                </li>
-                
-                <li>
-                    <a href="home/essen" data-id="3456">埃森</a>
-                </li>
-                
-                <li>
-                    <a href="home/evian" data-id="4081">依云</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=E&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -660,32 +318,28 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/fuzhou" data-id="14">福州</a>
+                    <a href="home" class="area" city="福州" >福州</a>
                 </li>
                 
                 <li>
-                    <a href="home/foshan" data-id="208">佛山</a>
+                    <a href="home" class="area" city="佛山" >佛山</a>
                 </li>
                 
-                <li>
-                    <a href="home/fethiye" data-id="3349">费特希耶</a>
-                </li>
+                <li><a href="/home" class="area" city="阜阳" >阜阳</a></li>
+                <li><a href="/home" class="area" city="福泉" >福泉</a></li>
+                <li><a href="/home" class="area" city="凤凰" >凤凰</a></li>
+                <li><a href="/home" class="area" city="抚顺" >抚顺</a></li>
+                <li><a href="/home" class="area" city="福山" >福山</a></li>
                 
-                <li>
-                    <a href="home/fozdoiguacu" data-id="3423">伊瓜苏市</a>
-                </li>
+                <li><a href="/home" class="area" city="凤阳" >凤阳</a></li>
+                <li><a href="/home" class="area" city="阜平" >阜平</a></li>
+                <li><a href="/home" class="area" city="防城港" >防城港</a></li>
+                <li><a href="/home" class="area" city="阜宁" >阜宁</a></li>
+                <li><a href="/home" class="area" city="凤城" >凤城</a></li>
+                <li><a href="/home" class="area" city="富顺" >富顺</a></li>
+                <li><a href="/home" class="area" city="富阳" >富阳</a></li>
+                <li><a href="/home" class="area" city="丰镇" >丰镇</a></li>
                 
-                <li>
-                    <a href="home/freiburg" data-id="3432">弗莱堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/fes" data-id="4017">菲斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=F&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -696,100 +350,34 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/guangzhou" data-id="4">广州</a>
+                    <a href="home" class="area" city="广州" >广州</a>
                 </li>
                 
                 <li>
-                    <a href="home/guiyang" data-id="258">贵阳</a>
+                    <a href="home" class="area" city="贵阳" >贵阳</a>
                 </li>
                 
-                <li>
-                    <a href="home/gyeongju" data-id="3185">庆州</a>
-                </li>
+                <li><a href="/home" class="area" city="广德" >广德</a></li>
+                <li><a href="/home" class="area" city="桂平" >桂平</a></li>
+                <li><a href="/home" class="area" city="桂林" >桂林</a></li>
+                <li><a href="/home" class="area" city="甘南" >甘南</a></li>
+                <li><a href="/home" class="area" city="公安" >公安</a></li>
+                <li><a href="/home" class="area" city="高雄" >高雄</a></li>
+                <li><a href="/home" class="area" city="根河" >根河</a></li>
                 
-                <li>
-                    <a href="home/gifu" data-id="3205">岐阜</a>
-                </li>
+                <li><a href="/home" class="area" city="瓜州" >瓜州</a></li>
+                <li><a href="/home" class="area" city="高淳" >高淳</a></li>
+                <li><a href="/home" class="area" city="高阳" >高阳</a></li>
+                <li><a href="/home" class="area" city="高碑店" >高碑店</a></li>
+                <li><a href="/home" class="area" city="广丰" >广丰</a></li>
+                <li><a href="/home" class="area" city="盖州" >盖州</a></li>
+                <li><a href="/home" class="area" city="固阳" >固阳</a></li>
+                <li><a href="/home" class="area" city="固原" >固原</a></li>
                 
-                <li>
-                    <a href="home/guam" data-id="3271">关岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/gambia" data-id="3272">冈比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/guinea" data-id="3277">几内亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/ghana" data-id="3302">加纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/gabon" data-id="3303">加蓬</a>
-                </li>
-                
-                <li>
-                    <a href="home/guatemala" data-id="3332">危地马拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/goreme" data-id="3348">格雷梅</a>
-                </li>
-                
-                <li>
-                    <a href="home/guyana" data-id="3363">圭亚那</a>
-                </li>
-                
-                <li>
-                    <a href="home/graz" data-id="3395">格拉茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/greece" data-id="3426">希腊</a>
-                </li>
-                
-                <li>
-                    <a href="home/germany" data-id="3431">德国</a>
-                </li>
-                
-                <li>
-                    <a href="home/goettingen" data-id="3453">哥廷根</a>
-                </li>
-                
-                <li>
-                    <a href="home/genoa" data-id="3482">热那亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/greymouth" data-id="4029">格雷茅斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/grenada" data-id="4040">格林纳达</a>
-                </li>
-                
-                <li>
-                    <a href="home/georgia" data-id="4042">格鲁吉亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/ghent" data-id="4044">根特</a>
-                </li>
-                
-                <li>
-                    <a href="home/grasse" data-id="4074">格拉斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/grenoble" data-id="4082">格勒诺布尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=G&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="广陵" >广饶</a></li>
+                <li><a href="/home" class="area" city="高密" >高密</a></li>
+                <li><a href="/home" class="area" city="贡山" >贡山</a></li>
+             
             </ul>
         </div>
     </div>
@@ -800,151 +388,56 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/hangzhou" data-id="3">杭州</a>
+                    <a href="home" class="area" city="杭州" >杭州</a>
                 </li>
                 
                 <li>
-                    <a href="home/haerbin" data-id="79">哈尔滨</a>
+                    <a href="home" class="area" city="哈尔滨" >哈尔滨</a>
                 </li>
                 
                 <li>
-                    <a href="home/hefei" data-id="110">合肥</a>
+                    <a href="home" class="area" city="合肥" >合肥</a>
                 </li>
                 
                 <li>
-                    <a href="home/haikou" data-id="23">海口</a>
+                    <a href="home" class="area" city="海口" >海口</a>
                 </li>
                 
                 <li>
-                    <a href="home/huhehaote" data-id="46">呼和浩特</a>
+                    <a href="home" class="area" city="呼和浩特" >呼和浩特</a>
                 </li>
                 
                 <li>
-                    <a href="home/hongkong" data-id="341">香港</a>
+                    <a href="home" class="area" city="香港" >香港</a>
                 </li>
                 
-                <li>
-                    <a href="home/hsinchu" data-id="3174">新竹</a>
-                </li>
+        		<li><a href="/home" class="area" city="黄山" >黄山</a></li>
+        		<li><a href="/home" class="area" city="徽县" >徽县</a></li>
+        		<li><a href="/home" class="area" city="海口" >海口</a></li>
+        		
+        		<li><a href="/home" class="area" city="淮南" >淮南</a></li>
+                <li><a href="/home" class="area" city="惠州" >惠州</a></li>
+                <li><a href="/home" class="area" city="惠水" >惠水</a></li>
+                <li><a href="/home" class="area" city="邯郸" >邯郸</a></li>
+                <li><a href="/home" class="area" city="海兴" >海兴</a></li>
+                <li><a href="/home" class="area" city="鹤壁" >鹤壁</a></li>
+                <li><a href="/home" class="area" city="淮阳" >淮阳</a></li>
+                <li><a href="/home" class="area" city="海拉尔" >海拉尔</a></li>
                 
-                <li>
-                    <a href="home/hyogo" data-id="3189">兵库</a>
-                </li>
+                <li><a href="/home" class="area" city="贺兰" >贺兰</a></li>
+                <li><a href="/home" class="area" city="海晏" >海晏</a></li>
+                <li><a href="/home" class="area" city="霍林河" >霍林河</a></li>
+                <li><a href="/home" class="area" city="黄陵" >黄陵</a></li>
+                <li><a href="/home" class="area" city="黄冈" >黄冈</a></li>
+                <li><a href="/home" class="area" city="鹤峰" >鹤峰</a></li>
+                <li><a href="/home" class="area" city="洪江" >洪江</a></li>
+                <li><a href="/home" class="area" city="衡阳" >衡阳</a></li>
                 
-                <li>
-                    <a href="home/hiroshima" data-id="3209">广岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/halongbay" data-id="3211">下龙湾</a>
-                </li>
-                
-                <li>
-                    <a href="home/hue" data-id="3214">顺化</a>
-                </li>
-                
-                <li>
-                    <a href="home/houeisay" data-id="3221">会晒</a>
-                </li>
-                
-                <li>
-                    <a href="home/huahin" data-id="3230">华欣</a>
-                </li>
-                
-                <li>
-                    <a href="home/helsingor" data-id="3235">赫尔辛格</a>
-                </li>
-                
-                <li>
-                    <a href="home/haifa" data-id="3248">海法</a>
-                </li>
-                
-                <li>
-                    <a href="home/hungary" data-id="3305">匈牙利</a>
-                </li>
-                
-                <li>
-                    <a href="home/havana" data-id="3337">哈瓦那</a>
-                </li>
-                
-                <li>
-                    <a href="home/hurghada" data-id="3371">胡尔格达</a>
-                </li>
-                
-                <li>
-                    <a href="home/hallstatt" data-id="3396">哈尔施塔特</a>
-                </li>
-                
-                <li>
-                    <a href="home/hannover" data-id="3433">汉诺威</a>
-                </li>
-                
-                <li>
-                    <a href="home/hamilton" data-id="4032">汉密尔顿</a>
-                </li>
-                
-                <li>
-                    <a href="home/hokitika" data-id="4034">霍基蒂卡</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=H&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
     
-    <div id="I" class="hot-trade modebox">
-        <div class="hd">I</div>
-        <div class="home-place-list">
-            <ul class="J_citylist">
-                
-                <li>
-                    <a href="home/ilan" data-id="3173">宜兰</a>
-                </li>
-                
-                <li>
-                    <a href="home/ibaraki" data-id="3203">茨城</a>
-                </li>
-                
-                <li>
-                    <a href="home/iraq" data-id="3249">伊拉克</a>
-                </li>
-                
-                <li>
-                    <a href="home/iran" data-id="3250">伊朗</a>
-                </li>
-                
-                <li>
-                    <a href="home/irkutsk" data-id="3264">伊尔库茨克</a>
-                </li>
-                
-                <li>
-                    <a href="home/iceland" data-id="3273">冰岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/india" data-id="3314">印度</a>
-                </li>
-                
-                <li>
-                    <a href="home/ingolstadt" data-id="3472">因戈尔施塔特</a>
-                </li>
-                
-                <li>
-                    <a href="home/italy" data-id="3474">意大利</a>
-                </li>
-                
-                <li>
-                    <a href="home/invercargill" data-id="4037">因弗卡吉尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=I&amp;returl=&amp;type=">更多</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    
     
     <div id="J" class="hot-trade modebox">
         <div class="hd">J</div>
@@ -952,24 +445,35 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/jinan" data-id="22">济南</a>
+                    <a href="home" class="area" city="济南" >济南</a>
                 </li>
+                <li><a href="/home" class="area" city="建宁" >建宁</a></li>
+                <li><a href="/home" class="area" city="九华山" >九华山</a></li>
+                <li><a href="/home" class="area" city="焦作" >焦作</a></li>
+                <li><a href="/home" class="area" city="荆州" >荆州</a></li>
+                <li><a href="/home" class="area" city="吉林" >吉林</a></li>
+                <li><a href="/home" class="area" city="江阴" >江阴</a></li>
+                <li><a href="/home" class="area" city="金州" >金州</a></li>
                 
-                <li>
-                    <a href="home/jerusalem" data-id="3246">耶路撒冷</a>
-                </li>
+                <li><a href="/home" class="area" city="靖西" >靖西</a></li>
+                <li><a href="/home" class="area" city="嘉峪关" >嘉峪关</a></li>
+                <li><a href="/home" class="area" city="酒泉" >酒泉</a></li>
+                <li><a href="/home" class="area" city="焦作" >焦作</a></li>
+                <li><a href="/home" class="area" city="鸡西" >鸡西</a></li>
+                <li><a href="/home" class="area" city="嘉荫" >嘉荫</a></li>
+                <li><a href="/home" class="area" city="加格达奇" >加格达奇</a></li>
+                <li><a href="/home" class="area" city="荆州" >荆州</a></li>
                 
-                <li>
-                    <a href="home/jodhpur" data-id="3316">焦特布尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/jaisalmer" data-id="3321">杰伊瑟尔梅尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=J&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="吉首" >吉首</a></li>
+                <li><a href="/home" class="area" city="景德镇" >景德镇</a></li>
+                <li><a href="/home" class="area" city="胶州" >胶州</a></li>
+                <li><a href="/home" class="area" city="济宁" >济宁</a></li>
+                <li><a href="/home" class="area" city="锦州" >锦州</a></li>
+                <li><a href="/home" class="area" city="靖江" >靖江</a></li>
+                <li><a href="/home" class="area" city="井冈山" >井冈山</a></li>
+                <li><a href="/home" class="area" city="金平" >金平</a></li>
+          
+               
             </ul>
         </div>
     </div>
@@ -980,100 +484,16 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/kunming" data-id="267">昆明</a>
+                    <a href="home" class="area" city="昆明" >昆明</a>
                 </li>
-                
-                <li>
-                    <a href="home/keelung" data-id="3170">基隆</a>
-                </li>
-                
-                <li>
-                    <a href="home/kangwon-do" data-id="3181">江原道</a>
-                </li>
-                
-                <li>
-                    <a href="home/kanagawa" data-id="3186">神奈川</a>
-                </li>
-                
-                <li>
-                    <a href="home/kamakura" data-id="3190">镰仓</a>
-                </li>
-                
-                <li>
-                    <a href="home/kumamoto" data-id="3192">熊本</a>
-                </li>
-                
-                <li>
-                    <a href="home/kagoshima" data-id="3194">鹿儿岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/kobe" data-id="3206">神户</a>
-                </li>
-                
-                <li>
-                    <a href="home/krabitown" data-id="3226">甲米</a>
-                </li>
-                
-                <li>
-                    <a href="home/kashan" data-id="3255">卡尚</a>
-                </li>
-                
-                <li>
-                    <a href="home/kingston" data-id="3298">金斯顿</a>
-                </li>
-                
-                <li>
-                    <a href="home/khajuraho" data-id="3322">克久拉霍</a>
-                </li>
-                
-                <li>
-                    <a href="home/kyrgyzstan" data-id="3339">吉尔吉斯斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/kazakhstan" data-id="3341">哈萨克斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/kusadasi" data-id="3350">库萨达斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/kayseri" data-id="3352">开塞利</a>
-                </li>
-                
-                <li>
-                    <a href="home/kiribati" data-id="3376">基里巴斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/kathmandu" data-id="3408">加德满都</a>
-                </li>
-                
-                <li>
-                    <a href="home/koblenz" data-id="3448">科布伦茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/konstanz" data-id="3455">康斯坦茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/karlsruhe" data-id="3468">卡尔斯鲁厄</a>
-                </li>
-                
-                <li>
-                    <a href="home/kutnahora" data-id="4014">库特纳霍拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/kaikoura" data-id="4028">凯库拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=K&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="崆峒" >崆峒</a></li>
+                <li><a href="/home" class="area" city="昆山" >昆山</a></li>
+                <li><a href="/home" class="area" city="康定" >康定</a></li>
+                <li><a href="/home" class="area" city="开江" >开江</a></li>
+                <li><a href="/home" class="area" city="开远" >开远</a></li>
+                <li><a href="/home" class="area" city="开化" >开化</a></li>
+          
+               
             </ul>
         </div>
     </div>
@@ -1084,92 +504,32 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/lanzhou" data-id="299">兰州</a>
+                    <a href="home" class="area" city="兰州" >兰州</a>
                 </li>
+                <li><a href="/home" class="area" city="六安" >六安</a></li>
+                <li><a href="/home" class="area" city="龙岩" >龙岩</a></li>
+                <li><a href="/home" class="area" city="灵台" >灵台</a></li>
+                <li><a href="/home" class="area" city="龙门" >龙门</a></li>
+                <li><a href="/home" class="area" city="雷州" >雷州</a></li>
+                <li><a href="/home" class="area" city="廊坊" >廊坊</a></li>
+                <li><a href="/home" class="area" city="六合" >六合</a></li>
                 
-                <li>
-                    <a href="home/laocai" data-id="3217">老街市</a>
-                </li>
+                <li><a href="/home" class="area" city="柳州" >柳州</a></li>
+                <li><a href="/home" class="area" city="柳江" >柳江</a></li>
+                <li><a href="/home" class="area" city="荔波" >荔波</a></li>
+                <li><a href="/home" class="area" city="乐亭" >乐亭</a></li>
+                <li><a href="/home" class="area" city="鹿泉" >鹿泉</a></li>
+                <li><a href="/home" class="area" city="隆化" >隆化</a></li>
+                <li><a href="/home" class="area" city="娄底" >娄底</a></li>
+                <li><a href="/home" class="area" city="临漳" >临漳</a></li>
                 
-                <li>
-                    <a href="home/luangprabang" data-id="3218">琅勃拉邦</a>
-                </li>
-                
-                <li>
-                    <a href="home/liechtenstein" data-id="3279">列支敦士登</a>
-                </li>
-                
-                <li>
-                    <a href="home/libya" data-id="3283">利比亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/liberia" data-id="3284">利比里亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/luxembourg" data-id="3312">卢森堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/luxembourgcity" data-id="3313">卢森堡市</a>
-                </li>
-                
-                <li>
-                    <a href="home/linz" data-id="3392">林茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/lumbini" data-id="3406">蓝毗尼</a>
-                </li>
-                
-                <li>
-                    <a href="home/leipzig" data-id="3438">莱比锡</a>
-                </li>
-                
-                <li>
-                    <a href="home/lubeck" data-id="3463">吕贝克</a>
-                </li>
-                
-                <li>
-                    <a href="home/lindau" data-id="3467">林道</a>
-                </li>
-                
-                <li>
-                    <a href="home/lombardy" data-id="3478">伦巴第大区</a>
-                </li>
-                
-                <li>
-                    <a href="home/lucca" data-id="3486">卢卡</a>
-                </li>
-                
-                <li>
-                    <a href="home/laspezia" data-id="3489">拉斯佩齐亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/latvia" data-id="4003">拉脱维亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/ljubljana" data-id="4022">卢布尔雅那</a>
-                </li>
-                
-                <li>
-                    <a href="home/leuven" data-id="4045">鲁汶</a>
-                </li>
-                
-                <li>
-                    <a href="home/liege" data-id="4046">列日</a>
-                </li>
-                
-                <li>
-                    <a href="home/lille" data-id="4071">里尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=L&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="浏阳" >浏阳</a></li>
+                <li><a href="/home" class="area" city="莱阳" >莱阳</a></li>
+                <li><a href="/home" class="area" city="临沂" >临沂</a></li>
+                <li><a href="/home" class="area" city="乐山" >乐山</a></li>
+                <li><a href="/home" class="area" city="拉萨" >拉萨</a></li>
+                <li><a href="/home" class="area" city="罗平" >罗平</a></li>
+          
             </ul>
         </div>
     </div>
@@ -1178,62 +538,28 @@
         <div class="hd">M</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+
+                 <li><a href="/home" class="area" city="马鞍山" >马鞍山</a></li>
+                 <li><a href="/home" class="area" city="明溪" >明溪</a></li>
+                 <li><a href="/home" class="area" city="梅州" >梅州</a></li>
+                 <li><a href="/home" class="area" city="蒙山" >蒙山</a></li>
+                 <li><a href="/home" class="area" city="民和" >民和</a></li>
+                 <li><a href="/home" class="area" city="苗栗" >苗栗</a></li>
+                 <li><a href="/home" class="area" city="马关" >马关</a></li>
+                 
+                <li><a href="/home" class="area" city="茂名" >茂名</a></li>
+                <li><a href="/home" class="area" city="牡丹江" >牡丹江</a></li>
+                <li><a href="/home" class="area" city="漠河" >漠河</a></li>
+                <li><a href="/home" class="area" city="麻城" >麻城</a></li>
+                <li><a href="/home" class="area" city="满洲里" >满洲里</a></li>
+                <li><a href="/home" class="area" city="墨竹贡卡" >墨竹贡卡</a></li>
+                <li><a href="/home" class="area" city="蒙自" >蒙自</a></li>
+                <li><a href="/home" class="area" city="马龙" >马龙</a></li>
                 
-                <li>
-                    <a href="home/miaoli" data-id="3177">苗栗</a>
-                </li>
+                <li><a href="/home" class="area" city="墨脱" >墨脱</a></li>
+                <li><a href="/home" class="area" city="墨江" >墨江</a></li>
+    
                 
-                <li>
-                    <a href="home/mongolia" data-id="3178">蒙古</a>
-                </li>
-                
-                <li>
-                    <a href="home/miyagi" data-id="3202">宫城</a>
-                </li>
-                
-                <li>
-                    <a href="home/muine" data-id="3212">美奈</a>
-                </li>
-                
-                <li>
-                    <a href="home/mandalay" data-id="3225">曼德勒</a>
-                </li>
-                
-                <li>
-                    <a href="home/mexico" data-id="3383">墨西哥</a>
-                </li>
-                
-                <li>
-                    <a href="home/micronesia" data-id="3403">密克罗尼西亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/mainz" data-id="3436">美因茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/mannheim" data-id="3458">曼海姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/moldova" data-id="4015">摩尔多瓦</a>
-                </li>
-                
-                <li>
-                    <a href="home/morocco" data-id="4016">摩洛哥</a>
-                </li>
-                
-                <li>
-                    <a href="home/mauritania" data-id="4047">毛里塔尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/montpellier" data-id="4075">蒙彼利埃</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=M&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -1244,208 +570,105 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/nanjing" data-id="5">南京</a>
+                    <a href="home" class="area" city="南京" >南京</a>
                 </li>
                 
                 <li>
-                    <a href="home/ningbo" data-id="11">宁波</a>
+                    <a href="home" class="area" city="宁波" >宁波</a>
                 </li>
                 
                 <li>
-                    <a href="home/nanchang" data-id="134">南昌</a>
+                    <a href="home" class="area" city="南昌" >南昌</a>
                 </li>
                 
                 <li>
-                    <a href="home/nanning" data-id="224">南宁</a>
+                    <a href="home" class="area" city="南宁" >南宁</a>
                 </li>
                 
                 <li>
-                    <a href="home/northkorea" data-id="3179">朝鲜</a>
+                    <a href="home" class="area" city="南沙岛" >南沙岛</a>
                 </li>
                 
                 <li>
-                    <a href="home/nagasaki" data-id="3191">长崎</a>
+                    <a href="home" class="area" city="南通" >南通</a>
                 </li>
                 
                 <li>
-                    <a href="home/nikko" data-id="3196">日光市</a>
+                    <a href="home" class="area" city="聂拉木" >聂拉木</a>
                 </li>
                 
                 <li>
-                    <a href="home/nagano" data-id="3199">长野</a>
+                    <a href="home" class="area" city="宁国" >宁国</a>
                 </li>
                 
                 <li>
-                    <a href="home/niagaraonlake" data-id="3295">尼亚加拉湖边小镇</a>
+                    <a href="home" class="area" city="南阳" >南阳</a>
                 </li>
                 
                 <li>
-                    <a href="home/northernmariana" data-id="3306">北马里亚纳</a>
+                    <a href="home" class="area" city="嫩江" >嫩江</a>
                 </li>
                 
                 <li>
-                    <a href="home/nicaragua" data-id="3404">尼加拉瓜</a>
+                    <a href="home" class="area" city="宁化" >宁化</a>
                 </li>
                 
                 <li>
-                    <a href="home/niger" data-id="3405">尼日尔</a>
+                    <a href="home" class="area" city="宁德" >宁德</a>
                 </li>
                 
                 <li>
-                    <a href="home/nassau" data-id="3414">拿骚</a>
+                    <a href="home" class="area" city="南充" >南充</a>
                 </li>
                 
                 <li>
-                    <a href="home/nuremberg" data-id="3443">纽伦堡</a>
+                    <a href="home" class="area" city="南坪" >南坪</a>
                 </li>
                 
                 <li>
-                    <a href="home/norway" data-id="4005">挪威</a>
+                    <a href="home" class="area" city="南江" >南江</a>
                 </li>
                 
                 <li>
-                    <a href="home/newcaledonia" data-id="4023">新喀里多尼亚</a>
+                    <a href="home" class="area" city="宁南" >宁南</a>
                 </li>
                 
                 <li>
-                    <a href="home/newzealandsouth" data-id="4025">新西兰南岛</a>
+                    <a href="home" class="area" city="南木林" >南木林</a>
                 </li>
-                
-                <li>
-                    <a href="home/nelson" data-id="4036">尼尔森</a>
-                </li>
-                
-                <li>
-                    <a href="home/nantes" data-id="4054">南特</a>
-                </li>
-                
-                <li>
-                    <a href="home/normandy" data-id="4056">诺曼底</a>
-                </li>
-                
-                <li>
-                    <a href="home/nimes" data-id="4069">尼姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=N&amp;returl=&amp;type=">更多</a>
-                </li>
+    
             </ul>
         </div>
     </div>
     
-    <div id="O" class="hot-trade modebox">
-        <div class="hd">O</div>
-        <div class="home-place-list">
-            <ul class="J_citylist">
-                
-                <li>
-                    <a href="home/oita" data-id="3193">大分</a>
-                </li>
-                
-                <li>
-                    <a href="home/odense" data-id="3236">欧登塞</a>
-                </li>
-                
-                <li>
-                    <a href="home/ontario" data-id="3287">安大略省</a>
-                </li>
-                
-                <li>
-                    <a href="home/olympia" data-id="3428">奥林匹亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/oamaru" data-id="4030">奥马鲁</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=O&amp;returl=&amp;type=">更多</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
+
     <div id="P" class="hot-trade modebox">
         <div class="hd">P</div>
         <div class="home-place-list">
             <ul class="J_citylist">
+            
+                 <li><a href="/home" class="area" city="普陀" >普陀</a></li>
+                 <li><a href="/home" class="area" city="莆田" >莆田</a></li>
+                 <li><a href="/home" class="area" city="普宁" >普宁</a></li>
+                 <li><a href="/home" class="area" city="平远" >平远</a></li>
+                 <li><a href="/home" class="area" city="平顶山" >平顶山</a></li>
+                 <li><a href="/home" class="area" city="平江" >平江</a></li>
+                 <li><a href="/home" class="area" city="磐石" >磐石</a></li>
+                 <li><a href="/home" class="area" city="浦口" >浦口</a></li>
+                 <li><a href="/home" class="area" city="彭泽" >彭泽</a></li>
+                 <li><a href="/home" class="area" city="萍乡" >萍乡</a></li>
+                 <li><a href="/home" class="area" city="彭阳" >彭阳</a></li>
+                 <li><a href="/home" class="area" city="平阴" >平阴</a></li>
+                 <li><a href="/home" class="area" city="平度" >平度</a></li>
+                 <li><a href="/home" class="area" city="蒲城" >蒲城</a></li>
+                 <li><a href="/home" class="area" city="蓬安" >蓬安</a></li>
+                 <li><a href="/home" class="area" city="攀枝花" >攀枝花</a></li>
+                 <li><a href="/home" class="area" city="浦江" >浦江</a></li>
+                 <li><a href="/home" class="area" city="炮台" >炮台</a></li>
+                 <li><a href="/home" class="area" city="普兰" >普兰</a></li>
+                 <li><a href="/home" class="area" city="平湖" >平湖</a></li>
+                 <li><a href="/home" class="area" city="平阳" >平阳</a></li>
                 
-                <li>
-                    <a href="home/pyongyang" data-id="3180">平壤</a>
-                </li>
-                
-                <li>
-                    <a href="home/phanthiet" data-id="3216">藩切</a>
-                </li>
-                
-                <li>
-                    <a href="home/pakse" data-id="3222">巴色</a>
-                </li>
-                
-                <li>
-                    <a href="home/pulaubintan" data-id="3325">民丹岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/pokhara" data-id="3409">博卡拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/patan" data-id="3411">帕坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/palestine" data-id="3413">巴勒斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/pakistan" data-id="3416">巴基斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/papuanewguinea" data-id="3418">巴布亚新几内亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/paraguay" data-id="3419">巴拉圭</a>
-                </li>
-                
-                <li>
-                    <a href="home/panama" data-id="3420">巴拿马</a>
-                </li>
-                
-                <li>
-                    <a href="home/potsdam" data-id="3447">波茨坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/palatinate" data-id="3450">莱茵兰-普法尔茨</a>
-                </li>
-                
-                <li>
-                    <a href="home/pompeii" data-id="3475">庞贝</a>
-                </li>
-                
-                <li>
-                    <a href="home/palermo" data-id="3491">帕勒莫</a>
-                </li>
-                
-                <li>
-                    <a href="home/positano" data-id="3493">波西塔诺</a>
-                </li>
-                
-                <li>
-                    <a href="home/perugia" data-id="3496">佩鲁贾</a>
-                </li>
-                
-                <li>
-                    <a href="home/puglia" data-id="3497">普利亚大区</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=P&amp;returl=&amp;type=">更多</a>
-                </li>
             </ul>
         </div>
     </div>
@@ -1456,20 +679,26 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/qingdao" data-id="21">青岛</a>
+                    <a href="home" class="area" city="青岛" >青岛</a>
                 </li>
-                
-                <li>
-                    <a href="home/quebec" data-id="3286">魁北克</a>
-                </li>
-                
-                <li>
-                    <a href="home/qatar" data-id="3310">卡塔尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=Q&amp;returl=&amp;type=">更多</a>
-                </li>
+                 <li><a href="/home" class="area" city="全椒" >全椒</a></li>
+                 <li><a href="/home" class="area" city="潜山" >潜山</a></li>
+                 <li><a href="/home" class="area" city="泉州" >泉州</a></li>
+                 <li><a href="/home" class="area" city="曲江" >曲江</a></li>
+                 <li><a href="/home" class="area" city="黔西" >黔西</a></li>
+                 <li><a href="/home" class="area" city="秦皇岛" >秦皇岛</a></li>
+                 <li><a href="/home" class="area" city="曲阳" >曲阳</a></li>
+                 <li><a href="/home" class="area" city="炮台" >齐齐哈尔</a></li>
+                 <li><a href="/home" class="area" city="青冈" >青冈</a></li>
+                 <li><a href="/home" class="area" city="潜江" >潜江</a></li>
+                 <li><a href="/home" class="area" city="清水河" >清水河</a></li>
+                  <li><a href="/home" class="area" city="祁连" >祁连</a></li>
+                 <li><a href="/home" class="area" city="曲阜" >曲阜</a></li>
+                 <li><a href="/home" class="area" city="青州" >青州</a></li>
+                 <li><a href="/home" class="area" city="庆元" >庆元</a></li>
+                 <li><a href="/home" class="area" city="青田" >青田</a></li>
+                 <li><a href="/home" class="area" city="衢江" >衢江</a></li>
+               
             </ul>
         </div>
     </div>
@@ -1478,62 +707,23 @@
         <div class="hd">R</div>
         <div class="home-place-list">
             <ul class="J_citylist">
-                
-                <li>
-                    <a href="home/russia" data-id="3258">俄罗斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/reykjavik" data-id="3276">雷克雅未克</a>
-                </li>
-                
-                <li>
-                    <a href="home/rpblicthecongo" data-id="3281">刚果共和国</a>
-                </li>
-                
-                <li>
-                    <a href="home/rwanda" data-id="3311">卢旺达</a>
-                </li>
-                
-                <li>
-                    <a href="home/rajasthan" data-id="3318">拉贾斯坦邦</a>
-                </li>
-                
-                <li>
-                    <a href="home/Rothenburg" data-id="3437">罗滕堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/regensburg" data-id="3466">雷根斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/rudesheim" data-id="3470">吕德斯海姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/rimini" data-id="3492">里米尼</a>
-                </li>
-                
-                <li>
-                    <a href="home/riga" data-id="4004">里加</a>
-                </li>
-                
-                <li>
-                    <a href="home/rotorua" data-id="4024">罗托鲁瓦</a>
-                </li>
-                
-                <li>
-                    <a href="home/rouen" data-id="4050">鲁昂</a>
-                </li>
-                
-                <li>
-                    <a href="home/reims" data-id="4077">兰斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=R&amp;returl=&amp;type=">更多</a>
-                </li>
+            
+                <li><a href="/home" class="area" city="饶平" >饶平</a></li>
+                 <li><a href="/home" class="area" city="仁化" >仁化</a></li>
+                 <li><a href="/home" class="area" city="融水" >融水</a></li>
+                 <li><a href="/home" class="area" city="榕江" >榕江</a></li>
+                 <li><a href="/home" class="area" city="榕城" >榕城</a></li>
+                 <li><a href="/home" class="area" city="饶河" >饶河</a></li>
+                 <li><a href="/home" class="area" city="如东" >如东</a></li>
+                 <li><a href="/home" class="area" city="瑞昌" >瑞昌</a></li>
+                 <li><a href="/home" class="area" city="日照" >日照</a></li>
+                 <li><a href="/home" class="area" city="荣成" >荣成</a></li>
+                 <li><a href="/home" class="area" city="芮城" >芮城</a></li>
+                  <li><a href="/home" class="area" city="容县" >容县</a></li>
+                 <li><a href="/home" class="area" city="仁布" >仁布</a></li>
+                 <li><a href="/home" class="area" city="瑞丽" >瑞丽</a></li>
+                 <li><a href="/home" class="area" city="瑞安" >瑞安</a></li>
+
             </ul>
         </div>
     </div>
@@ -1544,180 +734,63 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/shanghai" data-id="1">上海</a>
+                    <a href="home" class="area" city="上海" >上海</a>
                 </li>
                 
                 <li>
-                    <a href="home/shenzhen" data-id="7">深圳</a>
+                    <a href="home" class="area" city="深圳" >深圳</a>
                 </li>
                 
                 <li>
-                    <a href="home/suzhou" data-id="6">苏州</a>
+                    <a href="home" class="area" city="苏州" >苏州</a>
                 </li>
                 
                 <li>
-                    <a href="home/shenyang" data-id="18">沈阳</a>
+                    <a href="home" class="area" city="沈阳" >沈阳</a>
                 </li>
                 
                 <li>
-                    <a href="home/sanya" data-id="345">三亚</a>
+                    <a href="home" class="area" city="三亚" >三亚</a>
                 </li>
                 
                 <li>
-                    <a href="home/shijiazhuang" data-id="24">石家庄</a>
+                    <a href="home" class="area" city="石家庄" >石家庄</a>
                 </li>
                 
-                <li>
-                    <a href="home/shizuoka" data-id="3187">静冈</a>
-                </li>
-                
-                <li>
-                    <a href="home/sukhothai" data-id="3227">素可泰</a>
-                </li>
-                
-                <li>
-                    <a href="home/sfahan" data-id="3252">伊斯法罕</a>
-                </li>
-                
-                <li>
-                    <a href="home/shiraz" data-id="3253">设拉子</a>
-                </li>
-                
-                <li>
-                    <a href="home/sofia" data-id="3266">索非亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/split" data-id="3270">斯普利特</a>
-                </li>
-                
-                <li>
-                    <a href="home/southafrica" data-id="3307">南非</a>
-                </li>
-                
-                <li>
-                    <a href="home/suncity" data-id="3308">太阳城</a>
-                </li>
-                
-                <li>
-                    <a href="home/surabaya" data-id="3326">泗水</a>
-                </li>
-                
-                <li>
-                    <a href="home/syria" data-id="3335">叙利亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/selcuk" data-id="3354">赛尔丘克</a>
-                </li>
-                
-                <li>
-                    <a href="home/side" data-id="3356">西戴</a>
-                </li>
-                
-                <li>
-                    <a href="home/saintlucia" data-id="3357">圣卢西亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/stkittsandnevis" data-id="3358">圣基茨和尼维斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/standp" data-id="3359">圣多美和普林西比</a>
-                </li>
-                
-                <li>
-                    <a href="home/svandg" data-id="3360">圣文森特和格林纳丁斯</a>
-                </li>
-                
-                <li>
-                    <a href="home/sainthelena" data-id="3361">圣赫勒拿</a>
-                </li>
-                
-                <li>
-                    <a href="home/sanmarino" data-id="3362">圣马力诺</a>
-                </li>
-                
-                <li>
-                    <a href="home/sharmel-sheikh" data-id="3372">沙姆沙伊赫</a>
-                </li>
-                
-                <li>
-                    <a href="home/senegal" data-id="3378">塞内加尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/serbia" data-id="3379">塞尔维亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/sierraleone" data-id="3381">塞拉利昂</a>
-                </li>
-                
-                <li>
-                    <a href="home/stwolfgang" data-id="3394">圣沃尔夫冈</a>
-                </li>
-                
-                <li>
-                    <a href="home/stuttgart" data-id="3439">斯图加特</a>
-                </li>
-                
-                <li>
-                    <a href="home/siena" data-id="3480">锡耶纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/sicily" data-id="3484">西西里岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/sorrento" data-id="3485">索伦托</a>
-                </li>
-                
-                <li>
-                    <a href="home/sangimignano" data-id="3490">圣吉米亚诺</a>
-                </li>
-                
-                <li>
-                    <a href="home/solomonislands" data-id="4001">所罗门群岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/sognefjord" data-id="4007">松恩峡湾</a>
-                </li>
-                
-                <li>
-                    <a href="home/stavanger" data-id="4009">斯塔万格</a>
-                </li>
-                
-                <li>
-                    <a href="home/swaziland" data-id="4018">斯威士兰</a>
-                </li>
-                
-                <li>
-                    <a href="home/slovakia" data-id="4019">斯洛伐克</a>
-                </li>
-                
-                <li>
-                    <a href="home/slovenia" data-id="4021">斯洛文尼亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/saudiarabia" data-id="4049">沙特阿拉伯</a>
-                </li>
-                
-                <li>
-                    <a href="home/strasbourg" data-id="4058">斯特拉斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/saint-malo" data-id="4080">圣马洛</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=S&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="宿州" >宿州</a></li>
+                 <li><a href="/home" class="area" city="沙县" >沙县</a></li>
+                 <li><a href="/home" class="area" city="顺德" >顺德</a></li>
+                 <li><a href="/home" class="area" city="汕尾" >汕尾</a></li>
+                 <li><a href="/home" class="area" city="汕头" >汕头</a></li>
+                 <li><a href="/home" class="area" city="韶关" >韶关</a></li>
+                 <li><a href="/home" class="area" city="上林" >上林</a></li>
+                 <li><a href="/home" class="area" city="三江" >三江</a></li>
+                 <li><a href="/home" class="area" city="三都" >三都</a></li>
+                 <li><a href="/home" class="area" city="沙河" >沙河</a></li>
+                 <li><a href="/home" class="area" city="深州" >深州</a></li>
+                  <li><a href="/home" class="area" city="三门县" >三门峡</a></li>
+                 <li><a href="/home" class="area" city="商丘" >商丘</a></li>
+                 <li><a href="/home" class="area" city="石龙" >石龙</a></li>
+                 <li><a href="/home" class="area" city="上蔡" >上蔡</a></li>
+                 <li><a href="/home" class="area" city="神农架" >神农架</a></li>
+                 
+                 <li><a href="/home" class="area" city="松原" >松原</a></li>
+                 <li><a href="/home" class="area" city="苏家屯" >苏家屯</a></li>
+                 <li><a href="/home" class="area" city="邵阳" >邵阳</a></li>
+                 <li><a href="/home" class="area" city="山阴" >山阴</a></li>
+                 <li><a href="/home" class="area" city="绍兴" >绍兴</a></li>
+                 <li><a href="/home" class="area" city="上虞" >上虞</a></li>
+                 <li><a href="/home" class="area" city="三门" >三门</a></li>
+                 <li><a href="/home" class="area" city="松阳" >松阳</a></li>
+                 <li><a href="/home" class="area" city="石林" >石林</a></li>
+                 <li><a href="/home" class="area" city="绥江" >绥江</a></li>
+                 <li><a href="/home" class="area" city="双江" >双江</a></li>
+                 <li><a href="/home" class="area" city="苏家屯" >苏家屯</a></li>
+                  <li><a href="/home" class="area" city="桑日" >桑日</a></li>
+                 
+                 
+                 
+                 
             </ul>
         </div>
     </div>
@@ -1728,175 +801,33 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/tianjin" data-id="10">天津</a>
+                    <a href="home" class="area" city="天津" >天津</a>
                 </li>
                 
                 <li>
-                    <a href="home/taiyuan" data-id="35">太原</a>
+                    <a href="home" class="area" city="太原" >太原</a>
                 </li>
                 
-                <li>
-                    <a href="home/taitung" data-id="3171">台东</a>
-                </li>
-                
-                <li>
-                    <a href="home/telaviv" data-id="3247">特拉维夫</a>
-                </li>
-                
-                <li>
-                    <a href="home/tehran" data-id="3251">德黑兰</a>
-                </li>
-                
-                <li>
-                    <a href="home/turkmenistan" data-id="3345">土库曼斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/turkey" data-id="3346">土耳其</a>
-                </li>
-                
-                <li>
-                    <a href="home/tajikistan" data-id="3377">塔吉克斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/tulum" data-id="3387">图卢姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/togo" data-id="3388">多哥</a>
-                </li>
-                
-                <li>
-                    <a href="home/trier" data-id="3462">特里尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/tuscany" data-id="3477">托斯卡纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/taormina" data-id="3494">陶尔米纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/tromso" data-id="4010">特罗姆瑟</a>
-                </li>
-                
-                <li>
-                    <a href="home/taupo" data-id="4031">陶波湖</a>
-                </li>
-                
-                <li>
-                    <a href="home/timaru" data-id="4035">蒂马鲁</a>
-                </li>
-                
-                <li>
-                    <a href="home/tonga" data-id="4048">汤加</a>
-                </li>
-                
-                <li>
-                    <a href="home/toulouse" data-id="4070">图卢兹</a>
-                </li>
-                
-                <li>
-                    <a href="home/tours" data-id="4072">图尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=T&amp;returl=&amp;type=">更多</a>
-                </li>
+               <li><a href="/home" class="area" city="铜陵" >铜陵</a></li>
+                 <li><a href="/home" class="area" city="同安" >同安</a></li>
+                 <li><a href="/home" class="area" city="天水" >天水</a></li>
+                 <li><a href="/home" class="area" city="田阳" >田阳</a></li>
+                 <li><a href="/home" class="area" city="田东" >田东</a></li>
+                 <li><a href="/home" class="area" city="台江" >台江</a></li>
+                 <li><a href="/home" class="area" city="唐山" >唐山</a></li>
+                 <li><a href="/home" class="area" city="太康" >太康</a></li>
+                 <li><a href="/home" class="area" city="桃源" >桃源</a></li>
+                 <li><a href="/home" class="area" city="通话" >通化</a></li>
+                  <li><a href="/home" class="area" city="泰安" >泰安</a></li>
+                 <li><a href="/home" class="area" city="太白" >太白</a></li>
+                 <li><a href="/home" class="area" city="通江" >通江</a></li>
+                 <li><a href="/home" class="area" city="腾冲" >腾冲</a></li>
+                 <li><a href="/home" class="area" city="通海" >通海</a></li>
+                 <li><a href="/home" class="area" city="台州" >台州</a></li>
             </ul>
         </div>
     </div>
     
-    <div id="U" class="hot-trade modebox">
-        <div class="hd">U</div>
-        <div class="home-place-list">
-            <ul class="J_citylist">
-                
-                <li>
-                    <a href="home/ukraine" data-id="3238">乌克兰</a>
-                </li>
-                
-                <li>
-                    <a href="home/uzbekistan" data-id="3239">乌兹别克斯坦</a>
-                </li>
-                
-                <li>
-                    <a href="home/uganda" data-id="3240">乌干达</a>
-                </li>
-                
-                <li>
-                    <a href="home/uruguay" data-id="3241">乌拉圭</a>
-                </li>
-                
-                <li>
-                    <a href="home/udaipur" data-id="3315">乌代布尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/ulm" data-id="3464">乌尔姆</a>
-                </li>
-                
-                <li>
-                    <a href="home/umbria" data-id="3498">翁布里亚大区</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=U&amp;returl=&amp;type=">更多</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="V" class="hot-trade modebox">
-        <div class="hd">V</div>
-        <div class="home-place-list">
-            <ul class="J_citylist">
-                
-                <li>
-                    <a href="home/vientiane" data-id="3219">万象</a>
-                </li>
-                
-                <li>
-                    <a href="home/vladivostok" data-id="3259">海参葳</a>
-                </li>
-                
-                <li>
-                    <a href="home/vladimir" data-id="3263">弗拉基米尔</a>
-                </li>
-                
-                <li>
-                    <a href="home/vic" data-id="3275">维克</a>
-                </li>
-                
-                <li>
-                    <a href="home/vaduz" data-id="3280">瓦杜兹</a>
-                </li>
-                
-                <li>
-                    <a href="home/victoria" data-id="3285">维多利亚</a>
-                </li>
-                
-                <li>
-                    <a href="home/varadero" data-id="3338">巴拉德罗</a>
-                </li>
-                
-                <li>
-                    <a href="home/venezuela" data-id="3397">委内瑞拉</a>
-                </li>
-                
-                <li>
-                    <a href="home/verona" data-id="3476">维罗纳</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=V&amp;returl=&amp;type=">更多</a>
-                </li>
-            </ul>
-        </div>
-    </div>
     
     <div id="W" class="hot-trade modebox">
         <div class="hd">W</div>
@@ -1904,48 +835,33 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/wuxi" data-id="13">无锡</a>
+                    <a href="home" class="area" city="无锡" >无锡</a>
                 </li>
                 
                 <li>
-                    <a href="home/wuhan" data-id="16">武汉</a>
+                    <a href="home" class="area" city="武汉" >武汉</a>
                 </li>
                 
                 <li>
-                    <a href="home/wulumuqi" data-id="325">乌鲁木齐</a>
+                    <a href="home" class="area" city="乌鲁木齐" >乌鲁木齐</a>
                 </li>
                 
-                <li>
-                    <a href="home/wakayama" data-id="3201">和歌山</a>
-                </li>
-                
-                <li>
-                    <a href="home/whistler" data-id="3300">惠斯勒</a>
-                </li>
-                
-                <li>
-                    <a href="home/westphalia" data-id="3440">北莱茵-威斯特法伦</a>
-                </li>
-                
-                <li>
-                    <a href="home/wuerzburg" data-id="3449">维尔茨堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/wolfsburg" data-id="3452">沃尔夫斯堡</a>
-                </li>
-                
-                <li>
-                    <a href="home/weimar" data-id="3465">魏玛</a>
-                </li>
-                
-                <li>
-                    <a href="home/wiesbaden" data-id="3471">威斯巴登</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=W&amp;returl=&amp;type=">更多</a>
-                </li>
+               <li><a href="/home" class="area" city="芜湖" >芜湖</a></li>
+                 <li><a href="/home" class="area" city="望江" >望江</a></li>
+                 <li><a href="/home" class="area" city="武夷山" >武夷山</a></li>
+                 <li><a href="/home" class="area" city="梧州" >梧州</a></li>
+                 <li><a href="/home" class="area" city="舞阳" >舞阳</a></li>
+                 <li><a href="/home" class="area" city="五常" >五常</a></li>
+                 <li><a href="/home" class="area" city="望城" >望城</a></li>
+                 <li><a href="/home" class="area" city="武宁" >武宁</a></li>
+                 <li><a href="/home" class="area" city="温州" >温州</a></li>
+                 <li><a href="/home" class="area" city="汶川" >汶川</a></li>
+                 <li><a href="/home" class="area" city="乌镇" >乌镇</a></li>
+                  <li><a href="/home" class="area" city="文成" >文成</a></li>
+                 <li><a href="/home" class="area" city="威海" >威海</a></li>
+                 <li><a href="/home" class="area" city="潍坊" >潍坊</a></li>
+                 <li><a href="/home" class="area" city="五莲" >五莲</a></li>
+                 <li><a href="/home" class="area" city="渭南" >渭南</a></li>
             </ul>
         </div>
     </div>
@@ -1956,20 +872,33 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/xiamen" data-id="15">厦门</a>
+                    <a href="home" class="area" city="厦门" >厦门</a>
                 </li>
                 
                 <li>
-                    <a href="home/xian" data-id="17">西安</a>
+                    <a href="home" class="area" city="西安" >西安</a>
                 </li>
                 
                 <li>
-                    <a href="home/xining" data-id="313">西宁</a>
+                    <a href="home" class="area" city="西宁" >西宁</a>
                 </li>
-                
-                <li>
-                    <a href="home/citylist?c=X&amp;returl=&amp;type=">更多</a>
-                </li>
+                <li><a href="/home" class="area" city="宣城" >宣城</a></li>
+                 <li><a href="/home" class="area" city="新丰" >新丰</a></li>
+                 <li><a href="/home" class="area" city="邢台" >邢台</a></li>
+                 <li><a href="/home" class="area" city="信阳" >信阳</a></li>
+                 <li><a href="/home" class="area" city="许昌" >许昌</a></li>
+                 <li><a href="/home" class="area" city="新蔡" >新蔡</a></li>
+                 <li><a href="/home" class="area" city="西华" >西华</a></li>
+                 <li><a href="/home" class="area" city="仙桃" >仙桃</a></li>
+                 <li><a href="/home" class="area" city="咸宁" >咸宁</a></li>
+                 <li><a href="/home" class="area" city="襄阳" >襄阳</a></li>
+                  <li><a href="/home" class="area" city="徐州" >徐州</a></li>
+                 <li><a href="/home" class="area" city="兴国" >兴国</a></li>
+                 <li><a href="/home" class="area" city="咸阳" >咸阳</a></li>
+                 <li><a href="/home" class="area" city="西双版纳" >西双版纳</a></li>
+                 <li><a href="/home" class="area" city="香格里拉" >香格里拉</a></li>
+                 <li><a href="/home" class="area" city="萧山" >萧山</a></li>
+           
             </ul>
         </div>
     </div>
@@ -1980,28 +909,56 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/yangzhou" data-id="12">扬州</a>
+                    <a href="home" class="area" city="扬州" >扬州</a>
                 </li>
-                
-                <li>
-                    <a href="home/yangon" data-id="3223">仰光</a>
-                </li>
-                
-                <li>
-                    <a href="home/yazd" data-id="3254">亚兹德</a>
-                </li>
-                
-                <li>
-                    <a href="home/yogyakarta" data-id="3331">日惹</a>
-                </li>
-                
-                <li>
-                    <a href="home/yucatanpeninsul" data-id="3384">尤卡坦半岛</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=Y&amp;returl=&amp;type=">更多</a>
-                </li>
+				 <li><a href="/home" class="area" city="永春" >永春</a></li>
+                 <li><a href="/home" class="area" city="永安" >永安</a></li>
+                 <li><a href="/home" class="area" city="永泰" >永泰</a></li>
+                 <li><a href="/home" class="area" city="玉门" >玉门</a></li>
+                 <li><a href="/home" class="area" city="渝中" >渝中</a></li>
+                 <li><a href="/home" class="area" city="永昌" >永昌</a></li>
+                 <li><a href="/home" class="area" city="阳东" >阳东</a></li>
+                 <li><a href="/home" class="area" city="阳春" >阳春</a></li>
+                 <li><a href="/home" class="area" city="郁南" >郁南</a></li>
+                 <li><a href="/home" class="area" city="阳朔" >阳朔</a></li>
+                  <li><a href="/home" class="area" city="玉林" >玉林</a></li>
+                 <li><a href="/home" class="area" city="玉屏" >玉屏</a></li>
+                 <li><a href="/home" class="area" city="印江" >印江</a></li>
+                 <li><a href="/home" class="area" city="盐山" >盐山</a></li>
+                 <li><a href="/home" class="area" city="永清" >永清</a></li>
+                 <li><a href="/home" class="area" city="原阳" >原阳</a></li>
+                 
+                 <li><a href="/home" class="area" city="宜阳" >宜阳</a></li>
+                 <li><a href="/home" class="area" city="永城" >永城</a></li>
+                 <li><a href="/home" class="area" city="虞城" >虞城</a></li>
+                 <li><a href="/home" class="area" city="依兰" >依兰</a></li>
+                 <li><a href="/home" class="area" city="延寿" >延寿</a></li>
+                 <li><a href="/home" class="area" city="宜都" >宜都</a></li>
+                 <li><a href="/home" class="area" city="宜昌" >宜昌</a></li>
+                 <li><a href="/home" class="area" city="夷陵" >夷陵</a></li>
+                 <li><a href="/home" class="area" city="益阳" >益阳</a></li>
+                 <li><a href="/home" class="area" city="岳阳" >岳阳</a></li>
+                 <li><a href="/home" class="area" city="永州" >永州</a></li>
+                  <li><a href="/home" class="area" city="延边" >延边</a></li>
+                 <li><a href="/home" class="area" city="榆树" >榆树</a></li>
+                 <li><a href="/home" class="area" city="永吉" >永吉</a></li>
+                 <li><a href="/home" class="area" city="宜兴" >宜兴</a></li>
+                 <li><a href="/home" class="area" city="盐城" >盐城</a></li>
+                 <li><a href="/home" class="area" city="沭阳" >沭阳</a></li>
+                 
+                 <li><a href="/home" class="area" city="玉树" >玉树</a></li>
+                 <li><a href="/home" class="area" city="银川" >银川</a></li>
+                 <li><a href="/home" class="area" city="禹城" >禹城</a></li>
+                 <li><a href="/home" class="area" city="烟台" >烟台</a></li>
+                 <li><a href="/home" class="area" city="阳城" >阳城</a></li>
+                 <li><a href="/home" class="area" city="亚东" >亚东</a></li>
+                 <li><a href="/home" class="area" city="余姚" >余姚</a></li>
+                 <li><a href="/home" class="area" city="余杭" >余杭</a></li>
+                 <li><a href="/home" class="area" city="永平" >永平</a></li>
+                 <li><a href="/home" class="area" city="永胜" >永胜</a></li>
+                 <li><a href="/home" class="area" city="玉溪" >玉溪</a></li>
+                  <li><a href="/home" class="area" city="元谋" >元谋</a></li>
+             
             </ul>
         </div>
     </div>
@@ -2012,29 +969,63 @@
             <ul class="J_citylist">
                 
                 <li>
-                    <a href="home/zhengzhou" data-id="160">郑州</a>
+                    <a href="home" class="area" city="郑州" >郑州</a>
                 </li>
                 
                 <li>
-                    <a href="home/zhuhai" data-id="206">珠海</a>
+                    <a href="home" class="area" city="珠海" >珠海</a>
                 </li>
                 
                 <li>
-                    <a href="home/zhanghua" data-id="3175">彰化</a>
+                    <a href="home" class="area" city="彰化" >彰化</a>
                 </li>
                 
-                <li>
-                    <a href="home/zagreb" data-id="3268">萨格勒布</a>
-                </li>
-                
-                <li>
-                    <a href="home/citylist?c=Z&amp;returl=&amp;type=">更多</a>
-                </li>
+               	 <li><a href="/home" class="area" city="张家川" >张家川</a></li>
+                 <li><a href="/home" class="area" city="漳州" >漳州</a></li>
+                 <li><a href="/home" class="area" city="中山" >中山</a></li>
+                 <li><a href="/home" class="area" city="湛江" >湛江</a></li>
+                 <li><a href="/home" class="area" city="镇远" >镇远</a></li>
+                 <li><a href="/home" class="area" city="遵义" >遵义</a></li>
+                 <li><a href="/home" class="area" city="遵化" >遵化</a></li>
+                 <li><a href="/home" class="area" city="张家口" >张家口</a></li>
+                 <li><a href="/home" class="area" city="正定" >正定</a></li>
+                 <li><a href="/home" class="area" city="驻马店" >驻马店</a></li>
+                 <li><a href="/home" class="area" city="周口" >周口</a></li>
+                 <li><a href="/home" class="area" city="肇州" >肇州</a></li>
+                 <li><a href="/home" class="area" city="枣阳" >枣阳</a></li>
+                 <li><a href="/home" class="area" city="张家界" >张家界</a></li>
+                 
+                 <li><a href="/home" class="area" city="株洲" >株洲</a></li>
+                 <li><a href="/home" class="area" city="张家港" >张家港</a></li>
+                 <li><a href="/home" class="area" city="扎兰屯" >扎兰屯</a></li>
+                 <li><a href="/home" class="area" city="章丘" >章丘</a></li>
+                 <li><a href="/home" class="area" city="枣庄" >枣庄</a></li>
+                 <li><a href="/home" class="area" city="淄博" >淄博</a></li>
+                 <li><a href="/home" class="area" city="邹城" >邹城</a></li>
+                 <li><a href="/home" class="area" city="泽州" >泽州</a></li>
+                 <li><a href="/home" class="area" city="舟山" >舟山</a></li>
+                 <li><a href="/home" class="area" city="镇海" >镇海</a></li>
+                 <li><a href="/home" class="area" city="自贡" >自贡</a></li>
+                 <li><a href="/home" class="area" city="镇江" >镇江</a></li>
             </ul>
         </div>
     </div>  	
  	
  	</section>
+ 	<script>
+ 		$(".area").click(function(){
+ 			var city = $(this).attr("city");
+ 			console.log(city);
+ 			$.ajax({
+ 				type: "POST",
+ 				url: "/api/city",
+ 				data: {"area": city},
+ 				success: function(){
+ 					console.log("turn to city");
+ 				},
+ 			});
+ 		});
+ 	</script>
       
       
      </body>

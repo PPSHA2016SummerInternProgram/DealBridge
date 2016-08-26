@@ -15,7 +15,6 @@ public class BankListService {
 	private BankMapper bankMapper;
 	
 	public HashMap<String,String> bankNO = new HashMap<String,String>();
-	public HashMap<String,String> bankNI;
 	
 	public List<Bank> bankList; 
 	

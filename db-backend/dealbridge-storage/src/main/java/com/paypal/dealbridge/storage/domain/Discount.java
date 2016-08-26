@@ -24,7 +24,13 @@ public class Discount {
 	private String merchantTel;
 	private String endOfUrl;
 	private Integer clickrate;
+	private Double latitude;
+	private Double longitude;
+	private Double distance;
 	
+	public Double getDistance() { return  distance;}
+
+	public void setDistance(Double distance) { this.distance = distance;}
 
 	public Integer getDiscountId() {
 		return discountId;
@@ -59,19 +65,31 @@ public class Discount {
 	}
 
 	public Date getBeginTime() {
-		return beginTime;
+		if (beginTime == null)
+			return null;
+		else
+			return (Date)beginTime.clone();
 	}
 
 	public void setBeginTime(Date beginTime) {
-		this.beginTime = beginTime;
+		if (beginTime == null)
+			this.beginTime = null;
+		else
+			this.beginTime = (Date)beginTime.clone();
 	}
 
 	public Date getEndTime() {
-		return endTime;
+		if (endTime == null)
+			return null;
+		else
+			return (Date)endTime.clone();
 	}
 
 	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
+		if (endTime == null)
+			this.endTime = null;
+		else
+			this.endTime = (Date)endTime.clone();
 	}
 
 	public String getArea() {
@@ -119,7 +137,11 @@ public class Discount {
 	}
 
 	public void setImg(String img) {
-		this.img = img;
+		if (img.startsWith("http")) {
+			this.img = img;
+		} else {
+			this.img = "/img/discount-img/" + img;
+		}
 	}
 
 	public String getMerchantDescription() {
@@ -160,6 +182,22 @@ public class Discount {
 
 	public void setClickRate(Integer clickrate) {
 		this.clickrate = clickrate;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
 	
 	

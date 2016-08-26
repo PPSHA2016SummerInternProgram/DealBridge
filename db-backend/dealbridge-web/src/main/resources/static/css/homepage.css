@@ -11,6 +11,20 @@
 	list-style:none;
 }
 
+.carousel-indicators li
+{
+	
+	width:6px;
+	height:6px;
+}
+.carousel-indicators .active
+{
+	
+	width:7px;
+	height:7px;
+}
+
+
 .carousel-bg{
 	background: #1E1E1E;
 	opacity: 0.5;
@@ -18,7 +32,7 @@
 	right: 0;
 	bottom: -13px;
 	left: 0;
-	height: 45px;			
+	height: 30px;			
 }
 			
 .carousel-caption{
@@ -34,16 +48,27 @@
 	text-shadow:0 1px 2px rgba(0,0,0,0.6);
 }
 
+
+		#myCarousel
+		{
+		height:170px;
+		width:100%;
+		padding-top:45px;
+		}
+		
 		#recommend-content .item
 		{
 	    margin-left: 10px;
-	    padding: 15px 10px 15px 0;
+	    padding: 11px 10px 11px 0;
 	    box-sizing: border-box;
 	  
 	    background-repeat: repeat-x;
 	    background-position: 0 bottom;
 	    background-size: auto 1px;
 	    display: -webkit-box;
+	    border-bottom:1px solid rgb(220,220,220);
+	    position:relative;
+	   
 		}
 		.pic_item
 		{

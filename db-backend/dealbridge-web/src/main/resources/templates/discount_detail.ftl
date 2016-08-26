@@ -10,7 +10,7 @@
  	  <script src="/jquery-2.0.0/jquery.min.js"></script>
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
- 	  
+ 	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
  	 
 
  	 <!--script>
@@ -26,8 +26,8 @@
  	 
 	<script>
         $(document).ready(function(){
-      		
- 			 
+      		 console.log("${discount.merchantLocation}hahah");
+      		 console.log("aaa");
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -73,15 +73,11 @@
  	}
 	 	.cuxian
  	{
- 	font-family:Microsoft YaHei;
- 			padding-left:10px;
- 	font-size:14px;
- 	color:#323232;
- 	line-height:35px;
- 	background-color:#f2f2f2;
+ 	height:50px;
+ 	color:#ccc;
+ 	
  	border-bottom:1px solid #e2e2e2;
- 	font-weight:700;
- 	display:block;
+ 	background-color:#f2f2f2;
  	}
  	.personal
  	{
@@ -157,8 +153,9 @@
  	}
  	.content
  	{
- 	position:absolute;
- 	top:250px;
+ 	position:relative;
+ 	padding-top:10px;
+ 	
  	}
  	.shuxian
  	{
@@ -178,18 +175,20 @@
  	height:100px;
  	width:150px;
  	opacity:0.8;
- 	background-color:rgb(100,100,100);
+ 	background-color:rgb(50,50,50);
+ 	font-size:18px;
  	border-radius:5px;
  	text-align:center;
  	color:#ffffff;
  	left:120px;
+ 	padding-top:10px;
  	}
  	.pic
  	{
  	height:180px;
  	width:100%;
  	
- 	padding-top:45px;
+ 	margin-top:45px;
  	text-align:center;
  	}
  	.pic img
@@ -199,14 +198,35 @@
  	height:180px;
  	width:100%;
  	margin:0px auto;
- 	
- 	
  
+ 	}
+ 	
+ 	.merchant_info
+ 	{
+ 	height:50px;
+ 	color:orange;
+ 	
+ 	border-bottom:1px solid #e2e2e2;
+ 	background-color:#f2f2f2;
+ 	
+ 	}
+ 	.merchant_info p
+ 	{
+ 	padding-left:10px;
+ 	padding-top:15px;
+ 	padding-bottom:10px;
+ 	}
+ 	
+ 	.merchant_location p
+ 	{
+ 	padding-left:10px;
+ 	padding-top:15px;
+ 	color:rgb(100,100,100);
  	}
  
  	</style>
  	</head>
- 	<body style="position:relative;">
+ 	<body style="position:relative; font-family:Microsoft YaHei">
 	
 	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
 	
@@ -219,32 +239,56 @@
 <div class="detail">使用${discount.bankName}信用卡，${discount.description}</div>
 
 
-<div class="twotag" style="height:38px;">
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:150px;">  <span>        点击量：<b>${discount.clickRate}</b></span></div>
-<div style="font-size:13px;color:rgb(130,130,130);padding-left:10px;float:right; padding-right:100px;"><span >分享量：<b>${shareTime}</b></span> </div>
+<div class="twotag" style="height:38px;text-align:center;">
+<div style="font-size:13px;color:rgb(130,130,130);float:right;padding-right:20px; ">  <span>        点击量:<b>${discount.clickRate}</b></span></div>
+<!--<div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >分享量:<b>${shareTime}</b></span> </div>-->
 </div>
 <!--弹出添加收藏成功-->
 <div class="jump_box">
-删除收藏成功!
+添加收藏成功！
+<i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>
 </div>
+
+
+
+<!--商家信息-->
+<#if discount.merchantLocation!=""|discount.merchantTel!="">
+<div class="merchant_info">
+<p>商家信息</p>
+</div>
+<div class="merchant_location">
+<#if discount.merchantLocation!=""><p><i class="fa fa-map-marker " aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantLocation}</p></#if>
+<#if discount.merchantTel!=""><p><i class="fa fa-phone" aria-hidden="true" style="font-size:18px;"></i> ${discount.merchantTel}</p></#if>
+</div>
+</#if>
+
+
+<!--活动详情-->
 <div>
-	<div class="cuxian" style="float:none;" >活动详情</div>
+
+	<div class="merchant_info"><p>活动详情</p></div>
+
  	
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">适用地区：</p>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">适用地区：</p>
  	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.area??>${discount.area}<#else>不限</#if></p>
  	
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用时间：</p>
- 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.begintime??>${discount.begintime?date}<#else>不限</#if>至<#if discount.endtime??>${discount.endtime?date}<#else>不限</#if></p>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">使用时间：</p>
+ 	<p style="padding-left:10px;font-family:Microsoft YaHei;"><#if discount.beginTime??>${discount.beginTime?date}<#else>活动</#if>至<#if discount.endTime??>${discount.endTime?date}<#else>不限</#if></p>
  	
- 	<#if discount.discountUsage??>
- 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:orange;margin-bottom:5px;">使用规则：</p>
- 	</#if>
+ 	<!--<#if discount.discountUsage??>
+ 	<div><p style="padding-top:10px;padding-left:10px;font-family:Microsoft YaHei;color:rgb(150,150,150);margin-bottom:5px;">使用规则：</p>
+ 	<p style="padding-left:10px;font-family:Microsoft YaHei;">${discount.discountUsage}</p>
+ 	</#if>-->
 
 </div>
 </div>
 
+ <#if discount.latitude??>
 
+<div class="merchant_info" style="float:none;padding-top:10px;padding-left:10px;" id="map-head" ><i class="fa fa-map-o" aria-hidden="true"></i> 导航<span style="font-size:13px;color:rgb(150,150,150);">(点击显示或隐藏地图)</span></div>
+<div style="height:320px;border:#ccc solid 1px; margin: 5px; display:none;" id="dituContent"></div>
 
+ </#if>
 
  	<!-- 分享 -->
  	<div id="footer" style="border-radius: 0px;position:fixed;bottom: 0;z-index: 100;width: 100%; display:none;" class="footerbar">
@@ -299,11 +343,12 @@ function chooseFunction()
 					traditional: true,
 					success:function(){
 						console.log("删除收藏成功");
-						$(".jump_box").html("删除收藏成功");
+						
+						$(".jump_box").html('删除收藏成功！<i class="fa fa-heart-o favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
-						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
+					//	$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+					//	$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
 					},
 					
 					error: function() {
@@ -334,33 +379,52 @@ function chooseFunction()
 					success:function(){
 						console.log("成功添加收藏");
 						
-						$(".jump_box").html("添加收藏成功");
+						$(".jump_box").html('添加收藏成功！<i class="fa fa-heart favorite heart-color" aria-hidden="true" style="position:absolute;left:25px;top:40px;"></i>');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
-						$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
+						
+					//	$(".jump_box").animate({bottom: "0px;",height:"100px",width:"150px"}, "0");
+					//	$(".jump_box").animate({bottom: "0px;",height:"60px",width:"100px"}, "1");
+					//	$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "0");
+				
 					},
 					
 					error: function() {
 						console.log("添加收藏失败");
-						$(".jump_box").html("添加收藏失败");
+						$(".jump_box").html('添加收藏失败！');
 						$(".jump_box").show();
-						$(".jump_box").animate({bottom: "0px;",height:"-=30px",width:"-=50px"}, "slow");
-						$(".jump_box").animate({bottom: "0px;",height:"0px",width:"0px"}, "1");
+						setTimeout(function(){$(".jump_box").hide();},800);//2秒后执行该方法
 					},
-					
 				});
-       		
 	}
 	
 }
 </script>
- <script>
- 	function backFunction() {
-  		window.history.back();
-  	}
+    <script>
+ 	    function backFunction() {
+  		    window.history.back();  <!-- go to previous page and reload the page -->
+  	    }
+    </script>
 
- 	 </script>
+ </body>
+ <script type="text/javascript" src="/js/map.js"></script>
+ <#if discount.latitude??>
+	 <script type="text/javascript">
+	 	console.log(${discount.latitude});
+	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
+	    console.log(${discount.latitude});
+	 </script>
+	 <script>
+	 	$("#map-head").click(function(){
+	 		if ($("#dituContent").css("display") == "none") {
+	 			$("#dituContent").show();
+	 		} else {
+	 			$("#dituContent").hide();
+	 		}
+	 	});
+	 </script>
+</#if>
 
- 	</body>
- 	</html>
+ 
+ 
+ </html>

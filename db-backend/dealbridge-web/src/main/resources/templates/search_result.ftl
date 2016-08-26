@@ -33,6 +33,28 @@
 			.hot-keyword{border:1px solid #F0F0F0;}
 			#search-input-div{float:left; width:280px}
 			#search-cancel-div{float:left; margin-left: 20px; margin-top: 8px;}
+			
+			html{font-size:50px;}
+			.imgtext{position:absolute;overflow:hidden;width:1rem;height:1rem;z-index:1}
+			.banktext{font-size:.24rem;background-color:#06c1ae;color:#fff;padding:.05rem;position:absolute;width:1.3rem;text-align:center;left:-.35rem;top:.1rem;-webkit-transform:rotateZ(-45deg);}
+			#result-content .item
+			{
+		    margin-left: 10px;
+		    padding: 11px 10px 11px 0;
+		    box-sizing: border-box;
+		  
+		    background-repeat: repeat-x;
+		    background-position: 0 bottom;
+		    background-size: auto 1px;
+		    display: -webkit-box;
+		     border-bottom:1px solid #ccc;
+			}
+			.hot-keyword p{margin:0px;padding:10px 10px;}
+			.title1{color:rgb(150,150,150);padding-left:20px;}
+			
+			
+			#clear-history-text{padding:2px 20px 10px 20px;float:right;}
+			.history-item{padding:5px 20px 5px 20px; border-bottom:1px solid rgb(220,220,220);}
 		</style>
 		
 		
@@ -53,24 +75,38 @@
 		
 		
 		<script>
-			function appendDiscount(start, rows) {
-				$.getJSON("/api/search", {query:'${query}', start:start, rows:rows}, function(result){
-					for (i in result) {
-						console.log(result[i]);
-						$('#result-content').append('<tr><td width="40%"><img src="' + 
-							result[i].img + 
-							'" class="img-thumbnail top_pic imgset" ></td><td width="60%">' + 
-							'<p class="summary">' + 
-							result[i].summary +
-							'</p>' +
-							'<p class="description">'+result[i].description + '</p>'+
-							'</td></tr>');
+      function appendDiscount(start, rows) {
+        $.getJSON("/api/search", {query:'${query}', start:start, rows:rows}, function(result){
+          for (i in result) {
+					console.log(result[i]);
+					var str = '<tr onclick=location.href="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
+ 	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
+ 	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
+ 	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
+ 	  				if (result[i].beginTime == null)
+ 	  					str += '活动';
+ 	  				else
+ 	  					str += result[i].beginTime;
+ 	  				str += '至 '; 
+ 	  				if (result[i].endTime == null)
+ 	  					str += '不限';
+ 	  				else
+ 	  					str += result[i].endTime;
+ 	  				str += '</div></td></tr>';
+ 	  				
+ 	  					$('.imgtext').attr('data-content',result[i].bankName);
+ 	  				
+ 	  				$('#result-content').append(str);
+
+						
 					}
-					$('#loading-panel').hide();
-				});
-			}
-			
-		</script>
+          $('#loading-panel').hide();
+        });
+      }
+      
+    </script>
 		
 		<script>
 			$(document).ready(function(){
@@ -103,7 +139,7 @@
 	
 	<body>
 	<div id='home-div'>
-       <div class="navbar" style="background-color:#181818;">
+       <div class="navbar" style="background-color:#337ab7;margin-bottom:0px;">
 	
 		  <div class="container" style="padding-top:15px;height:30px;">
         
@@ -133,8 +169,10 @@
 			</font>
 		</div>
 		
-		<table id="result-content">
-		</table>
+		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="result-content"></table>
+	<div id="loading-panel" style="display:none">
+		<p class="text-center">正在加载...</p>
+	</div>
 		
 		<div id="loading-panel" style="display:none">
 			<p class="text-center">正在加载...</p>
@@ -142,25 +180,21 @@
 	</div>
 	
 	
-	
-	<div id='search-div' style="top:0px; position:absolute; display:none">
+	<div id='search-div' style="top:0px; position:absolute; display:none;font-family:Microsoft YaHei">
 		<nav id="navbar" class="navbar navbar-default">
 			<div>
+				<i id='search-hide-button' class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-right:20px;padding-top:2px;color:rgb(150,150,150);float:left;"></i>
 				<div id='search-input-div' class="input-group" style="float:left;">
 					  <span id="search-icon" class="glyphicon glyphicon-search""></span>
-					  <input id="search-input" type="text" class="form-control" placeholder="Search for...">
-					  <span class="input-group-btn">
-						<button id="search-button" class="btn btn-default" type="button">搜索</button>
-					  </span>
-					  
+					  <input id="search-input" type="text" class="form-control" placeholder="搜索银行、类别或商家...">
+					
 				</div>
-				<div id='search-cancel-div' style="float:left;">
-					<p id='search-hide-button'>取消</p>
-				</div>
+				<div id="search-button"  style="float:left;padding:7px 10px">搜索</div>
 			</div>
 		</nav>
 		
-  <div id="hot-keyword-div">
+		<div><p class="title1">热门搜索</p></div>
+		<div id="hot-keyword-div">
 			<div class="row">
 				<#list hotKeywords as hotKeyword>
 					<div class="col-xs-4 col-sm-4 hot-keyword"><p keyword>${hotKeyword}</p></div>
@@ -169,17 +203,19 @@
 		</div>
 		
 		<div>
-			<p>搜索记录</p>
-			<ul id="search-history-list" class="list-group">
+			<div id="clear-history-text" onclick="clearSearchHistory(3)"><i class="fa fa-trash-o" aria-hidden="true" style="font-size:18px;color:rgb(150,150,150);"></i></div>
+			<p class="title1">搜索记录</p>
+			<div id="search-history-list" class="list-group">
 				<#list searchHistories as searchHistory>
-			   		<li class="list-group-item" history>${searchHistory}</li>
+			   		<p class="history-item" history>${searchHistory}</p>
 	 			</#list>
-			</ul>
-			<h5 id="clear-history-text" class="text-center" onclick="clearSearchHistory(3)">清除搜索记录</h5>
+			</div>
+			
 		</div>
 		
 	
 	</div>
+	
 	
 	
 	

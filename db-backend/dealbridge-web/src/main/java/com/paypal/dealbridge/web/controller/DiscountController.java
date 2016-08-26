@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.paypal.dealbridge.service.DiscountService;
 import com.paypal.dealbridge.service.FavoriteService;
@@ -47,13 +45,18 @@ public class DiscountController {
 	@RequestMapping(path = "/discount/{id}", method = RequestMethod.GET)
 	public String showDiscount(@PathVariable("id") int id, Model model, HttpSession session) {
 		int userId = (int)session.getAttribute("userId");
+		double latitude = (double)session.getAttribute("latitude");
+		double longitude = (double)session.getAttribute("longitude");
 		Discount discount = discountService.getDiscountById(id);
 		Integer favoriteId = favoriteService.existFavorite(userId, id);
+		discountService.updateClickRate(id);
 		int shareTime = shareService.countSharedTimes(id);
 		model.addAttribute("discount", discount);
 		model.addAttribute("shareTime", shareTime);
 		model.addAttribute("userId", userId);
 		model.addAttribute("favoriteId", favoriteId);
+		model.addAttribute("latitude", latitude);
+		model.addAttribute("longitude", longitude);
 		return "discount_detail";
 	}
 }

@@ -9,6 +9,7 @@
     <link href="/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" >
     <script src="/jquery-2.0.0/jquery.min.js"></script>
 	<script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 	 	
    <script>
         $(document).ready(function(){
@@ -154,7 +155,11 @@
 </div>
 </#if>
 
-
-
 </body>
+
+<script type="text/javascript" src="/js/map.js"></script>
+<script type="text/javascript">
+    initMap(31.19807, 121.626801, 14);//创建和初始化地图
+</script>
+
 </html>
