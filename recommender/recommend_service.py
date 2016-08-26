@@ -1,4 +1,4 @@
-# encoding=utf-8
+﻿# encoding=utf-8
 
 import MySQLdb
 from flask import Flask, Response, request
@@ -6,6 +6,7 @@ import json, re, jieba, urlparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import numpy as np
+import random
 from datetime import date, datetime
 from geopy.distance import vincenty
 from urllib import urlopen
@@ -200,40 +201,39 @@ def bank_recommend():
     longitude = float(request.args['lng'])
     bank_name = request.args['bankName']
     user_id = int(request.args['userId'])
-    vector = np.zeros_like(cosine_similarities[0], dtype=float)
-    load_preferences()
+    area = str(request.args['area'])
+    area = unquote(area).decode("utf-8") + "市".decode("utf-8")
+    print area
     load_click()
     distance_1 = [vincenty(coordinate, (latitude, longitude)).kilometers for coordinate in merchant_coordinates]
     distance = np.array(distance_1)
     distance_weight = 1.0/(0.1*distance + 1)
-    for (id, discount_id) in preferences:
-        if id == user_id:
-            vector += cosine_similarities[indices.index(discount_id)]
-    if vector.sum() == 0:
-        return Response(
-            response=json.dumps([]),
-            status=200,
-            mimetype="application/json")
-    vector += distance_weight
     _bank = banks[bank_name]
+    max = distance_weight.max()
     for i in xrange(len(indices)):
-        if discounts_detail[i][1] != _bank.decode("UTF-8"):
-            vector[i] = 0
-    print vector.sum()
-    item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
+        if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
+            distance_weight[i] = random.random() * max
+            continue
+        if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
+            continue
+        distance_weight[i] = -1
+    print distance_weight.sum()
+    item_indices = distance_weight.argsort()[-offset_end-1:-offset_start-1]
     data = []
-    for index in item_indices:
-        data.append({
-            "id": discounts_detail[index][0],
-            "bank_name": discounts_detail[index][1],
-            "summary": discounts_detail[index][2],
-            "description": discounts_detail[index][3],
-            "begin_time": discounts_detail[index][4],
-            "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6],
-            "distance": distance_1[index],
-            "click_rate": click_rates[index]
-        })
+    for index in reversed(item_indices):
+        print distance[index], distance_weight[index], discounts_detail[index][2]
+        if distance_weight[index] > 0:
+            data.append({
+                "id": discounts_detail[index][0],
+                "bank_name": discounts_detail[index][1],
+                "summary": discounts_detail[index][2],
+                "description": discounts_detail[index][3],
+                "begin_time": discounts_detail[index][4],
+                "end_time": discounts_detail[index][5],
+                "img": discounts_detail[index][6],
+                "distance": distance_1[index],
+                "click_rate": click_rates[index]
+            })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
                     status=200,
@@ -264,26 +264,32 @@ def type_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
+    max = vector.max()
     for i in xrange(len(indices)):
-        if discounts_detail[i][8] != _type.decode("UTF-8"):
-            vector[i] = 0
-        if discounts_detail[i][9] != area:
-           vector[i] = 0
+        if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
+            vector[i] = random.random() * max
+            continue
+        if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
+            continue
+        vector[i] = -1
+     #   if discounts_detail[i][9] != area:
+     #      vector[i] = 0
     print vector[1:100], vector.sum()
     item_indices = vector.argsort()[-offset_end-1:-offset_start-1]
     data = []
     for index in item_indices:
-        data.append({
-            "id": discounts_detail[index][0],
-            "bank_name": discounts_detail[index][1],
-            "summary": discounts_detail[index][2],
-            "description": discounts_detail[index][3],
-            "begin_time": discounts_detail[index][4],
-            "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6],
-            "distance": vincenty((latitude, longitude), merchant_coordinates[index]).kilometers,
-            "click_rate": click_rates[index]
-        })
+        if vector[index] > 0:
+            data.append({
+                "id": discounts_detail[index][0],
+                "bank_name": discounts_detail[index][1],
+                "summary": discounts_detail[index][2],
+                "description": discounts_detail[index][3],
+                "begin_time": discounts_detail[index][4],
+                "end_time": discounts_detail[index][5],
+                "img": discounts_detail[index][6],
+                "distance": vincenty((latitude, longitude), merchant_coordinates[index]).kilometers,
+                "click_rate": click_rates[index]
+            })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
                     status=200,
