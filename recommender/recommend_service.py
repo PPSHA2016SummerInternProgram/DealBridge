@@ -174,17 +174,18 @@ def customized_recommend(user_id):
     print item_indices
     data = []
     for index in item_indices:
-        data.append({
-            "id": discounts_detail[index][0],
-            "bank_name": discounts_detail[index][1],
-            "summary": discounts_detail[index][2],
-            "description": discounts_detail[index][3],
-            "begin_time": discounts_detail[index][4],
-            "end_time": discounts_detail[index][5],
-            "img": discounts_detail[index][6],
-            "click_rate": click_rates[index],
-            "distance": distance[index]
-        })
+        if distance[index] < 20 :
+            data.append({
+                "id": discounts_detail[index][0],
+                "bank_name": discounts_detail[index][1],
+                "summary": discounts_detail[index][2],
+                "description": discounts_detail[index][3],
+                "begin_time": discounts_detail[index][4],
+                "end_time": discounts_detail[index][5],
+                "img": discounts_detail[index][6],
+                "click_rate": click_rates[index],
+                "distance": distance[index]
+            })
     data = json.dumps(data, cls=ComplexEncoder)
     resp = Response(response=data,
                     status=200,
