@@ -59,14 +59,14 @@
 		
 		
 		<script>
-			var startIndex = 5;
+			var startIndex = 10;
 			$(window).scroll(function() {
 				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 					if($('#loading-panel').is(":visible") == false){
 						$('#loading-panel').show();
 						window.setTimeout(function(){
-							appendDiscount(startIndex, 5);
-							startIndex += 5;
+							appendDiscount(startIndex, 10);
+							startIndex += 10;
 						}, 1000);
 					}
 				}
@@ -76,13 +76,13 @@
 		
 		<script>
       function appendDiscount(start, rows) {
-        $.getJSON("/api/search", {query:'${query}', start:start, rows:rows}, function(result){
+        $.getJSON("/api/search", {query:'${query}', area:'${area}', start:start, rows:rows}, function(result){
           for (i in result) {
 					console.log(result[i]);
 					var str = '<tr onclick=location.href="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
- 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">' + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].beginTime == null)
@@ -111,7 +111,7 @@
 		<script>
 			$(document).ready(function(){
 				$('#loading-panel').show();
-				appendDiscount(0, 5);
+				appendDiscount(0, 10);
 			});
 			
 			$(document).ready(function(){
@@ -147,6 +147,7 @@
 				<i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
 			</div>
 			
+		<!--	
 			<div style="height:auto;float:right;position: relative;">
 				<span class="glyphicon glyphicon-search" aria-hidden="true" style="
 					position: absolute;
@@ -158,6 +159,7 @@
 					<input id="search-input-main" type="text" placeholder="输入关键字搜索" style="border-radius:20px;border:none;width: 200px;padding-left: 30px;transition: 0.3s ease-out;">
 				</font>
 			</div>
+		-->
 		
 		  </div>
 	  
@@ -170,16 +172,13 @@
 		</div>
 		
 		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="result-content"></table>
-	<div id="loading-panel" style="display:none">
-		<p class="text-center">正在加载...</p>
-	</div>
-		
 		<div id="loading-panel" style="display:none">
 			<p class="text-center">正在加载...</p>
 		</div>
+		
 	</div>
 	
-	
+<!--	
 	<div id='search-div' style="top:0px; position:absolute; display:none;font-family:Microsoft YaHei">
 		<nav id="navbar" class="navbar navbar-default">
 			<div>
@@ -216,7 +215,7 @@
 	
 	</div>
 	
-	
+-->	
 	
 	
       <script>
