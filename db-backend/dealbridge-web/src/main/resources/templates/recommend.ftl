@@ -35,7 +35,7 @@
 		
 		
 		<script>
-			var startIndex = 5;
+			var startIndex = 10;
 			$(window).scroll(function() {
 				if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 					if($('#loading-panel').is(":visible") == false){
@@ -62,7 +62,15 @@
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td width="23%" height=80px style="padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" width="100%" height="100%"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
- 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(3)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">';
+
+                    if (result[i].distance <=10000)
+ 	  			    	str = str + result[i].distance.toFixed(2) + 'km';
+ 	  			    else
+ 	  			    	str += '全国';
+
+ 	  			    str = str + '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].startTime == null)
