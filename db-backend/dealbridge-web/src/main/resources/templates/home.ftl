@@ -141,14 +141,14 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
+			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area} <i class="fa fa-angle-down" aria-hidden="true" style="padding-left:1px;"></i></p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
 				<span class="glyphicon glyphicon-search" aria-hidden="true" style="
 					position: absolute;
 					left: 8px;
-					top: 3.7px;
+					top: 4px;
 					">
 				</span>
 				
