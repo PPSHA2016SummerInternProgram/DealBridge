@@ -54,7 +54,7 @@
 
 
 
-				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber, area:'${area}', latitude: '${latitude}', longitude:'${longitude}'}, function(result){
+				$.getJSON("/api/recommendation/${type}/${userId}", {startIndex:startIndex, limitNumber:limitNumber, area:'${area}', latitude: ${latitude}, longitude:${longitude}}, function(result){
 
 					for (i in result) {
 						console.log(result[i]);
