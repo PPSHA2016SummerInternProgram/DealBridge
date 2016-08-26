@@ -21,6 +21,6 @@ public class GPSUtil {
             JSONObject formattedAddress = result.getJSONObject("addressComponent");
             return formattedAddress.getString("city");
         }
-        return "上海";
+        return "上海市";
     }
 }
