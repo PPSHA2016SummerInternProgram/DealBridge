@@ -20,9 +20,12 @@
 			.bank-div img{width:20%;height:20%;}
 			.bank-div p{font-size:12px; color:rgb(150,150,150);}
 			#entrance-deader{background-color:#ffffff;padding-top:20px;border-top:1px solid rgb(220,220,220);height:50px;margin-bottom:10px;}
-			.entrance-div{width:90%; margin:0 auto; height:120px;text-align:center;margin-bottom:12px;position:relative;}
-			.entrance-div img{width:100%; height:100%}
-			.entrance-div p{color:white;font-family:Microsoft YaHei;font-size:17px;position:absolute;left:150px;top:50px;font-weight:bold;}
+			.entrance-div1{width:90%; margin:0 auto; height:120px;text-align:center;margin-bottom:12px;position:relative;z-index:1;}
+			.entrance-div2{width:100%; margin:0 auto; height:120px;text-align:center;margin-bottom:12px;position:absolute;top:0;left:0;z-index:2;background-color:rgba(50,50,50,0.2);
+							}
+			
+			.entrance-div1 img{width:100%; height:100%}
+			.entrance-div2 p{color:white;font-family:Microsoft YaHei;font-size:17px;text-align:center;padding-top:45px;font-weight:bold;}
 		
 			.category{padding:0;padding-top:10px;margin:0;outline:0;background-color:#ffffff;height:160px;border-bottom:1px solid rgb(220,220,220);}
 
@@ -120,7 +123,7 @@
 			#search-input{padding-left: 30px; opacity:0.5; disabled: true}
 			#hot-keyword-div{margin: 20px; text-align: center; padding-left:20px; padding-right: 20px;}
 			.hot-keyword{border:1px solid #F0F0F0;}
-			#search-input-div{float:left; width:78%;}
+			#search-input-div{float:left; width:73%;}
 			#search-cancel-div{float:left; }
 			#search-record-header{text-align:center; font-size:16px}
 		</style>
@@ -138,7 +141,7 @@
 		<div class="container" style="padding-top:15px;height:30px;">
         
 			<div style="height:auto;float:left;">
-			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area}</p></a>
+			  <a href="/citylist"><p style="font-family:黑体;font-size:16px;color:#FFFFFF;">${area} <i class="fa fa-angle-down" aria-hidden="true" style="padding-left:1px;"></i></p></a>
 			</div>
 			
 			<div style="height:auto;float:right;position: relative;">
@@ -146,6 +149,7 @@
 					position: absolute;
 					left: 8px;
 					top: 4.5px;
+
 					">
 				</span>
 				
@@ -286,9 +290,12 @@
 		</font>
 		</h3>
 	</div>
-	<div class="entrance-div"><a href="/nearby/?lat=${latitude}&lng=${longitude}"><img src="/img/homeimg/3.jpeg"></img><p>附近优惠</p></a></div>
-	<div class="entrance-div"><a href="/favorite"><img src="/img/homeimg/2.jpeg"></img><p>我的收藏</p></a></div>
-	<div class="entrance-div"><a href="/hot"><img src="/img/homeimg/1.jpeg"></img><p>热门优惠</p></img></a></div>
+	<div class="entrance-div1" ><a href="/nearby/?lat=${latitude}&lng=${longitude}"><img src="/img/homeimg/cake1.jpeg"></img></a>
+		<div class="entrance-div2" onclick=location.href="/nearby/?lat=${latitude}&lng=${longitude}"><p>附近优惠</p></div></div>
+	<div class="entrance-div1"><a href="/favorite"><img src="/img/homeimg/2.jpeg"></img></a>
+		<div class="entrance-div2" onclick=location.href="/favorite"><p>我的收藏</p></div></div>
+	<div class="entrance-div1"><a href="/hot"><img src="/img/homeimg/1.jpeg"></img></img></a>
+		<div class="entrance-div2" onclick=location.href="/hot"><p>热门优惠</p></div></div>
 	
 	
 	
