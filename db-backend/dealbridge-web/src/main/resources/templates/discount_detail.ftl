@@ -12,22 +12,9 @@
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
  	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
  	 
-
- 	 <!--script>
- 	 $(document).ready(function(){
- 			setInterval(function(){
- 				
- 				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
- 				$("#shareTime").html('分享量：'+data);
- 				});
- 			}, 3000);
- 		});
- 	 </script-->
  	 
 	<script>
         $(document).ready(function(){
-      		 console.log("${discount.merchantLocation}hahah");
-      		 console.log("aaa");
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -367,8 +354,6 @@ function chooseFunction()
 		$(this).addClass("heart-color");
 		var userId=${userId};
 		var discountId=${discount.discountId?c};
-		console.log(discountId);
-		console.log(userId);
 			
 	       		$.ajax({
 					type: "POST",
@@ -410,14 +395,15 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
-	 	console.log(${discount.latitude});
 	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
-	    console.log(${discount.latitude});
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){
 	 		if ($("#dituContent").css("display") == "none") {
 	 			$("#dituContent").show();
+	 			var pos = $(window).scrollTop();
+	 			var incre = $("#dituContent").height();
+				$('body,html').animate({'scrollTop':pos+incre},100)
 	 		} else {
 	 			$("#dituContent").hide();
 	 		}
