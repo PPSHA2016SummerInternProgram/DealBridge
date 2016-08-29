@@ -235,7 +235,7 @@
 		console.log(checkText);
 		var element = $($('.bank-template').html());
 		element.find('.bankName').html(checkText);
-		$('.card-list').append(element);
+
 		//给后台发请求添加银行卡
 		$.ajax({
  			type: "PUT",
@@ -243,7 +243,11 @@
  			data: {"bankName": checkText},
  			error: function() {
 				console.log("add bank name error");
+				alert("已添加该银行信用卡，添加失败");
 			},
+			success: function() {
+			    $('.card-list').append(element);
+			}
  		});
 		
 			 $('#test2').click();
