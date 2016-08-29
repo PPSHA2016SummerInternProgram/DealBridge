@@ -20,12 +20,12 @@ public class LogAspect {
 	
 	@Before("logPoint()")
 	public void beforeLog(JoinPoint joinPoint) {
-		logger.info(String.format("Call %s with arguments: %s", joinPoint.getSignature().toLongString(), Arrays.toString(joinPoint.getArgs())));
+		logger.info(String.format("Call %s with arguments: %s", joinPoint.getSignature(), Arrays.toString(joinPoint.getArgs())));
 	}
 	
 	@AfterReturning(returning="ret", pointcut="logPoint()")
-	public void afterReturningLog(Object ret) {
-		logger.info(String.format("returns %s", ret));
+	public void afterReturningLog(JoinPoint joinPoint, Object ret) {
+		logger.info(String.format("%s returns %s", joinPoint.getSignature(), ret));
 	}
 	
 }

@@ -12,22 +12,9 @@
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
  	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
  	 
-
- 	 <!--script>
- 	 $(document).ready(function(){
- 			setInterval(function(){
- 				
- 				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
- 				$("#shareTime").html('分享量：'+data);
- 				});
- 			}, 3000);
- 		});
- 	 </script-->
  	 
 	<script>
         $(document).ready(function(){
-      		 console.log("${discount.merchantLocation}hahah");
-      		 console.log("aaa");
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -118,9 +105,10 @@
    {
   font-size:14px;
   color:#191919;
+  
   padding:15px 10px 20px 10px;
  
-  font-family:Microspft YaHei;
+  font-family:Microsoft YaHei;
    
    }
    
@@ -146,10 +134,22 @@
  	}
  	#discount-title
  	{
- 	
+ 	width:80%;
  	color:#000000;
  	padding-left:10px;
  	font-size:19px;
+ 	float:left;
+ 	}
+ 	#discount-favorite
+ 	{
+ 	width:18%;
+ 	float:left;
+ 	
+ 	}
+ 	#discount-name
+ 	{
+ 		display:block;
+ 		height:45px;
  	}
  	.content
  	{
@@ -228,14 +228,17 @@
  	</head>
  	<body style="position:relative; font-family:Microsoft YaHei">
 	
-	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa-share-alt fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;font-size:21px;color:#ccc;"></i></div>
+	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:rgb(100,100,100);"></i></div>
 	
 	<div class="pic"><img src=${discount.img} ></img></div>
 
  
  
 <div class="content">
-<div id="discount-title" >【${discount.bankName}】${discount.summary}<p class="shuxian"></p><#if favoriteId??><i class="fa fa-heart favorite heart-color" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
+<div id="discount-name">
+<div id="discount-title" >【${discount.bankName}】${discount.summary}</div>
+<div id="discount-favorite"><p class="shuxian"></p><#if favoriteId??><i class="fa fa-heart favorite heart-color" data-dis="show" aria-hidden="true" ><#else><i class="fa fa-heart-o favorite" data-dis aria-hidden="true" ></#if></i></div>
+</div>
 <div class="detail">使用${discount.bankName}信用卡，${discount.description}</div>
 
 
@@ -367,8 +370,6 @@ function chooseFunction()
 		$(this).addClass("heart-color");
 		var userId=${userId};
 		var discountId=${discount.discountId?c};
-		console.log(discountId);
-		console.log(userId);
 			
 	       		$.ajax({
 					type: "POST",
@@ -410,14 +411,15 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
-	 	console.log(${discount.latitude});
 	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
-	    console.log(${discount.latitude});
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){
 	 		if ($("#dituContent").css("display") == "none") {
 	 			$("#dituContent").show();
+	 			var pos = $(window).scrollTop();
+	 			var incre = $("#dituContent").height();
+				$('body,html').animate({'scrollTop':pos+incre},100)
 	 		} else {
 	 			$("#dituContent").hide();
 	 		}

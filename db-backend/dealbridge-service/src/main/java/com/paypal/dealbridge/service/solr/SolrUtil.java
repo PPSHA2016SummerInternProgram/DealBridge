@@ -26,7 +26,7 @@ public class SolrUtil {
 	
 	public String searchDiscount(String query, String area, int start, int rows) throws SolrQueryException {
 		RestTemplate restTemplate = new RestTemplate();
-		String q = "area:" + area + " OR area:全国  AND " + query;
+		String q = query;
 		String url = solrUrl + "select?q=" + q + "&start=" + start + "&rows=" + rows + "&wt=json";
 		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
