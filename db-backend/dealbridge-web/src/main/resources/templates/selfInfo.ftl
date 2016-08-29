@@ -135,7 +135,7 @@
       </div>
  
  	  <div style="padding-top:30px;;text-align:center;">
- 	    <span> <img src="/img/user_pic.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span>
+ 	    <span> <img src="/img/user/${userId}.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span>
  	  </div>
  
  	
