@@ -32,8 +32,8 @@ body {
         linear,
         left top,
         left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
+        color-stop(0, #37abb7),
+        color-stop(0.51, rgb(248,248,248))
     );
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -50,7 +50,7 @@ body {
     background:url(../img/bridge.jpg) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
     left:50%;
-    top:50%;
+    top:40%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;

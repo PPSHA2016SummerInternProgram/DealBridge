@@ -69,7 +69,7 @@ var app = {
     function onError(error) {
 //        alert('code: '    + error.code    + '\n' +
 //              'message: ' + error.message + '\n');
-        alert("获取GPS信息失败，进入默认城市");
+        //alert("获取GPS信息失败，进入默认城市");
         window.open("/home?lat=" + 31.219916 + "&lng=" + 121.52614);
     }
     
