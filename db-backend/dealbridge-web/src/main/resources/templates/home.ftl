@@ -148,7 +148,8 @@
 				<span class="glyphicon glyphicon-search" aria-hidden="true" style="
 					position: absolute;
 					left: 8px;
-					top: 4px;
+					top: 4.5px;
+
 					">
 				</span>
 				

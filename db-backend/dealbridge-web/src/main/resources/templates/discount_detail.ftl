@@ -11,23 +11,10 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
  	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
- 	 
 
- 	 <!--script>
- 	 $(document).ready(function(){
- 			setInterval(function(){
- 				
- 				$.get("/api/share/shared_times/${discount.discountId?c}",function(data,status){
- 				$("#shareTime").html('分享量：'+data);
- 				});
- 			}, 3000);
- 		});
- 	 </script-->
  	 
 	<script>
         $(document).ready(function(){
-      		 console.log("${discount.merchantLocation}hahah");
-      		 console.log("aaa");
             $(".share-box").click(function(){
             	console.log("进入分享选择框");
             	
@@ -118,7 +105,7 @@
    {
   font-size:14px;
   color:#191919;
-  
+
   padding:15px 10px 20px 10px;
  
   font-family:Microsoft YaHei;
@@ -157,7 +144,7 @@
  	{
  	width:18%;
  	float:left;
- 	
+
  	}
  	#discount-name
  	{
@@ -257,7 +244,9 @@
 
 <div class="twotag" style="height:38px;text-align:center;">
 <div style="font-size:13px;color:rgb(130,130,130);float:right;padding-right:20px; ">  <span>        点击量:<b>${discount.clickRate}</b></span></div>
-<!--<div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >分享量:<b>${shareTime}</b></span> </div>-->
+<#if distance??>
+    <div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >距离:<b>${distance}km</b></span> </div>
+<#else></#if>
 </div>
 <!--弹出添加收藏成功-->
 <div class="jump_box">
@@ -383,8 +372,6 @@ function chooseFunction()
 		$(this).addClass("heart-color");
 		var userId=${userId};
 		var discountId=${discount.discountId?c};
-		console.log(discountId);
-		console.log(userId);
 			
 	       		$.ajax({
 					type: "POST",
@@ -426,14 +413,15 @@ function chooseFunction()
  <script type="text/javascript" src="/js/map.js"></script>
  <#if discount.latitude??>
 	 <script type="text/javascript">
-	 	console.log(${discount.latitude});
 	    initMap(${discount.latitude}, ${discount.longitude}, ${latitude}, ${longitude}, 13);//创建和初始化地图
-	    console.log(${discount.latitude});
 	 </script>
 	 <script>
 	 	$("#map-head").click(function(){
 	 		if ($("#dituContent").css("display") == "none") {
 	 			$("#dituContent").show();
+	 			var pos = $(window).scrollTop();
+	 			var incre = $("#dituContent").height();
+				$('body,html').animate({'scrollTop':pos+incre},100)
 	 		} else {
 	 			$("#dituContent").hide();
 	 		}
