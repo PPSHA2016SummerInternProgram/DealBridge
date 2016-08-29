@@ -228,7 +228,7 @@
  	</head>
  	<body style="position:relative; font-family:Microsoft YaHei">
 	
-	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:rgb(100,100,100);"></i></div>
+	<div class="dingbu  navbar navbar-fixed-top" style="color:#ffffff;background-color:#337ab7; "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:#ffffff;"></i></div>
 	
 	<div class="pic"><img src=${discount.img} ></img></div>
 
