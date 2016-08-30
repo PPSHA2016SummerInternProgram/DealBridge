@@ -95,6 +95,7 @@
  	body
  	{
  	background-color:rgb(248,248,248);
+ 	font-family:Microsoft YaHei;
  	}
  	
  	a{ color:#333; /*无链接时颜色*/ } 
@@ -107,7 +108,7 @@
  
  	<div style="background-color:#337ab7; ">
       <div class="mycard " style="position:relative;text-align:center;">
-        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:0px;"></i>
+        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:2px;"></i>
        
         <button type="button" class="dropdown-toggle" id="user-dropdown-button" data-toggle="dropdown">
            ${ufi.userName}
@@ -235,7 +236,7 @@
 		console.log(checkText);
 		var element = $($('.bank-template').html());
 		element.find('.bankName').html(checkText);
-		$('.card-list').append(element);
+
 		//给后台发请求添加银行卡
 		$.ajax({
  			type: "PUT",
@@ -243,7 +244,11 @@
  			data: {"bankName": checkText},
  			error: function() {
 				console.log("add bank name error");
+				alert("已添加该银行信用卡，添加失败");
 			},
+			success: function() {
+			    $('.card-list').append(element);
+			}
  		});
 		
 			 $('#test2').click();

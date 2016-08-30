@@ -11,7 +11,7 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	   <link rel="stylesheet" type="text/css" href="/css/style.css" />
  	  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
- 	 
+
  	 
 	<script>
         $(document).ready(function(){
@@ -105,7 +105,7 @@
    {
   font-size:14px;
   color:#191919;
-  
+
   padding:15px 10px 20px 10px;
  
   font-family:Microsoft YaHei;
@@ -144,7 +144,7 @@
  	{
  	width:18%;
  	float:left;
- 	
+
  	}
  	#discount-name
  	{
@@ -228,7 +228,7 @@
  	</head>
  	<body style="position:relative; font-family:Microsoft YaHei">
 	
-	<div class="dingbu  navbar navbar-fixed-top" style="color:#333;background-color:rgb(248,248,248); "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:rgb(100,100,100);"></i></div>
+	<div class="dingbu  navbar navbar-fixed-top" style="color:#ffffff;background-color:#337ab7; "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:#ffffff;"></i></div>
 	
 	<div class="pic"><img src=${discount.img} ></img></div>
 
@@ -244,7 +244,9 @@
 
 <div class="twotag" style="height:38px;text-align:center;">
 <div style="font-size:13px;color:rgb(130,130,130);float:right;padding-right:20px; ">  <span>        点击量:<b>${discount.clickRate}</b></span></div>
-<!--<div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >分享量:<b>${shareTime}</b></span> </div>-->
+<#if distance??>
+    <div style="font-size:13px;color:rgb(130,130,130);float:right; padding-right:20px;"><span >距离:<b>${distance}km</b></span> </div>
+<#else></#if>
 </div>
 <!--弹出添加收藏成功-->
 <div class="jump_box">

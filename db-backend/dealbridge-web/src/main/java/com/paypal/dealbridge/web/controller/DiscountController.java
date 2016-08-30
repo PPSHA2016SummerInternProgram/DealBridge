@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.paypal.dealbridge.web.util.DistanceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +52,11 @@ public class DiscountController {
 		Integer favoriteId = favoriteService.existFavorite(userId, id);
 		discountService.updateClickRate(id);
 		//int shareTime = shareService.countSharedTimes(id);
+		int shareTime = shareService.countSharedTimes(id);
+		if(discount.getLatitude() != null) {
+			double distance = DistanceUtil.getDistance(longitude,latitude,discount.getLongitude(),discount.getLatitude());
+			model.addAttribute("distance", String.format("%.2f", distance));
+		}
 		model.addAttribute("discount", discount);
 		//model.addAttribute("shareTime", shareTime);
 		model.addAttribute("userId", userId);
