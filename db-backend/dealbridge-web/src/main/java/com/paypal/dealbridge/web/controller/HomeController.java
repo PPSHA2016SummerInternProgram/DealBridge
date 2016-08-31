@@ -39,7 +39,6 @@ public class HomeController {
 			session.setAttribute("area", area);
 			session.setAttribute("latitude", latitude);
 			session.setAttribute("longitude", longitude);
-			System.out.println(latitude + " " + longitude + " " + area);
 
 		}
 		List<Discount> hots = discountService.getTopDiscount(TOP_DISCOUNT_NUM);

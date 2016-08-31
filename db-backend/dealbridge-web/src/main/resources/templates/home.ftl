@@ -50,7 +50,7 @@
 			.hot-keyword p{margin:0px;padding:10px 10px;}
 			.title1{color:rgb(150,150,150);padding-left:20px;}
 			
-			
+			body{font-family:Microsoft YaHei!important;}
 			#clear-history-text{padding:2px 20px 10px 20px;float:right;}
 			.history-item{padding:5px 20px 5px 20px; border-bottom:1px solid rgb(220,220,220);}
 			.item .tdimg{width:100%;height:100%;}
@@ -85,7 +85,11 @@
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
  	  				+'<td  style="width:23%;height:80px;padding:0px 0px 0px 0px;border-top:0px;"><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" class="tdimg"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:200px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
- 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">'+result[i].distance.toFixed(2)+'km</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
+ 	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">';
+ 	  			    if (result[i].distance <= 100.0) {
+ 	  			    	str += result[i].distance.toFixed(2)+'km';
+ 	  			    }
+ 	  			    str += '</div><div style="color:#9a9090;font-size:12px;padding-right:10px;'
 					+ 'text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;">' 
  	  				+ result[i].description + '</div><div style="position:absolute;bottom:0px; right:10px; font-family:Microsoft YaHei;font-size:12px;color:rgb(150,150,150);">点击量:'+result[i].clickRate+'</div><div style="color:#000000;font-size:10px;position:absolute;bottom:0px;"><i class="fa fa-clock-o" aria-hidden="true" style="color:red;"></i> ';
  	  				if (result[i].beginTime == null)
