@@ -228,7 +228,7 @@
  	</head>
  	<body style="position:relative; font-family:Microsoft YaHei">
 	
-	<div class="dingbu  navbar navbar-fixed-top" style="color:#ffffff;background-color:#337ab7; "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:-5px;"></i><span style="position:absolute;left:50px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:12px;font-size:21px;color:#ffffff;"></i></div>
+	<div class="dingbu  navbar navbar-fixed-top" style="color:#ffffff;background-color:#337ab7; "><i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:10px;margin-top:0px;"></i><span style="position:absolute;left:40px;top:15px;">优惠详情</span><i class="fa fa fa-share-square-o fa-1.5x share-btn " aria-hidden="true" style="position:absolute;right:20px;top:15px;font-size:21px;color:#ffffff;"></i></div>
 	
 	<div class="pic"><img src=${discount.img} ></img></div>
 
@@ -306,7 +306,7 @@
 </div>
 
 <div class="share_box shar_box_center">
-	<a href="http://service.weibo.com/share/share.php?title=微范名片&url=http://www.huayunkj.com" target="_blank">
+	<a href="http://service.weibo.com/share/share.php?title=${discount.summary}&url=http://www.huayunkj.com" target="_blank">
 		<img src="/img/sinaminiblog.png" />
 		<br/><span>新浪微博</span>
 	</a>

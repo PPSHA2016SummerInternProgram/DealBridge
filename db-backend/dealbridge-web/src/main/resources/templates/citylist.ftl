@@ -18,7 +18,7 @@
  	</head>
  	<body >
  	<header>
- <i class="fa fa-angle-left " id="backicon" aria-hidden="true"></i>
+ 	<i class="fa fa-angle-left " id="backicon" aria-hidden="true"></i>
  	<a href="javascript:history.go(-1);" class="back" >	 返回</a>
  	<div class="placeholder"></div>
  	</header>

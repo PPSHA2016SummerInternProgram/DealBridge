@@ -95,6 +95,7 @@
  	body
  	{
  	background-color:rgb(248,248,248);
+ 	font-family:Microsoft YaHei;
  	}
  	
  	a{ color:#333; /*无链接时颜色*/ } 
@@ -107,7 +108,7 @@
  
  	<div style="background-color:#337ab7; ">
       <div class="mycard " style="position:relative;text-align:center;">
-        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:0px;"></i>
+        <i onclick=backFunction() class="fa fa-angle-left fa-2x" aria-hidden="true" style="position:absolute;left:10px;top:2px;"></i>
        
         <button type="button" class="dropdown-toggle" id="user-dropdown-button" data-toggle="dropdown">
            ${ufi.userName}
@@ -135,7 +136,7 @@
       </div>
  
  	  <div style="padding-top:30px;;text-align:center;">
- 	    <span> <img src="/img/user_pic.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span>
+ 	    <span> <img src="/img/user/${userId}.jpeg" class="img-circle" alt="Cinque Terre" width="70" height="70"> </span>
  	  </div>
  
  	
