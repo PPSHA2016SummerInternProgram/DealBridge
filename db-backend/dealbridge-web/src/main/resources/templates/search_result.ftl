@@ -52,7 +52,7 @@
 			.hot-keyword p{margin:0px;padding:10px 10px;}
 			.title1{color:rgb(150,150,150);padding-left:20px;}
 			
-			
+			body{font-family:Microsoft YaHei;}
 			#clear-history-text{padding:2px 20px 10px 20px;float:right;}
 			.history-item{padding:5px 20px 5px 20px; border-bottom:1px solid rgb(220,220,220);}
 			.item .tdimg{width:100%;height:100%;}
@@ -146,7 +146,9 @@
         
 			<div style="height:auto;float:left;">
 				<i onclick="backFunction()" class="fa fa-angle-left fa-2x" aria-hidden="true" style="padding-left:0px;margin-top:-4px;color:#F0F0F0"></i>
+				
 			</div>
+			<span style="color:#ffffff;padding-left:10px;" >   搜索结果</span>
 			
 		<!--	
 			<div style="height:auto;float:right;position: relative;">
@@ -166,11 +168,7 @@
 	  
    	    </div>
     	
-		<div id="header-text" class="panel-heading">
-			<font color="#191919" size="3" face="黑体">
-				搜索结果
-			</font>
-		</div>
+		
 		
 		<table class="table table-striped table-hover " style="margin-bottom:0;margin-top:0px;" id="result-content"></table>
 		<div id="loading-panel" style="display:none">

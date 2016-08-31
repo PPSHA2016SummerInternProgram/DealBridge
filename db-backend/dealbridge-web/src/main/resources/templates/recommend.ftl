@@ -61,7 +61,7 @@
 						console.log(result[i]);
 					
 					var str = '<tr data-url="/discount/' + result[i].discountId + '" style="background-color:#ffffff" class="item">' 	
- 	  				+'<td style="width:23%;height:80px;padding:0px 0px 0px 0px;border-top:0px;" ><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
+ 	  				+'<td style="width:90px;height:80px;padding:0px 0px 0px 0px;border-top:0px;" ><span class="imgtext"><div class="banktext">'+result[i].bankName+'</div></span><img src="' 
  	  				+ result[i].img + '" class="tdimg"></td><td style="position:relative;border-top:0px;padding-top:0px"><div style="padding:0px 0px 6px 0px; color:#000000; font-size:15px;font-family:Microsoft YaHei;width:80%; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' 
  	  			    + result[i].summary + '</div><div style="color:rgb(150,150,150);position:absolute;top:0px;right:10px;">';
 

@@ -50,7 +50,7 @@
 			.hot-keyword p{margin:0px;padding:10px 10px;}
 			.title1{color:rgb(150,150,150);padding-left:20px;}
 			
-			
+			body{font-family:Microsoft YaHei!important;}
 			#clear-history-text{padding:2px 20px 10px 20px;float:right;}
 			.history-item{padding:5px 20px 5px 20px; border-bottom:1px solid rgb(220,220,220);}
 			.item .tdimg{width:100%;height:100%;}

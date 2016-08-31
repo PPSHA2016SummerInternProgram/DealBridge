@@ -13,12 +13,12 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  
  	<style>
- 	
+ 	body{font-family:Microsoft YaHei;}
  	</style>
  	</head>
  	<body >
  	<header>
- <i class="fa fa-angle-left " id="backicon" aria-hidden="true"></i>
+ 	<i class="fa fa-angle-left " id="backicon" aria-hidden="true"></i>
  	<a href="javascript:history.go(-1);" class="back" >	 返回</a>
  	<div class="placeholder"></div>
  	</header>
