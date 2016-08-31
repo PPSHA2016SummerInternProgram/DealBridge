@@ -13,7 +13,7 @@
  	  <script src="/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
  	  
  	<style>
- 	
+ 		a{color:black;}
  	</style>
  	</head>
  	<body >
@@ -25,7 +25,7 @@
  	
  	<section>
 	 	 <div class="position-city J_citylist">
-	        <span class="text">${city}</span>
+	        <span class="text"><a href="/home" class="area" city="上海" >${city}</a></span>
 	        <a></a>
 	    </div>
 	    <div class="hot-trade modebox">
