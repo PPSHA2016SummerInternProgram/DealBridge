@@ -6,7 +6,7 @@ import json, re, jieba, urlparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import numpy as np
-import random
+import random, math
 from datetime import date, datetime
 from geopy.distance import vincenty
 from urllib import urlopen
@@ -63,6 +63,17 @@ class ComplexEncoder(json.JSONEncoder):
             return obj.strftime('%Y-%m-%d')
         else:
             return json.JSONEncoder.default(self, obj)
+
+
+def distance((latitude1, longitude1), (latitude2, longitude2)):
+    EARTH_RADIUS = 6378137
+    rad_latitude1 = latitude1 * math.pi / 180.0
+    rad_latitude2 = latitude2 * math.pi / 180.0
+    delta_latitude = rad_latitude1 - rad_latitude2
+    delta_longitude = (longitude1 - longitude2) * math.pi / 180.0
+    s = 2 * math.asin(math.sqrt(math.pow(math.sin(delta_latitude/2),2) + math.cos(rad_latitude1) * math.cos(rad_latitude2) * math.pow(math.sin(delta_longitude/2), 2)))
+    s = s * EARTH_RADIUS
+    return s/1000
 
 
 def load_data():
@@ -210,10 +221,10 @@ def bank_recommend():
     distance = np.array(distance_1)
     distance_weight = 1.0/(0.1*distance + 1)
     _bank = banks[bank_name]
-    max = distance_weight.max()
+    min = distance_weight.min()
     for i in xrange(len(indices)):
         if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
-            distance_weight[i] = random.random() * max
+            distance_weight[i] = random.random() * min * 0.1
             continue
         if (discounts_detail[i][1] == _bank.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
             continue
@@ -265,10 +276,14 @@ def type_recommend(user_id):
             response=json.dumps([]),
             status=200,
             mimetype="application/json")
-    max = vector.max()
+    min = 1
+    for v in vector:
+        if (v > 0) & (v < min):
+            min = v
+    print min
     for i in xrange(len(indices)):
         if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  "全国".decode("UTF-8")):
-            vector[i] = random.random() * max
+            vector[i] =  min * 0.9
             continue
         if (discounts_detail[i][8] == _type.decode("UTF-8")) & (discounts_detail[i][9] ==  area):
             continue
@@ -339,4 +354,4 @@ if __name__ == '__main__':
     load_preferences()
     calculate_similarity()
     # address2coord()
-    app.run(host='192.168.112.36')
+    app.run(host='192.168.114.250')
