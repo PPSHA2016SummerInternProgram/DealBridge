@@ -3,7 +3,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>DealBridge Home Page</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" name="viewport">
+
 	    
 	    
 	    <link href="/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -186,7 +188,7 @@
       <a href="/recommendation/car">
         <!-- Convertible icon by Icons8 -->
 		<!-- SUV icon by Icons8 -->
-		<img class="icon icons8-SUV" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB2ElEQVRIS+1WwW3bQBCcIf23OkjyjqVQCPWOU4HVge0OjhUkHZAlSBWEriDKWwosiDbgp0pwvgbIDZbyCSRFwUfAtj66H+92d3aHu3NHHGjxQLg4Ar8b80eqS6o/35rAL3DhyrsUXGaj+MbVXu12qO4vogmByy5B1FYgkyxMrl39asD9hRkT/OXq3LTrAt4AjlKipPjfky/BwzBZV4P359GMxDcR/MlG8bk9s/tl5ZTr7GsyeSn5GvBgET0COBVgmoXxVdN5H3Bwa3pFziWAD+qT+zK8Hyb6vXdtgc/m5twjfz//L61stuMluAL4EZA1iFpVIggIjjc+8uj5+LQcJlpI69oCD+bmJ8gfL1HU5VwgKcHU8+WmmcSbAleTtEmswnhaG6e3qLiNHds/71axTcJOxOGBW8WDEolgTVA7+LRLY22mA1MRmZBMCHyxezqqtTlWjfZyGiuZqzAuz6sC0QW8EPl+N0pmtn+UZv9Extrhrddif7FRMO1EaMWkUTVbhXHPBXjw1xgIY4gs4UFjGIC9qrC0Ape3U04VkC29rlKoiamS5Tlnlt4qxTbxvQ+B0rnAmEDvyUPa1G2Xysu+EQT5CdKmhB5fIC4MvorNkepXodElyMGo/g9TadYf6JjBewAAAABJRU5ErkJggg==" width="30" height="30"><p>洗车</p>
+		<img class="icon icons8-SUV" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAB2ElEQVRIS+1WwW3bQBCcIf23OkjyjqVQCPWOU4HVge0OjhUkHZAlSBWEriDKWwosiDbgp0pwvgbIDZbyCSRFwUfAtj66H+92d3aHu3NHHGjxQLg4Ar8b80eqS6o/35rAL3DhyrsUXGaj+MbVXu12qO4vogmByy5B1FYgkyxMrl39asD9hRkT/OXq3LTrAt4AjlKipPjfky/BwzBZV4P359GMxDcR/MlG8bk9s/tl5ZTr7GsyeSn5GvBgET0COBVgmoXxVdN5H3Bwa3pFziWAD+qT+zK8Hyb6vXdtgc/m5twjfz//L61stuMluAL4EZA1iFpVIggIjjc+8uj5+LQcJlpI69oCD+bmJ8gfL1HU5VwgKcHU8+WmmcSbAleTtEmswnhaG6e3qLiNHds/71axTcJOxOGBW8WDEolgTVA7+LRLY22mA1MRmZBMCHyxezqqtTlWjfZyGiuZqzAuz6sC0QW8EPl+N0pmtn+UZv9Extrhrddif7FRMO1EaMWkUTVbhXHPBXjw1xgIY4gs4UFjGIC9qrC0Ape3U04VkC29rlKoiamS5Tlnlt4qxTbxvQ+B0rnAmEDvyUPa1G2Xysu+EQT5CdKmhB5fIC4MvorNkepXodElyMGo/g9TadYf6JjBewAAAABJRU5ErkJggg==" width="30" height="30"><p>汽车</p>
         </a>
       </div>
       

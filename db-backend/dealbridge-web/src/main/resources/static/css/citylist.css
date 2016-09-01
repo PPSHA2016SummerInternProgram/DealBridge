@@ -104,6 +104,8 @@ a
  	font-size:35px;
  
  	}
+ 	body
+ 	{font-family:Microsoft YaHei;}
 	a:link{ decoration:none} /* 鏈闂殑閾炬帴 */ 
 	a:visited{decoration:none} /* 宸茶闂殑閾炬帴 */ 
 	a:hover{text-decoration:none}/* 榧犳爣鍦ㄩ摼鎺ヤ笂 */ 

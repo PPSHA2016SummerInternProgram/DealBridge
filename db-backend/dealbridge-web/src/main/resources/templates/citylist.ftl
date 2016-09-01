@@ -25,7 +25,7 @@
  	
  	<section>
 	 	 <div class="position-city J_citylist">
-	        <span class="text" onclick=location.href="/home" class="area" city="上海">${city}</span>
+	        <span class="text" onclick=location.href="/home" class="area" city="上海" style="font-size:16px;">${city}</span>
 	        <a></a>
 	    </div>
 	    <div class="hot-trade modebox">
